@@ -1,22 +1,51 @@
 <template>
   <div class="min-h-screen bg-gradient-to-r from-blue-950 via-blue-800 to-blue-950 font-sans text-gray-800">
     <!-- Header -->
-    <UHeader class="sticky top-0 bg-gradient-to-r from-blue-950 via-blue-700 to-blue-950 shadow-md z-50 py-12 px-6 border-none" :toggle="false">
-      <template #left>
-        <picture>
-          <img src="https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Flogo.png?alt=media&token=975cfe04-c619-44bc-964a-e6231ca92dfe" width="206" height="60"></img>
-        </picture>
+    <UHeader
+      class="bg-gradient-to-r from-blue-950 via-blue-700 to-blue-950 shadow-md z-50 py-6 md:py-12 px-6 border-none" 
+      :toggle="false"
+     >
+      <template #title>
+        <ClientOnly>
+          <NuxtLink to="/" aria-label="alquilatucarro">
+            <picture>
+              <source
+                type="image/avif"
+                srcset="https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Flogo.avif?alt=media&token=4daa05d3-bbda-40d6-a774-b601685b7e26"
+                alt="logo"
+                width="206"
+                height="60"
+                loading="eager"
+              />
+              <source
+                type="image/webp"
+                srcset="https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Flogo.webp?alt=media&token=5454db12-909b-4b05-b5c2-83ff7ff4aa31"
+                alt="logo"
+                width="206"
+                height="60"
+                loading="eager"
+              />
+              <img 
+                src="https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Flogo.png?alt=media&token=975cfe04-c619-44bc-964a-e6231ca92dfe" 
+                alt="logo"
+                width="206"
+                height="60"
+                loading="eager"
+              />
+            </picture>
+          </NuxtLink>
+        </ClientOnly>
       </template>
       <template #right>
-        <div class="mt-4 md:mt-0">
+        <div class="flex flex-col">
           <p class="text-lg text-white font-medium text-center md:text-right flex flex-row gap-2 items-center">
             <UIcon name="circle-flags:co"></UIcon>
             <span>Teléfono Colombia</span>
           </p>
-          <ULink href="tel:+573016729250" class="w-full md:w-auto text-white flex flex-row gap-2 items-center">
+          <NuxtLink href="tel:+573016729250" class="w-full md:w-auto text-white hover:text-white hover:underline flex flex-row gap-2 items-center">
             <UIcon name="logos:whatsapp-icon"></UIcon>
             <span>+57 301 672 9250</span>
-          </ULink>
+          </NuxtLink>
         </div>
       </template>
     </UHeader>

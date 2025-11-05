@@ -5,3 +5,6 @@
     </NuxtLayout>
   </UApp>
 </template>
+<script lang="ts" setup>
+useBaseSEO();
+</script>
