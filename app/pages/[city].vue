@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <h1 class="text-white mx-auto" v-text="cityParam"></h1>
+    <div class="justify-items-center">
+        <div class="text-white text-5xl mt-12">En construcción</div>
     </div>
 </template>
 
