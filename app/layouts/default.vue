@@ -2,13 +2,13 @@
   <div class="min-h-screen bg-gradient-to-r from-blue-950 via-blue-800 to-blue-950 font-sans text-gray-800">
     <!-- Header -->
     <UHeader
-      class="bg-gradient-to-r from-blue-950 via-blue-700 to-blue-950 shadow-md z-50 py-6 md:py-12 px-6 border-none" 
+      class="bg-gradient-to-r from-blue-950 via-blue-700 to-blue-950 shadow-md z-50 py-6 md:py-12 px-6 border-none"
       mode="slideover"
      >
       <template #left>
-          <NuxtLink to="/" aria-label="alquilatucarro">
+        <NuxtLink to="/" aria-label="alquilatucarro">
           <Logo />
-          </NuxtLink>
+        </NuxtLink>
       </template>
       <template #body>
         <UNavigationMenu color="neutral" orientation="vertical" :items="items" />
@@ -61,5 +61,37 @@
 </template>
 
 <script lang="ts" setup>
+import type { NavigationMenuItem } from '@nuxt/ui'
+
+const route = useRoute();
+
+const items = computed<NavigationMenuItem[]>(() => [
+  {
+    label: 'Requisitos',
+    to: '/#requisitos',
+    active: route.path.startsWith('#requisitos'),
+    class: "text-white",
+  },
+  {
+    label: 'Sedes',
+    to: '/#sedes',
+    active: route.path.startsWith('#sedes'),
+    class: "text-highlighted",
+  },
+  {
+    label: 'Blog',
+    to: '/blog',
+    active: route.path.startsWith('/blog'),
+    class: "text-highlighted",
+  },
+  {
+    label: 'Preguntas frecuentes',
+    to: '/#faqs',
+    active: route.path.startsWith('#faqs'),
+    class: "text-highlighted",
+  },
+])
+
 const { cities } = useData();
+
 </script>

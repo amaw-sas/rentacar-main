@@ -86,7 +86,7 @@
         </UPageHero>
     
         <!-- Locations Section -->
-        <UPageSection class="locations py-12 px-6 text-white">
+        <UPageSection id="sedes" class="locations py-12 px-6 text-white">
           <UContainer>
             <h2 class="text-3xl font-bold text-center mb-8">¿Dónde desea alquilar un carro?</h2>
             <p class="text-lg text-center mb-6">
@@ -179,7 +179,7 @@
         </UPageSection>
     
         <!-- FAQ Section -->
-        <UPageSection class="faq px-6 text-white">
+        <UPageSection id="faqs" class="faq px-6 text-white">
           <UContainer>
             <h2 class="text-3xl font-bold text-center mb-8">Preguntas Frecuentes</h2>
             <p class="text-lg mb-6">
@@ -249,17 +249,17 @@ useSchemaOrg([
           acceptedAnswer: faq.content
       })))
   }
-]);
+])
 
 useHead({
   link: [
     { rel: 'canonical', href: franchise.website },
     { rel: 'preload', as: 'image', href: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Fcuerpo.avif?alt=media&token=54d638b2-609a-4836-8da4-f32a9874bb58", fetchpriority: 'high' }
   ]
-});
+})
 
 definePageMeta({
-    colorMode: 'light',
+    colorMode: 'dark',
 })
 
 </script>
