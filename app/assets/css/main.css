@@ -1,10 +1,6 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
-:root {
-  --ui-header-height: --spacing(44);
-}
-
 .main-bg {
   @apply bg-no-repeat bg-white text-white px-6 text-center;
 
