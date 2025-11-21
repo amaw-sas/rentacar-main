@@ -66,7 +66,9 @@
     </UFooter>
 
     <!-- Widget chat -->
-    <UModal>
+    <UModal
+      title="¿Chateamos?"
+    >
       <template #body>
         <div class="text-center space-y-6">
           <div class="space-y-2">
