@@ -109,33 +109,77 @@
           </picture>
         </UPageHero>
     
-        <!-- Locations Section -->
-        <UPageSection id="sedes" class="locations py-12 px-6 text-white">
-          <UContainer>
-            <h2 class="text-3xl font-bold text-center mb-8">¿Dónde desea alquilar un carro?</h2>
-            <p class="text-lg text-center mb-6">
-              Alquilatucarro es una agencia de alquiler de carros en Colombia con sedes en las principales ciudades del país.
-            </p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 justify-items-center">
-              <NuxtLink v-for="city in cities" :key="city.id" :to="city.link" target="_blank" class="justify-center">
-                <picture>
-                  <source
-                    type="image/avif"
-                    :srcset='`https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2F${city.id}.avif?alt=media`' 
-                    :alt="city.id"
-                    class="w-40"
-                    width="161"
-                    height="162"
-                    loading="lazy"
+        <!-- Video Section -->
+        <UPageSection
+          id="video" 
+          orientation="horizontal" 
+          :reverse="true"
+          class="bg-white text-black"
+        >
+          <template #title>
+            <div class="text-center">
+              <div class="text-red-700">Hasta 60% de Descuento</div>
+              <div class="text-black text-4xl">Reserva Ahora, Paga Después</div>
+            </div>
+          </template>
+          <template #description>
+            <div class="text-black text-center">
+              Obtén hasta un 60% de descuento al reservar con anticipación.
+              Aplica para todas las categorías: compactos, sedanes y camionetas.
+              Reserva sin pago anticipado y asegura los mejores precios por
+              planificar tu viaje con tiempo
+            </div>
+            
+          </template>
+          <template #body>
+            <div class="text-center justify-items-center">
+              <div class="font-bold text-lg">¿En que ciudad deseas recoger tu carro?</div>
+              <div class="min-w-80 my-3">
+                <SelectBranch></SelectBranch>
+              </div>
+            </div>
+          </template>
+          <template #default>
+            <ImagesVideo />
+          </template>
+        </UPageSection>
+
+        <!-- Persona Section -->
+        <UPageSection 
+          id="requisitos"
+          orientation="horizontal" 
+          :reverse="true"
+          class="bg-gray-200 text-black"
+        >
+          <template #title>
+            <div class="text-center lg:text-left">
+              <div class="space-x-2">
+                <span class="text-red-700">Requisitos</span>
+                <span class="text-black">para tu alquiler</span>
+              </div>
+              
+            </div>
+          </template>
+          <template #description>
+            <div class="text-black justify-items-center">
+              <div class="mb-4">
+                En {{ franchise.shortname }} tu experiencia es sin complicaciones...
+              </div>
+              <ul class="flex flex-col gap-1">
+                <li>
+                  <UPageFeature
+                    title="RESERVA PREVIA"
+                    description="(más anticipación más descuento)"
+                    icon="ic:baseline-location-on"
+                    :ui="requisitosPageFeatureUIConfig"
                   />
-                  <source
-                    type="image/avif"
-                    :srcset='`https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2F${city.id}.webp?alt=media`' 
-                    :alt="city.id"
-                    class="w-40"
-                    width="161"
-                    height="162"
-                    loading="lazy"
+                </li>
+                <li>
+                  <UPageFeature
+                    title="DOCUMENTO DE IDENTIDAD"
+                    description="(18+ Cédula o pasaporte original)"
+                    icon="ic:baseline-location-on"
+                    :ui="requisitosPageFeatureUIConfig"
                   />
                   <img 
                     :src='`https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2F${city.id}.png?alt=media`' 
