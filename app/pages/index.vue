@@ -269,6 +269,7 @@
                       size="3xl" 
                       v-bind="testimonio.user" 
                       :ui="testimonioUserUIConfig"
+                      loading="lazy"
                     />
                 </template>
                 <template #footer>
