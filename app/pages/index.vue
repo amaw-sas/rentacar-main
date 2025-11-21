@@ -25,7 +25,7 @@
             <div class="text-center justify-items-center">
               <div class="mb-4 text-white text-2xl">¿En que ciudad deseas recoger tu carro?</div>
               <div class="min-w-80 my-3">
-                <SelectBranch/>
+                <SelectBranch />
               </div>
               <p class="text-white">
                 Contamos con 27 sedes a nivel nacional y una excelente reputación en alquiler de carros
@@ -33,82 +33,12 @@
               </p>
             </div>
           </template>
-          <picture>
-            <source 
-              type="image/avif"
-              media="(min-width: 768px)"
-              srcset="https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Ffamilia.avif?alt=media&token=a14e3f1c-428e-40b2-ad1e-0d724579e487"
-              alt="carros"
-              width="2000"
-              height="1620"
-              loading="eager"
-              fetchpriority="high"
-            />
-            <source 
-              type="image/avif"
-              media="(max-width: 767px)"
-              srcset="https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Ffamilia-movil.avif?alt=media&token=09ef76e8-4f99-4188-8d9a-57e13e198c4b"
-              alt="carros"
-              width="333"
-              height="270"
-              loading="eager"
-              fetchpriority="high"
-            />
-            
-            <source 
-              type="image/webp"
-              media="(min-width: 768px)"
-              srcset="https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Ffamilia.webp?alt=media&token=3a180793-69a9-471f-a1d1-8f720ba14662"
-              alt="carros"
-              width="2000"
-              height="1620"
-              loading="eager"
-              fetchpriority="high"
-            />
-            <source 
-              type="image/webp"
-              media="(max-width: 767px)"
-              srcset="https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Ffamilia-movil.webp?alt=media&token=ba908a15-bfaa-4c82-88e4-538fee298fae"
-              alt="carros"
-              width="333"
-              height="270"
-              loading="eager"
-              fetchpriority="high"
-            />
-            
-            <source 
-              type="image/png"
-              media="(min-width: 768px)"
-              srcset="https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Ffamilia.png?alt=media&token=5b5675e2-3c7d-4076-b0e9-7bf74c085ef9"
-              alt="carros"
-              width="2000"
-              height="1620"
-              loading="eager"
-              fetchpriority="high"
-            />
-            <source 
-              type="image/png"
-              media="(max-width: 767px)"
-              srcset="https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Ffamilia-movil.png?alt=media&token=769cd789-8e38-4cd8-b650-863a02dfa8ce"
-              alt="carros"
-              width="333"
-              height="270"
-              loading="eager"
-              fetchpriority="high"
-            />
-            
-            <img 
-              src="https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Ffamilia.png?alt=media&token=5b5675e2-3c7d-4076-b0e9-7bf74c085ef9" 
-              alt="carros"
-              width="2000"
-              height="1620"
-              loading="eager"
-              class="mx-auto"
-              fetchpriority="high"
-            />
-          </picture>
+          <template #default>
+            <ImagesFamily />
+          </template>
+          
         </UPageHero>
-    
+
         <!-- Video Section -->
         <UPageSection
           id="video" 
@@ -265,14 +195,14 @@
                       <ImagesCategoriasCompacto />
                     </template>
                   </UPageCard>
-            <UPageCard
+                  <UPageCard
                     title="SEDAN"
                     description="Confort y espacio. Disfruta cada viaje con la máxima comodidad"
-              variant="ghost"
+                    variant="ghost"
                     :ui="categoriasPageCardUIConfig"
                     orientation="vertical"
-              reverse
-            >
+                    reverse
+                  >
                     <template #footer>
                       <UModal title="Selecciona ciudad">
                         <template #body>
@@ -286,7 +216,7 @@
                     </template>
                     <template #default>
                       <ImagesCategoriasSedan />
-              </template>
+                    </template>
                   </UPageCard>
                   <UPageCard
                     title="CAMIONETA"
@@ -298,7 +228,7 @@
                   >
                     <template #footer>
                       <UModal title="Selecciona ciudad">
-              <template #body>
+                        <template #body>
                           <div class="mb-4 text-white text-2xl">¿En que ciudad deseas recoger tu carro?</div>
                           <div class="min-w-80 my-3">
                             <SelectBranch />
@@ -326,7 +256,7 @@
           description="Descubre por qué somos la opción preferida para alquilar carros en Armenia. Nuestros clientes destacan nuestra atención, precios competitivos y la facilidad para explorar el Eje Cafetero."
           :ui="testimoniosPageSectionUIConfig"
         >
-              <template #default>
+          <template #default>
             <UPageGrid>
               <UPageCard 
                 v-for="testimonio in testimonios"
@@ -347,8 +277,8 @@
                   <UIcon name="ic:round-star" class="bg-yellow-500 size-6"></UIcon>
                   <UIcon name="ic:round-star" class="bg-yellow-500 size-6"></UIcon>
                   <UIcon name="ic:round-star" class="bg-yellow-500 size-6"></UIcon>
-              </template>
-            </UPageCard>
+                </template>
+              </UPageCard>
             </UPageGrid>
           </template>
         </UPageSection>
@@ -376,7 +306,7 @@
 
 <script lang="ts" setup>
 import type { FAQPage } from 'schema-dts'
-const { cities, faqs, franchise } = useAppConfig();
+const { faqs, franchise } = useAppConfig();
 
 useSeoMeta({
   ogType: "website",
