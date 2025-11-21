@@ -368,7 +368,7 @@ const testimonios = [
       name: 'Stephany M. García',
       description: 'Peru',
       avatar: {
-        src: "https://www.alquilerdecarrosarmenia.com/src/perfil/uifaces-popular-image5.webp",
+        src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image5.webp?alt=media&token=b6467738-4692-48dd-937c-16c81f715926",
         alt: 'Stephany M. García'
       }
     },
@@ -379,7 +379,7 @@ const testimonios = [
       name: 'Sandra Milena Barona',
       description: 'Colombia',
       avatar: {
-        src: "https://www.alquilerdecarrosarmenia.com/src/perfil/uifaces-popular-image4.webp",
+        src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image4.webp?alt=media&token=5d545267-03e6-4e83-a081-4a16259805e2",
         alt: 'Sandra Milena Barona'
       }
     },
@@ -390,7 +390,7 @@ const testimonios = [
       name: 'Luis Javier Rodríguez M.',
       description: 'Honduras',
       avatar: {
-        src: "https://www.alquilerdecarrosarmenia.com/src/perfil/uifaces-popular-image3.webp",
+        src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image3.webp?alt=media&token=54d9ed05-162a-4b20-a485-bdc87aaeb27f",
         alt: 'Luis Javier Rodríguez M.'
       }
     },
@@ -401,7 +401,7 @@ const testimonios = [
       name: 'Carlos Andrés Mejía',
       description: 'Colombia',
       avatar: {
-        src: "https://www.alquilerdecarrosarmenia.com/src/perfil/uifaces-popular-image2.webp",
+        src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image2.webp?alt=media&token=24560311-369e-4f54-9a1a-36f0da7ec9f7",
         alt: 'Carlos Andrés Mejía'
       }
     },
@@ -412,7 +412,7 @@ const testimonios = [
       name: 'Ana Lucía Torres',
       description: 'Ecuador',
       avatar: {
-        src: "https://www.alquilerdecarrosarmenia.com/src/perfil/uifaces-human-image6.webp",
+        src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-human-image6.webp?alt=media&token=bb28b34b-f738-40ee-be58-e5fd35751da2",
         alt: 'Ana Lucía Torres'
       }
     },
@@ -423,7 +423,7 @@ const testimonios = [
       name: 'Esteban Páez',
       description: 'Colombia',
       avatar: {
-        src: "https://www.alquilerdecarrosarmenia.com/src/perfil/uifaces-human-image6.webp",
+        src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image.webp?alt=media&token=556252eb-f9e0-4cc5-832a-0e97d691b4d0",
         alt: 'Esteban Páez'
       }
     },
