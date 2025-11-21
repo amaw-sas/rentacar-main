@@ -4,11 +4,11 @@
         <UPageHero orientation="horizontal">
           <template #headline>
             <div class="space-x-2 text-white text-center">
-              <UIcon name="ic:round-star" class="bg-white"></UIcon>
-              <UIcon name="ic:round-star" class="bg-white"></UIcon>
-              <UIcon name="ic:round-star" class="bg-white"></UIcon>
-              <UIcon name="ic:round-star" class="bg-white"></UIcon>
-              <UIcon name="ic:round-star" class="bg-white"></UIcon>
+              <UIcon name="ic:round-star" class="bg-white size-5"></UIcon>
+              <UIcon name="ic:round-star" class="bg-white size-5"></UIcon>
+              <UIcon name="ic:round-star" class="bg-white size-5"></UIcon>
+              <UIcon name="ic:round-star" class="bg-white size-5"></UIcon>
+              <UIcon name="ic:round-star" class="bg-white size-5"></UIcon>
               <span>4.9 reviews</span>
             </div>
           </template>
