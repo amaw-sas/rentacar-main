@@ -307,6 +307,8 @@
 
 <script lang="ts" setup>
 import type { FAQPage } from 'schema-dts'
+import type { Testimonial } from '#imports';
+
 const { faqs, franchise } = useAppConfig();
 
 useSeoMeta({
