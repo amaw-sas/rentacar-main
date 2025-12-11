@@ -3,5 +3,4 @@ export default interface BranchData {
   code: string;
   name: string;
   city: string;
-  schedule: object;
 }

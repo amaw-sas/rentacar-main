@@ -18,9 +18,13 @@ export const useFetchRentacarData = defineQuery(() => {
                     franchise: config.public.rentacarFranchise,
                 },
             });
-            // Deep-clone to ensure POJO serialization
+            // Deep-clone to ensure POJO serialization and exclude 'schedule' from branches
             const data = JSON.parse(JSON.stringify(rawData));
-            // Update refs with the cloned data
+            // Process branches to exclude 'schedule'
+            if (data.branches) {
+                data.branches = data.branches.map(({ schedule, ...rest }) => rest);
+            }
+            // Update refs with the processed data
             categories.value = data.categories;
             branches.value = data.branches;
             page_config.value = data.page_config;
