@@ -11,17 +11,21 @@ export const useFetchRentacarData = defineQuery(() => {
 
     const { isPending: pending, isLoading: loading } = useQuery<ReservasApiData>({
         key: ["reservasApiData"],
-        query: () => $fetch<ReservasApiData>(endpoint, {
-            method: "POST",
-            body: {
-                franchise: config.public.rentacarFranchise,
-            },
-            async onResponse({ response }) {
-                categories.value = await response._data.categories;
-                branches.value = await response._data.branches;
-                page_config.value = await response._data.page_config;
-            }
-        })
+        query: async () => {
+            const rawData = await $fetch<ReservasApiData>(endpoint, {
+                method: "POST",
+                body: {
+                    franchise: config.public.rentacarFranchise,
+                },
+            });
+            // Deep-clone to ensure POJO serialization
+            const data = JSON.parse(JSON.stringify(rawData));
+            // Update refs with the cloned data
+            categories.value = data.categories;
+            branches.value = data.branches;
+            page_config.value = data.page_config;
+            return data;
+        }
     });
 
     return {
