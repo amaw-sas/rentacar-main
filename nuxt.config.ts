@@ -8,6 +8,10 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
 
+  experimental: {
+    renderJsonPayloads: false,
+  },
+
   modules: ['@nuxtjs/seo', '@nuxt/ui', '@pinia/nuxt', '@pinia/colada-nuxt', '@nuxt/image', 'nuxt-llms'],
 
   imports: {
