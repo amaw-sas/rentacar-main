@@ -25,20 +25,22 @@
           </template>
           <template #body>
             <div class="text-center justify-items-center">
-              <div class="mb-4 text-white text-2xl">¿En que ciudad deseas recoger tu carro?</div>
+          <div class="mb-4 text-white text-2xl">
+            ¿En que ciudad deseas recoger tu carro?
+          </div>
               <div class="min-w-80 my-3">
                 <SelectBranch />
               </div>
               <p class="text-white">
-                Contamos con 27 sedes a nivel nacional y una excelente reputación en alquiler de carros
-                y camionetas que se adaptan a tu necesidad y presupuesto
+            Contamos con 27 sedes a nivel nacional y una excelente reputación en
+            alquiler de carros y camionetas que se adaptan a tu necesidad y
+            presupuesto
               </p>
             </div>
           </template>
           <template #default>
             <ImagesFamily />
           </template>
-          
         </UPageHero>
 
         <!-- Video Section -->
@@ -56,16 +58,17 @@
           </template>
           <template #description>
             <div class="text-black text-center">
-              Obtén hasta un 60% de descuento al reservar con anticipación.
-              Aplica para todas las categorías: compactos, sedanes y camionetas.
-              Reserva sin pago anticipado y asegura los mejores precios por
-              planificar tu viaje con tiempo
+          Obtén hasta un 60% de descuento al reservar con anticipación. Aplica
+          para todas las categorías: compactos, sedanes y camionetas. Reserva
+          sin pago anticipado y asegura los mejores precios por planificar tu
+          viaje con tiempo
             </div>
-            
           </template>
           <template #body>
             <div class="text-center justify-items-center">
-              <div class="font-bold text-lg">¿En que ciudad deseas recoger tu carro?</div>
+          <div class="font-bold text-lg">
+            ¿En que ciudad deseas recoger tu carro?
+          </div>
               <div class="min-w-80 my-3">
                 <SelectBranch></SelectBranch>
               </div>
@@ -89,7 +92,6 @@
                 <span class="text-red-700">Requisitos</span>
                 <span class="text-black">para tu alquiler</span>
               </div>
-              
             </div>
           </template>
           <template #description>
@@ -143,11 +145,12 @@
                 </li>
               </ul>
             </div>
-            
           </template>
           <template #body>
             <div class="text-center justify-items-center">
-              <div class="font-bold text-lg">¿En que ciudad deseas recoger tu carro?</div>
+          <div class="font-bold text-lg">
+            ¿En que ciudad deseas recoger tu carro?
+          </div>
               <div class="min-w-80 my-3">
                 <SelectBranch />
               </div>
@@ -170,7 +173,6 @@
                 <span class="text-red-700">Tipos de Vehículos</span>
                 <span class="text-black">ideales para tu necesidad</span>
               </div>
-              
             </div>
           </template>
           <template #description>
@@ -178,7 +180,7 @@
               <p class="mb-4">
                 Cada estilo de vida tiene su vehículo perfecto. Ya sea la agilidad
                 para la ciudad, la comodidad para los viajes largos o la potencia
-                para la aventura, tenemos la llave para tus necesidades.  <br />
+            para la aventura, tenemos la llave para tus necesidades. <br />
                 Descubre el que fue hecho para tí.
               </p>
             </div>
@@ -197,12 +199,16 @@
                     <template #footer>
                       <UModal title="Selecciona ciudad">
                         <template #body>
-                          <div class="mb-4 text-white text-2xl">¿En que ciudad deseas recoger tu carro?</div>
+                    <div class="mb-4 text-white text-2xl">
+                      ¿En que ciudad deseas recoger tu carro?
+                    </div>
                           <div class="min-w-80 my-3">
                             <SelectBranch />
                           </div>
                         </template>
-                        <UButton color="info" class="text-white">Ver disponibilidad</UButton>
+                  <UButton color="info" class="text-white"
+                    >Ver disponibilidad</UButton
+                  >
                       </UModal>
                     </template>
                     <template #default>
@@ -220,12 +226,16 @@
                     <template #footer>
                       <UModal title="Selecciona ciudad">
                         <template #body>
-                          <div class="mb-4 text-white text-2xl">¿En que ciudad deseas recoger tu carro?</div>
+                    <div class="mb-4 text-white text-2xl">
+                      ¿En que ciudad deseas recoger tu carro?
+                    </div>
                           <div class="min-w-80 my-3">
                             <SelectBranch />
                           </div>
                         </template>
-                        <UButton color="info" class="text-white">Ver disponibilidad</UButton>
+                  <UButton color="info" class="text-white"
+                    >Ver disponibilidad</UButton
+                  >
                       </UModal>
                     </template>
                     <template #default>
@@ -243,12 +253,16 @@
                     <template #footer>
                       <UModal title="Selecciona ciudad">
                         <template #body>
-                          <div class="mb-4 text-white text-2xl">¿En que ciudad deseas recoger tu carro?</div>
+                    <div class="mb-4 text-white text-2xl">
+                      ¿En que ciudad deseas recoger tu carro?
+                    </div>
                           <div class="min-w-80 my-3">
                             <SelectBranch />
                           </div>
                         </template>
-                        <UButton color="info" class="text-white">Ver disponibilidad</UButton>
+                  <UButton color="info" class="text-white"
+                    >Ver disponibilidad</UButton
+                  >
                       </UModal>
                     </template>
                     <template #default> 
@@ -256,7 +270,6 @@
                     </template>
                   </UPageCard>
               </template>
-              
             </UPageGrid>
           </template>
         </UPageSection>
@@ -303,9 +316,20 @@
         <!-- FAQ Section -->
         <UPageSection id="faqs" class="faq px-6 text-white">
           <UContainer>
-            <h2 class="text-3xl font-bold text-center mb-8">Preguntas Frecuentes</h2>
+        <h2 class="text-3xl font-bold text-center mb-8">
+          Preguntas Frecuentes
+        </h2>
             <p class="text-lg mb-6">
-              Ahora es muy fácil alquilar carro en Colombia, ya sea para vacaciones o para negocios, por días o por meses, sólo requiere ser mayor de edad, tener licencia de conducción y una tarjeta de crédito con cupo disponible no lo piense mas, con un alquiler de carros para viajar en Colombia le sera mas fácil trasladarse por la ciudades, conocer hermosos lugares y disfrutar de nuestra gastronomía y la gente amable de cada región, ALQUILATUCARRO RENTA AUTOS COLOMBIA, le ofrece variedad de vehículos y precios que se adaptan a sus necesidades, la calidad de nuestros coches y la atención de nuestro personal es inigualable compruébelo reservando ahora mismo
+          Ahora es muy fácil alquilar carro en Colombia, ya sea para vacaciones
+          o para negocios, por días o por meses, sólo requiere ser mayor de
+          edad, tener licencia de conducción y una tarjeta de crédito con cupo
+          disponible no lo piense mas, con un alquiler de carros para viajar en
+          Colombia le sera mas fácil trasladarse por la ciudades, conocer
+          hermosos lugares y disfrutar de nuestra gastronomía y la gente amable
+          de cada región, ALQUILATUCARRO RENTA AUTOS COLOMBIA, le ofrece
+          variedad de vehículos y precios que se adaptan a sus necesidades, la
+          calidad de nuestros coches y la atención de nuestro personal es
+          inigualable compruébelo reservando ahora mismo
             </p>
             <UAccordion :items="faqs">
               <template #default="{ item }">
@@ -315,7 +339,6 @@
                   <div class="text-xl py-3" v-text="item.content"></div>
               </template>
             </UAccordion>
-            
           </UContainer>
         </UPageSection>
     </UPage>
@@ -340,7 +363,7 @@ useSeoMeta({
   ogDescription: franchise.description,
   ogImage: franchise.logo,
   ogImageAlt: franchise.shortname,
-  ogImageType: 'image/png',
+  ogImageType: "image/png",
   ogImageUrl: franchise.logo,
   ogImageWidth: "206",
   ogImageHeight: "60",
@@ -352,56 +375,61 @@ useSeoMeta({
   twitterDescription: franchise.description,
   twitterImage: franchise.logo,
   twitterImageAlt: franchise.shortname,
-
 });
 
 useSchemaOrg([
   <FAQPage>{
-    '@type': 'FAQPage',
-    mainEntity: faqs.map((faq) => (defineQuestion({
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) =>
+      defineQuestion({
           name: faq.label,
-          acceptedAnswer: faq.content
-      })))
-  }
-])
+        acceptedAnswer: faq.content,
+      })
+    ),
+  },
+]);
 
 useHead({
   link: [
-    { rel: 'canonical', href: franchise.website },
-    { rel: 'preload', as: 'image', href: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Ffamilia.avif?alt=media&token=a14e3f1c-428e-40b2-ad1e-0d724579e487", fetchpriority: 'high' }
-  ]
-})
+    { rel: "canonical", href: franchise.website },
+    {
+      rel: "preload",
+      as: "image",
+      href: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Ffamilia.avif?alt=media&token=a14e3f1c-428e-40b2-ad1e-0d724579e487",
+      fetchpriority: "high",
+    },
+  ],
+});
 
 definePageMeta({
-    colorMode: 'dark',
-})
+  colorMode: "dark",
+});
 
 const requisitosPageFeatureUIConfig = {
-  leadingIcon:'bg-red-600', 
-  title: 'text-black',
-  description: 'text-black'
-}
+  leadingIcon: "bg-red-600",
+  title: "text-black",
+  description: "text-black",
+};
 
 const categoriasPageCardUIConfig = {
-  title: 'text-center text-black',
-  description: 'text-center text-black',
-  footer: 'mx-auto'
-}
+  title: "text-center text-black",
+  description: "text-center text-black",
+  footer: "mx-auto",
+};
 
 const testimonios: Testimonial[] = franchise.testimonials;
 
 const testimoniosPageSectionUIConfig = {
-  title: 'text-black'
-}
+  title: "text-black",
+};
 
 const testimonioPageCardUIConfig = {
-  root: 'border-1 border-gray-100 rounded-lg bg-gray-50 shadow',
-  description: 'mt-4'
-}
+  root: "border-1 border-gray-100 rounded-lg bg-gray-50 shadow",
+  description: "mt-4",
+};
 
 const testimonioUserUIConfig = {
-  name: 'text-black',
-}
+  name: "text-black",
+};
 
 </script>
-

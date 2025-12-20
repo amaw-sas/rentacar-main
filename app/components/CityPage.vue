@@ -58,34 +58,36 @@
     </UPageSection>
 
     <!-- Description Section -->
-    <UPageSection
-      id="descripcion"
-      class="bg-white text-black"
-    >
+    <UPageSection id="descripcion" class="bg-white text-black">
       <UPageGrid>
         <UPageCard variant="ghost">
           <LazyImagesCiudadesChica />
         </UPageCard>
         <UPageCard variant="ghost">
           <div class="flex flex-col gap-2 text-center font-extrabold">
-            <div class="text-red-600 text-3xl">En {{ franchise.shortname }}</div>
+            <div class="text-red-600 text-3xl">
+              En {{ franchise.shortname }}
+            </div>
             <div class="text-red-600 text-5xl" v-text="city?.name"></div>
             <p class="text-black text-4xl">
-              la libertad <br/>
-              de moverte <br/>
-              a tu manera <br/>
+              la libertad <br />
+              de moverte <br />
+              a tu manera <br />
               es realidad
             </p>
             <u-separator 
               size="lg" 
               icon="lucide:square" 
               class="w-full" 
-              :ui="{icon: 'bg-black rotate-45'}"
+              :ui="{ icon: 'bg-black rotate-45' }"
             />
           </div>
         </UPageCard>
         <UPageCard variant="ghost">
-          <p class="text-black text-center font-semibold" v-text="city?.description"></p>
+          <p
+            class="text-black text-center font-semibold"
+            v-text="city?.description"
+          ></p>
         </UPageCard>
       </UPageGrid>
     </UPageSection>
@@ -129,7 +131,6 @@
       </template>
     </UPageSection>
   </UPage>
-    
 </template>
 
 /** imports */
@@ -139,31 +140,29 @@ import {
   IconsLocationIcon as LocationIcon,
 } from "#components";
 
-// stores
-const storeAdminData = useStoreAdminData();
+/** stores */
 const storeSearch = useStoreSearchData();
 
-// refs
-const { pending: pendingAdminData, loading: loadingAdminData } = storeToRefs(storeAdminData);
-const { categories } = storeToRefs(storeSearch);
+
+/** refs */
 const { franchise } = useAppConfig();
 const { firstSearch } = useSearch();
 
-// props
+/** props */
 const props = defineProps<{
-    city: City
-}>()
+  city: City;
+}>();
 
 const testimonios: Testimonial[] | undefined = props.city?.testimonials;
 
 const testimoniosPageSectionUIConfig = {
-  title: 'text-black'
-}
+  title: "text-black",
+};
 
 const testimonioPageCardUIConfig = {
-  root: 'border-1 border-gray-100 rounded-lg bg-gray-50 shadow',
-  description: 'mt-4'
-}
+  root: "border-1 border-gray-100 rounded-lg bg-gray-50 shadow",
+  description: "mt-4",
+};
 
 const testimonioUserUIConfig = {
   name: "text-black",

@@ -7,7 +7,7 @@
         placeholder="Elige una ciudad"
         :items 
         class="w-full rounded-xl bg-white text-black"
-        :ui="{leadingIcon: 'bg-red-500', base: ['py-6']}"
+        :ui="{ leadingIcon: 'bg-red-500', base: ['py-6'] }"
     >
         <template #leading>
           <LocationIcon cls="text-red-600 size-5" />
@@ -19,8 +19,12 @@
 </template>
 
 <script setup lang="ts">
-import type { SelectMenuItem } from '@nuxt/ui'
-import { today } from '@internationalized/date';
+/** types */
+import type { SelectMenuItem } from "@nuxt/ui";
+import type { BranchData } from "#imports";
+
+/** imports */
+import { today } from "@internationalized/date";
 
 /** components */
 import {
