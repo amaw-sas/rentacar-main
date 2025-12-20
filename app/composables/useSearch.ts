@@ -96,25 +96,6 @@ export default function useSearch() {
     // selectedReturnLocation.value = undefined;
   };
   
-  watchDebounced(
-    [
-      lugarRecogida,
-      lugarDevolucion,
-      fechaRecogida,
-      fechaDevolucion,
-      horaRecogida,
-      horaDevolucion,
-    ],
-    () => {
-        // TODO temporary disabled
-        navigateTo({
-          name: searchLinkName.value,
-          params: searchLinkParams.value,
-        });
-    },
-    { debounce: 2000 }
-  );
-  
   /** watchers */
   watch(
     lugarRecogida,
