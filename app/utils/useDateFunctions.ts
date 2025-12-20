@@ -77,7 +77,8 @@ export function formatHumanTime(datetime: DateTimeObject){
  */
 export function formatTime(datetime: DateTimeObject){
     return new DateFormatter('es-CO', {
-        timeStyle: 'short',
+        hour: '2-digit',
+        minute: '2-digit',
         hour12: false
     }).format(datetime.toDate(defaultTimezone))
 }
