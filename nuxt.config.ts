@@ -8,15 +8,11 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
 
-  experimental: {
-    renderJsonPayloads: false,
-  },
-
-  modules: ['@nuxtjs/seo', '@nuxt/ui', '@pinia/nuxt', '@pinia/colada-nuxt', '@nuxt/image', 'nuxt-llms'],
+  modules: ['@nuxtjs/seo', '@nuxt/ui', '@pinia/nuxt', 'nuxt-llms'],
 
   imports: {
     autoImport: true,
-    dirs: ["utils/**", "queries/**", 'stores/**'],
+    dirs: ["utils/**", 'stores/**'],
   },
 
   runtimeConfig: {
