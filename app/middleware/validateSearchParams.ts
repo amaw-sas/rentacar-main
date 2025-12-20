@@ -9,11 +9,8 @@ import {
 
 export default defineNuxtRouteMiddleware((to, from) => {
   
-  const { isBranchCode } = useStoreAdminData();
   const { createMessage } = useMessages();
 
-  const lugar_recogida = to.params.lugar_recogida as string;
-  const lugar_devolucion = to.params.lugar_devolucion as string;
   const fecha_recogida = to.params.fecha_recogida as string;
   let fecha_devolucion = to.params.fecha_devolucion as string;
   const hora_recogida = to.params.hora_recogida as string;
