@@ -5,7 +5,7 @@
     class="categoria"
     :ui="{ container: 'p-0 sm:p-0 lg:p-0', description: 'p-0', body: 'w-full' }"
   >
-    <template #default>
+    <template #title>
       <div class="carrusel">
         <Carrusel
           :models="categoryModels"
