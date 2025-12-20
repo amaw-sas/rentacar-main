@@ -1,16 +1,12 @@
 /** types */
 import type { BranchData } from "#imports";
 
-/** imports */
-import { useFetchRentacarData } from "#imports";
-
 const useStoreAdminData = defineStore("storeAdminData", () => {
-  const { categories, branches, page_config, pending, loading } = useFetchRentacarData();
-
+  const { categories, branches } = useFetchRentacarData();
 
   const sortedBranches = computed<BranchData[] | []>(() =>
-    branches.value
-      ? branches.value.toSorted((a: BranchData, b: BranchData) =>
+    branches
+      ? branches.toSorted((a: BranchData, b: BranchData) =>
           a.name.localeCompare(b.name)
         )
       : []
@@ -37,12 +33,9 @@ const useStoreAdminData = defineStore("storeAdminData", () => {
     categories,
     branches,
     sortedBranches,
-    page_config,
-    pending,
-    loading,
     searchBranchByCity,
     searchBranchByCode,
-    isBranchCode
+    isBranchCode,
   };
 });
 

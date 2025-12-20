@@ -15,7 +15,8 @@ import type {
 } from "#imports";
 
 const useStoreSearchData = defineStore("storeSearchData", () => {
-  const { categories: categoriesAdminData } = storeToRefs(useStoreAdminData());
+  const storeAdminData = useStoreAdminData();
+  const { categories: categoriesAdminData } = storeAdminData;
   const { haveMonthlyReservation, selectedPickupLocation } = storeToRefs(useStoreReservationForm());
   const { createErrorMessage } = useMessages();
   const categoriesAvailabilityData = ref<CategoryAvailabilityData[] | null>(
@@ -93,15 +94,15 @@ const useStoreSearchData = defineStore("storeSearchData", () => {
       return [];
     }
 
-    if (categoriesAvailabilityData.value && categoriesAdminData.value) {
+    if (categoriesAvailabilityData.value && categoriesAdminData) {
       
       /** when there's no available categories, show unable categories */
       if(error.value && error.value.error == "no_available_categories_error")
-        return categoriesAdminData.value?.map((categoryAdmin: CategoryData) => 
+        return categoriesAdminData.map((categoryAdmin: CategoryData) => 
           createCategoryAvailability(categoryAdmin, true)
         );
       
-      return categoriesAdminData.value.map((categoryAdmin: CategoryData) => {
+      return categoriesAdminData.map((categoryAdmin: CategoryData) => {
         const categoryAvailability = categoriesAvailabilityData.value?.find((categoryAvailability: CategoryAvailabilityData) => 
           categoryAvailability.categoryCode == categoryAdmin.id
         );
