@@ -86,7 +86,7 @@
             Total {{ haveMonthlyReservation ? "30 días" : getFormattedDays }}
           </p>
 
-          <UTooltip :delay-duration="3000">
+          <UTooltip :delay-duration="3000" :ui="{content: 'h-full select-text'}">
             <template #content>
               Día: $ {{ dayPriceTooltip }} <br />
               Seguro día: $ {{ coverageDayPriceTooltip }} <br />
