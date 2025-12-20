@@ -1,5 +1,5 @@
 .categoria {
-    @apply bg-white rounded-lg min-w-[365px] md:col-span-1 relative text-black p-0 sm:p-0 lg:p-0;
+    @apply bg-white rounded-lg min-w-91.25 md:col-span-1 relative text-black p-0 sm:p-0 lg:p-0;
     
     /* .agotado {
       opacity: 0.28 !important;
@@ -31,7 +31,7 @@
     }
 
     .boton-contenedor-descripcion-carro {
-      @apply flex justify-between items-center w-full px-4 py-3 text-left transition-all focus:outline-none text-gray-700 rounded-none bg-white hover:bg-white cursor-pointer;
+      @apply flex justify-between items-center w-full px-4 py-3 text-left transition-all focus:outline-none text-gray-700 bg-white hover:bg-white cursor-pointer;
     }
 
     .contenedor-adicionales-carro {
@@ -39,7 +39,7 @@
     }
 
     .boton-contenedor-adicionales-carro {
-      @apply flex justify-between items-center w-full px-4 py-3 text-left transition-all focus:outline-none text-gray-700 rounded-none bg-white hover:bg-white cursor-pointer;
+      @apply flex justify-between items-center w-full px-4 py-3 text-left transition-all focus:outline-none text-gray-700 bg-white hover:bg-white cursor-pointer;
     }
 
     .categoria-carro {
@@ -103,27 +103,30 @@
         @apply text-sm mx-2 text-black;
       }
     }
-    
-    .boton-seleccion {
-      @apply w-full justify-center text-white bg-red-600;
-    }
 
+    .seccion-boton-seleccion {
+      @apply rounded-b-lg bg-white p-4;
+
+      .boton-seleccion {
+        @apply w-full justify-center text-white bg-red-600;
+      }
+
+    }
+    
     .form-radio {
       @apply scheme-light;
     }
 }
 
 .categoria-no-disponible {
-    background-color: white !important;
-    color: #b7b0b0 !important;
-    text-align: center !important;
+    @apply bg-white! text-gray-400! text-center! rounded-lg;
 
     img {
-       opacity: 30%;
+       @apply opacity-30;
     }
 
     p, .etiqueta, .contenedor-descripcion-carro {
-      opacity: 50%;
+      @apply opacity-50;
     }
 
     .etiqueta-carro {

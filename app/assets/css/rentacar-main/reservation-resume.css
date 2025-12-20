@@ -1,5 +1,5 @@
 .reservation-resume {
-    @apply scheme-light;
+    @apply scheme-dark;
 
     .carrusel-container {
         @apply relative mb-3;
@@ -26,11 +26,11 @@
     
             .pickup-location {
                 &-label {
-                    @apply text-muted text-left;
+                    @apply text-muted text-start;
                 }
     
                 &-text {
-                    @apply font-bold text-left;
+                    @apply font-bold text-start;
                 }
             }
     
@@ -38,7 +38,7 @@
                 @apply flex flex-row gap-1;
     
                 &-label {
-                    @apply text-muted text-left;
+                    @apply text-muted text-start;
                 }
     
                 &-text {
@@ -50,7 +50,7 @@
                 @apply flex flex-row gap-1;
     
                 &-label {
-                    @apply text-muted text-left;
+                    @apply text-muted text-start;
                 }
     
                 &-text {
@@ -64,11 +64,11 @@
     
             .return-location {
                 &-label {
-                    @apply text-muted text-left;
+                    @apply text-muted text-start;
                 }
     
                 &-text {
-                    @apply font-bold text-left;
+                    @apply font-bold text-start;
                 }
             }
     
@@ -76,7 +76,7 @@
                 @apply flex flex-row gap-1;
     
                 &-label {
-                    @apply text-muted text-left;
+                    @apply text-muted text-start;
                 }
     
                 &-text {
@@ -88,11 +88,11 @@
                 @apply flex flex-row gap-1;
     
                 &-label {
-                    @apply text-muted text-left;
+                    @apply text-muted text-start;
                 }
     
                 &-text {
-                    @apply font-bold text-left;
+                    @apply font-bold text-start;
                 }
             }
         }
@@ -103,7 +103,7 @@
         @apply flex flex-col flex-1 pl-0 text-sm;
 
         .discount {
-            @apply text-right text-gray-500 text-xs;
+            @apply text-end text-gray-500 text-xs;
 
             & div:first-child {
                 @apply flex items-center justify-end;
@@ -115,15 +115,15 @@
         }
 
         .discount-percentage {
-            @apply text-right;
+            @apply text-end;
 
             & span:first-child {
-                @apply bg-[#8ed57a] font-medium rounded-none px-1 py-0.5 text-xs;
+                @apply bg-green-500 font-medium rounded-none px-1 py-0.5 text-xs;
             }
         }
 
         .daily-price {
-            @apply text-right font-bold text-xl;
+            @apply text-end font-bold text-xl;
 
             & div:first-child {
                 @apply flex items-center justify-end;
@@ -136,10 +136,10 @@
 
         .extra-hours {
             &-label {
-                @apply text-right mt-3;
+                @apply text-end mt-3;
             }
             &-text {
-                @apply text-right flex items-center justify-end -mr-[3px]; /* TODO revisar si esta bien esto */
+                @apply text-end flex items-center justify-end -mr-[0.75]; /* TODO revisar si esta bien esto */
 
                 & span:first-child {
                     @apply text-xs;
@@ -149,10 +149,10 @@
         
         .return-fee {
             &-label {
-                @apply text-right;
+                @apply text-end;
             }
             &-text {
-                @apply text-right flex items-center justify-end -mr-[3px]; /* TODO revisar si esta bien esto */
+                @apply text-end flex items-center justify-end -mr-[0.75]; /* TODO revisar si esta bien esto */
 
                 & span:first-child {
                     @apply text-xs;
@@ -162,28 +162,30 @@
 
         .total-price {
             &-label {
-                @apply text-right font-bold mt-3;
+                @apply text-end font-bold mt-3;
             }
 
             &-text {
-                @apply text-right font-bold text-2xl mb-0
+                @apply text-end font-bold text-2xl mb-0
             }
         }
 
         .not-included {
-            @apply text-right text-[xx-small] mb-2;
+            @apply text-end text-[xx-small] mb-2;
         }
 
         .included {
+            @apply text-end;
+            
             &-label {
-                @apply text-right mt-4 font-bold;
+                @apply text-end mt-4 font-bold;
             }
 
             &-text {
-                @apply ps-3 leading-tight text-right list-none;
+                @apply ps-3 leading-tight text-end list-none;
 
                 .mileage, .unlimited-km, .coverage  {
-                   @apply text-current;     
+                   @apply text-current text-end;     
                 }
                 
                 
@@ -191,7 +193,7 @@
         }
 
         .additional-services {
-            @apply text-right mt-2;
+            @apply text-end mt-2;
 
             &-label {
                 @apply font-bold;
