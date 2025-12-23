@@ -1,5 +1,5 @@
 .categoria {
-    @apply bg-white rounded-lg min-w-91.25 md:col-span-1 relative text-black p-0 sm:p-0 lg:p-0;
+    @apply bg-white rounded-lg md:col-span-1 relative text-black p-0 sm:p-0 lg:p-0;
     
     /* .agotado {
       opacity: 0.28 !important;
