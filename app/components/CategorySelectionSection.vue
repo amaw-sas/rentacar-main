@@ -1,5 +1,24 @@
 <template>
+  <div v-if="noAvailableCategories" class="text-center">
+    <div class="text-white text-center">
+      <div class="text-3xl">¡Oops!</div>
+      <div class="text-lg">
+        Nos quedamos sin carritos en {{city?.name}} para el {{ humanFormattedPickupDate }}.
+      </div>
+      <p class="text-lg">
+        pero no te preocupes, nuestro sistema se actualiza cada hora, <br>
+        puedes intentar más tarde o intenta cambiar la fecha o el lugar de recogida
+      </p>
+    </div>
+  </div>
   <template v-if="!pendingSearch">
+    <div v-if="!noAvailableCategories" class="text-white text-center">
+      <div class="text-3xl">¡Vehículos Disponibles!</div>
+      <div class="text-lg">
+        Carros disponibles en {{city?.name}} para el {{ humanFormattedPickupDate }}.
+        ¡No te quedes sin el tuyo, Reserva ahora y congela el precio!
+      </div>
+    </div>
     <u-page-grid>
       <template v-for="category in filteredCategories">
         <template
@@ -105,8 +124,9 @@ const {
   pending: pendingSearch,
   selectedCategory,
   filteredCategories,
+  noAvailableCategories,
 } = storeToRefs(storeSearch);
-const { vehiculo, isSubmittingForm } = storeToRefs(storeForm);
+const { vehiculo, humanFormattedPickupDate, isSubmittingForm } = storeToRefs(storeForm);
 const { vehicleCategories } = useVehicleCategories();
 const slideoverReservationResume = ref<boolean>(false);
 const slideoverReservationForm = ref<boolean>(false);
@@ -120,4 +140,5 @@ function setSelectedCategory(category: ReturnType<typeof useCategory>) {
 }
 
 const { submitForm } = storeForm;
+const { city } = useCityPageSEO();
 </script>

@@ -27,14 +27,7 @@ const useStoreSearchData = defineStore("storeSearchData", () => {
   const error = ref<ErrorMessage | null>(null);
   
   const selectedCategory = ref<ReturnType<typeof useCategory> | null >(null);
-  // const noAvailableCategories = ref<boolean>(false);
-
-  const scheduleErrors = [
-    "out_of_schedule_pickup_date_error",
-    "out_of_schedule_pickup_hour_error",
-    "out_of_schedule_return_date_error",
-    "out_of_schedule_return_hour_error"
-  ];
+  const noAvailableCategories = ref<boolean>(false);
 
   const noMonthlyCategories: string[] = [
     'FU',
@@ -54,6 +47,7 @@ const useStoreSearchData = defineStore("storeSearchData", () => {
 
       if(errorResponse.value && errorResponse.value.error != "no_available_categories_error"){
         error.value = errorResponse.value;
+        noAvailableCategories.value = true;
       }
       else {
         categoriesAvailabilityData.value = categoriesAdminData?.filter((categoryAdmin: CategoryData) => 
@@ -81,10 +75,19 @@ const useStoreSearchData = defineStore("storeSearchData", () => {
       
       // if there's any data response
       if (data.value) {
+        if(data.value.length == 0)
+          noAvailableCategories.value = true;
+        else 
+          noAvailableCategories.value = false;
+
         categoriesAvailabilityData.value = data.value;
       } else if (errorResponse.value) {
+        if(errorResponse.value.error == 'no_available_categories_error')
+          noAvailableCategories.value = true;
+        else
+          createErrorMessage(errorResponse.value);
+
         categoriesAvailabilityData.value = [];
-        createErrorMessage(errorResponse.value);
       }
     }
     
@@ -196,6 +199,7 @@ const useStoreSearchData = defineStore("storeSearchData", () => {
     pending, 
     error, 
     selectedCategory, 
+    noAvailableCategories,
   };
 });
 
