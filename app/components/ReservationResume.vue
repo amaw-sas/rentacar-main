@@ -170,14 +170,14 @@ const {
     selectedReturnHour,
     selectedMonthlyMileage,
     selectedDays,
-    haveTotalInsurance
+    haveTotalInsurance,
+    humanFormattedPickupDate: formattedPickupDate,
+    humanFormattedReturnDate: formattedReturnDate,
+    humanFormattedPickupHour: formattedPickupHour,
+    humanFormattedReturnHour: formattedReturnHour,
 } = storeToRefs(storeForm);
 
 /** vars */
 const { vehicleCategories } = useVehicleCategories();
 
-const formattedPickupDate: string = selectedPickupDate.value ? formatHumanDate(selectedPickupDate.value) : ''
-const formattedReturnDate: string = selectedReturnDate.value ? formatHumanDate(selectedReturnDate.value) : ''
-const formattedPickupHour: string = selectedPickupHour.value ? formatHumanTime(toDatetime(createCurrentDateObject(), selectedPickupHour.value)) : ''
-const formattedReturnHour: string = selectedReturnHour.value ? formatHumanTime(toDatetime(createCurrentDateObject(), selectedReturnHour.value)) : ''
 </script>
