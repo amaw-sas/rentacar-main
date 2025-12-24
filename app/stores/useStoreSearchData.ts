@@ -42,12 +42,16 @@ const useStoreSearchData = defineStore("storeSearchData", () => {
 
     const { data, error: errorResponse } = await useFetchCategoriesAvailabilityData();
 
+    if(errorResponse.value)
+      error.value = errorResponse.value;
+
     // if monthly reservation is selected
     if(haveMonthlyReservation.value){
 
-      if(errorResponse.value && errorResponse.value.error != "no_available_categories_error"){
+      if(errorResponse.value){
         error.value = errorResponse.value;
-        noAvailableCategories.value = true;
+        if(errorResponse.value.error != "no_available_categories_error")
+          noAvailableCategories.value = true;
       }
       else {
         categoriesAvailabilityData.value = categoriesAdminData?.filter((categoryAdmin: CategoryData) => 
@@ -75,11 +79,7 @@ const useStoreSearchData = defineStore("storeSearchData", () => {
       
       // if there's any data response
       if (data.value) {
-        if(data.value.length == 0)
-          noAvailableCategories.value = true;
-        else 
-          noAvailableCategories.value = false;
-
+        noAvailableCategories.value = data.value.length == 0;
         categoriesAvailabilityData.value = data.value;
       } else if (errorResponse.value) {
         if(errorResponse.value.error == 'no_available_categories_error')
@@ -99,10 +99,10 @@ const useStoreSearchData = defineStore("storeSearchData", () => {
     // const allowedUnabledCatories: CategoryType[] = ["C","F", "FX", "LE", "GC", "G4", "GR", "FU", "FL", "GL"];
     
     /** if there's a error besides no_available_categories_error, don't show unable categories */
-    if(error.value && error.value.error != "no_available_categories_error"){
+    if(error.value && error.value.error != "no_available_categories_error")
       return [];
-    }
-
+    
+    
     if (categoriesAvailabilityData.value && categoriesAdminData) {
       
       /** when there's no available categories, show unable categories */
@@ -110,7 +110,7 @@ const useStoreSearchData = defineStore("storeSearchData", () => {
         return categoriesAdminData.map((categoryAdmin: CategoryData) => 
           createCategoryAvailability(categoryAdmin, true)
         );
-      
+
       return categoriesAdminData.map((categoryAdmin: CategoryData) => {
         const categoryAvailability = categoriesAvailabilityData.value?.find((categoryAvailability: CategoryAvailabilityData) => 
           categoryAvailability.categoryCode == categoryAdmin.id

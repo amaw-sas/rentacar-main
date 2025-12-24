@@ -12,7 +12,7 @@
     </div>
   </div>
   <template v-if="!pendingSearch">
-    <div v-if="!noAvailableCategories" class="text-white text-center">
+    <div v-if="filteredCategories.length > 0 && !noAvailableCategories" class="text-white text-center">
       <div class="text-3xl">¡Vehículos Disponibles!</div>
       <div class="text-lg">
         Carros disponibles en {{city?.name}} para el {{ humanFormattedPickupDate }}.
