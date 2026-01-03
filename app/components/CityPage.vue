@@ -107,7 +107,11 @@
                 v-bind="testimonio.user"
                 :ui="testimonioUserUIConfig"
                 loading="lazy"
-              />
+              >
+                <template #avatar>
+                    <ImagesAvatar :avatar="testimonio.user.avatar" />
+                </template>
+              </UUser>
             </template>
             <template #footer>
               <div class="flex flex-row space-x-2">
