@@ -4,14 +4,14 @@
     <UPageHero orientation="horizontal">
       <template #headline>
         <div
-          class="flex flex-row space-x-0.5 text-white text-center justify-center items-center -mt-4"
+          class="flex flex-row space-x-0.5 text-white text-center justify-center items-center -mt-8"
         >
           <StarIcon cls="size-3" />
           <StarIcon cls="size-3" />
           <StarIcon cls="size-3" />
           <StarIcon cls="size-3" />
           <StarIcon cls="size-3" />
-          <span class="text-sm ml-1">4.9 (2,000 reviews)</span>
+          <span class="text-xs ml-1">4.9 (2,000 reviews)</span>
         </div>
       </template>
       <template #title>
@@ -25,12 +25,12 @@
             {{ city?.name }}
             <LocationIcon cls="text-red-600 size-8 md:size-10" />
           </div>
-          <div class="italic text-2xl md:text-3xl font-light tracking-wide">Colombia</div>
+          <div class="italic text-2xl md:text-3xl font-medium tracking-wide">Colombia</div>
         </div>
       </template>
       <template #body>
-        <div class="text-center justify-items-center">
-          <div class="mb-3 text-white text-xl">
+        <div class="text-center justify-items-center -mt-4 -mb-4">
+          <div class="mb-1 text-white text-xl">
             Consulta disponibilidad y precios
           </div>
           <p class="text-white text-sm">

@@ -1,8 +1,8 @@
 <template>
     <u-form
-        class="h-full w-full mx-auto md:w-3/6 lg:w-4/6 grid grid-cols-2 grid-rows-5 gap-3 light"
+        class="h-full w-full mx-auto md:w-3/6 lg:w-4/6 grid grid-cols-2 grid-rows-5 gap-2 light"
     >
-        <div class="col-span-2 bg-white rounded-xl p-4 shadow-sm">
+        <div class="col-span-2 bg-white rounded-xl p-2 shadow-sm">
             <u-form-field name="lugarRecogida" label="Lugar de recogida">
                 <!-- si es móvil usar select nativo -->
                 <template v-if="smAndSmaller">
@@ -37,7 +37,7 @@
                 </template>
             </u-form-field>
         </div>
-        <div class="col-span-2 bg-white rounded-xl p-4 shadow-sm">
+        <div class="col-span-2 bg-white rounded-xl p-2 shadow-sm">
             <u-form-field name="lugarDevolucion" label="Lugar de devolución">
                 <!-- si es móvil usar select nativo -->
                 <template v-if="smAndSmaller">
@@ -72,7 +72,7 @@
                 </template>
             </u-form-field>
         </div>
-        <div class="bg-white rounded-xl p-4 shadow-sm">
+        <div class="bg-white rounded-xl p-2 shadow-sm">
             <u-form-field name="fechaRecogida" label="Día de recogida">
                 <!-- si es móvil, usar input date nativo -->
                 <template v-if="smAndSmaller">
@@ -120,7 +120,7 @@
                 </template>
             </u-form-field>
         </div>
-        <div class="bg-white rounded-xl p-4 shadow-sm">
+        <div class="bg-white rounded-xl p-2 shadow-sm">
             <u-form-field name="fechaDevolucion" label="Día de devolución">
                 <!-- si es móvil, usar input date nativo -->
                 <template v-if="smAndSmaller">
@@ -171,7 +171,7 @@
                 </template>
             </u-form-field>
         </div>
-        <div class="bg-white rounded-xl p-4 shadow-sm">
+        <div class="bg-white rounded-xl p-2 shadow-sm">
             <u-form-field name="horaRecogida" label="Hora de recogida">
                 <!-- si es móvil, usar select nativo -->
                 <template v-if="smAndSmaller">
@@ -200,7 +200,7 @@
                 </template>
             </u-form-field>
         </div>
-        <div class="bg-white rounded-xl p-4 shadow-sm">
+        <div class="bg-white rounded-xl p-2 shadow-sm">
             <u-form-field label="Hora de devolución">
                 <!-- si es móvil, usar select nativo -->
                 <template v-if="smAndSmaller">

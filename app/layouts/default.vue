@@ -10,9 +10,14 @@
       }"
      >
       <template #left>
-        <div class="hidden md:block">
-          <ImagesCol100 />
-        </div>
+        <!-- Bandera móvil -->
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Fcolombia%2Fcolombia-100-77.png?alt=media&token=3ac7532d-d731-4609-a242-169e50d16bc9"
+          alt="Colombia"
+          class="md:hidden absolute top-0 left-0 h-12 w-auto"
+          loading="eager"
+        />
+        <!-- Banderas desktop -->
         <div class="hidden md:block">
           <ImagesCol224 />
         </div>
