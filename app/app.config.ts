@@ -1,5 +1,5 @@
 export default defineAppConfig({
-  defaultTimezone: 'America/Bogota',
+  defaultTimezone: "America/Bogota",
   ui: {
     pageSection: {
       slots: {
@@ -426,7 +426,7 @@ export default defineAppConfig({
             name: "Stephany M. García",
             description: "Peru",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image5.webp?alt=media&token=b6467738-4692-48dd-937c-16c81f715926",
+              src: "uifaces-popular-image5",
               alt: "Stephany M. García",
             },
           },
@@ -438,7 +438,7 @@ export default defineAppConfig({
             name: "Sandra Milena Barona",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image4.webp?alt=media&token=5d545267-03e6-4e83-a081-4a16259805e2",
+              src: "uifaces-popular-image4",
               alt: "Sandra Milena Barona",
             },
           },
@@ -450,7 +450,7 @@ export default defineAppConfig({
             name: "Luis Javier Rodríguez M.",
             description: "Honduras",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image3.webp?alt=media&token=54d9ed05-162a-4b20-a485-bdc87aaeb27f",
+              src: "uifaces-popular-image3",
               alt: "Luis Javier Rodríguez M.",
             },
           },
@@ -462,7 +462,7 @@ export default defineAppConfig({
             name: "Carlos Andrés Mejía",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image2.webp?alt=media&token=24560311-369e-4f54-9a1a-36f0da7ec9f7",
+              src: "uifaces-popular-image2",
               alt: "Carlos Andrés Mejía",
             },
           },
@@ -473,10 +473,7 @@ export default defineAppConfig({
           user: {
             name: "Ana Lucía Torres",
             description: "Ecuador",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-human-image6.webp?alt=media&token=bb28b34b-f738-40ee-be58-e5fd35751da2",
-              alt: "Ana Lucía Torres",
-            },
+            avatar: { src: "uifaces-human-image6", alt: "Ana Lucía Torres" },
           },
           quote:
             "Viajar en familia a Armenia fue muy fácil gracias a este servicio de alquiler. Recorrimos el Jardín Botánico y el Recuca, con buen precio y excelente atención.",
@@ -485,10 +482,7 @@ export default defineAppConfig({
           user: {
             name: "Esteban Páez",
             description: "Colombia",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image.webp?alt=media&token=556252eb-f9e0-4cc5-832a-0e97d691b4d0",
-              alt: "Esteban Páez",
-            },
+            avatar: { src: "uifaces-popular-image", alt: "Esteban Páez" },
           },
           quote:
             "Excelente alternativa para recorrer Armenia. El auto fue perfecto para ir al Valle de Cocora y Salento, muy limpio, seguro y con buen consumo de gasolina.",
@@ -507,7 +501,7 @@ export default defineAppConfig({
             name: "Stephany M. García",
             description: "Peru",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image5.webp?alt=media&token=b6467738-4692-48dd-937c-16c81f715926",
+              src: "uifaces-popular-image5",
               alt: "Stephany M. García",
             },
           },
@@ -519,7 +513,7 @@ export default defineAppConfig({
             name: "Sandra Milena Barona",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image4.webp?alt=media&token=5d545267-03e6-4e83-a081-4a16259805e2",
+              src: "uifaces-popular-image4",
               alt: "Sandra Milena Barona",
             },
           },
@@ -531,7 +525,7 @@ export default defineAppConfig({
             name: "Luis Javier Rodríguez M.",
             description: "Honduras",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image3.webp?alt=media&token=54d9ed05-162a-4b20-a485-bdc87aaeb27f",
+              src: "uifaces-popular-image3",
               alt: "Luis Javier Rodríguez M.",
             },
           },
@@ -543,7 +537,7 @@ export default defineAppConfig({
             name: "Carlos Andrés Mejía",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image2.webp?alt=media&token=24560311-369e-4f54-9a1a-36f0da7ec9f7",
+              src: "uifaces-popular-image2",
               alt: "Carlos Andrés Mejía",
             },
           },
@@ -554,10 +548,7 @@ export default defineAppConfig({
           user: {
             name: "Ana Lucía Torres",
             description: "Ecuador",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-human-image6.webp?alt=media&token=bb28b34b-f738-40ee-be58-e5fd35751da2",
-              alt: "Ana Lucía Torres",
-            },
+            avatar: { src: "uifaces-human-image6", alt: "Ana Lucía Torres" },
           },
           quote:
             "Viajar en familia a Barranquilla fue muy fácil gracias a este servicio de alquiler. Recorrimos Bocas de Ceniza y el Castillo de Salgar, con buen precio y excelente atención.",
@@ -566,10 +557,7 @@ export default defineAppConfig({
           user: {
             name: "Esteban Páez",
             description: "Colombia",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image.webp?alt=media&token=556252eb-f9e0-4cc5-832a-0e97d691b4d0",
-              alt: "Esteban Páez",
-            },
+            avatar: { src: "uifaces-popular-image", alt: "Esteban Páez" },
           },
           quote:
             "Excelente alternativa para recorrer Barranquilla. El auto fue perfecto para ir al Teatro Amira de la Rosa y la Puerta de Oro, muy limpio, seguro y con buen consumo de gasolina.",
@@ -588,7 +576,7 @@ export default defineAppConfig({
             name: "Stephany M. García",
             description: "Peru",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image5.webp?alt=media&token=b6467738-4692-48dd-937c-16c81f715926",
+              src: "uifaces-popular-image5",
               alt: "Stephany M. García",
             },
           },
@@ -600,7 +588,7 @@ export default defineAppConfig({
             name: "Sandra Milena Barona",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image4.webp?alt=media&token=5d545267-03e6-4e83-a081-4a16259805e2",
+              src: "uifaces-popular-image4",
               alt: "Sandra Milena Barona",
             },
           },
@@ -612,7 +600,7 @@ export default defineAppConfig({
             name: "Luis Javier Rodríguez M.",
             description: "Honduras",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image3.webp?alt=media&token=54d9ed05-162a-4b20-a485-bdc87aaeb27f",
+              src: "uifaces-popular-image3",
               alt: "Luis Javier Rodríguez M.",
             },
           },
@@ -624,7 +612,7 @@ export default defineAppConfig({
             name: "Carlos Andrés Mejía",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image2.webp?alt=media&token=24560311-369e-4f54-9a1a-36f0da7ec9f7",
+              src: "uifaces-popular-image2",
               alt: "Carlos Andrés Mejía",
             },
           },
@@ -635,10 +623,7 @@ export default defineAppConfig({
           user: {
             name: "Ana Lucía Torres",
             description: "Ecuador",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-human-image6.webp?alt=media&token=bb28b34b-f738-40ee-be58-e5fd35751da2",
-              alt: "Ana Lucía Torres",
-            },
+            avatar: { src: "uifaces-human-image6", alt: "Ana Lucía Torres" },
           },
           quote:
             "Viajar en familia a Bogotá fue muy fácil gracias a este servicio de alquiler. Recorrimos La Candelaria y el Museo Botero, con buen precio y excelente atención.",
@@ -647,10 +632,7 @@ export default defineAppConfig({
           user: {
             name: "Esteban Páez",
             description: "Colombia",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image.webp?alt=media&token=556252eb-f9e0-4cc5-832a-0e97d691b4d0",
-              alt: "Esteban Páez",
-            },
+            avatar: { src: "uifaces-popular-image", alt: "Esteban Páez" },
           },
           quote:
             "Excelente alternativa para recorrer Bogotá. El auto fue perfecto para ir a la Plaza de Bolívar y la Catedral de Sal, muy limpio, seguro y con buen consumo de gasolina.",
@@ -669,7 +651,7 @@ export default defineAppConfig({
             name: "Stephany M. García",
             description: "Peru",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image5.webp?alt=media&token=b6467738-4692-48dd-937c-16c81f715926",
+              src: "uifaces-popular-image5",
               alt: "Stephany M. García",
             },
           },
@@ -681,7 +663,7 @@ export default defineAppConfig({
             name: "Sandra Milena Barona",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image4.webp?alt=media&token=5d545267-03e6-4e83-a081-4a16259805e2",
+              src: "uifaces-popular-image4",
               alt: "Sandra Milena Barona",
             },
           },
@@ -693,7 +675,7 @@ export default defineAppConfig({
             name: "Luis Javier Rodríguez M.",
             description: "Honduras",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image3.webp?alt=media&token=54d9ed05-162a-4b20-a485-bdc87aaeb27f",
+              src: "uifaces-popular-image3",
               alt: "Luis Javier Rodríguez M.",
             },
           },
@@ -705,7 +687,7 @@ export default defineAppConfig({
             name: "Carlos Andrés Mejía",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image2.webp?alt=media&token=24560311-369e-4f54-9a1a-36f0da7ec9f7",
+              src: "uifaces-popular-image2",
               alt: "Carlos Andrés Mejía",
             },
           },
@@ -716,10 +698,7 @@ export default defineAppConfig({
           user: {
             name: "Ana Lucía Torres",
             description: "Ecuador",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-human-image6.webp?alt=media&token=bb28b34b-f738-40ee-be58-e5fd35751da2",
-              alt: "Ana Lucía Torres",
-            },
+            avatar: { src: "uifaces-human-image6", alt: "Ana Lucía Torres" },
           },
           quote:
             "Viajar en familia a Bucaramanga fue muy fácil gracias a este servicio de alquiler. Recorrimos el Parque del Agua y el Ecoparque Cerro del Santísimo, con buen precio y excelente atención.",
@@ -728,10 +707,7 @@ export default defineAppConfig({
           user: {
             name: "Esteban Páez",
             description: "Colombia",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image.webp?alt=media&token=556252eb-f9e0-4cc5-832a-0e97d691b4d0",
-              alt: "Esteban Páez",
-            },
+            avatar: { src: "uifaces-popular-image", alt: "Esteban Páez" },
           },
           quote:
             "Excelente alternativa para recorrer Bucaramanga. El auto fue perfecto para ir al Parque Santander y Panachi, muy limpio, seguro y con buen consumo de gasolina.",
@@ -750,7 +726,7 @@ export default defineAppConfig({
             name: "Stephany M. García",
             description: "Peru",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image5.webp?alt=media&token=b6467738-4692-48dd-937c-16c81f715926",
+              src: "uifaces-popular-image5",
               alt: "Stephany M. García",
             },
           },
@@ -762,7 +738,7 @@ export default defineAppConfig({
             name: "Sandra Milena Barona",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image4.webp?alt=media&token=5d545267-03e6-4e83-a081-4a16259805e2",
+              src: "uifaces-popular-image4",
               alt: "Sandra Milena Barona",
             },
           },
@@ -774,7 +750,7 @@ export default defineAppConfig({
             name: "Luis Javier Rodríguez M.",
             description: "Honduras",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image3.webp?alt=media&token=54d9ed05-162a-4b20-a485-bdc87aaeb27f",
+              src: "uifaces-popular-image3",
               alt: "Luis Javier Rodríguez M.",
             },
           },
@@ -786,7 +762,7 @@ export default defineAppConfig({
             name: "Carlos Andrés Mejía",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image2.webp?alt=media&token=24560311-369e-4f54-9a1a-36f0da7ec9f7",
+              src: "uifaces-popular-image2",
               alt: "Carlos Andrés Mejía",
             },
           },
@@ -797,10 +773,7 @@ export default defineAppConfig({
           user: {
             name: "Ana Lucía Torres",
             description: "Ecuador",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-human-image6.webp?alt=media&token=bb28b34b-f738-40ee-be58-e5fd35751da2",
-              alt: "Ana Lucía Torres",
-            },
+            avatar: { src: "uifaces-human-image6", alt: "Ana Lucía Torres" },
           },
           quote:
             "Viajar en familia a Cali fue muy fácil gracias a este servicio de alquiler. Recorrimos el Barrio San Antonio y el Cerro de las Tres Cruces, con buen precio y excelente atención.",
@@ -809,10 +782,7 @@ export default defineAppConfig({
           user: {
             name: "Esteban Páez",
             description: "Colombia",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image.webp?alt=media&token=556252eb-f9e0-4cc5-832a-0e97d691b4d0",
-              alt: "Esteban Páez",
-            },
+            avatar: { src: "uifaces-popular-image", alt: "Esteban Páez" },
           },
           quote:
             "Excelente alternativa para recorrer Cali. El auto fue perfecto para ir al Museo de la Caña y el Parque del Perro, muy limpio, seguro y con buen consumo de gasolina.",
@@ -831,7 +801,7 @@ export default defineAppConfig({
             name: "Stephany M. García",
             description: "Peru",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image5.webp?alt=media&token=b6467738-4692-48dd-937c-16c81f715926",
+              src: "uifaces-popular-image5",
               alt: "Stephany M. García",
             },
           },
@@ -843,7 +813,7 @@ export default defineAppConfig({
             name: "Sandra Milena Barona",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image4.webp?alt=media&token=5d545267-03e6-4e83-a081-4a16259805e2",
+              src: "uifaces-popular-image4",
               alt: "Sandra Milena Barona",
             },
           },
@@ -855,7 +825,7 @@ export default defineAppConfig({
             name: "Luis Javier Rodríguez M.",
             description: "Honduras",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image3.webp?alt=media&token=54d9ed05-162a-4b20-a485-bdc87aaeb27f",
+              src: "uifaces-popular-image3",
               alt: "Luis Javier Rodríguez M.",
             },
           },
@@ -867,7 +837,7 @@ export default defineAppConfig({
             name: "Carlos Andrés Mejía",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image2.webp?alt=media&token=24560311-369e-4f54-9a1a-36f0da7ec9f7",
+              src: "uifaces-popular-image2",
               alt: "Carlos Andrés Mejía",
             },
           },
@@ -878,10 +848,7 @@ export default defineAppConfig({
           user: {
             name: "Ana Lucía Torres",
             description: "Ecuador",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-human-image6.webp?alt=media&token=bb28b34b-f738-40ee-be58-e5fd35751da2",
-              alt: "Ana Lucía Torres",
-            },
+            avatar: { src: "uifaces-human-image6", alt: "Ana Lucía Torres" },
           },
           quote:
             "Viajar en familia a Cartagena fue muy fácil gracias a este servicio de alquiler. Recorrimos Getsemaní y el Convento de la Popa, con buen precio y excelente atención.",
@@ -890,10 +857,7 @@ export default defineAppConfig({
           user: {
             name: "Esteban Páez",
             description: "Colombia",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image.webp?alt=media&token=556252eb-f9e0-4cc5-832a-0e97d691b4d0",
-              alt: "Esteban Páez",
-            },
+            avatar: { src: "uifaces-popular-image", alt: "Esteban Páez" },
           },
           quote:
             "Excelente alternativa para recorrer Cartagena. El auto fue perfecto para ir a las Islas del Rosario y el Palacio de la Inquisición, muy limpio, seguro y con buen consumo de gasolina.",
@@ -912,7 +876,7 @@ export default defineAppConfig({
             name: "Stephany M. García",
             description: "Peru",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image5.webp?alt=media&token=b6467738-4692-48dd-937c-16c81f715926",
+              src: "uifaces-popular-image5",
               alt: "Stephany M. García",
             },
           },
@@ -924,7 +888,7 @@ export default defineAppConfig({
             name: "Sandra Milena Barona",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image4.webp?alt=media&token=5d545267-03e6-4e83-a081-4a16259805e2",
+              src: "uifaces-popular-image4",
               alt: "Sandra Milena Barona",
             },
           },
@@ -936,7 +900,7 @@ export default defineAppConfig({
             name: "Luis Javier Rodríguez M.",
             description: "Honduras",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image3.webp?alt=media&token=54d9ed05-162a-4b20-a485-bdc87aaeb27f",
+              src: "uifaces-popular-image3",
               alt: "Luis Javier Rodríguez M.",
             },
           },
@@ -948,7 +912,7 @@ export default defineAppConfig({
             name: "Carlos Andrés Mejía",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image2.webp?alt=media&token=24560311-369e-4f54-9a1a-36f0da7ec9f7",
+              src: "uifaces-popular-image2",
               alt: "Carlos Andrés Mejía",
             },
           },
@@ -959,10 +923,7 @@ export default defineAppConfig({
           user: {
             name: "Ana Lucía Torres",
             description: "Ecuador",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-human-image6.webp?alt=media&token=bb28b34b-f738-40ee-be58-e5fd35751da2",
-              alt: "Ana Lucía Torres",
-            },
+            avatar: { src: "uifaces-human-image6", alt: "Ana Lucía Torres" },
           },
           quote:
             "Viajar en familia a Cúcuta fue muy fácil gracias a este servicio de alquiler. Recorrimos el Puente Internacional y la Catedral, con buen precio y excelente atención.",
@@ -971,10 +932,7 @@ export default defineAppConfig({
           user: {
             name: "Esteban Páez",
             description: "Colombia",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image.webp?alt=media&token=556252eb-f9e0-4cc5-832a-0e97d691b4d0",
-              alt: "Esteban Páez",
-            },
+            avatar: { src: "uifaces-popular-image", alt: "Esteban Páez" },
           },
           quote:
             "Excelente alternativa para recorrer Cúcuta. El auto fue perfecto para ir al Zoológico y el Museo Norte de Santander, muy limpio, seguro y con buen consumo de gasolina.",
@@ -993,7 +951,7 @@ export default defineAppConfig({
             name: "Stephany M. García",
             description: "Peru",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image5.webp?alt=media&token=b6467738-4692-48dd-937c-16c81f715926",
+              src: "uifaces-popular-image5",
               alt: "Stephany M. García",
             },
           },
@@ -1005,7 +963,7 @@ export default defineAppConfig({
             name: "Sandra Milena Barona",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image4.webp?alt=media&token=5d545267-03e6-4e83-a081-4a16259805e2",
+              src: "uifaces-popular-image4",
               alt: "Sandra Milena Barona",
             },
           },
@@ -1017,7 +975,7 @@ export default defineAppConfig({
             name: "Luis Javier Rodríguez M.",
             description: "Honduras",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image3.webp?alt=media&token=54d9ed05-162a-4b20-a485-bdc87aaeb27f",
+              src: "uifaces-popular-image3",
               alt: "Luis Javier Rodríguez M.",
             },
           },
@@ -1029,7 +987,7 @@ export default defineAppConfig({
             name: "Carlos Andrés Mejía",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image2.webp?alt=media&token=24560311-369e-4f54-9a1a-36f0da7ec9f7",
+              src: "uifaces-popular-image2",
               alt: "Carlos Andrés Mejía",
             },
           },
@@ -1040,10 +998,7 @@ export default defineAppConfig({
           user: {
             name: "Ana Lucía Torres",
             description: "Ecuador",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-human-image6.webp?alt=media&token=bb28b34b-f738-40ee-be58-e5fd35751da2",
-              alt: "Ana Lucía Torres",
-            },
+            avatar: { src: "uifaces-human-image6", alt: "Ana Lucía Torres" },
           },
           quote:
             "Viajar en familia a Ibagué fue muy fácil gracias a este servicio de alquiler. Recorrimos Ukukú Rural y la Plaza Bolívar, con buen precio y excelente atención.",
@@ -1052,10 +1007,7 @@ export default defineAppConfig({
           user: {
             name: "Esteban Páez",
             description: "Colombia",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image.webp?alt=media&token=556252eb-f9e0-4cc5-832a-0e97d691b4d0",
-              alt: "Esteban Páez",
-            },
+            avatar: { src: "uifaces-popular-image", alt: "Esteban Páez" },
           },
           quote:
             "Excelente alternativa para recorrer Ibagué. El auto fue perfecto para ir a la Catedral Inmaculada Concepción y el Parque de los Periodistas, muy limpio, seguro y con buen consumo de gasolina.",
@@ -1074,7 +1026,7 @@ export default defineAppConfig({
             name: "Stephany M. García",
             description: "Peru",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image5.webp?alt=media&token=b6467738-4692-48dd-937c-16c81f715926",
+              src: "uifaces-popular-image5",
               alt: "Stephany M. García",
             },
           },
@@ -1086,7 +1038,7 @@ export default defineAppConfig({
             name: "Sandra Milena Barona",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image4.webp?alt=media&token=5d545267-03e6-4e83-a081-4a16259805e2",
+              src: "uifaces-popular-image4",
               alt: "Sandra Milena Barona",
             },
           },
@@ -1098,7 +1050,7 @@ export default defineAppConfig({
             name: "Luis Javier Rodríguez M.",
             description: "Honduras",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image3.webp?alt=media&token=54d9ed05-162a-4b20-a485-bdc87aaeb27f",
+              src: "uifaces-popular-image3",
               alt: "Luis Javier Rodríguez M.",
             },
           },
@@ -1110,7 +1062,7 @@ export default defineAppConfig({
             name: "Carlos Andrés Mejía",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image2.webp?alt=media&token=24560311-369e-4f54-9a1a-36f0da7ec9f7",
+              src: "uifaces-popular-image2",
               alt: "Carlos Andrés Mejía",
             },
           },
@@ -1121,10 +1073,7 @@ export default defineAppConfig({
           user: {
             name: "Ana Lucía Torres",
             description: "Ecuador",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-human-image6.webp?alt=media&token=bb28b34b-f738-40ee-be58-e5fd35751da2",
-              alt: "Ana Lucía Torres",
-            },
+            avatar: { src: "uifaces-human-image6", alt: "Ana Lucía Torres" },
           },
           quote:
             "Viajar en familia a Manizales fue muy fácil gracias a este servicio de alquiler. Recorrimos el Recinto del Pensamiento y el Ecoparque Los Yarumos, con buen precio y excelente atención.",
@@ -1133,10 +1082,7 @@ export default defineAppConfig({
           user: {
             name: "Esteban Páez",
             description: "Colombia",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image.webp?alt=media&token=556252eb-f9e0-4cc5-832a-0e97d691b4d0",
-              alt: "Esteban Páez",
-            },
+            avatar: { src: "uifaces-popular-image", alt: "Esteban Páez" },
           },
           quote:
             "Excelente alternativa para recorrer Manizales. El auto fue perfecto para ir a las fincas cafeteras y el Parque Los Nevados, muy limpio, seguro y con buen consumo de gasolina.",
@@ -1155,7 +1101,7 @@ export default defineAppConfig({
             name: "Stephany M. García",
             description: "Peru",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image5.webp?alt=media&token=b6467738-4692-48dd-937c-16c81f715926",
+              src: "uifaces-popular-image5",
               alt: "Stephany M. García",
             },
           },
@@ -1167,7 +1113,7 @@ export default defineAppConfig({
             name: "Sandra Milena Barona",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image4.webp?alt=media&token=5d545267-03e6-4e83-a081-4a16259805e2",
+              src: "uifaces-popular-image4",
               alt: "Sandra Milena Barona",
             },
           },
@@ -1179,7 +1125,7 @@ export default defineAppConfig({
             name: "Luis Javier Rodríguez M.",
             description: "Honduras",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image3.webp?alt=media&token=54d9ed05-162a-4b20-a485-bdc87aaeb27f",
+              src: "uifaces-popular-image3",
               alt: "Luis Javier Rodríguez M.",
             },
           },
@@ -1191,7 +1137,7 @@ export default defineAppConfig({
             name: "Carlos Andrés Mejía",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image2.webp?alt=media&token=24560311-369e-4f54-9a1a-36f0da7ec9f7",
+              src: "uifaces-popular-image2",
               alt: "Carlos Andrés Mejía",
             },
           },
@@ -1202,10 +1148,7 @@ export default defineAppConfig({
           user: {
             name: "Ana Lucía Torres",
             description: "Ecuador",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-human-image6.webp?alt=media&token=bb28b34b-f738-40ee-be58-e5fd35751da2",
-              alt: "Ana Lucía Torres",
-            },
+            avatar: { src: "uifaces-human-image6", alt: "Ana Lucía Torres" },
           },
           quote:
             "Viajar en familia a Medellín fue muy fácil gracias a este servicio de alquiler. Recorrimos el Metrocable y la Plaza Botero, con buen precio y excelente atención.",
@@ -1214,10 +1157,7 @@ export default defineAppConfig({
           user: {
             name: "Esteban Páez",
             description: "Colombia",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image.webp?alt=media&token=556252eb-f9e0-4cc5-832a-0e97d691b4d0",
-              alt: "Esteban Páez",
-            },
+            avatar: { src: "uifaces-popular-image", alt: "Esteban Páez" },
           },
           quote:
             "Excelente alternativa para recorrer Medellín. El auto fue perfecto para ir al Parque Arví y el Jardín Botánico, muy limpio, seguro y con buen consumo de gasolina.",
@@ -1236,7 +1176,7 @@ export default defineAppConfig({
             name: "Stephany M. García",
             description: "Peru",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image5.webp?alt=media&token=b6467738-4692-48dd-937c-16c81f715926",
+              src: "uifaces-popular-image5",
               alt: "Stephany M. García",
             },
           },
@@ -1248,7 +1188,7 @@ export default defineAppConfig({
             name: "Sandra Milena Barona",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image4.webp?alt=media&token=5d545267-03e6-4e83-a081-4a16259805e2",
+              src: "uifaces-popular-image4",
               alt: "Sandra Milena Barona",
             },
           },
@@ -1260,7 +1200,7 @@ export default defineAppConfig({
             name: "Luis Javier Rodríguez M.",
             description: "Honduras",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image3.webp?alt=media&token=54d9ed05-162a-4b20-a485-bdc87aaeb27f",
+              src: "uifaces-popular-image3",
               alt: "Luis Javier Rodríguez M.",
             },
           },
@@ -1272,7 +1212,7 @@ export default defineAppConfig({
             name: "Carlos Andrés Mejía",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image2.webp?alt=media&token=24560311-369e-4f54-9a1a-36f0da7ec9f7",
+              src: "uifaces-popular-image2",
               alt: "Carlos Andrés Mejía",
             },
           },
@@ -1283,10 +1223,7 @@ export default defineAppConfig({
           user: {
             name: "Ana Lucía Torres",
             description: "Ecuador",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-human-image6.webp?alt=media&token=bb28b34b-f738-40ee-be58-e5fd35751da2",
-              alt: "Ana Lucía Torres",
-            },
+            avatar: { src: "uifaces-human-image6", alt: "Ana Lucía Torres" },
           },
           quote:
             "Viajar en familia a Montería fue muy fácil gracias a este servicio de alquiler. Recorrimos la Catedral y el Zoológico, con buen precio y excelente atención.",
@@ -1295,10 +1232,7 @@ export default defineAppConfig({
           user: {
             name: "Esteban Páez",
             description: "Colombia",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image.webp?alt=media&token=556252eb-f9e0-4cc5-832a-0e97d691b4d0",
-              alt: "Esteban Páez",
-            },
+            avatar: { src: "uifaces-popular-image", alt: "Esteban Páez" },
           },
           quote:
             "Excelente alternativa para recorrer Montería. El auto fue perfecto para ir al Parque Los Laureles y la Zona Rosa, muy limpio, seguro y con buen consumo de gasolina.",
@@ -1317,7 +1251,7 @@ export default defineAppConfig({
             name: "Stephany M. García",
             description: "Peru",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image5.webp?alt=media&token=b6467738-4692-48dd-937c-16c81f715926",
+              src: "uifaces-popular-image5",
               alt: "Stephany M. García",
             },
           },
@@ -1329,7 +1263,7 @@ export default defineAppConfig({
             name: "Sandra Milena Barona",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image4.webp?alt=media&token=5d545267-03e6-4e83-a081-4a16259805e2",
+              src: "uifaces-popular-image4",
               alt: "Sandra Milena Barona",
             },
           },
@@ -1341,7 +1275,7 @@ export default defineAppConfig({
             name: "Luis Javier Rodríguez M.",
             description: "Honduras",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image3.webp?alt=media&token=54d9ed05-162a-4b20-a485-bdc87aaeb27f",
+              src: "uifaces-popular-image3",
               alt: "Luis Javier Rodríguez M.",
             },
           },
@@ -1353,7 +1287,7 @@ export default defineAppConfig({
             name: "Carlos Andrés Mejía",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image2.webp?alt=media&token=24560311-369e-4f54-9a1a-36f0da7ec9f7",
+              src: "uifaces-popular-image2",
               alt: "Carlos Andrés Mejía",
             },
           },
@@ -1364,10 +1298,7 @@ export default defineAppConfig({
           user: {
             name: "Ana Lucía Torres",
             description: "Ecuador",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-human-image6.webp?alt=media&token=bb28b34b-f738-40ee-be58-e5fd35751da2",
-              alt: "Ana Lucía Torres",
-            },
+            avatar: { src: "uifaces-human-image6", alt: "Ana Lucía Torres" },
           },
           quote:
             "Viajar en familia a Neiva fue muy fácil gracias a este servicio de alquiler. Recorrimos San Agustín y la Catedral, con buen precio y excelente atención.",
@@ -1376,10 +1307,7 @@ export default defineAppConfig({
           user: {
             name: "Esteban Páez",
             description: "Colombia",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image.webp?alt=media&token=556252eb-f9e0-4cc5-832a-0e97d691b4d0",
-              alt: "Esteban Páez",
-            },
+            avatar: { src: "uifaces-popular-image", alt: "Esteban Páez" },
           },
           quote:
             "Excelente alternativa para recorrer Neiva. El auto fue perfecto para ir al Museo del Huila y el Parque Mercedes Abrego, muy limpio, seguro y con buen consumo de gasolina.",
@@ -1398,7 +1326,7 @@ export default defineAppConfig({
             name: "Stephany M. García",
             description: "Peru",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image5.webp?alt=media&token=b6467738-4692-48dd-937c-16c81f715926",
+              src: "uifaces-popular-image5",
               alt: "Stephany M. García",
             },
           },
@@ -1410,7 +1338,7 @@ export default defineAppConfig({
             name: "Sandra Milena Barona",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image4.webp?alt=media&token=5d545267-03e6-4e83-a081-4a16259805e2",
+              src: "uifaces-popular-image4",
               alt: "Sandra Milena Barona",
             },
           },
@@ -1422,7 +1350,7 @@ export default defineAppConfig({
             name: "Luis Javier Rodríguez M.",
             description: "Honduras",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image3.webp?alt=media&token=54d9ed05-162a-4b20-a485-bdc87aaeb27f",
+              src: "uifaces-popular-image3",
               alt: "Luis Javier Rodríguez M.",
             },
           },
@@ -1434,7 +1362,7 @@ export default defineAppConfig({
             name: "Carlos Andrés Mejía",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image2.webp?alt=media&token=24560311-369e-4f54-9a1a-36f0da7ec9f7",
+              src: "uifaces-popular-image2",
               alt: "Carlos Andrés Mejía",
             },
           },
@@ -1445,10 +1373,7 @@ export default defineAppConfig({
           user: {
             name: "Ana Lucía Torres",
             description: "Ecuador",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-human-image6.webp?alt=media&token=bb28b34b-f738-40ee-be58-e5fd35751da2",
-              alt: "Ana Lucía Torres",
-            },
+            avatar: { src: "uifaces-human-image6", alt: "Ana Lucía Torres" },
           },
           quote:
             "Viajar en familia a Pereira fue muy fácil gracias a este servicio de alquiler. Recorrimos las Termales de Santa Rosa y el Zoológico Matecaña, con buen precio y excelente atención.",
@@ -1457,10 +1382,7 @@ export default defineAppConfig({
           user: {
             name: "Esteban Páez",
             description: "Colombia",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image.webp?alt=media&token=556252eb-f9e0-4cc5-832a-0e97d691b4d0",
-              alt: "Esteban Páez",
-            },
+            avatar: { src: "uifaces-popular-image", alt: "Esteban Páez" },
           },
           quote:
             "Excelente alternativa para recorrer Pereira. El auto fue perfecto para ir a las fincas cafeteras y el Parque Arboleda, muy limpio, seguro y con buen consumo de gasolina.",
@@ -1479,7 +1401,7 @@ export default defineAppConfig({
             name: "Stephany M. García",
             description: "Peru",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image5.webp?alt=media&token=b6467738-4692-48dd-937c-16c81f715926",
+              src: "uifaces-popular-image5",
               alt: "Stephany M. García",
             },
           },
@@ -1491,7 +1413,7 @@ export default defineAppConfig({
             name: "Sandra Milena Barona",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image4.webp?alt=media&token=5d545267-03e6-4e83-a081-4a16259805e2",
+              src: "uifaces-popular-image4",
               alt: "Sandra Milena Barona",
             },
           },
@@ -1503,7 +1425,7 @@ export default defineAppConfig({
             name: "Luis Javier Rodríguez M.",
             description: "Honduras",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image3.webp?alt=media&token=54d9ed05-162a-4b20-a485-bdc87aaeb27f",
+              src: "uifaces-popular-image3",
               alt: "Luis Javier Rodríguez M.",
             },
           },
@@ -1515,7 +1437,7 @@ export default defineAppConfig({
             name: "Carlos Andrés Mejía",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image2.webp?alt=media&token=24560311-369e-4f54-9a1a-36f0da7ec9f7",
+              src: "uifaces-popular-image2",
               alt: "Carlos Andrés Mejía",
             },
           },
@@ -1526,10 +1448,7 @@ export default defineAppConfig({
           user: {
             name: "Ana Lucía Torres",
             description: "Ecuador",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-human-image6.webp?alt=media&token=bb28b34b-f738-40ee-be58-e5fd35751da2",
-              alt: "Ana Lucía Torres",
-            },
+            avatar: { src: "uifaces-human-image6", alt: "Ana Lucía Torres" },
           },
           quote:
             "Viajar en familia a Santa Marta fue muy fácil gracias a este servicio de alquiler. Recorrimos la Quinta de San Pedro Alejandrino y la Catedral, con buen precio y excelente atención.",
@@ -1538,10 +1457,7 @@ export default defineAppConfig({
           user: {
             name: "Esteban Páez",
             description: "Colombia",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image.webp?alt=media&token=556252eb-f9e0-4cc5-832a-0e97d691b4d0",
-              alt: "Esteban Páez",
-            },
+            avatar: { src: "uifaces-popular-image", alt: "Esteban Páez" },
           },
           quote:
             "Excelente alternativa para recorrer Santa Marta. El auto fue perfecto para ir a la Ciudad Perdida y el Museo del Oro Tairona, muy limpio, seguro y con buen consumo de gasolina.",
@@ -1560,7 +1476,7 @@ export default defineAppConfig({
             name: "Stephany M. García",
             description: "Peru",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image5.webp?alt=media&token=b6467738-4692-48dd-937c-16c81f715926",
+              src: "uifaces-popular-image5",
               alt: "Stephany M. García",
             },
           },
@@ -1572,7 +1488,7 @@ export default defineAppConfig({
             name: "Sandra Milena Barona",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image4.webp?alt=media&token=5d545267-03e6-4e83-a081-4a16259805e2",
+              src: "uifaces-popular-image4",
               alt: "Sandra Milena Barona",
             },
           },
@@ -1584,7 +1500,7 @@ export default defineAppConfig({
             name: "Luis Javier Rodríguez M.",
             description: "Honduras",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image3.webp?alt=media&token=54d9ed05-162a-4b20-a485-bdc87aaeb27f",
+              src: "uifaces-popular-image3",
               alt: "Luis Javier Rodríguez M.",
             },
           },
@@ -1596,7 +1512,7 @@ export default defineAppConfig({
             name: "Carlos Andrés Mejía",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image2.webp?alt=media&token=24560311-369e-4f54-9a1a-36f0da7ec9f7",
+              src: "uifaces-popular-image2",
               alt: "Carlos Andrés Mejía",
             },
           },
@@ -1607,10 +1523,7 @@ export default defineAppConfig({
           user: {
             name: "Ana Lucía Torres",
             description: "Ecuador",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-human-image6.webp?alt=media&token=bb28b34b-f738-40ee-be58-e5fd35751da2",
-              alt: "Ana Lucía Torres",
-            },
+            avatar: { src: "uifaces-human-image6", alt: "Ana Lucía Torres" },
           },
           quote:
             "Viajar en familia a Valledupar fue muy fácil gracias a este servicio de alquiler. Recorrimos el Balneario Hurtado y el Museo del Acordeón, con buen precio y excelente atención.",
@@ -1619,10 +1532,7 @@ export default defineAppConfig({
           user: {
             name: "Esteban Páez",
             description: "Colombia",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image.webp?alt=media&token=556252eb-f9e0-4cc5-832a-0e97d691b4d0",
-              alt: "Esteban Páez",
-            },
+            avatar: { src: "uifaces-popular-image", alt: "Esteban Páez" },
           },
           quote:
             "Excelente alternativa para recorrer Valledupar. El auto fue perfecto para ir al Parque Ecológico Los Besotes y el Valle de la Luna, muy limpio, seguro y con buen consumo de gasolina.",
@@ -1641,7 +1551,7 @@ export default defineAppConfig({
             name: "Stephany M. García",
             description: "Peru",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image5.webp?alt=media&token=b6467738-4692-48dd-937c-16c81f715926",
+              src: "uifaces-popular-image5",
               alt: "Stephany M. García",
             },
           },
@@ -1653,7 +1563,7 @@ export default defineAppConfig({
             name: "Sandra Milena Barona",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image4.webp?alt=media&token=5d545267-03e6-4e83-a081-4a16259805e2",
+              src: "uifaces-popular-image4",
               alt: "Sandra Milena Barona",
             },
           },
@@ -1665,7 +1575,7 @@ export default defineAppConfig({
             name: "Luis Javier Rodríguez M.",
             description: "Honduras",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image3.webp?alt=media&token=54d9ed05-162a-4b20-a485-bdc87aaeb27f",
+              src: "uifaces-popular-image3",
               alt: "Luis Javier Rodríguez M.",
             },
           },
@@ -1677,7 +1587,7 @@ export default defineAppConfig({
             name: "Carlos Andrés Mejía",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image2.webp?alt=media&token=24560311-369e-4f54-9a1a-36f0da7ec9f7",
+              src: "uifaces-popular-image2",
               alt: "Carlos Andrés Mejía",
             },
           },
@@ -1688,10 +1598,7 @@ export default defineAppConfig({
           user: {
             name: "Ana Lucía Torres",
             description: "Ecuador",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-human-image6.webp?alt=media&token=bb28b34b-f738-40ee-be58-e5fd35751da2",
-              alt: "Ana Lucía Torres",
-            },
+            avatar: { src: "uifaces-human-image6", alt: "Ana Lucía Torres" },
           },
           quote:
             "Viajar en familia a Villavicencio fue muy fácil gracias a este servicio de alquiler. Recorrimos Caño Cristales y la Catedral, con buen precio y excelente atención.",
@@ -1700,10 +1607,7 @@ export default defineAppConfig({
           user: {
             name: "Esteban Páez",
             description: "Colombia",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image.webp?alt=media&token=556252eb-f9e0-4cc5-832a-0e97d691b4d0",
-              alt: "Esteban Páez",
-            },
+            avatar: { src: "uifaces-popular-image", alt: "Esteban Páez" },
           },
           quote:
             "Excelente alternativa para recorrer Villavicencio. El auto fue perfecto para ir al Mirador La Piedra del Amor y el Parque Infantil, muy limpio, seguro y con buen consumo de gasolina.",
@@ -1720,7 +1624,7 @@ export default defineAppConfig({
             name: "Stephany M. García",
             description: "Peru",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image5.webp?alt=media&token=b6467738-4692-48dd-937c-16c81f715926",
+              src: "uifaces-popular-image5",
               alt: "Stephany M. García",
             },
           },
@@ -1732,7 +1636,7 @@ export default defineAppConfig({
             name: "Sandra Milena Barona",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image4.webp?alt=media&token=5d545267-03e6-4e83-a081-4a16259805e2",
+              src: "uifaces-popular-image4",
               alt: "Sandra Milena Barona",
             },
           },
@@ -1744,7 +1648,7 @@ export default defineAppConfig({
             name: "Luis Javier Rodríguez M.",
             description: "Honduras",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image3.webp?alt=media&token=54d9ed05-162a-4b20-a485-bdc87aaeb27f",
+              src: "uifaces-popular-image3",
               alt: "Luis Javier Rodríguez M.",
             },
           },
@@ -1756,7 +1660,7 @@ export default defineAppConfig({
             name: "Carlos Andrés Mejía",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image2.webp?alt=media&token=24560311-369e-4f54-9a1a-36f0da7ec9f7",
+              src: "uifaces-popular-image2",
               alt: "Carlos Andrés Mejía",
             },
           },
@@ -1767,10 +1671,7 @@ export default defineAppConfig({
           user: {
             name: "Ana Lucía Torres",
             description: "Ecuador",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-human-image6.webp?alt=media&token=bb28b34b-f738-40ee-be58-e5fd35751da2",
-              alt: "Ana Lucía Torres",
-            },
+            avatar: { src: "uifaces-human-image6", alt: "Ana Lucía Torres" },
           },
           quote:
             "Viajar en familia a Floridablanca fue muy fácil gracias a este servicio de alquiler. Recorrimos el Jardín Botánico Eloy Valenzuela y el Acualago, con buen precio y excelente atención.",
@@ -1779,10 +1680,7 @@ export default defineAppConfig({
           user: {
             name: "Esteban Páez",
             description: "Colombia",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image.webp?alt=media&token=556252eb-f9e0-4cc5-832a-0e97d691b4d0",
-              alt: "Esteban Páez",
-            },
+            avatar: { src: "uifaces-popular-image", alt: "Esteban Páez" },
           },
           quote:
             "Excelente alternativa para recorrer Floridablanca. El auto fue perfecto para ir al Parque Natural La Pera y el Centro Comercial Cañaveral, muy limpio, seguro y con buen consumo de gasolina.",
@@ -1801,7 +1699,7 @@ export default defineAppConfig({
             name: "Stephany M. García",
             description: "Peru",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image5.webp?alt=media&token=b6467738-4692-48dd-937c-16c81f715926",
+              src: "uifaces-popular-image5",
               alt: "Stephany M. García",
             },
           },
@@ -1813,7 +1711,7 @@ export default defineAppConfig({
             name: "Sandra Milena Barona",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image4.webp?alt=media&token=5d545267-03e6-4e83-a081-4a16259805e2",
+              src: "uifaces-popular-image4",
               alt: "Sandra Milena Barona",
             },
           },
@@ -1825,7 +1723,7 @@ export default defineAppConfig({
             name: "Luis Javier Rodríguez M.",
             description: "Honduras",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image3.webp?alt=media&token=54d9ed05-162a-4b20-a485-bdc87aaeb27f",
+              src: "uifaces-popular-image3",
               alt: "Luis Javier Rodríguez M.",
             },
           },
@@ -1837,7 +1735,7 @@ export default defineAppConfig({
             name: "Carlos Andrés Mejía",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image2.webp?alt=media&token=24560311-369e-4f54-9a1a-36f0da7ec9f7",
+              src: "uifaces-popular-image2",
               alt: "Carlos Andrés Mejía",
             },
           },
@@ -1848,10 +1746,7 @@ export default defineAppConfig({
           user: {
             name: "Ana Lucía Torres",
             description: "Ecuador",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-human-image6.webp?alt=media&token=bb28b34b-f738-40ee-be58-e5fd35751da2",
-              alt: "Ana Lucía Torres",
-            },
+            avatar: { src: "uifaces-human-image6", alt: "Ana Lucía Torres" },
           },
           quote:
             "Viajar en familia a Palmira fue muy fácil gracias a este servicio de alquiler. Recorrimos el Zoológico y el Parque Bolívar, con buen precio y excelente atención.",
@@ -1860,10 +1755,7 @@ export default defineAppConfig({
           user: {
             name: "Esteban Páez",
             description: "Colombia",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image.webp?alt=media&token=556252eb-f9e0-4cc5-832a-0e97d691b4d0",
-              alt: "Esteban Páez",
-            },
+            avatar: { src: "uifaces-popular-image", alt: "Esteban Páez" },
           },
           quote:
             "Excelente alternativa para recorrer Palmira. El auto fue perfecto para ir al Centro Histórico y el Parque de los Fundadores, muy limpio, seguro y con buen consumo de gasolina.",
@@ -1882,7 +1774,7 @@ export default defineAppConfig({
             name: "Stephany M. García",
             description: "Peru",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image5.webp?alt=media&token=b6467738-4692-48dd-937c-16c81f715926",
+              src: "uifaces-popular-image5",
               alt: "Stephany M. García",
             },
           },
@@ -1894,7 +1786,7 @@ export default defineAppConfig({
             name: "Sandra Milena Barona",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image4.webp?alt=media&token=5d545267-03e6-4e83-a081-4a16259805e2",
+              src: "uifaces-popular-image4",
               alt: "Sandra Milena Barona",
             },
           },
@@ -1906,7 +1798,7 @@ export default defineAppConfig({
             name: "Luis Javier Rodríguez M.",
             description: "Honduras",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image3.webp?alt=media&token=54d9ed05-162a-4b20-a485-bdc87aaeb27f",
+              src: "uifaces-popular-image3",
               alt: "Luis Javier Rodríguez M.",
             },
           },
@@ -1918,7 +1810,7 @@ export default defineAppConfig({
             name: "Carlos Andrés Mejía",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image2.webp?alt=media&token=24560311-369e-4f54-9a1a-36f0da7ec9f7",
+              src: "uifaces-popular-image2",
               alt: "Carlos Andrés Mejía",
             },
           },
@@ -1929,10 +1821,7 @@ export default defineAppConfig({
           user: {
             name: "Ana Lucía Torres",
             description: "Ecuador",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-human-image6.webp?alt=media&token=bb28b34b-f738-40ee-be58-e5fd35751da2",
-              alt: "Ana Lucía Torres",
-            },
+            avatar: { src: "uifaces-human-image6", alt: "Ana Lucía Torres" },
           },
           quote:
             "Viajar en familia a Soledad fue muy fácil gracias a este servicio de alquiler. Recorrimos la Iglesia y el Parque Central, con buen precio y excelente atención.",
@@ -1941,10 +1830,7 @@ export default defineAppConfig({
           user: {
             name: "Esteban Páez",
             description: "Colombia",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image.webp?alt=media&token=556252eb-f9e0-4cc5-832a-0e97d691b4d0",
-              alt: "Esteban Páez",
-            },
+            avatar: { src: "uifaces-popular-image", alt: "Esteban Páez" },
           },
           quote:
             "Excelente alternativa para recorrer Soledad. El auto fue perfecto para ir al Mercado Público y el Malecón, muy limpio, seguro y con buen consumo de gasolina.",
@@ -1963,7 +1849,7 @@ export default defineAppConfig({
             name: "Stephany M. García",
             description: "Peru",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image5.webp?alt=media&token=b6467738-4692-48dd-937c-16c81f715926",
+              src: "uifaces-popular-image5",
               alt: "Stephany M. García",
             },
           },
@@ -1975,7 +1861,7 @@ export default defineAppConfig({
             name: "Sandra Milena Barona",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image4.webp?alt=media&token=5d545267-03e6-4e83-a081-4a16259805e2",
+              src: "uifaces-popular-image4",
               alt: "Sandra Milena Barona",
             },
           },
@@ -1987,7 +1873,7 @@ export default defineAppConfig({
             name: "Luis Javier Rodríguez M.",
             description: "Honduras",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image3.webp?alt=media&token=54d9ed05-162a-4b20-a485-bdc87aaeb27f",
+              src: "uifaces-popular-image3",
               alt: "Luis Javier Rodríguez M.",
             },
           },
@@ -1999,7 +1885,7 @@ export default defineAppConfig({
             name: "Carlos Andrés Mejía",
             description: "Colombia",
             avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image2.webp?alt=media&token=24560311-369e-4f54-9a1a-36f0da7ec9f7",
+              src: "uifaces-popular-image2",
               alt: "Carlos Andrés Mejía",
             },
           },
@@ -2010,10 +1896,7 @@ export default defineAppConfig({
           user: {
             name: "Ana Lucía Torres",
             description: "Ecuador",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-human-image6.webp?alt=media&token=bb28b34b-f738-40ee-be58-e5fd35751da2",
-              alt: "Ana Lucía Torres",
-            },
+            avatar: { src: "uifaces-human-image6", alt: "Ana Lucía Torres" },
           },
           quote:
             "Viajar en familia a Cancún fue muy fácil gracias a este servicio de alquiler. Recorrimos los cenotes y Playa Delfines, con buen precio y excelente atención.",
@@ -2022,10 +1905,7 @@ export default defineAppConfig({
           user: {
             name: "Esteban Páez",
             description: "Colombia",
-            avatar: {
-              src: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Favatares%2Fuifaces-popular-image.webp?alt=media&token=556252eb-f9e0-4cc5-832a-0e97d691b4d0",
-              alt: "Esteban Páez",
-            },
+            avatar: { src: "uifaces-popular-image", alt: "Esteban Páez" },
           },
           quote:
             "Excelente alternativa para recorrer Cancún. El auto fue perfecto para ir al Museo Subacuático y Xcaret, muy limpio, seguro y con buen consumo de gasolina.",
@@ -2036,780 +1916,846 @@ export default defineAppConfig({
   adminData: {
     branches: [
       {
-          "id": 1,
-          "code": "AARME",
-          "name": "Armenia Aeropuerto",
-          "city": "armenia",
-          "schedule": {}
+        id: 1,
+        code: "AARME",
+        name: "Armenia Aeropuerto",
+        city: "armenia",
+        schedule: {},
       },
       {
-          "id": 2,
-          "code": "AABAN",
-          "name": "Barranquilla Aeropuerto",
-          "city": "barranquilla",
-          "schedule": {}
+        id: 2,
+        code: "AABAN",
+        name: "Barranquilla Aeropuerto",
+        city: "barranquilla",
+        schedule: {},
       },
       {
-          "id": 3,
-          "code": "ACBAN",
-          "name": "Barranquilla Vía 40",
-          "city": "barranquilla",
-          "schedule": {}
+        id: 3,
+        code: "ACBAN",
+        name: "Barranquilla Vía 40",
+        city: "barranquilla",
+        schedule: {},
       },
       {
-          "id": 4,
-          "code": "ACBSD",
-          "name": "Soledad ",
-          "city": "soledad",
-          "schedule": {}
+        id: 4,
+        code: "ACBSD",
+        name: "Soledad ",
+        city: "soledad",
+        schedule: {},
       },
       {
-          "id": 5,
-          "code": "AABOT",
-          "name": "Bogota Aeropuerto",
-          "city": "bogota",
-          "schedule": {}
+        id: 5,
+        code: "AABOT",
+        name: "Bogota Aeropuerto",
+        city: "bogota",
+        schedule: {},
       },
       {
-          "id": 7,
-          "code": "ACBEX",
-          "name": "Bogota Almacen Éxito Country",
-          "city": "bogota",
-          "schedule": {}
+        id: 7,
+        code: "ACBEX",
+        name: "Bogota Almacen Éxito Country",
+        city: "bogota",
+        schedule: {},
       },
       {
-          "id": 8,
-          "code": "ACBOJ",
-          "name": "Bogota Almacen Jumbo calle 170",
-          "city": "bogota",
-          "schedule": {}
+        id: 8,
+        code: "ACBOJ",
+        name: "Bogota Almacen Jumbo calle 170",
+        city: "bogota",
+        schedule: {},
       },
       {
-          "id": 12,
-          "code": "AABCR",
-          "name": "Bucaramanga Aeropuerto ",
-          "city": "bucaramanga",
-          "schedule": {}
+        id: 12,
+        code: "AABCR",
+        name: "Bucaramanga Aeropuerto ",
+        city: "bucaramanga",
+        schedule: {},
       },
       {
-          "id": 13,
-          "code": "ACBCR",
-          "name": "Floridablanca ",
-          "city": "floridablanca",
-          "schedule": {}
+        id: 13,
+        code: "ACBCR",
+        name: "Floridablanca ",
+        city: "floridablanca",
+        schedule: {},
       },
       {
-          "id": 14,
-          "code": "AAKAL",
-          "name": "Cali Aeropuerto",
-          "city": "cali",
-          "schedule": {}
+        id: 14,
+        code: "AAKAL",
+        name: "Cali Aeropuerto",
+        city: "cali",
+        schedule: {},
       },
       {
-          "id": 15,
-          "code": "ACKAL",
-          "name": "Cali Sur Camino Real ",
-          "city": "cali",
-          "schedule": {}
+        id: 15,
+        code: "ACKAL",
+        name: "Cali Sur Camino Real ",
+        city: "cali",
+        schedule: {},
       },
       {
-          "id": 16,
-          "code": "ACKJC",
-          "name": "Cali Norte Chipichape",
-          "city": "cali",
-          "schedule": {}
+        id: 16,
+        code: "ACKJC",
+        name: "Cali Norte Chipichape",
+        city: "cali",
+        schedule: {},
       },
       {
-          "id": 18,
-          "code": "ACKPA",
-          "name": "Palmira C.Cial Plaza Madero",
-          "city": "palmira",
-          "schedule": {}
+        id: 18,
+        code: "ACKPA",
+        name: "Palmira C.Cial Plaza Madero",
+        city: "palmira",
+        schedule: {},
       },
       {
-          "id": 19,
-          "code": "AACTG",
-          "name": "Cartagena Aeropuerto",
-          "city": "cartagena",
-          "schedule": {}
+        id: 19,
+        code: "AACTG",
+        name: "Cartagena Aeropuerto",
+        city: "cartagena",
+        schedule: {},
       },
       {
-          "id": 20,
-          "code": "AACUC",
-          "name": "Cucuta Aeropuerto",
-          "city": "cucuta",
-          "schedule": {}
+        id: 20,
+        code: "AACUC",
+        name: "Cucuta Aeropuerto",
+        city: "cucuta",
+        schedule: {},
       },
       {
-          "id": 21,
-          "code": "ACIBG",
-          "name": "Ibague C.Cial Plazas del Bosque",
-          "city": "ibague",
-          "schedule": {}
+        id: 21,
+        code: "ACIBG",
+        name: "Ibague C.Cial Plazas del Bosque",
+        city: "ibague",
+        schedule: {},
       },
       {
-          "id": 22,
-          "code": "ACMNZ",
-          "name": "Manizales C.Cial Mall Plaza ",
-          "city": "manizales",
-          "schedule": {}
+        id: 22,
+        code: "ACMNZ",
+        name: "Manizales C.Cial Mall Plaza ",
+        city: "manizales",
+        schedule: {},
       },
       {
-          "id": 24,
-          "code": "ACMCL",
-          "name": "Medellin Éxito Colombia ",
-          "city": "medellin",
-          "schedule": {}
+        id: 24,
+        code: "ACMCL",
+        name: "Medellin Éxito Colombia ",
+        city: "medellin",
+        schedule: {},
       },
       {
-          "id": 25,
-          "code": "ACMNN",
-          "name": "Medellín El Poblado",
-          "city": "medellin",
-          "schedule": {}
+        id: 25,
+        code: "ACMNN",
+        name: "Medellín El Poblado",
+        city: "medellin",
+        schedule: {},
       },
       {
-          "id": 26,
-          "code": "AAMDL",
-          "name": "Medellín Aeropuerto",
-          "city": "medellin",
-          "schedule": {}
+        id: 26,
+        code: "AAMDL",
+        name: "Medellín Aeropuerto",
+        city: "medellin",
+        schedule: {},
       },
       {
-          "id": 27,
-          "code": "ACMJM",
-          "name": "Rionegro",
-          "city": "medellin",
-          "schedule": {}
+        id: 27,
+        code: "ACMJM",
+        name: "Rionegro",
+        city: "medellin",
+        schedule: {},
       },
       {
-          "id": 30,
-          "code": "AAMTR",
-          "name": "Montería Aeropuerto",
-          "city": "monteria",
-          "schedule": {}
+        id: 30,
+        code: "AAMTR",
+        name: "Montería Aeropuerto",
+        city: "monteria",
+        schedule: {},
       },
       {
-          "id": 31,
-          "code": "ACMTR",
-          "name": "Monteria C.Cial Buenavista ",
-          "city": "monteria",
-          "schedule": {}
+        id: 31,
+        code: "ACMTR",
+        name: "Monteria C.Cial Buenavista ",
+        city: "monteria",
+        schedule: {},
       },
       {
-          "id": 32,
-          "code": "AANVA",
-          "name": "Neiva Aeropuerto",
-          "city": "neiva",
-          "schedule": {}
+        id: 32,
+        code: "AANVA",
+        name: "Neiva Aeropuerto",
+        city: "neiva",
+        schedule: {},
       },
       {
-          "id": 33,
-          "code": "AAPEI",
-          "name": "Pereira Aeropuerto",
-          "city": "pereira",
-          "schedule": {}
+        id: 33,
+        code: "AAPEI",
+        name: "Pereira Aeropuerto",
+        city: "pereira",
+        schedule: {},
       },
       {
-          "id": 34,
-          "code": "AASMR",
-          "name": "Santa Marta Aeropuerto",
-          "city": "santa-marta",
-          "schedule": {}
+        id: 34,
+        code: "AASMR",
+        name: "Santa Marta Aeropuerto",
+        city: "santa-marta",
+        schedule: {},
       },
       {
-          "id": 35,
-          "code": "ACSMR",
-          "name": "Santa Marta Centro",
-          "city": "santa-marta",
-          "schedule": {}
+        id: 35,
+        code: "ACSMR",
+        name: "Santa Marta Centro",
+        city: "santa-marta",
+        schedule: {},
       },
       {
-          "id": 36,
-          "code": "AAVAL",
-          "name": "Valledupar Aeropuerto",
-          "city": "valledupar",
-          "schedule": {}
+        id: 36,
+        code: "AAVAL",
+        name: "Valledupar Aeropuerto",
+        city: "valledupar",
+        schedule: {},
       },
       {
-          "id": 37,
-          "code": "ACVLL",
-          "name": "Villavicencio C.Cial Llano Centro ",
-          "city": "villavicencio",
-          "schedule": {}
+        id: 37,
+        code: "ACVLL",
+        name: "Villavicencio C.Cial Llano Centro ",
+        city: "villavicencio",
+        schedule: {},
       },
       {
-          "id": 38,
-          "code": "ACBNN",
-          "name": "Bogota C.Cial Nuestro Bogotá",
-          "city": "bogota",
-          "schedule": {}
+        id: 38,
+        code: "ACBNN",
+        name: "Bogota C.Cial Nuestro Bogotá",
+        city: "bogota",
+        schedule: {},
       },
       {
-          "id": 39,
-          "code": "ACBED",
-          "name": "Bogota Fontibon",
-          "city": "bogota",
-          "schedule": {}
-      }
+        id: 39,
+        code: "ACBED",
+        name: "Bogota Fontibon",
+        city: "bogota",
+        schedule: {},
+      },
     ],
     categories: [
       {
-          "id": "C",
-          "identification": "C",
-          "name": "Gama C",
-          "category": "Gama C Económico Mecánico",
-          "description": "Automóvil de Trasmisión Mecánica de 5 pasajeros, 2 equipajes grandes 1 de mano, 5 puertas (HB), Aire AC, Rádio, VÍdrios Eléctricos, Dirección EPS, Frenos ABS, AirBags",
-          "image": "https://storage.googleapis.com/aw-rentcar/carcategories/renault-kwid-10-o-similar.webp",
-          "ad": "",
-          "models": [
-              {
-                  "name": "Fiat Mobi 1.0",
-                  "image": "https://storage.googleapis.com/aw-rentcar/carcategories/fiat-mobi-10.webp",
-                  "description": "o similar",
-                  "default": true
-              },
-              {
-                  "name": "Renault Kwid 1.0",
-                  "image": "https://storage.googleapis.com/aw-rentcar/carcategories/renault-kwid-10-o-similar.webp",
-                  "description": "o similar",
-                  "default": false
-              },
-              {
-                  "name": "Susuki S-Presso 1.0",
-                  "image": "https://storage.googleapis.com/aw-rentcar/carcategories/susuki-s-presso-10.webp",
-                  "description": "o similar",
-                  "default": false
-              },
-              {
-                  "name": "Kia Picanto 1.0",
-                  "image": "https://storage.googleapis.com/aw-rentcar/carcategories/chevrolet-spark-gt-12.webp",
-                  "description": "o similar",
-                  "default": false
-              }
-          ],
-          "month_prices": [
-              {
-                  "1k_kms": 3756000,
-                  "2k_kms": 4196000,
-                  "3k_kms": 4196000,
-                  "init_date": "15-01-2024",
-                  "end_date": "30-12-2024",
-                  "total_insurance_price": 476000,
-                  "one_day_price": 125200
-              }
-          ],
-          "total_coverage_unit_charge": 67090,
-          "active": 1
+        id: "C",
+        identification: "C",
+        name: "Gama C",
+        category: "Gama C Económico Mecánico",
+        description:
+          "Automóvil de Trasmisión Mecánica de 5 pasajeros, 2 equipajes grandes 1 de mano, 5 puertas (HB), Aire AC, Rádio, VÍdrios Eléctricos, Dirección EPS, Frenos ABS, AirBags",
+        image:
+          "https://storage.googleapis.com/aw-rentcar/carcategories/renault-kwid-10-o-similar.webp",
+        ad: "",
+        models: [
+          {
+            name: "Fiat Mobi 1.0",
+            image:
+              "https://storage.googleapis.com/aw-rentcar/carcategories/fiat-mobi-10.webp",
+            description: "o similar",
+            default: true,
+          },
+          {
+            name: "Renault Kwid 1.0",
+            image:
+              "https://storage.googleapis.com/aw-rentcar/carcategories/renault-kwid-10-o-similar.webp",
+            description: "o similar",
+            default: false,
+          },
+          {
+            name: "Susuki S-Presso 1.0",
+            image:
+              "https://storage.googleapis.com/aw-rentcar/carcategories/susuki-s-presso-10.webp",
+            description: "o similar",
+            default: false,
+          },
+          {
+            name: "Kia Picanto 1.0",
+            image:
+              "https://storage.googleapis.com/aw-rentcar/carcategories/chevrolet-spark-gt-12.webp",
+            description: "o similar",
+            default: false,
+          },
+        ],
+        month_prices: [
+          {
+            "1k_kms": 3756000,
+            "2k_kms": 4196000,
+            "3k_kms": 4196000,
+            init_date: "15-01-2024",
+            end_date: "30-12-2024",
+            total_insurance_price: 476000,
+            one_day_price: 125200,
+          },
+        ],
+        total_coverage_unit_charge: 67090,
+        active: 1,
       },
       {
-          "id": "F",
-          "identification": "F",
-          "name": "Gama F",
-          "category": "Gama F Sedán Mecánico",
-          "description": "Automóvil tipo Sedán y HatchBack, 5 pasajeros, 2 equipajes grandes y 2 de mano, Aire AC, Radio, Vídrios Eléctricos, Dirección EPS, Frenos ABS, AirBags",
-          "image": "https://storage.googleapis.com/aw-rentcar/carcategories/suzuki-swift-dzire-12.webp",
-          "ad": "",
-          "models": [
-              {
-                  "name": "Renault Sandero 1.6",
-                  "image": "https://storage.googleapis.com/aw-rentcar/carcategories/renault-logan-16.webp",
-                  "description": "HatchBack o similar",
-                  "default": true
-              },
-              {
-                  "name": "Hyundai Accent 1.5",
-                  "image": "https://storage.googleapis.com/aw-rentcar/carcategories/hyundai-accent-16.webp",
-                  "description": "Sedán o similar",
-                  "default": false
-              },
-              {
-                  "name": "Suzuki Baleno 1.4",
-                  "image": "https://storage.googleapis.com/aw-rentcar/carcategories/suzuki-baleno-hb-13.webp",
-                  "description": "HatchBack o similar",
-                  "default": false
-              },
-              {
-                  "name": "Chevrolet Joy 1.4",
-                  "image": "https://storage.googleapis.com/aw-rentcar/carcategories/chevrolet-joy-14-sedan.webp",
-                  "description": "Sedán o similar",
-                  "default": false
-              },
-              {
-                  "name": "Volkswagen Voyage 1.6",
-                  "image": "https://storage.googleapis.com/aw-rentcar/carcategories/volkswagen-voyage-16-sedan.webp",
-                  "description": "Sedán o similar",
-                  "default": false
-              }
-          ],
-          "month_prices": [
-              {
-                  "1k_kms": 4467000,
-                  "2k_kms": 4909000,
-                  "3k_kms": 4909000,
-                  "init_date": "15-01-2024",
-                  "end_date": "30-12-2024",
-                  "total_insurance_price": 476000,
-                  "one_day_price": 148900
-              }
-          ],
-          "total_coverage_unit_charge": 76366,
-          "active": 1
+        id: "F",
+        identification: "F",
+        name: "Gama F",
+        category: "Gama F Sedán Mecánico",
+        description:
+          "Automóvil tipo Sedán y HatchBack, 5 pasajeros, 2 equipajes grandes y 2 de mano, Aire AC, Radio, Vídrios Eléctricos, Dirección EPS, Frenos ABS, AirBags",
+        image:
+          "https://storage.googleapis.com/aw-rentcar/carcategories/suzuki-swift-dzire-12.webp",
+        ad: "",
+        models: [
+          {
+            name: "Renault Sandero 1.6",
+            image:
+              "https://storage.googleapis.com/aw-rentcar/carcategories/renault-logan-16.webp",
+            description: "HatchBack o similar",
+            default: true,
+          },
+          {
+            name: "Hyundai Accent 1.5",
+            image:
+              "https://storage.googleapis.com/aw-rentcar/carcategories/hyundai-accent-16.webp",
+            description: "Sedán o similar",
+            default: false,
+          },
+          {
+            name: "Suzuki Baleno 1.4",
+            image:
+              "https://storage.googleapis.com/aw-rentcar/carcategories/suzuki-baleno-hb-13.webp",
+            description: "HatchBack o similar",
+            default: false,
+          },
+          {
+            name: "Chevrolet Joy 1.4",
+            image:
+              "https://storage.googleapis.com/aw-rentcar/carcategories/chevrolet-joy-14-sedan.webp",
+            description: "Sedán o similar",
+            default: false,
+          },
+          {
+            name: "Volkswagen Voyage 1.6",
+            image:
+              "https://storage.googleapis.com/aw-rentcar/carcategories/volkswagen-voyage-16-sedan.webp",
+            description: "Sedán o similar",
+            default: false,
+          },
+        ],
+        month_prices: [
+          {
+            "1k_kms": 4467000,
+            "2k_kms": 4909000,
+            "3k_kms": 4909000,
+            init_date: "15-01-2024",
+            end_date: "30-12-2024",
+            total_insurance_price: 476000,
+            one_day_price: 148900,
+          },
+        ],
+        total_coverage_unit_charge: 76366,
+        active: 1,
       },
       {
-          "id": "FX",
-          "identification": "FX",
-          "name": "Gama FX",
-          "category": "Gama FX Sedán Automático",
-          "description": "5 personas +2 maletas grandes y 2 pequeñas +4 Puertas\n                Aire Acondicionado +Radio +Cierre central +Vidrios eléctrico\n                Dirección Asistida +Air Bag",
-          "image": "https://storage.googleapis.com/aw-rentcar/carcategories/hyundai-accent-advance-16.webp",
-          "ad": "",
-          "models": [
-              {
-                  "name": "Suzuki Swift Dzire 1.2",
-                  "image": "https://storage.googleapis.com/aw-rentcar/carcategories/suzuki-swift-dzire-12.webp",
-                  "description": "Sedán o similar",
-                  "default": true
-              },
-              {
-                  "name": "Renault Logan 1.6",
-                  "image": "https://storage.googleapis.com/aw-rentcar/carcategories/renault-logan-16.webp",
-                  "description": "Sedán o similar",
-                  "default": false
-              },
-              {
-                  "name": "Volkswagen Gol 1.6",
-                  "image": "https://storage.googleapis.com/aw-rentcar/carcategories/volkswagen-gol-16.webp",
-                  "description": "HatchBack o similar",
-                  "default": false
-              },
-              {
-                  "name": "Kia Rio 1.3",
-                  "image": "https://storage.googleapis.com/aw-rentcar/carcategories/kia-rio-13.webp",
-                  "description": "HacthBack o similar",
-                  "default": false
-              }
-          ],
-          "month_prices": [
-              {
-                  "1k_kms": 4614000,
-                  "2k_kms": 5056000,
-                  "3k_kms": 5056000,
-                  "init_date": "15-01-2024",
-                  "end_date": "30-12-2024",
-                  "total_insurance_price": 476000,
-                  "one_day_price": 153800
-              }
-          ],
-          "total_coverage_unit_charge": 76366,
-          "active": 1
+        id: "FX",
+        identification: "FX",
+        name: "Gama FX",
+        category: "Gama FX Sedán Automático",
+        description:
+          "5 personas +2 maletas grandes y 2 pequeñas +4 Puertas\n                Aire Acondicionado +Radio +Cierre central +Vidrios eléctrico\n                Dirección Asistida +Air Bag",
+        image:
+          "https://storage.googleapis.com/aw-rentcar/carcategories/hyundai-accent-advance-16.webp",
+        ad: "",
+        models: [
+          {
+            name: "Suzuki Swift Dzire 1.2",
+            image:
+              "https://storage.googleapis.com/aw-rentcar/carcategories/suzuki-swift-dzire-12.webp",
+            description: "Sedán o similar",
+            default: true,
+          },
+          {
+            name: "Renault Logan 1.6",
+            image:
+              "https://storage.googleapis.com/aw-rentcar/carcategories/renault-logan-16.webp",
+            description: "Sedán o similar",
+            default: false,
+          },
+          {
+            name: "Volkswagen Gol 1.6",
+            image:
+              "https://storage.googleapis.com/aw-rentcar/carcategories/volkswagen-gol-16.webp",
+            description: "HatchBack o similar",
+            default: false,
+          },
+          {
+            name: "Kia Rio 1.3",
+            image:
+              "https://storage.googleapis.com/aw-rentcar/carcategories/kia-rio-13.webp",
+            description: "HacthBack o similar",
+            default: false,
+          },
+        ],
+        month_prices: [
+          {
+            "1k_kms": 4614000,
+            "2k_kms": 5056000,
+            "3k_kms": 5056000,
+            init_date: "15-01-2024",
+            end_date: "30-12-2024",
+            total_insurance_price: 476000,
+            one_day_price: 153800,
+          },
+        ],
+        total_coverage_unit_charge: 76366,
+        active: 1,
       },
       {
-          "id": "LY",
-          "identification": "LY",
-          "name": "Gama LY",
-          "category": "Gama LY Sedán Automático Eléctrico",
-          "description": "Automóvil Electrico de 220km de Autonomia , 5 pasajeros, 2 equipajes grandes y 2 de mano, Aire AC, Radio, Vidrios electricos, Direccion EPS, Frenos ABS, AirBags",
-          "image": "https://storage.googleapis.com/aw-rentcar/carcategories/renault-zoe-o-similar.webp",
-          "ad": "",
-          "models": [
-              {
-                  "name": "Changan E-Star Electrico",
-                  "image": "https://storage.googleapis.com/aw-rentcar/carcategories/e-star-electrico-automatico.webp",
-                  "description": "HatchBack o similar",
-                  "default": true
-              }
-          ],
-          "month_prices": [
-              {
-                  "1k_kms": 5788990,
-                  "2k_kms": 5788990,
-                  "3k_kms": 6579990,
-                  "init_date": "15-01-2024",
-                  "end_date": "30-12-2024",
-                  "total_insurance_price": 100,
-                  "one_day_price": 0
-              }
-          ],
-          "total_coverage_unit_charge": 100,
-          "active": 0
+        id: "LY",
+        identification: "LY",
+        name: "Gama LY",
+        category: "Gama LY Sedán Automático Eléctrico",
+        description:
+          "Automóvil Electrico de 220km de Autonomia , 5 pasajeros, 2 equipajes grandes y 2 de mano, Aire AC, Radio, Vidrios electricos, Direccion EPS, Frenos ABS, AirBags",
+        image:
+          "https://storage.googleapis.com/aw-rentcar/carcategories/renault-zoe-o-similar.webp",
+        ad: "",
+        models: [
+          {
+            name: "Changan E-Star Electrico",
+            image:
+              "https://storage.googleapis.com/aw-rentcar/carcategories/e-star-electrico-automatico.webp",
+            description: "HatchBack o similar",
+            default: true,
+          },
+        ],
+        month_prices: [
+          {
+            "1k_kms": 5788990,
+            "2k_kms": 5788990,
+            "3k_kms": 6579990,
+            init_date: "15-01-2024",
+            end_date: "30-12-2024",
+            total_insurance_price: 100,
+            one_day_price: 0,
+          },
+        ],
+        total_coverage_unit_charge: 100,
+        active: 0,
       },
       {
-          "id": "G",
-          "identification": "G",
-          "name": "Gama G",
-          "category": "Gama G Camioneta Mecánica",
-          "description": "Camioneta de Transmisión Mecanica 4x2 a Gasolina, 5 pasageros, 5 Puertas, Aire AC, Radio, Cierre central, Vídrios Eléctricos, Dirección Asistida, Frenos ABS, Air Bags.",
-          "image": "https://storage.googleapis.com/aw-rentcar/carcategories/arona.webp",
-          "ad": "",
-          "models": [
-              {
-                  "name": "Fiat Pulse 1.3",
-                  "image": "https://storage.googleapis.com/aw-rentcar/carcategories/fiat-pulse-13.webp",
-                  "description": "o similar",
-                  "default": true
-              },
-              {
-                  "name": "Hyundai Creta",
-                  "image": "https://storage.googleapis.com/aw-rentcar/carcategories/hyundai-creta.webp",
-                  "description": "o similar",
-                  "default": false
-              },
-              {
-                  "name": "Seat Arona",
-                  "image": "https://storage.googleapis.com/aw-rentcar/carcategories/seat-arona.webp",
-                  "description": "o similar",
-                  "default": false
-              },
-              {
-                  "name": "Suzuki Vitara 1.4",
-                  "image": "https://storage.googleapis.com/aw-rentcar/carcategories/suzuki-vitara-1.webp",
-                  "description": "o similar",
-                  "default": false
-              }
-          ],
-          "month_prices": [
-              {
-                  "1k_kms": 0,
-                  "2k_kms": 6584990,
-                  "3k_kms": 6584990,
-                  "init_date": "15-01-2024",
-                  "end_date": "30-12-2024",
-                  "total_insurance_price": 100,
-                  "one_day_price": 0
-              }
-          ],
-          "total_coverage_unit_charge": 100,
-          "active": 0
+        id: "G",
+        identification: "G",
+        name: "Gama G",
+        category: "Gama G Camioneta Mecánica",
+        description:
+          "Camioneta de Transmisión Mecanica 4x2 a Gasolina, 5 pasageros, 5 Puertas, Aire AC, Radio, Cierre central, Vídrios Eléctricos, Dirección Asistida, Frenos ABS, Air Bags.",
+        image:
+          "https://storage.googleapis.com/aw-rentcar/carcategories/arona.webp",
+        ad: "",
+        models: [
+          {
+            name: "Fiat Pulse 1.3",
+            image:
+              "https://storage.googleapis.com/aw-rentcar/carcategories/fiat-pulse-13.webp",
+            description: "o similar",
+            default: true,
+          },
+          {
+            name: "Hyundai Creta",
+            image:
+              "https://storage.googleapis.com/aw-rentcar/carcategories/hyundai-creta.webp",
+            description: "o similar",
+            default: false,
+          },
+          {
+            name: "Seat Arona",
+            image:
+              "https://storage.googleapis.com/aw-rentcar/carcategories/seat-arona.webp",
+            description: "o similar",
+            default: false,
+          },
+          {
+            name: "Suzuki Vitara 1.4",
+            image:
+              "https://storage.googleapis.com/aw-rentcar/carcategories/suzuki-vitara-1.webp",
+            description: "o similar",
+            default: false,
+          },
+        ],
+        month_prices: [
+          {
+            "1k_kms": 0,
+            "2k_kms": 6584990,
+            "3k_kms": 6584990,
+            init_date: "15-01-2024",
+            end_date: "30-12-2024",
+            total_insurance_price: 100,
+            one_day_price: 0,
+          },
+        ],
+        total_coverage_unit_charge: 100,
+        active: 0,
       },
       {
-          "id": "GC",
-          "identification": "GC",
-          "name": "Gama GC",
-          "category": "Gama GC Camioneta Automática",
-          "description": "5 personas +2 maletas grandes y 3 pequeñas +4 Puertas\n                Aire Acondicionado +Radio +Cierre central +Vidrios eléctrico\n                Dirección Asistida +Air Bag",
-          "image": "https://storage.googleapis.com/aw-rentcar/carcategories/seat-arona-16.webp",
-          "ad": "",
-          "models": [
-              {
-                  "name": "Hyundai Creta 1.6",
-                  "image": "https://storage.googleapis.com/aw-rentcar/carcategories/hyundai-creta-16.webp",
-                  "description": "o similar",
-                  "default": true
-              },
-              {
-                  "name": "Opel Crossland",
-                  "image": "https://storage.googleapis.com/aw-rentcar/carcategories/opel-crossland.webp",
-                  "description": "o similar",
-                  "default": false
-              },
-              {
-                  "name": "Kia Sonet",
-                  "image": "https://storage.googleapis.com/aw-rentcar/carcategories/kia-sonet.webp",
-                  "description": "o similar",
-                  "default": false
-              }
-          ],
-          "month_prices": [
-              {
-                  "1k_kms": 5938000,
-                  "2k_kms": 6582000,
-                  "3k_kms": 6582000,
-                  "init_date": "15-01-2024",
-                  "end_date": "30-12-2024",
-                  "total_insurance_price": 595000,
-                  "one_day_price": 197900
-              }
-          ],
-          "total_coverage_unit_charge": 98741,
-          "active": 0
+        id: "GC",
+        identification: "GC",
+        name: "Gama GC",
+        category: "Gama GC Camioneta Automática",
+        description:
+          "5 personas +2 maletas grandes y 3 pequeñas +4 Puertas\n                Aire Acondicionado +Radio +Cierre central +Vidrios eléctrico\n                Dirección Asistida +Air Bag",
+        image:
+          "https://storage.googleapis.com/aw-rentcar/carcategories/seat-arona-16.webp",
+        ad: "",
+        models: [
+          {
+            name: "Hyundai Creta 1.6",
+            image:
+              "https://storage.googleapis.com/aw-rentcar/carcategories/hyundai-creta-16.webp",
+            description: "o similar",
+            default: true,
+          },
+          {
+            name: "Opel Crossland",
+            image:
+              "https://storage.googleapis.com/aw-rentcar/carcategories/opel-crossland.webp",
+            description: "o similar",
+            default: false,
+          },
+          {
+            name: "Kia Sonet",
+            image:
+              "https://storage.googleapis.com/aw-rentcar/carcategories/kia-sonet.webp",
+            description: "o similar",
+            default: false,
+          },
+        ],
+        month_prices: [
+          {
+            "1k_kms": 5938000,
+            "2k_kms": 6582000,
+            "3k_kms": 6582000,
+            init_date: "15-01-2024",
+            end_date: "30-12-2024",
+            total_insurance_price: 595000,
+            one_day_price: 197900,
+          },
+        ],
+        total_coverage_unit_charge: 98741,
+        active: 0,
       },
       {
-          "id": "G4",
-          "identification": "G4",
-          "name": "Gama G4",
-          "category": "Gama G4 Camioneta Mecánica 4X4",
-          "description": "5 personas +2 maletas grandes y 3 pequeñas +4 Puertas\n                Aire Acondicionado +Radio +Cierre central +Vidrios eléctrico\n                Dirección Asistida +Air Bag",
-          "image": "https://storage.googleapis.com/aw-rentcar/carcategories/renault-duster-dynamiqe-20.webp",
-          "ad": "",
-          "models": [
-              {
-                  "name": "Renault Duster Iconic 4x2",
-                  "image": "https://storage.googleapis.com/aw-rentcar/carcategories/renault-duster-dynamiqe-20.webp",
-                  "description": "o similar",
-                  "default": true
-              }
-          ],
-          "month_prices": [
-              {
-                  "1k_kms": 6458000,
-                  "2k_kms": 7102000,
-                  "3k_kms": 7102000,
-                  "init_date": "15-01-2024",
-                  "end_date": "30-12-2024",
-                  "total_insurance_price": 595000,
-                  "one_day_price": 214266
-              }
-          ],
-          "total_coverage_unit_charge": 98741,
-          "active": 1
+        id: "G4",
+        identification: "G4",
+        name: "Gama G4",
+        category: "Gama G4 Camioneta Mecánica 4X4",
+        description:
+          "5 personas +2 maletas grandes y 3 pequeñas +4 Puertas\n                Aire Acondicionado +Radio +Cierre central +Vidrios eléctrico\n                Dirección Asistida +Air Bag",
+        image:
+          "https://storage.googleapis.com/aw-rentcar/carcategories/renault-duster-dynamiqe-20.webp",
+        ad: "",
+        models: [
+          {
+            name: "Renault Duster Iconic 4x2",
+            image:
+              "https://storage.googleapis.com/aw-rentcar/carcategories/renault-duster-dynamiqe-20.webp",
+            description: "o similar",
+            default: true,
+          },
+        ],
+        month_prices: [
+          {
+            "1k_kms": 6458000,
+            "2k_kms": 7102000,
+            "3k_kms": 7102000,
+            init_date: "15-01-2024",
+            end_date: "30-12-2024",
+            total_insurance_price: 595000,
+            one_day_price: 214266,
+          },
+        ],
+        total_coverage_unit_charge: 98741,
+        active: 1,
       },
       {
-          "id": "LP",
-          "identification": "LP",
-          "name": "Gama LP",
-          "category": "Gama LP Sedán Automático Híbrido",
-          "description": "5 personas +2 maletas grandes y 2 pequeñas +4 Puertas\n                Aire Acondicionado +Radio +Cierre central +Vidrios eléctrico\n                Dirección Asistida +Air Bag",
-          "image": "https://storage.googleapis.com/aw-rentcar/carcategories/toyota-corolla-hibrido.webp",
-          "ad": "",
-          "models": [
-              {
-                  "name": "Toyota Corolla Híbrido",
-                  "image": "https://storage.googleapis.com/aw-rentcar/carcategories/toyota-corolla-hibrido.webp",
-                  "description": "o similar",
-                  "default": true
-              }
-          ],
-          "month_prices": [
-              {
-                  "1k_kms": 0,
-                  "2k_kms": 8288990,
-                  "3k_kms": 8288990,
-                  "init_date": "15-01-2024",
-                  "end_date": "30-12-2024",
-                  "total_insurance_price": 100,
-                  "one_day_price": 0
-              }
-          ],
-          "total_coverage_unit_charge": 100,
-          "active": 0
+        id: "LP",
+        identification: "LP",
+        name: "Gama LP",
+        category: "Gama LP Sedán Automático Híbrido",
+        description:
+          "5 personas +2 maletas grandes y 2 pequeñas +4 Puertas\n                Aire Acondicionado +Radio +Cierre central +Vidrios eléctrico\n                Dirección Asistida +Air Bag",
+        image:
+          "https://storage.googleapis.com/aw-rentcar/carcategories/toyota-corolla-hibrido.webp",
+        ad: "",
+        models: [
+          {
+            name: "Toyota Corolla Híbrido",
+            image:
+              "https://storage.googleapis.com/aw-rentcar/carcategories/toyota-corolla-hibrido.webp",
+            description: "o similar",
+            default: true,
+          },
+        ],
+        month_prices: [
+          {
+            "1k_kms": 0,
+            "2k_kms": 8288990,
+            "3k_kms": 8288990,
+            init_date: "15-01-2024",
+            end_date: "30-12-2024",
+            total_insurance_price: 100,
+            one_day_price: 0,
+          },
+        ],
+        total_coverage_unit_charge: 100,
+        active: 0,
       },
       {
-          "id": "VP",
-          "identification": "VP",
-          "name": "Gama VP",
-          "category": "Gama VP Camioneta Mecánica de Platón",
-          "description": "Camioneta 4x4 de Transmisión Mecanica, Doble Cabina, 650kg de Carga, 1.3L Turbo a Gasolina, Potencia 154HP, 5 pasageros, 4 Puertas, Aire AC, Radio, Cierre central, Vídrios Eléctricos, Dirección Asistida, Frenos ABS, Air Bags.",
-          "image": "https://storage.googleapis.com/aw-rentcar/carcategories/renault-duster-oroch-4x4.webp",
-          "ad": "",
-          "models": [
-              {
-                  "name": "Renault Duster Oroch 4x4",
-                  "image": "https://storage.googleapis.com/aw-rentcar/carcategories/prueva-1.webp",
-                  "description": "o similar",
-                  "default": true
-              }
-          ],
-          "month_prices": [
-              {
-                  "1k_kms": 6458000,
-                  "2k_kms": 6899000,
-                  "3k_kms": 6899000,
-                  "init_date": "15-01-2024",
-                  "end_date": "30-12-2024",
-                  "total_insurance_price": 595000,
-                  "one_day_price": 550000
-              }
-          ],
-          "total_coverage_unit_charge": 102011,
-          "active": 1
+        id: "VP",
+        identification: "VP",
+        name: "Gama VP",
+        category: "Gama VP Camioneta Mecánica de Platón",
+        description:
+          "Camioneta 4x4 de Transmisión Mecanica, Doble Cabina, 650kg de Carga, 1.3L Turbo a Gasolina, Potencia 154HP, 5 pasageros, 4 Puertas, Aire AC, Radio, Cierre central, Vídrios Eléctricos, Dirección Asistida, Frenos ABS, Air Bags.",
+        image:
+          "https://storage.googleapis.com/aw-rentcar/carcategories/renault-duster-oroch-4x4.webp",
+        ad: "",
+        models: [
+          {
+            name: "Renault Duster Oroch 4x4",
+            image:
+              "https://storage.googleapis.com/aw-rentcar/carcategories/prueva-1.webp",
+            description: "o similar",
+            default: true,
+          },
+        ],
+        month_prices: [
+          {
+            "1k_kms": 6458000,
+            "2k_kms": 6899000,
+            "3k_kms": 6899000,
+            init_date: "15-01-2024",
+            end_date: "30-12-2024",
+            total_insurance_price: 595000,
+            one_day_price: 550000,
+          },
+        ],
+        total_coverage_unit_charge: 102011,
+        active: 1,
       },
       {
-          "id": "GX",
-          "identification": "GX",
-          "name": "Gama GX",
-          "category": "Gama GX Camioneta Automática 4x2",
-          "description": "Camioneta de Transmisión Automatica 4x2 a Gasolina, 5 pasageros, 5 Puertas, Aire AC, Radio, Cierre central, Vídrios Eléctricos, Dirección Asistida, Frenos ABS, Air Bags.",
-          "image": "https://storage.googleapis.com/aw-rentcar/carcategories/susuki-vitara-15.webp",
-          "ad": "",
-          "models": [
-              {
-                  "name": "Susuki Vitara 1.5",
-                  "image": "https://storage.googleapis.com/aw-rentcar/carcategories/susuki-vitara-15.webp",
-                  "description": "o similar",
-                  "default": true
-              }
-          ],
-          "month_prices": [
-              {
-                  "1k_kms": 0,
-                  "2k_kms": 7961990,
-                  "3k_kms": 7961990,
-                  "init_date": "15-01-2024",
-                  "end_date": "30-12-2024",
-                  "total_insurance_price": 100,
-                  "one_day_price": 0
-              }
-          ],
-          "total_coverage_unit_charge": 100,
-          "active": 0
+        id: "GX",
+        identification: "GX",
+        name: "Gama GX",
+        category: "Gama GX Camioneta Automática 4x2",
+        description:
+          "Camioneta de Transmisión Automatica 4x2 a Gasolina, 5 pasageros, 5 Puertas, Aire AC, Radio, Cierre central, Vídrios Eléctricos, Dirección Asistida, Frenos ABS, Air Bags.",
+        image:
+          "https://storage.googleapis.com/aw-rentcar/carcategories/susuki-vitara-15.webp",
+        ad: "",
+        models: [
+          {
+            name: "Susuki Vitara 1.5",
+            image:
+              "https://storage.googleapis.com/aw-rentcar/carcategories/susuki-vitara-15.webp",
+            description: "o similar",
+            default: true,
+          },
+        ],
+        month_prices: [
+          {
+            "1k_kms": 0,
+            "2k_kms": 7961990,
+            "3k_kms": 7961990,
+            init_date: "15-01-2024",
+            end_date: "30-12-2024",
+            total_insurance_price: 100,
+            one_day_price: 0,
+          },
+        ],
+        total_coverage_unit_charge: 100,
+        active: 0,
       },
       {
-          "id": "LE",
-          "identification": "LE",
-          "name": "Gama LE",
-          "category": "Gama LE Camioneta Automática Especial",
-          "description": "Modelos 2022 2023 2024 ++ 5 personas +2 maletas grandes y 3 pequeñas +4 Puertas\n                Aire Acondicionado +Radio +Cierre central +Vidrios eléctrico\n                Dirección Asistida +Air Bag",
-          "image": "https://storage.googleapis.com/aw-rentcar/carcategories/renault-koleos-25.webp",
-          "ad": "",
-          "models": [
-              {
-                  "name": "Renault Koleos 2.5",
-                  "image": "https://storage.googleapis.com/aw-rentcar/carcategories/renault-koleos-25.webp",
-                  "description": "o similar",
-                  "default": true
-              },
-              {
-                  "name": "Nissan Qashqai 2.0",
-                  "image": "https://storage.googleapis.com/aw-rentcar/carcategories/nissan-qashqai-20.webp",
-                  "description": "o similar",
-                  "default": false
-              },
-              {
-                  "name": "Mitsubishi Outlander 2.4",
-                  "image": "https://storage.googleapis.com/aw-rentcar/carcategories/mitsubishi-outlander-24.webp",
-                  "description": "o similar",
-                  "default": false
-              }
-          ],
-          "month_prices": [
-              {
-                  "1k_kms": 6978000,
-                  "2k_kms": 8324000,
-                  "3k_kms": 8324000,
-                  "init_date": "15-01-2024",
-                  "end_date": "30-12-2024",
-                  "total_insurance_price": 595000,
-                  "one_day_price": 232600
-              }
-          ],
-          "total_coverage_unit_charge": 102011,
-          "active": 1
+        id: "LE",
+        identification: "LE",
+        name: "Gama LE",
+        category: "Gama LE Camioneta Automática Especial",
+        description:
+          "Modelos 2022 2023 2024 ++ 5 personas +2 maletas grandes y 3 pequeñas +4 Puertas\n                Aire Acondicionado +Radio +Cierre central +Vidrios eléctrico\n                Dirección Asistida +Air Bag",
+        image:
+          "https://storage.googleapis.com/aw-rentcar/carcategories/renault-koleos-25.webp",
+        ad: "",
+        models: [
+          {
+            name: "Renault Koleos 2.5",
+            image:
+              "https://storage.googleapis.com/aw-rentcar/carcategories/renault-koleos-25.webp",
+            description: "o similar",
+            default: true,
+          },
+          {
+            name: "Nissan Qashqai 2.0",
+            image:
+              "https://storage.googleapis.com/aw-rentcar/carcategories/nissan-qashqai-20.webp",
+            description: "o similar",
+            default: false,
+          },
+          {
+            name: "Mitsubishi Outlander 2.4",
+            image:
+              "https://storage.googleapis.com/aw-rentcar/carcategories/mitsubishi-outlander-24.webp",
+            description: "o similar",
+            default: false,
+          },
+        ],
+        month_prices: [
+          {
+            "1k_kms": 6978000,
+            "2k_kms": 8324000,
+            "3k_kms": 8324000,
+            init_date: "15-01-2024",
+            end_date: "30-12-2024",
+            total_insurance_price: 595000,
+            one_day_price: 232600,
+          },
+        ],
+        total_coverage_unit_charge: 102011,
+        active: 1,
       },
       {
-          "id": "GR",
-          "identification": "GR",
-          "name": "Gama GR",
-          "category": "Gama GR Camioneta Automática 7 puestos",
-          "description": "7 Puestos  + 2 maletas grandes y 3 pequeñas +4 Puertas\n\n                Dirección Asistida +Air Bag",
-          "image": "https://storage.googleapis.com/aw-rentcar/carcategories/mitsubishi-montero-sport-30.webp",
-          "ad": "",
-          "models": [
-              {
-                  "name": "Mitsubishi Montero Sport 3.0",
-                  "image": "https://storage.googleapis.com/aw-rentcar/carcategories/mitsubishi-montero-sport-30.webp",
-                  "description": "o similar",
-                  "default": true
-              },
-              {
-                  "name": "Chevrolet Trailblazer 2.8",
-                  "image": "https://storage.googleapis.com/aw-rentcar/carcategories/chevrolet-trailblazer-28.webp",
-                  "description": "o similar",
-                  "default": false
-              }
-          ],
-          "month_prices": [
-              {
-                  "1k_kms": 10641000,
-                  "2k_kms": 11987000,
-                  "3k_kms": 11987000,
-                  "init_date": "15-01-2024",
-                  "end_date": "30-12-2024",
-                  "total_insurance_price": 595000,
-                  "one_day_price": 550000
-              }
-          ],
-          "total_coverage_unit_charge": 102011,
-          "active": 1
+        id: "GR",
+        identification: "GR",
+        name: "Gama GR",
+        category: "Gama GR Camioneta Automática 7 puestos",
+        description:
+          "7 Puestos  + 2 maletas grandes y 3 pequeñas +4 Puertas\n\n                Dirección Asistida +Air Bag",
+        image:
+          "https://storage.googleapis.com/aw-rentcar/carcategories/mitsubishi-montero-sport-30.webp",
+        ad: "",
+        models: [
+          {
+            name: "Mitsubishi Montero Sport 3.0",
+            image:
+              "https://storage.googleapis.com/aw-rentcar/carcategories/mitsubishi-montero-sport-30.webp",
+            description: "o similar",
+            default: true,
+          },
+          {
+            name: "Chevrolet Trailblazer 2.8",
+            image:
+              "https://storage.googleapis.com/aw-rentcar/carcategories/chevrolet-trailblazer-28.webp",
+            description: "o similar",
+            default: false,
+          },
+        ],
+        month_prices: [
+          {
+            "1k_kms": 10641000,
+            "2k_kms": 11987000,
+            "3k_kms": 11987000,
+            init_date: "15-01-2024",
+            end_date: "30-12-2024",
+            total_insurance_price: 595000,
+            one_day_price: 550000,
+          },
+        ],
+        total_coverage_unit_charge: 102011,
+        active: 1,
       },
       {
-          "id": "FL",
-          "identification": "FL",
-          "name": "Gama FL",
-          "category": "Gama FL Compacto Mecánico Híbrido",
-          "description": "5 Puestos +4 Puertas\n                Aire Acondicionado +Radio +Cierre central +Vidrios eléctrico\n                Dirección Asistida +Air Bag +Sin pico y placa",
-          "image": "https://storage.googleapis.com/aw-rentcar/carcategories/gama-fl-compacto-mecanico-hibirdo.webp",
-          "ad": "",
-          "models": [
-              {
-                  "name": "Suzuki Swift Híbrido",
-                  "image": "https://storage.googleapis.com/aw-rentcar/carcategories/gama-fl-compacto-mecanico-hibirdo.webp",
-                  "description": "o similar",
-                  "default": true
-              }
-          ],
-          "month_prices": [
-              {
-                  "1k_kms": 5610000,
-                  "2k_kms": 6051000,
-                  "3k_kms": 6051000,
-                  "init_date": "15-01-2024",
-                  "end_date": "30-12-2024",
-                  "total_insurance_price": 476000,
-                  "one_day_price": 290000
-              }
-          ],
-          "total_coverage_unit_charge": 76366,
-          "active": 0
+        id: "FL",
+        identification: "FL",
+        name: "Gama FL",
+        category: "Gama FL Compacto Mecánico Híbrido",
+        description:
+          "5 Puestos +4 Puertas\n                Aire Acondicionado +Radio +Cierre central +Vidrios eléctrico\n                Dirección Asistida +Air Bag +Sin pico y placa",
+        image:
+          "https://storage.googleapis.com/aw-rentcar/carcategories/gama-fl-compacto-mecanico-hibirdo.webp",
+        ad: "",
+        models: [
+          {
+            name: "Suzuki Swift Híbrido",
+            image:
+              "https://storage.googleapis.com/aw-rentcar/carcategories/gama-fl-compacto-mecanico-hibirdo.webp",
+            description: "o similar",
+            default: true,
+          },
+        ],
+        month_prices: [
+          {
+            "1k_kms": 5610000,
+            "2k_kms": 6051000,
+            "3k_kms": 6051000,
+            init_date: "15-01-2024",
+            end_date: "30-12-2024",
+            total_insurance_price: 476000,
+            one_day_price: 290000,
+          },
+        ],
+        total_coverage_unit_charge: 76366,
+        active: 0,
       },
       {
-          "id": "FU",
-          "identification": "FU",
-          "name": "Gama FU",
-          "category": "Gama FU Sedán Automático",
-          "description": "5 personas +2 maletas grandes y 2 pequeñas +4 Puertas\n                Aire Acondicionado +Radio +Cierre central +Vidrios eléctrico\n                Dirección Asistida +Air Bag +Sin pico y placa",
-          "image": "https://storage.googleapis.com/aw-rentcar/carcategories/hyundai-accent-advance-16.webp",
-          "ad": "",
-          "models": [
-              {
-                  "name": "Suzuki Baleno 1.4",
-                  "image": "https://storage.googleapis.com/aw-rentcar/carcategories/suzuki-baleno-hb-13.webp",
-                  "description": "HatchBack o similar",
-                  "default": true
-              },
-              {
-                  "name": "Hyundai Accent Advanced 1.6",
-                  "image": "https://storage.googleapis.com/aw-rentcar/carcategories/hyundai-accent-advance-16.webp",
-                  "description": "Sedán o similar",
-                  "default": false
-              },
-              {
-                  "name": "Suzuki Swift Dzire 1.2",
-                  "image": "https://storage.googleapis.com/aw-rentcar/carcategories/suzuki-swift-dzire-12.webp",
-                  "description": "Sedán o similar",
-                  "default": false
-              }
-          ],
-          "month_prices": [],
-          "total_coverage_unit_charge": 76366,
-          "active": 0
+        id: "FU",
+        identification: "FU",
+        name: "Gama FU",
+        category: "Gama FU Sedán Automático",
+        description:
+          "5 personas +2 maletas grandes y 2 pequeñas +4 Puertas\n                Aire Acondicionado +Radio +Cierre central +Vidrios eléctrico\n                Dirección Asistida +Air Bag +Sin pico y placa",
+        image:
+          "https://storage.googleapis.com/aw-rentcar/carcategories/hyundai-accent-advance-16.webp",
+        ad: "",
+        models: [
+          {
+            name: "Suzuki Baleno 1.4",
+            image:
+              "https://storage.googleapis.com/aw-rentcar/carcategories/suzuki-baleno-hb-13.webp",
+            description: "HatchBack o similar",
+            default: true,
+          },
+          {
+            name: "Hyundai Accent Advanced 1.6",
+            image:
+              "https://storage.googleapis.com/aw-rentcar/carcategories/hyundai-accent-advance-16.webp",
+            description: "Sedán o similar",
+            default: false,
+          },
+          {
+            name: "Suzuki Swift Dzire 1.2",
+            image:
+              "https://storage.googleapis.com/aw-rentcar/carcategories/suzuki-swift-dzire-12.webp",
+            description: "Sedán o similar",
+            default: false,
+          },
+        ],
+        month_prices: [],
+        total_coverage_unit_charge: 76366,
+        active: 0,
       },
       {
-          "id": "GL",
-          "identification": "GL",
-          "name": "Gama GL",
-          "category": "Gama GL Camioneta Automática",
-          "description": "5 Puestos +4 Puertas\n                Aire Acondicionado +Radio +Cierre central +Vidrios eléctrico\n                Dirección Asistida +Air Bag +Sin pico y placa",
-          "image": "https://storage.googleapis.com/aw-rentcar/carcategories/gama-gl-camioneta-automatica.webp",
-          "ad": "",
-          "models": [
-              {
-                  "name": "Renault Duster 1.3",
-                  "image": "https://storage.googleapis.com/aw-rentcar/carcategories/gama-gl-camioneta-automatica.webp",
-                  "description": "o similar",
-                  "default": true
-              },
-              {
-                  "name": "Fiat Pulse Turbo 1.3",
-                  "image": "https://storage.googleapis.com/aw-rentcar/carcategories/fiat-pulse-13.webp",
-                  "description": "o similar",
-                  "default": false
-              }
-          ],
-          "month_prices": [],
-          "total_coverage_unit_charge": 98741,
-          "active": 0
-      }
+        id: "GL",
+        identification: "GL",
+        name: "Gama GL",
+        category: "Gama GL Camioneta Automática",
+        description:
+          "5 Puestos +4 Puertas\n                Aire Acondicionado +Radio +Cierre central +Vidrios eléctrico\n                Dirección Asistida +Air Bag +Sin pico y placa",
+        image:
+          "https://storage.googleapis.com/aw-rentcar/carcategories/gama-gl-camioneta-automatica.webp",
+        ad: "",
+        models: [
+          {
+            name: "Renault Duster 1.3",
+            image:
+              "https://storage.googleapis.com/aw-rentcar/carcategories/gama-gl-camioneta-automatica.webp",
+            description: "o similar",
+            default: true,
+          },
+          {
+            name: "Fiat Pulse Turbo 1.3",
+            image:
+              "https://storage.googleapis.com/aw-rentcar/carcategories/fiat-pulse-13.webp",
+            description: "o similar",
+            default: false,
+          },
+        ],
+        month_prices: [],
+        total_coverage_unit_charge: 98741,
+        active: 0,
+      },
     ],
-  }
+  },
 });
