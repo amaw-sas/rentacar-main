@@ -192,7 +192,10 @@ export default function useCategory(categoryAvailableData: CategoryAvailabilityD
          return (
             (totalAmount.value ?? 0) + 
             (coverageTotalAmount.value ?? 0) + 
-            (returnFee)
+            (returnFee) +
+            ((withExtraDriver.value) ? getExtraDriverPrice.value : 0 ) +
+            ((withBabySeat.value) ? getBabySeatPrice.value : 0 ) +
+            ((withWash.value) ? getWashPrice.value : 0)
          );
       }
       
@@ -242,7 +245,7 @@ export default function useCategory(categoryAvailableData: CategoryAvailabilityD
    })
    
    const getDiscount = computed<string>(() => {
-      let initial: number = 0, final: number = 0, baseDailyPrice = 0, dailyPruice = 0;
+      let initial: number = 0, final: number = 0;
       initial = ((hasDiscount()) ? vehicleDayCharge.value + (discountAmount.value ?? 0) : vehicleDayCharge.value) + coverageUnitCharge.value;
       final = vehicleDayCharge.value + coverageUnitCharge.value;
       
