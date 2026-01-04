@@ -7,10 +7,8 @@
       srcset="
         https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Fciudades%2Fchica%2Fchica.avif?alt=media&token=85c1b2b6-4b0b-4da5-bc61-9f0fac1a2d4c
       "
-      alt="chica"
       width="800"
       height="800"
-      loading="lazy"
     />
     <!-- chica avif movil -->
     <source
@@ -19,10 +17,8 @@
       srcset="
         https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Fciudades%2Fchica%2Fchica.avif?alt=media&token=85c1b2b6-4b0b-4da5-bc61-9f0fac1a2d4c
       "
-      alt="chica"
       width="800"
       height="800"
-      loading="lazy"
     />
     <!-- chica webp -->
     <source
@@ -31,10 +27,8 @@
       srcset="
         https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Fciudades%2Fchica%2Fchica.webp?alt=media&token=345dbdf6-4162-4d8a-8542-9d7c5d06f28c
       "
-      alt="carros"
       width="800"
       height="800"
-      loading="lazy"
     />
     <!-- chica webp movil -->
     <source
@@ -43,10 +37,8 @@
       srcset="
         https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Fciudades%2Fchica%2Fchica.webp?alt=media&token=345dbdf6-4162-4d8a-8542-9d7c5d06f28c
       "
-      alt="carros"
       width="800"
       height="800"
-      loading="lazy"
     />
     <!-- chica jpg -->
     <source
@@ -55,10 +47,8 @@
       srcset="
         https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Fciudades%2Fchica%2Fchica.jpg?alt=media&token=8279f1f0-b56d-4f84-bc2e-d23d4fd55458
       "
-      alt="chica"
       width="800"
       height="800"
-      loading="lazy"
     />
     <!-- chica movil png -->
     <source
@@ -67,18 +57,24 @@
       srcset="
         https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Fciudades%2Fchica%2Fchica.jpg?alt=media&token=8279f1f0-b56d-4f84-bc2e-d23d4fd55458
       "
-      alt="chica"
       width="333"
       height="270"
-      loading="lazy"
     />
     <!-- chica defecto -->
     <img
       src="https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Fciudades%2Fchica%2Fchica.jpg?alt=media&token=8279f1f0-b56d-4f84-bc2e-d23d4fd55458"
-      alt="chica"
+      :alt="`Cliente satisfecha con su experiencia de alquiler de carros en ${cityName} Colombia`"
       width="800"
       height="800"
       loading="lazy"
     />
   </picture>
 </template>
+
+<script setup lang="ts">
+withDefaults(defineProps<{
+  cityName?: string
+}>(), {
+  cityName: ''
+})
+</script>
