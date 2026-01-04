@@ -422,6 +422,9 @@ const categoriasPageCardUIConfig = {
 
 const testimonios: Testimonial[] = franchise.testimonials;
 
+// Add AggregateRating schema for testimonials (shows stars in Google SERPs)
+useHomeAggregateRating()
+
 const testimoniosPageSectionUIConfig = {
   title: "text-black",
 };

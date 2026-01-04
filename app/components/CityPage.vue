@@ -162,6 +162,11 @@ const props = defineProps<{
 
 const testimonios: Testimonial[] | undefined = props.city?.testimonials;
 
+// Add AggregateRating schema for city-specific testimonials (shows stars in Google SERPs)
+if (props.city?.name && testimonios) {
+  useCityAggregateRating(props.city.name, testimonios)
+}
+
 const testimoniosPageSectionUIConfig = {
   title: "text-black",
 };
