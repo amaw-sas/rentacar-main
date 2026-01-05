@@ -4,33 +4,33 @@
     <UPageHero orientation="horizontal">
       <template #headline>
         <div
-          class="flex flex-row space-x-2 text-white text-center justify-center"
+          class="flex flex-row space-x-0.5 text-white text-center justify-center items-center -mt-8"
         >
           <StarIcon v-for="i in [1,2,3,4,5]" cls="size-5" />
           <span>4.9 reviews</span>
         </div>
       </template>
       <template #title>
-        <div class="text-white text-4xl text-center">
-          <div class="">
+        <div class="text-white text-center">
+          <div class="text-2xl md:text-3xl">
             <div class="font-bold uppercase">ALQUILER</div>
             <div>DE CARROS EN</div>
           </div>
-          <div class="flex flex-row justify-center gap-3">
+          <div class="flex flex-row justify-center items-center gap-2 text-4xl md:text-5xl font-bold uppercase">
+            <span class="size-8 md:size-10" aria-hidden="true"></span>
             {{ city?.name }}
-            <LocationIcon cls="text-red-600 size-10" />
+            <LocationIcon cls="text-red-600 size-8 md:size-10" />
           </div>
-          <div class="italic">COLOMBIA</div>
+          <div class="italic text-2xl md:text-3xl font-medium tracking-wide">Colombia</div>
         </div>
       </template>
       <template #body>
-        <div class="text-center justify-items-center">
-          <div class="mb-4 text-white text-3xl">
+        <div class="text-center justify-items-center -mt-4 -mb-4">
+          <div class="mb-1 text-white text-xl">
             Consulta disponibilidad y precios
           </div>
-          <p class="text-white text-lg">
-            Elige ciudades, fechas y horarios y renta un vehículo por días,
-            semanas o el tiempo que necesites
+          <p class="text-white text-sm">
+            Elige ciudades, fechas y horarios y renta un vehículo por días, semanas o el tiempo que necesites
           </p>
         </div>
       </template>
