@@ -1,14 +1,27 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-r from-blue-950 via-blue-800 to-blue-950 font-sans text-gray-800">
+  <div class="min-h-screen bg-gradient-to-b from-[#000073] via-blue-800 to-blue-900 font-sans text-gray-800">
     <!-- Header -->
     <UHeader
-      class="bg-gradient-to-r from-blue-950 via-blue-700 to-blue-950 shadow-md z-50 py-6 md:py-12 px-6 border-none relative"
+      class="bg-[#000073] z-50 py-6 md:py-12 px-6 border-none relative"
       mode="slideover"
+      :ui="{
+        button: 'text-white hover:text-white',
+        slideover: 'bg-[#000073]'
+      }"
      >
       <template #left>
-        <ImagesCol100 />
-        <ImagesCol224 />
-        <NuxtLink to="/" aria-label="alquilatucarro">
+        <!-- Bandera móvil -->
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Fcolombia%2Fcolombia-100-77.png?alt=media&token=3ac7532d-d731-4609-a242-169e50d16bc9"
+          alt="Colombia"
+          class="md:hidden absolute top-0 left-0 h-12 w-auto"
+          loading="eager"
+        />
+        <!-- Banderas desktop -->
+        <div class="hidden md:block">
+          <ImagesCol224 />
+        </div>
+        <NuxtLink to="/" aria-label="alquilatucarro" class="absolute left-1/2 -translate-x-1/2 md:relative md:left-0 md:translate-x-0">
           <Logo />
         </NuxtLink>
       </template>
