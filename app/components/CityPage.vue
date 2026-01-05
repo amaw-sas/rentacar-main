@@ -6,12 +6,8 @@
         <div
           class="flex flex-row space-x-0.5 text-white text-center justify-center items-center -mt-8"
         >
-          <StarIcon cls="size-3" />
-          <StarIcon cls="size-3" />
-          <StarIcon cls="size-3" />
-          <StarIcon cls="size-3" />
-          <StarIcon cls="size-3" />
-          <span class="text-xs ml-1">4.9 (2,000 reviews)</span>
+          <StarIcon v-for="i in [1,2,3,4,5]" cls="size-5" />
+          <span>4.9 reviews</span>
         </div>
       </template>
       <template #title>
@@ -111,15 +107,15 @@
                 v-bind="testimonio.user"
                 :ui="testimonioUserUIConfig"
                 loading="lazy"
-              />
+              >
+                <template #avatar>
+                    <ImagesAvatar :avatar="testimonio.user.avatar" />
+                </template>
+              </UUser>
             </template>
             <template #footer>
               <div class="flex flex-row space-x-2">
-                <StarIcon cls="text-yellow-500 size-6" />
-                <StarIcon cls="text-yellow-500 size-6" />
-                <StarIcon cls="text-yellow-500 size-6" />
-                <StarIcon cls="text-yellow-500 size-6" />
-                <StarIcon cls="text-yellow-500 size-6" />
+                <StarIcon v-for="i in [1,2,3,4,5]" cls="text-yellow-500 size-6" />
               </div>
             </template>
           </UPageCard>
