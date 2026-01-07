@@ -62,11 +62,12 @@ header .text-highlighted,
 }
 
 /* UPageHero - reduce top padding to bring content closer to header */
-[data-slot="root"].relative.isolate [data-slot="container"] {
+/* Only target hero (no ID), not regular sections */
+[data-slot="root"].relative.isolate:not(section[id]) [data-slot="container"] {
     padding-top: 1rem !important;
 }
 @media (min-width: 1024px) {
-    [data-slot="root"].relative.isolate [data-slot="container"] {
+    [data-slot="root"].relative.isolate:not(section[id]) [data-slot="container"] {
         padding-top: 2rem !important;
     }
 }
@@ -243,4 +244,22 @@ header [data-highlighted],
 
 [role="dialog"] [data-slot="body"] {
     padding-top: 0.75rem !important;
+}
+
+/* UPageSection - Symmetric vertical padding for all sections */
+section[id] [data-slot="container"] {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+}
+@media (min-width: 640px) {
+    section[id] [data-slot="container"] {
+        padding-top: 3.5rem !important;
+        padding-bottom: 3.5rem !important;
+    }
+}
+@media (min-width: 1024px) {
+    section[id] [data-slot="container"] {
+        padding-top: 4rem !important;
+        padding-bottom: 4rem !important;
+    }
 }

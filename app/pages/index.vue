@@ -15,12 +15,12 @@
         </div>
       </template>
       <template #title>
-        <h1 class="text-white text-4xl text-center">
+        <h1 class="text-white text-4xl text-center font-bold">
           <span class="block">
-            <span class="block font-bold uppercase">ALQUILER</span>
+            <span class="block uppercase">ALQUILER</span>
             <span class="block">DE CARROS EN</span>
           </span>
-          <span class="block font-bold tracking-wide colombia-sweep">COLOMBIA</span>
+          <span class="block tracking-wide colombia-sweep">COLOMBIA</span>
         </h1>
       </template>
       <template #body>
