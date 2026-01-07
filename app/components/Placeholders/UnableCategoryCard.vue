@@ -23,7 +23,7 @@
           <span class="text-left text-gray-700">
             <span class="categoria-carro">
                 Grupo {{ categoryCode }}
-                <UBadge color="neutral" variant="outline" class="text-white ">no disponible</UBadge>
+                <UBadge color="error" variant="subtle">no disponible</UBadge>
             </span>
             <span class="descripcion-corta">
                 {{ vehicleCategory?.descripcion_corta }}
