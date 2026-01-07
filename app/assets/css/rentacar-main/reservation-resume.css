@@ -113,7 +113,7 @@
         @apply flex flex-col flex-1 pl-0 text-sm;
 
         .discount {
-            @apply text-end text-gray-500 text-xs;
+            @apply text-end text-gray-400 text-xs; /* ≥#969696 for dark bg contrast */
 
             div:first-child {
                 @apply flex items-center justify-end;

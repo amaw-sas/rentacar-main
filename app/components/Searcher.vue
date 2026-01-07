@@ -237,7 +237,7 @@
                 :disabled="pendingSearching || !animateSearchButton"
                 :loading="pendingSearching"
                 :class="{'search-button': true, 'search-button-glow': animateSearchButton}"
-
+                size="xl"
             >
                 BUSCAR VEHÍCULOS
             </u-button>

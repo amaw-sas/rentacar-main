@@ -37,10 +37,10 @@
 
     <!-- Enlaces ciudades -->
     <section id="sedes" class="bg-blue-700 text-white text-center py-12 lg:py-20">
-      <UContainer class="space-y-6">
+      <UContainer class="space-y-4">
         <div>
           <NuxtLink to="/" aria-label="alquilatucarro">
-            <Logo class="mx-auto" />
+            <Logo cls="h-10 w-auto mx-auto" />
           </NuxtLink>
         </div>
         <div class="text-2xl font-bold">Ciudades donde ofrecemos alquiler de carros</div>

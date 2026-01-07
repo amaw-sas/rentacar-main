@@ -12,8 +12,8 @@
     /* Text colors for light backgrounds */
     --text-primary: #111827;      /* gray-900 - Headings, important text */
     --text-secondary: #374151;    /* gray-700 - Body text */
-    --text-muted: #6b7280;        /* gray-500 - Captions, hints */
-    --text-disabled: #6b7280;     /* gray-500 - Disabled states (WCAG AA: 4.83:1) */
+    --text-muted: #4b5563;        /* gray-600 - Captions, hints (≤#595959 for white bg contrast) */
+    --text-disabled: #4b5563;     /* gray-600 - Disabled states (WCAG AA compliant) */
 
     /* Text colors for dark backgrounds */
     --text-on-dark-primary: #ffffff;

@@ -28,7 +28,7 @@
             {{ city?.name }}
             <LocationIcon cls="text-red-600 size-8 md:size-10 lg:size-14 translate-y-1" />
           </span>
-          <span class="block italic text-2xl md:text-3xl lg:text-4xl font-medium tracking-wide colombia-sweep">Colombia</span>
+          <span class="block text-2xl md:text-3xl lg:text-4xl font-bold tracking-wide colombia-sweep">Colombia</span>
         </h1>
       </template>
       <template #body>
