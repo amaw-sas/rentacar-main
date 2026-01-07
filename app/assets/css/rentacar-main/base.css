@@ -2,14 +2,17 @@
     @apply text-xs;
 }
 
-/* Override highlighted text color to white */
-.text-highlighted {
+/* Override highlighted text color to white - only for header/navigation */
+header .text-highlighted,
+.hero-section h1 .text-highlighted,
+.hero-section h2 .text-highlighted {
     color: white !important;
     --color-highlighted: white !important;
 }
 
+/* Keep highlighted text dark by default for dropdowns */
 :root {
-    --ui-text-highlighted: white;
+    --ui-text-highlighted: #1f2937;
 }
 
 .search-button {
@@ -57,4 +60,131 @@ header button.lg\:hidden:hover {
 }
 [role="dialog"] button {
     color: white !important;
+}
+
+/* City Page - Reduce hero section internal container padding */
+.hero-section div[class*="max-w-"][class*="mx-auto"] {
+    padding-top: 2rem !important;
+    padding-bottom: 1rem !important;
+}
+@media (min-width: 1024px) {
+    .hero-section div[class*="max-w-"][class*="mx-auto"] {
+        padding-top: 3rem !important;
+        padding-bottom: 1.5rem !important;
+    }
+}
+
+/* City Page - Reduce description section internal container padding */
+#descripcion div[class*="max-w-"][class*="mx-auto"] {
+    padding-top: 1rem !important;
+    padding-bottom: 2rem !important;
+}
+@media (min-width: 1024px) {
+    #descripcion div[class*="max-w-"][class*="mx-auto"] {
+        padding-top: 1.5rem !important;
+        padding-bottom: 3rem !important;
+    }
+}
+
+/* Colombia text color sweep animation */
+.colombia-sweep {
+    background-image: linear-gradient(90deg,
+        white 0%,
+        white 10%,
+        #FCD116 15%,
+        #FCD116 22%,
+        #00D4FF 26%,
+        #CE1126 30%,
+        white 35%,
+        white 100%
+    );
+    background-size: 400% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: colombia-color-sweep 4s linear infinite;
+}
+
+@keyframes colombia-color-sweep {
+    0% {
+        background-position: 0% 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .colombia-sweep {
+        animation: none;
+        background-position: 100% 0;
+        -webkit-text-fill-color: white;
+    }
+}
+
+/* Searcher form - Force dark text on white background fields */
+.hero-section .bg-white {
+    color: #1f2937 !important;
+}
+
+.hero-section .bg-white button,
+.hero-section .bg-white button span,
+.hero-section .bg-white input,
+.hero-section .bg-white span,
+.hero-section .bg-white div {
+    color: #1f2937 !important;
+}
+
+/* Ensure date input segments are visible */
+.hero-section .bg-white [data-segment],
+.hero-section .bg-white [class*="segment"] {
+    color: #1f2937 !important;
+}
+
+/* Fix dropdown/listbox hover state - text should remain dark on highlighted items */
+/* Override the highlighted text variable for dropdowns/popovers */
+[data-radix-popper-content-wrapper],
+[role="listbox"],
+[role="menu"] {
+    --ui-text-highlighted: #1f2937 !important;
+    --color-highlighted: #1f2937 !important;
+}
+
+[data-radix-popper-content-wrapper] [data-highlighted] span,
+[data-radix-popper-content-wrapper] [data-highlighted],
+[data-radix-popper-content-wrapper] .text-highlighted,
+[role="listbox"] [data-highlighted] span,
+[role="listbox"] [data-highlighted],
+[role="listbox"] .text-highlighted,
+[role="menu"] [data-highlighted] span,
+[role="menu"] [data-highlighted],
+[role="menu"] .text-highlighted {
+    color: #1f2937 !important;
+}
+
+/* Global fix for all highlighted text outside header - maximum specificity */
+body [data-highlighted] *,
+body [data-highlighted],
+body [data-state="checked"] *,
+body [data-state="checked"],
+body [aria-selected="true"] *,
+body [aria-selected="true"] {
+    color: #1f2937 !important;
+}
+
+/* Exclude header elements from the dark text rule */
+header [data-highlighted] *,
+header [data-highlighted],
+.hero-section h1 [data-highlighted],
+.hero-section h2 [data-highlighted] {
+    color: white !important;
+}
+
+/* Force all spans in listbox/menu items to be dark when highlighted */
+[role="listbox"] [role="option"] span,
+[role="listbox"] [role="option"][data-highlighted] span,
+[role="menu"] [role="menuitem"] span,
+[role="menu"] [role="menuitem"][data-highlighted] span {
+    color: #1f2937 !important;
 }

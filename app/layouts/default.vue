@@ -10,19 +10,17 @@
       }"
      >
       <template #left>
-        <!-- Bandera móvil -->
-        <img
-          src="https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Fcolombia%2Fcolombia-100-77.png?alt=media&token=3ac7532d-d731-4609-a242-169e50d16bc9"
-          alt="Colombia"
-          class="md:hidden absolute top-0 left-0 h-12 w-auto"
-          loading="eager"
-        />
-        <!-- Banderas desktop -->
-        <div class="hidden md:block">
-          <ImagesCol224 />
+        <!-- Móvil: Bandera diagonal en esquina + Logo centrado -->
+        <div class="md:hidden">
+          <IconsColombiaFlag cls="absolute top-0 left-0 h-14 w-auto -rotate-45 -translate-x-[40%] -translate-y-[40%]" />
+          <NuxtLink to="/" aria-label="alquilatucarro" class="absolute left-1/2 -translate-x-1/2">
+            <Logo cls="h-8 w-auto" />
+          </NuxtLink>
         </div>
-        <NuxtLink to="/" aria-label="alquilatucarro" class="absolute left-1/2 -translate-x-1/2 md:relative md:left-0 md:translate-x-0">
-          <Logo />
+        <!-- Desktop: Bandera + Logo juntos como unidad -->
+        <NuxtLink to="/" aria-label="alquilatucarro" class="hidden md:flex items-center gap-3">
+          <IconsColombiaFlag cls="h-6 w-auto" />
+          <Logo cls="h-10 w-auto" />
         </NuxtLink>
       </template>
       <template #body>
@@ -39,10 +37,10 @@
 
     <!-- Enlaces ciudades -->
     <section id="sedes" class="bg-blue-700 text-white text-center py-12 lg:py-20">
-      <UContainer class="space-y-6">
+      <UContainer class="space-y-4">
         <div>
           <NuxtLink to="/" aria-label="alquilatucarro">
-            <Logo class="mx-auto" />
+            <Logo cls="h-10 w-auto mx-auto" />
           </NuxtLink>
         </div>
         <div class="text-2xl font-bold">Ciudades donde ofrecemos alquiler de carros</div>
