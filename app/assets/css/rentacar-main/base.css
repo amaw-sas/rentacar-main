@@ -46,6 +46,31 @@ header .text-highlighted,
     }
 }
 
+/* UHeader - reduce gap between logo and navigation (desktop) */
+@media (min-width: 1024px) {
+    header [data-slot="container"] {
+        justify-content: center !important;
+        gap: 1rem !important;
+    }
+    header [data-slot="left"] {
+        flex: none !important;
+    }
+    header [data-slot="right"] {
+        flex: none !important;
+        justify-content: flex-start !important;
+    }
+}
+
+/* UPageHero - reduce top padding to bring content closer to header */
+[data-slot="root"].relative.isolate [data-slot="container"] {
+    padding-top: 1rem !important;
+}
+@media (min-width: 1024px) {
+    [data-slot="root"].relative.isolate [data-slot="container"] {
+        padding-top: 2rem !important;
+    }
+}
+
 /* UHeader hamburger menu button - force white color */
 header button.lg\:hidden {
     color: white !important;
