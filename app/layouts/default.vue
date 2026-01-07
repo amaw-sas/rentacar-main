@@ -2,9 +2,10 @@
   <div class="min-h-screen bg-gradient-to-b from-[#000073] via-blue-800 to-blue-900 font-sans text-gray-800">
     <!-- Header -->
     <UHeader
-      class="bg-[#000073] z-50 py-6 md:py-12 px-6 border-none relative"
+      class="bg-[#000073] z-50 py-4 md:py-6 px-6 border-none relative"
       mode="slideover"
       :ui="{
+        root: 'gap-4',
         button: 'text-white hover:text-white',
         slideover: 'bg-[#000073]'
       }"
@@ -37,7 +38,7 @@
 
     <!-- Enlaces ciudades -->
     <section id="sedes" class="bg-blue-700 text-white text-center py-12 lg:py-20">
-      <UContainer class="space-y-4">
+      <UContainer class="space-y-6">
         <div>
           <NuxtLink to="/" aria-label="alquilatucarro">
             <Logo cls="h-10 w-auto mx-auto" />

@@ -111,7 +111,7 @@
       :ui="testimoniosPageSectionUIConfig"
     >
       <template #title>
-        <h2 class="text-black">Lo que dicen nuestros clientes en {{ city?.name }}</h2>
+        <h2 class="text-2xl md:text-3xl text-black">Lo que dicen nuestros clientes en {{ city?.name }}</h2>
       </template>
       <template #description>
         <p class="text-black">Descubre por qué somos la opción preferida para alquilar carros en {{ city?.name }}. Nuestros clientes destacan nuestra atención, precios competitivos y la facilidad para explorar.</p>
@@ -188,11 +188,12 @@ const testimoniosPageSectionUIConfig = {
 
 const testimonioPageCardUIConfig = {
   root: "border-1 border-gray-100 rounded-lg bg-gray-50 shadow",
-  description: "mt-4",
+  description: "mt-4 text-gray-700",
 };
 
 const testimonioUserUIConfig = {
   name: "text-black",
+  description: "text-gray-600",
 };
 
 const Searcher = defineAsyncComponent(() => import("./Searcher.vue"));

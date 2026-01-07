@@ -15,23 +15,23 @@
         </div>
       </template>
       <template #title>
-        <h1 class="text-white text-4xl text-center">
+        <h1 class="text-white text-4xl text-center font-bold">
           <span class="block">
-            <span class="block font-bold uppercase">ALQUILER</span>
+            <span class="block uppercase">ALQUILER</span>
             <span class="block">DE CARROS EN</span>
           </span>
-          <span class="block font-bold tracking-wide colombia-sweep">COLOMBIA</span>
+          <span class="block tracking-wide colombia-sweep">COLOMBIA</span>
         </h1>
       </template>
       <template #body>
         <div class="text-center justify-items-center">
-          <div class="mb-4 text-white text-2xl">
+          <div class="mb-4 text-white text-lg font-bold">
             ¿En que ciudad deseas recoger tu carro?
           </div>
           <div class="min-w-80 my-3">
             <SelectBranch />
           </div>
-          <p class="text-white">
+          <p class="text-base text-white">
             Contamos con 27 sedes a nivel nacional y una excelente reputación en
             alquiler de carros y camionetas que se adaptan a tu necesidad y
             presupuesto
@@ -51,9 +51,9 @@
       class="bg-white text-black"
     >
       <template #title>
-        <h2 class="text-center">
+        <h2 class="text-2xl md:text-3xl text-center">
           <span class="block text-red-700">Hasta 60% de Descuento</span>
-          <span class="block text-black text-4xl">Reserva Ahora, Paga Después</span>
+          <span class="block text-black">Reserva Ahora, Paga Después</span>
         </h2>
       </template>
       <template #description>
@@ -87,7 +87,7 @@
       class="bg-gray-200 text-black"
     >
       <template #title>
-        <h2 class="text-center lg:text-left space-x-2">
+        <h2 class="text-2xl md:text-3xl text-center lg:text-left space-x-2">
           <span class="text-red-700">Requisitos</span>
           <span class="text-black">para tu alquiler</span>
         </h2>
@@ -166,7 +166,7 @@
       class="bg-white text-black"
     >
       <template #title>
-        <h2 class="text-center space-x-2">
+        <h2 class="text-2xl md:text-3xl text-center space-x-2">
           <span class="text-red-700">Tipos de Vehículos</span>
           <span class="text-black">ideales para tu necesidad</span>
         </h2>
@@ -193,16 +193,16 @@
               reverse
             >
               <template #footer>
-                <UModal title="Selecciona ciudad">
+                <UModal>
                   <template #body>
-                    <div class="mb-4 text-white text-2xl">
+                    <div class="mb-4 text-white text-lg font-bold">
                       ¿En que ciudad deseas recoger tu carro?
                     </div>
                     <div class="min-w-80 my-3">
                       <SelectBranch />
                     </div>
                   </template>
-                  <UButton color="info" class="text-white"
+                  <UButton color="info" class="text-white px-8 py-3"
                     >Ver disponibilidad</UButton
                   >
                 </UModal>
@@ -220,16 +220,16 @@
               reverse
             >
               <template #footer>
-                <UModal title="Selecciona ciudad">
+                <UModal>
                   <template #body>
-                    <div class="mb-4 text-white text-2xl">
+                    <div class="mb-4 text-white text-lg font-bold">
                       ¿En que ciudad deseas recoger tu carro?
                     </div>
                     <div class="min-w-80 my-3">
                       <SelectBranch />
                     </div>
                   </template>
-                  <UButton color="info" class="text-white"
+                  <UButton color="info" class="text-white px-8 py-3"
                     >Ver disponibilidad</UButton
                   >
                 </UModal>
@@ -247,16 +247,16 @@
               reverse
             >
               <template #footer>
-                <UModal title="Selecciona ciudad">
+                <UModal>
                   <template #body>
-                    <div class="mb-4 text-white text-2xl">
+                    <div class="mb-4 text-white text-lg font-bold">
                       ¿En que ciudad deseas recoger tu carro?
                     </div>
                     <div class="min-w-80 my-3">
                       <SelectBranch />
                     </div>
                   </template>
-                  <UButton color="info" class="text-white"
+                  <UButton color="info" class="text-white px-8 py-3"
                     >Ver disponibilidad</UButton
                   >
                 </UModal>
@@ -278,7 +278,7 @@
       :ui="testimoniosPageSectionUIConfig"
     >
       <template #title>
-        <h2 class="text-black">Lo que dicen nuestros clientes</h2>
+        <h2 class="text-2xl md:text-3xl text-black">Lo que dicen nuestros clientes</h2>
       </template>
       <template #description>
         <p class="text-black">Descubre por qué somos la opción preferida para alquilar carros en Colombia. Nuestros clientes destacan nuestra atención, precios competitivos y la facilidad para explorar.</p>
@@ -316,10 +316,10 @@
     <!-- FAQ Section -->
     <UPageSection id="faqs" class="faq px-6 text-white">
       <UContainer>
-        <h2 class="text-3xl font-bold text-center mb-8">
+        <h2 class="text-2xl md:text-3xl font-bold text-center mb-8">
           Preguntas Frecuentes
         </h2>
-        <p class="text-lg mb-6">
+        <p class="text-base mb-6">
           Ahora es muy fácil alquilar carro en Colombia, ya sea para vacaciones
           o para negocios, por días o por meses, sólo requiere ser mayor de
           edad, tener licencia de conducción y una tarjeta de crédito con cupo
@@ -333,10 +333,10 @@
         </p>
         <UAccordion :items="faqs">
           <template #default="{ item }">
-            <div class="text-2xl" v-text="item.label"></div>
+            <div class="text-base font-medium" v-text="item.label"></div>
           </template>
           <template #content="{ item }">
-            <div class="text-xl py-3" v-text="item.content"></div>
+            <div class="text-base py-3" v-text="item.content"></div>
           </template>
         </UAccordion>
       </UContainer>
@@ -437,11 +437,12 @@ const testimoniosPageSectionUIConfig = {
 
 const testimonioPageCardUIConfig = {
   root: "border-1 border-gray-100 rounded-lg bg-gray-50 shadow",
-  description: "mt-4",
+  description: "mt-4 text-gray-700",
 };
 
 const testimonioUserUIConfig = {
   name: "text-black",
+  description: "text-gray-600",
 };
 
 </script>
