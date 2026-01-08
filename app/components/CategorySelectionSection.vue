@@ -86,7 +86,7 @@
             close: 'absolute top-4 end-4 z-10',
           }"
         >
-          <u-button label="Siguiente" color="primary" size="xl" class="flex-1 py-4 justify-center"></u-button>
+          <u-button label="Siguiente" color="neutral" size="xl" class="flex-1 py-4 justify-center bg-green-700 hover:bg-green-800 text-white"></u-button>
 
           <template #body>
             <reservation-form
@@ -105,9 +105,9 @@
               @click="slideoverReservationForm = false"
             />
             <u-button
-              color="primary"
+              color="neutral"
               size="xl"
-              class="flex-1 py-4 justify-center"
+              class="flex-1 py-4 justify-center bg-green-700 hover:bg-green-800 text-white"
               :loading="isSubmittingForm"
               :disabled="isSubmittingForm"
               @click="reservationFormComponent.submit()"

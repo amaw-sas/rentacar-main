@@ -101,7 +101,7 @@
         <!--==== columna der t1 ====-->
         <div class="pl-5 flex flex-col justify-center">
           <div>
-            <p class="font-bold mb-1">Escoge protección:</p>
+            <p class="text-lg text-gray-700 mb-1">Escoge protección</p>
 
             <div class="flex flex-col justify-start">
               <div class="opcion-seleccionable">
@@ -130,7 +130,7 @@
                     :ui="questionButtonUIConfig"
                   >
                     <template #leading>
-                      <InfoQuestionIcon cls="size-2.5 text-gray-400" />
+                      <InfoQuestionIcon cls="size-3 text-gray-400" />
                     </template>
                   </UButton>
 
@@ -197,7 +197,7 @@
                     :ui="questionButtonUIConfig"
                   >
                     <template #leading>
-                      <InfoQuestionIcon cls="size-2.5 text-gray-400" />
+                      <InfoQuestionIcon cls="size-3 text-gray-400" />
                     </template>
                   </UButton>
 
@@ -269,7 +269,7 @@
                     :ui="questionButtonUIConfig"
                   >
                     <template #leading>
-                      <InfoQuestionIcon cls="size-2.5 text-gray-400" />
+                      <InfoQuestionIcon cls="size-3 text-gray-400" />
                     </template>
                   </UButton>
 
@@ -317,7 +317,7 @@
                     :ui="questionButtonUIConfig"
                   >
                     <template #leading>
-                      <InfoQuestionIcon cls="size-2.5 text-gray-400" />
+                      <InfoQuestionIcon cls="size-3 text-gray-400" />
                     </template>
                   </UButton>
 
@@ -365,7 +365,7 @@
                     :ui="questionButtonUIConfig"
                   >
                     <template #leading>
-                      <InfoQuestionIcon cls="size-2.5 text-gray-400" />
+                      <InfoQuestionIcon cls="size-3 text-gray-400" />
                     </template>
                   </UButton>
 
@@ -413,13 +413,13 @@
             <!-- Contenedor del texto centrado horizontalmente -->
             <span class="flex-1 text-center">
               <span class="roboto-bold text-lg text-gray-700"
-                >Adicionales:</span
+                >Servicios adicionales</span
               >
             </span>
           </template>
         </UButton>
         <template #content>
-          <div class="flex flex-col gap-1 px-5 pt-3 pb-4">
+          <div class="flex flex-col gap-1 px-5 pt-3 pb-4 sutil-fondo">
             <div class="flex items-center justify-between">
               <div class="flex">
                 <UCheckbox
@@ -442,7 +442,7 @@
                     :ui="questionButtonUIConfig"
                   >
                     <template #leading>
-                      <InfoQuestionIcon cls="size-2.5 text-gray-400" />
+                      <InfoQuestionIcon cls="size-3 text-gray-400" />
                     </template>
                   </UButton>
 
@@ -486,7 +486,7 @@
                     :ui="questionButtonUIConfig"
                   >
                     <template #leading>
-                      <InfoQuestionIcon cls="size-2.5 text-gray-400" />
+                      <InfoQuestionIcon cls="size-3 text-gray-400" />
                     </template>
                   </UButton>
 
@@ -536,7 +536,7 @@
                     :ui="questionButtonUIConfig"
                   >
                     <template #leading>
-                      <InfoQuestionIcon cls="size-2.5 text-gray-400" />
+                      <InfoQuestionIcon cls="size-3 text-gray-400" />
                     </template>
                   </UButton>
 
@@ -580,8 +580,9 @@
       </UCollapsible>
 
       <div class="seccion-boton-seleccion">
-        <UButton 
+        <UButton
           class="boton-seleccion"
+          size="xl"
           @click.prevent="goNextStep()"
           >
           <template #trailing>

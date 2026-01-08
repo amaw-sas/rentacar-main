@@ -124,13 +124,18 @@
       @apply rounded-b-lg bg-white p-4;
 
       .boton-seleccion {
-        @apply w-full justify-center text-white bg-red-600;
+        @apply w-full justify-center text-white bg-green-700 py-4 hover:bg-green-800 transition-colors;
       }
 
     }
     
     .form-radio {
       @apply scheme-light accent-black;
+    }
+
+    /* Fondo degradado sutil reutilizable */
+    .sutil-fondo {
+      background: linear-gradient(to right, white, #ededed 50%, white);
     }
 }
 
