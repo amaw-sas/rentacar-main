@@ -4,14 +4,14 @@
     <UPageHero orientation="horizontal">
       <template #headline>
         <div
-          class="flex flex-row justify-center space-x-2 text-white text-center"
+          class="flex flex-row items-center justify-center space-x-0.5 text-white text-center"
         >
-          <StarIcon cls="size-5" />
-          <StarIcon cls="size-5" />
-          <StarIcon cls="size-5" />
-          <StarIcon cls="size-5" />
-          <StarIcon cls="size-5" />
-          <span>4.9 reviews</span>
+          <StarIcon cls="size-4" />
+          <StarIcon cls="size-4" />
+          <StarIcon cls="size-4" />
+          <StarIcon cls="size-4" />
+          <StarIcon cls="size-4" />
+          <span class="ml-2">4.9 reviews</span>
         </div>
       </template>
       <template #title>
@@ -87,17 +87,17 @@
       class="bg-gray-200 text-black"
     >
       <template #title>
-        <h2 class="text-2xl md:text-3xl text-center lg:text-left space-x-2">
+        <h2 class="text-2xl md:text-3xl text-center space-x-2">
           <span class="text-red-700">Requisitos</span>
           <span class="text-black">para tu alquiler</span>
         </h2>
       </template>
       <template #description>
         <div class="text-black justify-items-center">
-          <div class="mb-4">
+          <div class="mb-4 text-center">
             En {{ franchise.shortname }} tu experiencia es sin complicaciones...
           </div>
-          <ul class="flex flex-col gap-1">
+          <ul class="flex flex-col gap-4">
             <li>
               <UPageFeature
                 title="RESERVA PREVIA"
@@ -134,6 +134,7 @@
             <li>
               <UPageFeature
                 title="LICENCIA DE CONDUCIR"
+                description="(física y vigente)"
                 :ui="requisitosPageFeatureUIConfig"
               >
                 <template #leading>
@@ -198,7 +199,7 @@
                   <SelectBranch variant="gray" />
                 </div>
               </template>
-              <UButton class="bg-[#000073] hover:bg-[#000090] text-white px-8 py-3">Ver disponibilidad</UButton>
+              <UButton class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-xl font-bold uppercase transition-colors">Ver disponibilidad</UButton>
             </UModal>
           </div>
           <!-- Sedan -->
@@ -215,7 +216,7 @@
                   <SelectBranch variant="gray" />
                 </div>
               </template>
-              <UButton class="bg-[#000073] hover:bg-[#000090] text-white px-8 py-3">Ver disponibilidad</UButton>
+              <UButton class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-xl font-bold uppercase transition-colors">Ver disponibilidad</UButton>
             </UModal>
           </div>
           <!-- Camioneta -->
@@ -232,7 +233,7 @@
                   <SelectBranch variant="gray" />
                 </div>
               </template>
-              <UButton class="bg-[#000073] hover:bg-[#000090] text-white px-8 py-3">Ver disponibilidad</UButton>
+              <UButton class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-xl font-bold uppercase transition-colors">Ver disponibilidad</UButton>
             </UModal>
           </div>
         </div>
@@ -290,7 +291,7 @@
       <UContainer class="px-1 sm:px-2 lg:px-6">
         <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 space-x-2">
           <span class="text-red-700">Preguntas Frecuentes</span>
-          <span class="text-black">resolvemos tus dudas</span>
+          <span class="text-black">sobre alquiler de carros</span>
         </h2>
         <p class="text-base text-center mb-6">
           Encuentra respuestas a las consultas más comunes sobre nuestro servicio de alquiler. Si tienes otra pregunta, contáctanos directamente.
@@ -375,7 +376,8 @@ definePageMeta({
 const requisitosPageFeatureUIConfig = {
   leadingIcon: "bg-red-600",
   title: "text-black",
-  description: "text-black",
+  description: "text-black mt-0",
+  container: "gap-0",
 };
 
 const categoriasPageSectionUIConfig = {

@@ -4,9 +4,13 @@
     <UHeader
       class="bg-[#000073] z-50 py-4 md:py-6 px-6 border-none relative"
       mode="slideover"
+      :toggle="{
+        color: 'white',
+        size: 'xl',
+        class: 'text-white absolute right-4 top-4'
+      }"
       :ui="{
         root: 'gap-4',
-        button: 'text-white hover:text-white',
         slideover: 'bg-[#000073]'
       }"
      >
@@ -61,14 +65,14 @@
     </section>
 
     <!-- Enlaces -->
-    <section class="text-white py-4 lg:py-6">
+    <section class="bg-[#000073] text-white py-8 lg:py-6">
       <UContainer>
-        <div class="flex flex-col md:flex-row items-center justify-center space-x-4">
+        <div class="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4">
           <template v-for="(footerLink, index) in franchise.footerLinks">
-            <NuxtLink 
+            <NuxtLink
               :to="footerLink.link"
               v-text="footerLink.label"
-              class="hover:underline"
+              class="underline hover:no-underline"
             >
             </NuxtLink>
             <span class="hidden md:block" v-if="index != franchise.footerLinks.length - 1">|</span>
@@ -86,16 +90,16 @@
 
     <!-- Widget chat -->
     <UModal
-      title="¿Chateamos?"
+      :ui="{ content: 'bg-white', close: 'bg-black text-white rounded-full' }"
     >
       <template #body>
-        <div class="text-center space-y-6">
-          <div class="space-y-2">
-            <p class="font-bold text-2xl">¿Chateamos?</p>
-            <p>Estamos a un mensaje de distancia</p>
-            <UButton 
-              size="xl" 
-              class="text-white"
+        <div class="text-center space-y-10 pb-4 md:pb-6">
+          <div>
+            <p class="font-bold text-2xl text-black">¡Escríbenos!</p>
+            <p class="text-gray-600">Estamos a un mensaje de distancia</p>
+            <UButton
+              size="xl"
+              class="bg-[#25D366] hover:bg-[#128C7E] text-white mt-3"
               label="Whatsapp"
               target="_blank"
               :external="true"
@@ -106,13 +110,13 @@
               </template>
             </UButton>
           </div>
-          <div class="space-y-2">
-            <p class="font-bold text-2xl">¿Charlamos?</p>
-            <p>LLamanos y Hablamos!</p>
-            <UButton 
-              color="info" 
-              size="xl" 
-              class="text-white"
+          <div>
+            <p class="font-bold text-2xl text-black">¡Llámanos!</p>
+            <p class="text-gray-600">Hablemos por llamada local</p>
+            <UButton
+              color="info"
+              size="xl"
+              class="text-white mt-3"
               :external="true"
               :label="franchise.phone"
               :to="`tel:${franchise.phone}`"
@@ -127,7 +131,7 @@
       <UButton
         icon="lucide:message-circle-plus"
         square
-        class="fixed bottom-4 right-4 z-50 rounded-full animate-bounce text-white"
+        class="fixed bottom-4 right-4 md:bottom-8 z-50 rounded-full text-white"
         size="2xl"
         color="primary"
       />
@@ -145,25 +149,25 @@ const items = computed<NavigationMenuItem[]>(() => [
     label: 'Requisitos',
     to: '/#requisitos',
     active: route.path.startsWith('#requisitos'),
-    class: "text-white",
+    class: "text-white hover:text-white hover:bg-white/10",
   },
   {
     label: 'Sedes',
     to: '/#sedes',
     active: route.path.startsWith('#sedes'),
-    class: "text-highlighted",
+    class: "text-white hover:text-white hover:bg-white/10",
   },
   {
     label: 'Blog',
     to: '/blog',
     active: route.path.startsWith('/blog'),
-    class: "text-highlighted",
+    class: "text-white hover:text-white hover:bg-white/10",
   },
   {
     label: 'Preguntas frecuentes',
     to: '/#faqs',
     active: route.path.startsWith('#faqs'),
-    class: "text-highlighted",
+    class: "text-white hover:text-white hover:bg-white/10",
   },
 ])
 
