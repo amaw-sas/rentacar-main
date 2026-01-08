@@ -23,7 +23,7 @@
     } */
 
     .nombre-modelo {
-      @apply absolute top-5 left-5 bg-black/40 rounded-lg text-white p-1;
+      @apply absolute top-5 left-5 bg-black/75 rounded-lg text-white text-xs py-1 px-3;
     }
 
     .contenedor-descripcion-carro {

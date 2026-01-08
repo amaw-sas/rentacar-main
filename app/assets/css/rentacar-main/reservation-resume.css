@@ -1,5 +1,5 @@
 .reservation-resume {
-    @apply scheme-dark;
+    @apply scheme-light;
 
     .carrusel-container {
         @apply relative mb-3;
@@ -133,13 +133,13 @@
         }
 
         .daily-price {
-            @apply text-end font-bold;
+            @apply text-end font-bold text-xl;
 
             div:first-child {
                 @apply flex items-center justify-end;
 
                 span:first-child {
-                    @apply text-xs;
+                    @apply text-sm;
                 }
             }
         }
@@ -176,16 +176,16 @@
             }
 
             .total-price-text {
-                @apply text-end font-bold text-2xl mb-0;
+                @apply text-end font-bold text-xl mb-0;
 
                 span:first-child {
-                    @apply text-lg;
+                    @apply text-sm;
                 }
             }
         }
 
         .not-included {
-            @apply text-end text-[xx-small] mb-2;
+            @apply text-end text-[10px] text-gray-500 mb-2;
         }
 
         .included {
