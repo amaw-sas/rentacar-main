@@ -31,6 +31,11 @@ export default defineAppConfig({
         container: "mt-0.5 relative",
       },
     },
+    checkbox: {
+      slots: {
+        label: "font-normal text-sm",
+      },
+    },
   },
   organization: {
     name: "AMAW SAS",

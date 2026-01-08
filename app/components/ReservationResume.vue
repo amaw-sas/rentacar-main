@@ -71,73 +71,41 @@
         </div>
         <!-- lado derecho -->
          <div class="prices">
-            <div class="text-right font-bold">Tarifa Diaria</div>
-            <div class="discount" v-if="hasDiscount()">
-              <div>
-                <span>$</span>
-                <del>{{ currencyDailyBasePrice }}</del>
+            <div class="text-right text-sm font-bold">Tarifa Diaria</div>
+            <div class="text-right text-sm line-through text-black" v-if="hasDiscount()">
+              $ {{ currencyDailyBasePrice }}
+            </div>
+            <div class="text-right">
+              <span class="bg-[#a3f78b] text-black text-xs px-1 inline-block">Dto Hoy {{ getDiscount }} %</span>
+            </div>
+            <div class="text-right text-sm">
+              $ {{ currencyDailyPrice }}
+            </div>
+            <div v-if="hasExtraHours() || hasReturnFee()" class="text-right mt-3">
+              <div class="font-bold">Otras tarifas</div>
+              <div v-if="hasExtraHours()">
+                {{ extraHoursQuantity }} Horas: $ {{ currencyExtraHoursPrice }}
               </div>
-            </div>
-            <div class="discount-percentage">
-              <span>Dto Hoy {{ getDiscount }} %</span>
-            </div>
-            <div class="daily-price">
-              <div>
-                <span>$</span>
-                {{ currencyDailyPrice }}
-              </div>
-            </div>
-            <div v-if="hasExtraHours()" class="extra-hours">
-              <div class="extra-hours-label">{{ extraHoursQuantity }} Horas extras</div>
-              <div class="extra-hours-text">
-                <span>$</span>
-                {{ currencyExtraHoursPrice }}
-              </div>
-            </div>
-            <div v-if="hasReturnFee()" class="return-fee">
-              <div class="return-fee-label">Retorno otra sede</div>
-              <div class="return-fee-text">
-                <span>$</span>
-                {{ currencyReturnFee }}
+              <div v-if="hasReturnFee()">
+                Traslado: $ {{ currencyReturnFee }}
               </div>
             </div>
             
             
-            <div v-if="hasAdditionalServices" class="extra-services">
-              <div class="extra-services-label">Adicionales</div>
-              <div class="extra-services-text">
-                <div v-if="withExtraDriver" class="extra-service">
-                  <div class="extra-service-label">Conductor Adicional</div>
-                  <div class="extra-service-text">
-                    <span>$</span>
-                    {{ currencyExtraDriverPrice }}
-                  </div>
-                </div>
-                <div v-if="withBabySeat" class="extra-service">
-                  <div class="extra-service-label">Silla para bebé</div>
-                  <div class="extra-service-text">
-                    <span>$</span>
-                    {{ currencyBabySeatPrice }}
-                  </div>
-                </div>
-                <div v-if="withWash" class="extra-service">
-                  <div class="extra-service-label">Lavado</div>
-                  <div class="extra-service-text">
-                    <span>$</span>
-                    {{ currencyWashPrice }}
-                  </div>
-                </div>
-              </div>
+            <div class="text-right mt-3">
+              <div v-if="withExtraDriver || withBabySeat || withWash" class="font-bold">Adicionales</div>
+              <div v-if="withExtraDriver">Conductor: $ {{ currencyExtraDriverPrice }}</div>
+              <div v-if="withBabySeat">Silla bebé: $ {{ currencyBabySeatPrice }}</div>
+              <div v-if="withWash">Lavado: $ {{ currencyWashPrice }}</div>
             </div>
             
-            <div class="total-price">
-              <div class="total-price-label">Total a pagar:</div>
-              <div class="total-price-text">
-                <span>$</span>
-                {{ currencyTotalPrice }}
+            <div class="text-right mt-3">
+              <div class="text-sm font-bold">Total a pagar</div>
+              <div class="!text-xl">
+                $ {{ currencyTotalPrice }}
               </div>
             </div>
-            <div class="not-included">
+            <div class="text-right text-[10px] text-gray-500">
               No incluye IVA ni tasa admin
             </div>
          </div>
