@@ -12,7 +12,7 @@
     <source
       type="image/avif"
       media="(max-width: 767px)"
-      srcset="/img/familia-movil.avif"
+      srcset="https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Ffamilia-movil.avif?alt=media"
       width="666"
       height="540"
     />
@@ -29,7 +29,7 @@
     <source
       type="image/webp"
       media="(max-width: 767px)"
-      srcset="/img/familia-movil.webp"
+      srcset="https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Ffamilia-movil.webp?alt=media"
       width="666"
       height="540"
     />
@@ -46,7 +46,7 @@
     <source
       type="image/png"
       media="(max-width: 767px)"
-      srcset="/img/familia-movil.png"
+      srcset="https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Ffamilia-movil.png?alt=media"
       width="666"
       height="540"
     />
