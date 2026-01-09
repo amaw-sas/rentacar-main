@@ -78,7 +78,9 @@
         <div class="flex flex-col md:flex-row md:flex-wrap justify-center gap-1 md:gap-3">
           <UButton
             v-for="city in cities"
-            :to="city.link"
+            :to="getCityReservationURL(city)"
+            :external="true"
+            target="_blank"
             class="text-white justify-center bg-blue-600 hover:bg-blue-800 rounded-lg py-3 w-full md:w-fit font-normal transition-colors"
           >
             Alquiler de carros en <span class="font-bold">{{ city.name }}</span>
@@ -165,6 +167,8 @@
 
 <script lang="ts" setup>
 import type { NavigationMenuItem } from '@nuxt/ui'
+import type { BranchData, CityData } from '#imports'
+import { today } from '@internationalized/date'
 
 const route = useRoute();
 
@@ -224,7 +228,41 @@ const mobileItems = computed<NavigationMenuItem[]>(() => [
 ])
 
 const { cities } = useData();
-const { franchise } = useAppConfig();
+const { franchise, branches, reservation, defaultTimezone } = useAppConfig();
+
+// Genera URL de reserva dinámica para cada ciudad (como el selector del hero)
+const reservationInitDay = today(defaultTimezone).add({ days: 1 }).toString();
+const reservationEndDay = today(defaultTimezone).add({ days: 8 }).toString();
+const reservationInitHour = "12:00";
+const reservationEndHour = "12:00";
+
+// Mapeo de IDs de ciudad que difieren entre cities y branches
+const cityIdMapping: Record<string, string> = {
+  'santamarta': 'santa-marta',
+};
+
+const getCityReservationURL = (city: CityData): string => {
+  // Normalizar el ID de la ciudad (manejar inconsistencias como santamarta vs santa-marta)
+  const branchCityId = cityIdMapping[city.id] || city.id;
+
+  // Buscar la sucursal de aeropuerto para esta ciudad (código empieza con "AA")
+  const airportBranch = branches.find(
+    (branch: BranchData) => branch.city === branchCityId && branch.code.startsWith('AA')
+  );
+
+  // Si no hay aeropuerto, buscar cualquier sucursal de esa ciudad
+  const branch = airportBranch || branches.find(
+    (branch: BranchData) => branch.city === branchCityId
+  );
+
+  if (!branch) {
+    // Fallback a la ruta simple si no hay sucursal
+    return `/${city.id}`;
+  }
+
+  return `${reservation.website}/${city.id}/buscar-vehiculos/lugar-recogida/${branch.code.toLowerCase()}/lugar-devolucion/${branch.code.toLowerCase()}/fecha-recogida/${reservationInitDay}/fecha-devolucion/${reservationEndDay}/hora-recogida/${reservationInitHour}/hora-devolucion/${reservationEndHour}`;
+};
+
 import {
   IconsWhatsappIcon as WhatsappIcon,
   IconsPhoneIcon as PhoneIcon,
