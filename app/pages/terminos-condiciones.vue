@@ -38,26 +38,23 @@
           <li><strong>Confirmación:</strong> Recibirá confirmación por correo electrónico y/o WhatsApp.</li>
         </ol>
         <p class="mt-4">
-          <strong>Importante:</strong> La solicitud de reserva no garantiza la disponibilidad. La reserva se considera confirmada únicamente cuando reciba la confirmación oficial de la Rentadora.
+          <strong>Importante:</strong> La solicitud de reserva no garantiza la disponibilidad. La reserva se considera confirmada únicamente cuando reciba la confirmación oficial por nuestros canales (correo electrónico y/o WhatsApp).
         </p>
 
         <!-- Requisitos del Conductor -->
         <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">4. Requisitos del Conductor</h2>
-        <p>Los requisitos pueden variar según la Rentadora, pero generalmente incluyen:</p>
+        <p>Para alquilar un vehículo se requiere:</p>
         <ul class="list-disc pl-6 space-y-2">
-          <li>Edad mínima de 21 a 25 años (según la Rentadora y categoría del vehículo)</li>
-          <li>Licencia de conducción vigente (mínimo 2 años de expedición)</li>
+          <li>Edad mínima de 18 años</li>
+          <li>Licencia de conducción vigente</li>
           <li>Documento de identidad válido (cédula, pasaporte)</li>
           <li>Tarjeta de crédito a nombre del conductor principal</li>
         </ul>
-        <p class="mt-4">
-          Le recomendamos verificar los requisitos específicos con la Rentadora antes de la recogida del vehículo.
-        </p>
 
         <!-- Precios y Pagos -->
         <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">5. Precios y Pagos</h2>
         <p>
-          Los precios mostrados en la plataforma son proporcionados por las Rentadoras e incluyen:
+          Los precios mostrados en la plataforma son los mismos que ofrecen las Rentadoras directamente. <strong>No cobramos comisiones adicionales ni afectamos el precio del alquiler.</strong> Los precios incluyen:
         </p>
         <ul class="list-disc pl-6 space-y-2">
           <li>Tarifa diaria del vehículo</li>
@@ -79,12 +76,11 @@
         <!-- Cancelaciones y Modificaciones -->
         <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">6. Cancelaciones y Modificaciones</h2>
         <p>
-          Las políticas de cancelación y modificación son establecidas por cada Rentadora. Generalmente:
+          Las cancelaciones y modificaciones son gratuitas y sin penalidad:
         </p>
         <ul class="list-disc pl-6 space-y-2">
-          <li><strong>Cancelación gratuita:</strong> Hasta 24-48 horas antes de la recogida (según la Rentadora)</li>
-          <li><strong>Cancelación tardía:</strong> Puede aplicar cargos según la política de la Rentadora</li>
-          <li><strong>No presentarse (No-show):</strong> Puede resultar en el cobro total de la reserva</li>
+          <li><strong>Cancelación:</strong> Puede cancelar su reserva en cualquier momento sin costo alguno.</li>
+          <li><strong>No presentarse (No-show):</strong> No genera penalidades económicas. Sin embargo, la inasistencia reiterada sin previo aviso podría afectar la aprobación de futuras reservas.</li>
         </ul>
         <p class="mt-4">
           Para cancelar o modificar una reserva, contáctenos por WhatsApp o correo electrónico con su código de reserva.
@@ -158,7 +154,7 @@
         <p>Para cualquier consulta sobre estos Términos y Condiciones:</p>
         <ul class="list-disc pl-6 space-y-2">
           <li><strong>WhatsApp:</strong> +57 301 672 9250</li>
-          <li><strong>Correo:</strong> info@amawsas.com</li>
+          <li><strong>Correo:</strong> info@alquilatucarro.com</li>
         </ul>
 
         <!-- Company Info -->
