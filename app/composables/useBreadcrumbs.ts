@@ -12,7 +12,10 @@ export const useBreadcrumbs = (items: BreadcrumbItem[]) => {
         '@type': 'ListItem',
         position: index + 1,
         name: item.name,
-        item: `${franchise.website}${item.path}`
+        item: {
+            '@type': 'WebPage',
+            '@id': `${franchise.website}${item.path}`
+        }
     }))
 
     useSchemaOrg([
