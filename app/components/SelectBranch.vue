@@ -10,7 +10,7 @@
           'select-branch-critical w-full rounded-xl text-black py-6 pl-10 pr-12 border border-gray-400 appearance-none',
           variant === 'gray' ? 'bg-gray-200' : 'bg-white'
         ]"
-        @change="() => (selectedBranch) ? goToReservationPage(selectedBranch) : null"
+        @change="handleMobileChange"
       >
         <option value="null">Elige una ciudad</option>
         <option
@@ -88,6 +88,15 @@ const items: SelectMenuItem[] = branches.map((branch: BranchData) => ({
 const selectedBranch = ref<BranchData['code'] | null>(null)
 
 /** functions */
+const handleMobileChange = () => {
+  if (selectedBranch.value && selectedBranch.value !== 'null') {
+    const branch = (branches as BranchData[]).find((b: BranchData) => b.code === selectedBranch.value);
+    if (branch) {
+      goToReservationPage(branch);
+    }
+  }
+};
+
 const goToReservationPage = async (branch: BranchData) =>
   await navigateTo(createReservationURL(branch), {
     external: true,
