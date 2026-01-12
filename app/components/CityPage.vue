@@ -114,8 +114,7 @@
     <section v-if="cityBranches.length > 0" id="puntos-entrega" class="bg-gray-50 text-black py-8 md:py-12 px-4 md:px-8">
       <div class="max-w-4xl mx-auto text-center">
         <h2 class="text-2xl md:text-3xl font-bold mb-6">
-          <span class="text-red-700">Puntos de entrega</span>
-          <span class="text-black">en {{ city?.name }}</span>
+          <span class="text-red-700">Puntos de entrega</span> <span class="text-black">en {{ city?.name }}</span>
         </h2>
         <div class="flex flex-wrap justify-center gap-3 md:gap-4">
           <div
@@ -213,8 +212,7 @@
       <section id="mejor-temporada" class="bg-gray-50 text-black py-8 md:py-12 px-4 md:px-8">
         <div class="max-w-4xl mx-auto text-center">
           <h2 class="text-2xl md:text-3xl font-bold mb-6">
-            <span class="text-red-700">Mejor época</span>
-            <span class="text-black"> para viajar</span>
+            <span class="text-red-700">Mejor época</span> <span class="text-black">para viajar a {{ city?.name }}</span>
           </h2>
           <p class="text-gray-700 text-base md:text-lg leading-relaxed">
             {{ expandedContent.bestSeason }}
@@ -247,7 +245,9 @@
     <!-- Testimonials Section -->
     <section id="testimonios" class="bg-white text-black py-12 md:py-20 px-4 md:px-8">
       <div class="max-w-7xl mx-auto">
-        <h2 class="text-2xl md:text-3xl text-black text-center mb-4">Lo que dicen nuestros clientes en {{ city?.name }}</h2>
+        <h2 class="text-2xl md:text-3xl font-bold text-center mb-4">
+          <span class="text-red-700">Testimonios de nuestros clientes</span> <span class="text-black">en {{ city?.name }}</span>
+        </h2>
         <p class="text-black text-center mb-8">Descubre por qué somos la opción preferida para alquilar carros en {{ city?.name }}. Nuestros clientes destacan nuestra atención, precios competitivos y la facilidad para explorar.</p>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div
