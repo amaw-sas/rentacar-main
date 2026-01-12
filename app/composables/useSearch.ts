@@ -1,14 +1,44 @@
 import { watchDebounced } from "@vueuse/core";
 
-import { 
-  createTimeFromString, 
-  toDatetime, 
-  formatHumanTime, 
+import {
+  createTimeFromString,
+  toDatetime,
+  formatHumanTime,
   formatTime,
   useStoreAdminData,
   useStoreSearchData,
   useStoreReservationForm,
 } from '#imports';
+
+// Opciones de hora estáticas (se generan una sola vez al cargar el módulo)
+// Evita regenerar 48 opciones en cada re-render
+const generateHourOptions = () => {
+  const options: Array<{ value: string; label: string }> = [];
+  let initHour = createTimeFromString('00:00');
+  const endHour = createTimeFromString('23:30');
+
+  while (initHour.compare(endHour) < 0) {
+    if (initHour.toString() === "00:00:00") {
+      options.push({ value: "00:00", label: "MEDIANOCHE" });
+    } else if (initHour.toString() === "12:00:00") {
+      options.push({ value: "12:00", label: "MEDIODIA" });
+    } else {
+      const datetime = toDatetime(createCurrentDateObject(), initHour);
+      options.push({ value: formatTime(datetime), label: formatHumanTime(datetime) });
+    }
+    initHour = initHour.add({ minutes: 30 });
+  }
+  return options;
+};
+
+// Cache estático de opciones de hora (generado una vez)
+let _cachedHourOptions: Array<{ value: string; label: string }> | null = null;
+const getHourOptions = () => {
+  if (!_cachedHourOptions) {
+    _cachedHourOptions = generateHourOptions();
+  }
+  return _cachedHourOptions;
+};
 
 /** types */
 import type { BranchData } from "#imports";
@@ -163,48 +193,26 @@ export default function useSearch() {
     hora_devolucion: horaDevolucion.value,
   }));
 
-  const pickupHourOptions = computed(() => {
-    const hourOptions = function* () {
-      let initHour = createTimeFromString('00:00');
-      let endHour = createTimeFromString('23:30');
-      
-      while (initHour.compare(endHour) < 0) {
-        if (initHour.toString() === "00:00:00") yield { value: "00:00", label: "MEDIANOCHE" };
-        else if (initHour.toString() === "12:00:00") yield { value: "12:00", label: "MEDIODIA" };
-        else {
-          const datetime = toDatetime(createCurrentDateObject(), initHour);
-          yield { value: formatTime(datetime), label: formatHumanTime(datetime) };
-        }
-        
-        initHour = initHour.add({minutes: 30});
-      }
-    };
-  
-    return Array.from(hourOptions());
-  });
-  
+  // Usa cache estático - no regenera 48 opciones en cada re-render
+  const pickupHourOptions = computed(() => getHourOptions());
+
+  // Filtra desde cache cuando hay restricción mensual
   const returnHourOptions = computed(() => {
-    const hourOptions = function* () {
-      let initHour = createTimeFromString('00:00');
-      let endHour = createTimeFromString('23:30');
+    const allOptions = getHourOptions();
 
-      while (initHour.compare(endHour) < 0) {
-        if (selectedDays.value == 30 && selectedPickupHour.value)
-          if(initHour.compare(selectedPickupHour.value) > 0)
-            break;
+    // Sin restricción mensual, devuelve todas las opciones
+    if (selectedDays.value !== 30 || !selectedPickupHour.value) {
+      return allOptions;
+    }
 
-        if (initHour.toString() === "00:00:00") yield { value: "00:00", label: "MEDIANOCHE" };
-        else if (initHour.toString() === "12:00:00") yield { value: "12:00", label: "MEDIODIA" };
-        else {
-          const datetime = toDatetime(createCurrentDateObject(), initHour);
-          yield { value: formatTime(datetime), label: formatHumanTime(datetime) };
-        }
-  
-        initHour = initHour.add({minutes: 30});
-      }
-    };
-  
-    return Array.from(hourOptions());
+    // Filtra opciones hasta la hora de recogida (para reservas mensuales)
+    const pickupHourStr = selectedPickupHour.value.toString();
+    const cutoffIndex = allOptions.findIndex(opt => {
+      const optTime = createTimeFromString(opt.value);
+      return optTime.compare(selectedPickupHour.value!) > 0;
+    });
+
+    return cutoffIndex === -1 ? allOptions : allOptions.slice(0, cutoffIndex);
   });
   
   return { 
