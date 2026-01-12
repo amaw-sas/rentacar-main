@@ -1,5 +1,5 @@
 <template>
-  <div v-if="noAvailableCategories" class="text-center">
+  <div v-if="!hasAvailableCategories && !pendingSearch" class="text-center">
     <div class="text-white text-center">
       <div class="text-3xl">¡Oops!</div>
       <div class="text-lg">
@@ -12,7 +12,7 @@
     </div>
   </div>
   <template v-if="!pendingSearch">
-    <div v-if="filteredCategories.length > 0 && !noAvailableCategories" class="text-white text-center">
+    <div v-if="hasAvailableCategories" class="text-white text-center">
       <div class="text-lg md:text-xl font-bold">¡Vehículos Disponibles!</div>
       <div class="text-sm md:text-base">
         <span>En <span class="text-yellow-400 font-semibold">{{city?.name}}</span> para el <span class="text-yellow-400 font-semibold">{{ humanFormattedPickupDate }}</span>.</span>
@@ -162,7 +162,7 @@ const {
   pending: pendingSearch,
   selectedCategory,
   filteredCategories,
-  noAvailableCategories,
+  hasAvailableCategories,
 } = storeToRefs(storeSearch);
 const { vehiculo, humanFormattedPickupDate, isSubmittingForm } = storeToRefs(storeForm);
 const { vehicleCategories } = useVehicleCategories();
