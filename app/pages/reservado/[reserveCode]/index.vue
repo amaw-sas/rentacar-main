@@ -28,7 +28,6 @@
 
 <script setup lang="ts">
 const { franchise } = useAppConfig()
-const { $confetti } = useNuxtApp();
 
 const route = useRoute();
 const reserveCode = route.params.reserveCode;
@@ -44,5 +43,10 @@ useSeoMeta({
   description: 'Tu reserva de alquiler de carro ha sido confirmada. Revisa tu correo para los detalles.',
 })
 
-onMounted(() => $confetti().addConfetti())
+// Lazy load js-confetti (solo se carga en esta página de confirmación)
+onMounted(async () => {
+  const JSConfetti = (await import('js-confetti')).default
+  const confetti = new JSConfetti()
+  confetti.addConfetti()
+})
 </script>

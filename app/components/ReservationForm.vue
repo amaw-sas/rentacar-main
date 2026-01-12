@@ -92,6 +92,11 @@ import type {
   ReservationWithFlightFormValidationSchemaType,
 } from "#imports";
 
+// Lazy load vue-tel-input (solo se carga cuando se renderiza el formulario)
+const VueTelInput = defineAsyncComponent(() =>
+  import('vue-tel-input').then(m => m.VueTelInput)
+);
+
 /** stores */
 const storeSearch = useStoreSearchData();
 const storeForm = useStoreReservationForm();
