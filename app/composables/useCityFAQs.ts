@@ -320,6 +320,188 @@ const citySpecificFAQs: Record<string, FAQ[]> = {
             label: '¿Qué lugares puedo visitar con carro desde Valledupar?',
             content: 'Destinos del Cesar: Río Guatapurí y balnearios (10min), Manaure Balcón del Cesar (1h), Pueblo Bello y Sierra Nevada (1.5h), La Mina pueblo patrimonio (2h). Cuna del vallenato y naturaleza.'
         }
+    ],
+    'Ibagué': [
+        {
+            label: '¿Dónde puedo recoger mi carro en Ibagué?',
+            content: 'Contamos con entrega en el Aeropuerto Perales y en nuestra sede del centro. El aeropuerto está a 10 minutos del centro de Ibagué, la Capital Musical de Colombia.'
+        },
+        {
+            label: '¿Qué vehículo recomiendan para Ibagué y el Tolima?',
+            content: 'Un sedán es ideal para Ibagué y la vía al Nevado del Tolima. Para visitar el Cañón del Combeima o fincas cafeteras por caminos rurales, recomendamos camioneta por mejor desempeño.'
+        },
+        {
+            label: '¿Cuánto cuesta alquilar un carro en Ibagué?',
+            content: 'Los precios en Ibagué inician desde $95.000 COP/día para compactos. Reservando con anticipación puedes obtener hasta 60% de descuento. Punto estratégico entre Bogotá y el Eje Cafetero.'
+        },
+        {
+            label: '¿Aplica pico y placa en Ibagué?',
+            content: 'Sí, Ibagué tiene pico y placa según el último dígito de la placa en horarios pico. Te informamos la restricción al entregar el vehículo. Fines de semana y festivos sin restricción.'
+        },
+        {
+            label: '¿Cómo llego al Cañón del Combeima en carro?',
+            content: 'El Cañón del Combeima está a 30 minutos de Ibagué. La vía es pavimentada hasta Juntas, luego destapada hacia el Nevado. Recomendamos camioneta para subir a los termales y cascadas.'
+        },
+        {
+            label: '¿Qué lugares puedo visitar con carro desde Ibagué?',
+            content: 'Destinos del Tolima: Cañón del Combeima y Nevado del Tolima (30min), Melgar y Girardot (2h), Honda río Magdalena (2h), Salento por el Alto de la Línea (2.5h). Naturaleza y clima cálido.'
+        }
+    ],
+    'Neiva': [
+        {
+            label: '¿Dónde puedo recoger mi carro en Neiva?',
+            content: 'Ofrecemos entrega en el Aeropuerto Benito Salas y en nuestra sede del centro. El aeropuerto está a 10 minutos del centro de Neiva, puerta al Desierto de la Tatacoa.'
+        },
+        {
+            label: '¿Qué vehículo recomiendan para Neiva y el Huila?',
+            content: 'Un sedán con buen aire acondicionado es ideal para el clima cálido de Neiva. Para el Desierto de la Tatacoa o San Agustín, recomendamos camioneta por las carreteras de montaña.'
+        },
+        {
+            label: '¿Cuánto cuesta alquilar un carro en Neiva?',
+            content: 'Los precios en Neiva inician desde $90.000 COP/día para compactos. Con reserva anticipada obtienes hasta 60% de descuento. Base perfecta para explorar las maravillas del Huila.'
+        },
+        {
+            label: '¿Hay pico y placa en Neiva?',
+            content: 'Neiva tiene pico y placa rotativo según el último dígito de la placa en días hábiles. Te informamos la restricción vigente al entregar el vehículo. Fines de semana sin restricción.'
+        },
+        {
+            label: '¿Cómo llego al Desierto de la Tatacoa en carro?',
+            content: 'El Desierto de la Tatacoa está a 45 minutos de Neiva por Villavieja. La vía es pavimentada. Recomendamos llegar al atardecer para ver las estrellas en el observatorio astronómico.'
+        },
+        {
+            label: '¿Qué lugares puedo visitar con carro desde Neiva?',
+            content: 'Destinos del Huila: Desierto de la Tatacoa (45min), San Agustín y parque arqueológico (4h), Represa de Betania (1h), Termales de Rivera (30min), Pitalito (3h). Arqueología y naturaleza única.'
+        }
+    ],
+    'Cúcuta': [
+        {
+            label: '¿Dónde puedo recoger mi carro en Cúcuta?',
+            content: 'Contamos con entrega en el Aeropuerto Camilo Daza y en nuestra sede del centro. El aeropuerto está a 10 minutos del centro de Cúcuta, ciudad fronteriza con Venezuela.'
+        },
+        {
+            label: '¿Qué vehículo recomiendan para Cúcuta?',
+            content: 'Un compacto con excelente aire acondicionado es esencial para el clima cálido de Cúcuta (promedio 28°C). Para viajes a Pamplona o la zona montañosa, un sedán ofrece más confort.'
+        },
+        {
+            label: '¿Cuánto cuesta alquilar un carro en Cúcuta?',
+            content: 'Los precios en Cúcuta inician desde $90.000 COP/día para compactos. Reservando con anticipación puedes obtener hasta 60% de descuento. Ciudad estratégica del nororiente colombiano.'
+        },
+        {
+            label: '¿Aplica pico y placa en Cúcuta?',
+            content: 'Cúcuta tiene pico y placa según el último dígito de la placa en horarios específicos. Te informamos la restricción al entregar el vehículo. Los fines de semana puedes circular libremente.'
+        },
+        {
+            label: '¿Puedo cruzar a Venezuela con el carro alquilado?',
+            content: 'No, los vehículos de alquiler no pueden cruzar fronteras internacionales. Si necesitas visitar Venezuela, puedes dejar el carro en nuestra sede y cruzar por el puente internacional.'
+        },
+        {
+            label: '¿Qué lugares puedo visitar con carro desde Cúcuta?',
+            content: 'Destinos de Norte de Santander: Pamplona ciudad estudiantil (1.5h), Villa del Rosario sitio histórico (15min), Chinácota clima templado (1h), Ocaña (3h). Historia y comercio fronterizo.'
+        }
+    ],
+    'Montería': [
+        {
+            label: '¿Dónde puedo recoger mi carro en Montería?',
+            content: 'Ofrecemos entrega en el Aeropuerto Los Garzones y en nuestra sede del centro. El aeropuerto está a 15 minutos del centro de Montería, capital ganadera de Colombia.'
+        },
+        {
+            label: '¿Qué vehículo recomiendan para Montería y Córdoba?',
+            content: 'Un compacto con buen aire acondicionado es ideal para el clima cálido de Montería. Para visitar fincas ganaderas o la zona costera, recomendamos camioneta para caminos rurales.'
+        },
+        {
+            label: '¿Cuánto cuesta alquilar un carro en Montería?',
+            content: 'Los precios en Montería inician desde $95.000 COP/día para compactos. Con reserva anticipada obtienes hasta 60% de descuento. Ideal para explorar el Sinú y la sabana cordobesa.'
+        },
+        {
+            label: '¿Hay pico y placa en Montería?',
+            content: 'Montería no tiene restricción de pico y placa para vehículos particulares actualmente. Puedes circular libremente cualquier día de la semana por toda la ciudad y el departamento.'
+        },
+        {
+            label: '¿Puedo viajar a las playas desde Montería?',
+            content: 'Sí, las playas de Coveñas y Tolú están a 1.5 horas de Montería por carretera pavimentada. También puedes ir a San Antero (1h) o tomar lanchas a las Islas de San Bernardo.'
+        },
+        {
+            label: '¿Qué lugares puedo visitar con carro desde Montería?',
+            content: 'Destinos de Córdoba: Coveñas y Tolú playas (1.5h), Lorica pueblo patrimonio (1h), Ciénaga de Ayapel (2h), Tierralta y Nudo de Paramillo (2h). Ganadería, playas y naturaleza.'
+        }
+    ],
+    'Floridablanca': [
+        {
+            label: '¿Dónde puedo recoger mi carro en Floridablanca?',
+            content: 'Contamos con sede en Floridablanca y también ofrecemos entrega en el Aeropuerto Palonegro de Bucaramanga. Floridablanca es parte del área metropolitana, a 15 minutos del centro de Bucaramanga.'
+        },
+        {
+            label: '¿Qué vehículo recomiendan para Floridablanca?',
+            content: 'Un sedán es ideal para moverse por el área metropolitana de Bucaramanga. Si planeas visitar San Gil, el Cañón del Chicamocha o hacer deportes extremos, recomendamos camioneta.'
+        },
+        {
+            label: '¿Cuánto cuesta alquilar un carro en Floridablanca?',
+            content: 'Los precios en Floridablanca inician desde $95.000 COP/día para compactos. Reservando con anticipación obtienes hasta 60% de descuento. Mismas tarifas que nuestra sede de Bucaramanga.'
+        },
+        {
+            label: '¿Aplica pico y placa en Floridablanca?',
+            content: 'Floridablanca comparte el pico y placa del área metropolitana de Bucaramanga. Te informamos la restricción al entregar el vehículo. Fines de semana y festivos sin restricción.'
+        },
+        {
+            label: '¿Hay diferencia entre alquilar en Floridablanca o Bucaramanga?',
+            content: 'No hay diferencia en tarifas ni condiciones. Floridablanca está a 15 minutos de Bucaramanga. Elige la sede más conveniente para tu ubicación. Ambas tienen acceso fácil a las vías principales.'
+        },
+        {
+            label: '¿Qué lugares puedo visitar con carro desde Floridablanca?',
+            content: 'Destinos desde el área metropolitana: San Gil capital extrema (2h), Barichara pueblo más lindo de Colombia (2.5h), Cañón del Chicamocha (1h), Mesa de los Santos (45min). Aventura santandereana.'
+        }
+    ],
+    'Palmira': [
+        {
+            label: '¿Dónde puedo recoger mi carro en Palmira?',
+            content: 'Contamos con sede en Palmira y también servicio en el Aeropuerto Alfonso Bonilla Aragón de Cali. Palmira está a 25 minutos del aeropuerto, ideal si tu destino es el Valle del Cauca.'
+        },
+        {
+            label: '¿Qué vehículo recomiendan para Palmira?',
+            content: 'Un compacto es perfecto para Palmira y el Valle del Cauca. Si planeas visitar el Lago Calima, Buga o hacer rutas por la cordillera, un sedán te dará mayor comodidad.'
+        },
+        {
+            label: '¿Cuánto cuesta alquilar un carro en Palmira?',
+            content: 'Los precios en Palmira inician desde $100.000 COP/día para compactos. Con reserva anticipada obtienes hasta 60% de descuento. Ubicación estratégica en el corazón del Valle.'
+        },
+        {
+            label: '¿Hay pico y placa en Palmira?',
+            content: 'Palmira tiene pico y placa según el último dígito de la placa en días hábiles. Te informamos la restricción vigente al entregar el vehículo. Fines de semana sin restricción vehicular.'
+        },
+        {
+            label: '¿Hay diferencia entre alquilar en Palmira o Cali?',
+            content: 'Las tarifas son similares. Palmira está más cerca del aeropuerto (25min vs 45min a Cali centro). Si tu destino es el norte del Valle o el Eje Cafetero, Palmira puede ser más conveniente.'
+        },
+        {
+            label: '¿Qué lugares puedo visitar con carro desde Palmira?',
+            content: 'Destinos del Valle: Buga y el Señor de los Milagros (30min), Lago Calima (1.5h), Cali (30min), Parque Natural Farallones (1h), Hacienda El Paraíso de María (40min). Historia y naturaleza.'
+        }
+    ],
+    'Soledad': [
+        {
+            label: '¿Dónde puedo recoger mi carro en Soledad?',
+            content: 'Contamos con sede en Soledad y servicio en el Aeropuerto Ernesto Cortissoz de Barranquilla. Soledad es parte del área metropolitana, el aeropuerto está dentro del municipio.'
+        },
+        {
+            label: '¿Qué vehículo recomiendan para Soledad?',
+            content: 'Un compacto con excelente aire acondicionado es ideal para el clima caribeño de Soledad. Para viajes a Cartagena, Santa Marta o playas, un sedán ofrece más comodidad.'
+        },
+        {
+            label: '¿Cuánto cuesta alquilar un carro en Soledad?',
+            content: 'Los precios en Soledad inician desde $95.000 COP/día para compactos. Con reserva anticipada obtienes hasta 60% de descuento. Durante el Carnaval de Barranquilla los precios pueden variar.'
+        },
+        {
+            label: '¿Hay pico y placa en Soledad?',
+            content: 'Soledad y Barranquilla no tienen restricción de pico y placa para vehículos particulares. Puedes circular libremente cualquier día de la semana por toda el área metropolitana.'
+        },
+        {
+            label: '¿Hay diferencia entre alquilar en Soledad o Barranquilla?',
+            content: 'Las tarifas son iguales. Soledad tiene la ventaja de estar junto al aeropuerto, ideal si llegas por avión. Para ir al centro de Barranquilla son solo 20 minutos.'
+        },
+        {
+            label: '¿Qué lugares puedo visitar con carro desde Soledad?',
+            content: 'Destinos desde el área metropolitana: Cartagena (2h), Santa Marta y Parque Tayrona (2h), Puerto Colombia playas (30min), Usiacurí artesanías (1h). Todo el Caribe colombiano a tu alcance.'
+        }
     ]
 }
 
