@@ -192,17 +192,26 @@ const useStoreSearchData = defineStore("storeSearchData", () => {
           } else return true;
         }
       });
-      
+
   });
 
-  return { 
-    categoriesAvailabilityData, 
+  /** Verifica si hay al menos una categoría realmente disponible (no marcada como unable) */
+  const hasAvailableCategories = computed<boolean>(() => {
+    if (filteredCategories.value.length === 0) return false;
+    return filteredCategories.value.some(
+      (category: CategoryAvailabilityData) => category.estimatedTotalAmount !== 999999999
+    );
+  });
+
+  return {
+    categoriesAvailabilityData,
     categories,
     filteredCategories,
-    search, 
-    pending, 
-    error, 
-    selectedCategory, 
+    hasAvailableCategories,
+    search,
+    pending,
+    error,
+    selectedCategory,
     noAvailableCategories,
   };
 });

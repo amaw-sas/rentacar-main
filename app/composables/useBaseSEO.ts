@@ -1,4 +1,4 @@
-import type { AutoRental, PostalAddress, Brand, OpeningHoursSpecification, SearchAction, EntryPoint } from 'schema-dts'
+import type { AutoRental, Brand, OpeningHoursSpecification, SearchAction, EntryPoint } from 'schema-dts'
 
 export const useBaseSEO = () => {
 
@@ -60,13 +60,9 @@ export const useBaseSEO = () => {
                 'Credit Card',
             ],
             currenciesAccepted: 'COP',
-            location: "Colombia",
-            address: <PostalAddress>{
-                streetAddress: organization.address,
-                addressRegion: 'Valle',
-                addressLocality: 'Jamundí',
-                postalCode: organization.postalcode,
-                addressCountry: 'CO',
+            areaServed: {
+                '@type': 'Country',
+                name: 'Colombia'
             },
             image: franchise.logo,
             telephone: franchise.phone,

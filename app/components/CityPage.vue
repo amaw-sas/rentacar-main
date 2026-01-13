@@ -14,17 +14,17 @@
         </div>
       </template>
       <template #title>
-        <h1 class="text-white text-center uppercase font-bold">
-          <span class="block text-2xl md:text-3xl lg:text-4xl">
-            <span class="block">ALQUILER</span>
-            <span class="block">DE CARROS EN</span>
+        <h1 class="text-white text-center uppercase font-bold" style="letter-spacing: -0.025em;">
+          <span class="block text-2xl md:text-3xl lg:text-4xl" style="letter-spacing: -0.025em;">
+            <span class="block" style="letter-spacing: -0.025em;">ALQUILER</span>
+            <span class="block" style="letter-spacing: -0.025em;">DE CARROS EN</span>
           </span>
-          <span class="flex flex-row justify-center items-baseline gap-2 text-4xl md:text-5xl lg:text-7xl lg:whitespace-nowrap">
+          <span class="flex flex-row justify-center items-baseline gap-2 text-4xl md:text-5xl lg:text-7xl lg:whitespace-nowrap" style="letter-spacing: -0.025em;">
             <span class="size-8 md:size-10 lg:size-14" aria-hidden="true"></span>
             {{ city?.name }}
             <LocationIcon cls="text-red-600 size-8 md:size-10 lg:size-14 translate-y-1" />
           </span>
-          <span class="block text-2xl md:text-3xl lg:text-4xl tracking-wide colombia-sweep">Colombia</span>
+          <span class="block text-2xl md:text-3xl lg:text-4xl text-white colombia-sweep" style="letter-spacing: 0.025em;">Colombia</span>
         </h1>
       </template>
       <template #body>
@@ -49,21 +49,27 @@
               Elige ciudades, fechas y horarios y renta un vehículo por días, semanas o el tiempo que necesites
             </p>
           </div>
-          <ClientOnly>
-            <Searcher />
-            <template #fallback>
-              <PlaceholdersSearcher />
-            </template>
-          </ClientOnly>
+          <!-- Wrapper con altura fija para prevenir layout shift durante hidratación -->
+          <div class="h-[410px] w-full">
+            <ClientOnly>
+              <Searcher />
+              <template #fallback>
+                <PlaceholdersSearcher />
+              </template>
+            </ClientOnly>
+          </div>
         </div>
         <!-- Buscador solo en mobile/tablet -->
         <div class="lg:hidden">
-          <ClientOnly>
-            <Searcher />
-            <template #fallback>
-              <PlaceholdersSearcher />
-            </template>
-          </ClientOnly>
+          <!-- Wrapper con altura fija para prevenir layout shift durante hidratación -->
+          <div class="h-[360px]">
+            <ClientOnly>
+              <Searcher />
+              <template #fallback>
+                <PlaceholdersSearcher />
+              </template>
+            </ClientOnly>
+          </div>
         </div>
       </template>
     </UPageHero>
@@ -80,8 +86,8 @@
 
     <!-- Description Section -->
     <section id="descripcion" class="bg-white text-black py-4 md:py-12 px-4 md:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-8">
-        <div class="md:self-start flex justify-center">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-8">
+        <div class="md:self-start flex justify-center h-[300px] md:h-[400px]">
           <LazyImagesCiudadesChica :city-name="city?.name" />
         </div>
         <div class="flex flex-col gap-0 text-center font-extrabold">
@@ -114,8 +120,7 @@
     <section v-if="cityBranches.length > 0" id="puntos-entrega" class="bg-gray-50 text-black py-8 md:py-12 px-4 md:px-8">
       <div class="max-w-4xl mx-auto text-center">
         <h2 class="text-2xl md:text-3xl font-bold mb-6">
-          <span class="text-red-700">Puntos de entrega</span>
-          <span class="text-black">en {{ city?.name }}</span>
+          <span class="text-red-700">Puntos de entrega</span> <span class="text-black">en {{ city?.name }}</span>
         </h2>
         <div class="flex flex-wrap justify-center gap-3 md:gap-4">
           <div
@@ -213,8 +218,7 @@
       <section id="mejor-temporada" class="bg-gray-50 text-black py-8 md:py-12 px-4 md:px-8">
         <div class="max-w-4xl mx-auto text-center">
           <h2 class="text-2xl md:text-3xl font-bold mb-6">
-            <span class="text-red-700">Mejor época</span>
-            <span class="text-black"> para viajar</span>
+            <span class="text-red-700">Mejor época</span> <span class="text-black">para viajar a {{ city?.name }}</span>
           </h2>
           <p class="text-gray-700 text-base md:text-lg leading-relaxed">
             {{ expandedContent.bestSeason }}
@@ -247,7 +251,9 @@
     <!-- Testimonials Section -->
     <section id="testimonios" class="bg-white text-black py-12 md:py-20 px-4 md:px-8">
       <div class="max-w-7xl mx-auto">
-        <h2 class="text-2xl md:text-3xl text-black text-center mb-4">Lo que dicen nuestros clientes en {{ city?.name }}</h2>
+        <h2 class="text-2xl md:text-3xl font-bold text-center mb-4">
+          <span class="text-red-700">Testimonios de nuestros clientes</span> <span class="text-black">en {{ city?.name }}</span>
+        </h2>
         <p class="text-black text-center mb-8">Descubre por qué somos la opción preferida para alquilar carros en {{ city?.name }}. Nuestros clientes destacan nuestra atención, precios competitivos y la facilidad para explorar.</p>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div

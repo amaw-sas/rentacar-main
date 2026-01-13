@@ -100,6 +100,6 @@ export const useEarlyBookingPromotion = () => {
         name: 'Hasta 60% de Descuento - Reserva Anticipada',
         description: 'Obtén hasta un 60% de descuento al reservar con anticipación. Aplica para todas las categorías: compactos, sedanes y camionetas. Reserva sin pago anticipado y asegura los mejores precios por planificar tu viaje con tiempo.',
         discountPercentage: 60,
-        eligibleRegion: ['CO', 'MX']
+        eligibleRegion: ['CO']
     })
 }

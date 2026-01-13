@@ -8,7 +8,36 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
 
-  modules: ['@nuxtjs/seo', '@nuxt/ui', '@pinia/nuxt', 'nuxt-llms'],
+  // CSS crítico inline para prevenir FOUC
+  app: {
+    head: {
+      style: [
+        {
+          // CSS crítico que se inyecta inline en el <head> antes de cualquier stylesheet
+          children: `
+            /* Prevenir banderas/logos gigantes antes de CSS */
+            header svg { max-height: 3.5rem !important; max-width: 10rem !important; }
+            /* Ocultar bandera móvil en desktop y viceversa (antes de Tailwind) */
+            @media (min-width: 768px) { header .md\\:hidden { display: none !important; } }
+            @media (max-width: 767px) { header .hidden { display: none !important; } }
+            /* H1 tracking-tight */
+            .hero-section h1 { letter-spacing: -0.025em !important; }
+          `,
+        },
+      ],
+    },
+  },
+
+  modules: ['@nuxtjs/seo', '@nuxt/ui', '@pinia/nuxt', 'nuxt-llms', 'nuxt-vitalizer', '@nuxt/content'],
+
+  // Optimización Core Web Vitals
+  vitalizer: {
+    // NOTA: disableStylesheets: 'entry' causaba FOUC en páginas de ciudad
+    // Los estilos no se inlinean correctamente durante SSR
+    disableStylesheets: false,
+    // Remueve prefetch links para mejorar FCP
+    disablePrefetchLinks: true,
+  },
 
   // Optimización LCP: preloads en HTML inicial (antes de JS)
   app: {
@@ -156,30 +185,31 @@ export default defineNuxtConfig({
   },
 
   sitemap: {
-    // URLs estáticas - las rutas dinámicas [city] requieren especificación explícita
     urls: [
-      '/',
-      '/armenia',
-      '/barranquilla',
-      '/bogota',
-      '/bucaramanga',
-      '/cali',
-      '/cartagena',
-      '/cucuta',
-      '/ibague',
-      '/manizales',
-      '/medellin',
-      '/monteria',
-      '/neiva',
-      '/pereira',
-      '/santa-marta',
-      '/valledupar',
-      '/villavicencio',
-      '/floridablanca',
-      '/palmira',
-      '/soledad',
+      // Homepage - máxima prioridad
+      { loc: '/', changefreq: 'weekly', priority: 1.0 },
+      // Ciudades principales - alta prioridad
+      { loc: '/bogota', changefreq: 'monthly', priority: 0.9 },
+      { loc: '/medellin', changefreq: 'monthly', priority: 0.9 },
+      { loc: '/cali', changefreq: 'monthly', priority: 0.9 },
+      { loc: '/cartagena', changefreq: 'monthly', priority: 0.9 },
+      { loc: '/barranquilla', changefreq: 'monthly', priority: 0.9 },
+      // Ciudades secundarias - prioridad media
+      { loc: '/armenia', changefreq: 'monthly', priority: 0.8 },
+      { loc: '/bucaramanga', changefreq: 'monthly', priority: 0.8 },
+      { loc: '/cucuta', changefreq: 'monthly', priority: 0.8 },
+      { loc: '/ibague', changefreq: 'monthly', priority: 0.8 },
+      { loc: '/manizales', changefreq: 'monthly', priority: 0.8 },
+      { loc: '/monteria', changefreq: 'monthly', priority: 0.8 },
+      { loc: '/neiva', changefreq: 'monthly', priority: 0.8 },
+      { loc: '/pereira', changefreq: 'monthly', priority: 0.8 },
+      { loc: '/santa-marta', changefreq: 'monthly', priority: 0.8 },
+      { loc: '/valledupar', changefreq: 'monthly', priority: 0.8 },
+      { loc: '/villavicencio', changefreq: 'monthly', priority: 0.8 },
+      { loc: '/floridablanca', changefreq: 'monthly', priority: 0.8 },
+      { loc: '/palmira', changefreq: 'monthly', priority: 0.8 },
+      { loc: '/soledad', changefreq: 'monthly', priority: 0.8 },
     ],
-    // Excluir páginas internas del sitemap
     exclude: ['/blog', '/pendiente', '/sindisponibilidad', '/reservado/**', '/*/buscar-vehiculos/**'],
   },
 
