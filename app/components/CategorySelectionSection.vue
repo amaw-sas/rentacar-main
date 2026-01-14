@@ -3,7 +3,7 @@
     <div class="text-white text-center">
       <div class="text-3xl">¡Oops!</div>
       <div class="text-lg">
-        Nos quedamos sin carritos en {{city?.name}} para el {{ humanFormattedPickupDate }}.
+        Nos quedamos sin carritos en {{pickupCityName}} para el {{ humanFormattedPickupDate }}.
       </div>
       <p class="text-lg">
         pero no te preocupes, nuestro sistema se actualiza cada hora, <br>
@@ -15,7 +15,7 @@
     <div v-if="hasAvailableCategories" class="text-white text-center">
       <div class="text-lg md:text-xl font-bold">¡Vehículos Disponibles!</div>
       <div class="text-sm md:text-base">
-        <span>En <span class="text-yellow-400 font-semibold">{{city?.name}}</span> para el <span class="text-yellow-400 font-semibold">{{ humanFormattedPickupDate }}</span>.</span>
+        <span>En <span class="text-yellow-400 font-semibold">{{pickupCityName}}</span> para el <span class="text-yellow-400 font-semibold">{{ humanFormattedPickupDate }}</span>.</span>
         <span class="block md:inline"> ¡No te quedes sin el tuyo, Reserva ahora!</span>
       </div>
     </div>
@@ -207,7 +207,7 @@ const {
   filteredCategories,
   hasAvailableCategories,
 } = storeToRefs(storeSearch);
-const { vehiculo, humanFormattedPickupDate, isSubmittingForm } = storeToRefs(storeForm);
+const { vehiculo, humanFormattedPickupDate, isSubmittingForm, selectedPickupLocation } = storeToRefs(storeForm);
 const { vehicleCategories } = useVehicleCategories();
 const slideoverReservationResume = ref<boolean>(false);
 const slideoverReservationForm = ref<boolean>(false);
@@ -358,5 +358,13 @@ function setSelectedCategory(category: ReturnType<typeof useCategory>) {
 }
 
 const { submitForm } = storeForm;
-const { city } = useCityPageSEO();
+
+/** Ciudad de recogida seleccionada (no la de la landing) */
+const { getCityById } = useData();
+const pickupCityName = computed(() => {
+  const citySlug = selectedPickupLocation.value?.city;
+  if (!citySlug) return null;
+  const cityData = getCityById(citySlug);
+  return cityData?.name ?? null;
+});
 </script>
