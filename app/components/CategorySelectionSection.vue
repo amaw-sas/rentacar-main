@@ -62,100 +62,106 @@
         <reservation-resume :category="selectedCategory"></reservation-resume>
       </template>
       <template #footer>
-        <!-- Share Capsule -->
-        <div class="w-full flex justify-center mb-3">
-          <div class="flex items-center gap-2 bg-gray-100 rounded-full px-4 py-2">
-            <span class="text-sm text-gray-600 font-medium">Compartir</span>
-            <button
-              @click="shareWhatsApp"
-              class="flex items-center justify-center w-9 h-9 bg-green-500 hover:bg-green-600 text-white rounded-full transition-colors"
-              aria-label="Compartir en WhatsApp"
-            >
-              <UIcon name="i-lucide-message-circle" class="size-4" />
-            </button>
-            <button
-              @click="shareFacebook"
-              class="flex items-center justify-center w-9 h-9 bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-colors"
-              aria-label="Compartir en Facebook"
-            >
-              <UIcon name="i-lucide-facebook" class="size-4" />
-            </button>
-            <button
-              @click="shareTwitter"
-              class="flex items-center justify-center w-9 h-9 bg-black hover:bg-gray-800 text-white rounded-full transition-colors"
-              aria-label="Compartir en X"
-            >
-              <UIcon name="i-lucide-twitter" class="size-4" />
-            </button>
-            <button
-              @click="copyReservationLink"
-              class="flex items-center justify-center w-9 h-9 bg-gray-500 hover:bg-gray-600 text-white rounded-full transition-colors"
-              aria-label="Copiar enlace"
-            >
-              <UIcon :name="linkCopied ? 'i-lucide-check' : 'i-lucide-link'" class="size-4" />
-            </button>
+        <div class="w-full flex flex-col gap-3">
+          <!-- Share Capsule -->
+          <div class="flex justify-center">
+            <div class="flex items-center gap-2 bg-gray-100 rounded-full px-4 py-2">
+              <span class="text-sm text-gray-600 font-medium">Compartir</span>
+              <button
+                @click="shareWhatsApp"
+                class="flex items-center justify-center w-9 h-9 bg-green-500 hover:bg-green-600 text-white rounded-full transition-colors"
+                aria-label="Compartir en WhatsApp"
+              >
+                <UIcon name="i-lucide-message-circle" class="size-4" />
+              </button>
+              <button
+                @click="shareFacebook"
+                class="flex items-center justify-center w-9 h-9 bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-colors"
+                aria-label="Compartir en Facebook"
+              >
+                <UIcon name="i-lucide-facebook" class="size-4" />
+              </button>
+              <button
+                @click="shareTwitter"
+                class="flex items-center justify-center w-9 h-9 bg-black hover:bg-gray-800 text-white rounded-full transition-colors"
+                aria-label="Compartir en X"
+              >
+                <UIcon name="i-lucide-twitter" class="size-4" />
+              </button>
+              <button
+                @click="copyReservationLink"
+                class="flex items-center justify-center w-9 h-9 bg-gray-500 hover:bg-gray-600 text-white rounded-full transition-colors"
+                aria-label="Copiar enlace"
+              >
+                <UIcon :name="linkCopied ? 'i-lucide-check' : 'i-lucide-link'" class="size-4" />
+              </button>
+            </div>
           </div>
-        </div>
-        <u-button
-          label="Volver"
-          color="neutral"
-          variant="solid"
-          size="xl"
-          class="flex-1 py-4 justify-center bg-gray-200 !text-black hover:bg-gray-300"
-          @click="slideoverReservationResume = false"
-        />
-        <u-slideover
-          v-model:open="slideoverReservationForm"
-          title="Datos para reservas"
-          description="Completa tus datos y solicita la reserva"
-          :overlay="false"
-          :close="{ color: 'neutral', variant: 'outline', class: 'text-gray-700 border-gray-300 hover:bg-gray-100' }"
-          :ui="{
-            content: 'bg-white',
-            header: 'bg-white',
-            title: 'text-gray-900 text-2xl font-bold',
-            description: 'text-gray-600',
-            body: 'bg-white text-gray-900',
-            footer: 'bg-white gap-2 border-t-0',
-            close: 'absolute top-4 end-4 z-10',
-          }"
-        >
-          <u-button label="Siguiente" color="neutral" size="xl" class="flex-1 py-4 justify-center bg-green-700 hover:bg-green-800 text-white">
-            <template #trailing>
-              <ChevronRightIcon cls="size-5" />
-            </template>
-          </u-button>
-
-          <template #body>
-            <reservation-form
-              ref="reservationFormComponent"
-              @submit="submitForm"
-            />
-          </template>
-
-          <template #footer>
+          <!-- Action Buttons -->
+          <div class="flex gap-2">
             <u-button
               label="Volver"
               color="neutral"
               variant="solid"
               size="xl"
               class="flex-1 py-4 justify-center bg-gray-200 !text-black hover:bg-gray-300"
-              @click="slideoverReservationForm = false"
+              @click="slideoverReservationResume = false"
             />
-            <u-button
-              color="neutral"
-              size="xl"
-              class="flex-1 py-4 justify-center bg-green-700 hover:bg-green-800 text-white"
-              :loading="isSubmittingForm"
-              :disabled="isSubmittingForm"
-              @click="reservationFormComponent.submit()"
-              >Solicitar reserva
-              <template #trailing>
-                <ChevronRightIcon cls="size-5" />
+            <u-slideover
+              v-model:open="slideoverReservationForm"
+              title="Datos para reservas"
+              description="Completa tus datos y solicita la reserva"
+              :overlay="false"
+              :close="{ color: 'neutral', variant: 'outline', class: 'text-gray-700 border-gray-300 hover:bg-gray-100' }"
+              :ui="{
+                content: 'bg-white',
+                header: 'bg-white',
+                title: 'text-gray-900 text-2xl font-bold',
+                description: 'text-gray-600',
+                body: 'bg-white text-gray-900',
+                footer: 'bg-white gap-2 border-t-0',
+                close: 'absolute top-4 end-4 z-10',
+              }"
+            >
+              <u-button label="Siguiente" color="neutral" size="xl" class="flex-1 py-4 justify-center bg-green-700 hover:bg-green-800 text-white">
+                <template #trailing>
+                  <ChevronRightIcon cls="size-5" />
+                </template>
+              </u-button>
+
+              <template #body>
+                <reservation-form
+                  ref="reservationFormComponent"
+                  @submit="submitForm"
+                />
               </template>
-            </u-button>
-          </template>
-        </u-slideover>
+
+              <template #footer>
+                <u-button
+                  label="Volver"
+                  color="neutral"
+                  variant="solid"
+                  size="xl"
+                  class="flex-1 py-4 justify-center bg-gray-200 !text-black hover:bg-gray-300"
+                  @click="slideoverReservationForm = false"
+                />
+                <u-button
+                  color="neutral"
+                  size="xl"
+                  class="flex-1 py-4 justify-center bg-green-700 hover:bg-green-800 text-white"
+                  :loading="isSubmittingForm"
+                  :disabled="isSubmittingForm"
+                  @click="reservationFormComponent.submit()"
+                >
+                  Solicitar reserva
+                  <template #trailing>
+                    <ChevronRightIcon cls="size-5" />
+                  </template>
+                </u-button>
+              </template>
+            </u-slideover>
+          </div>
+        </div>
       </template>
     </u-slideover>
   </template>
