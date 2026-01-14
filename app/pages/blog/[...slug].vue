@@ -619,4 +619,32 @@ definePageMeta({
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
+
+/* Tables styling */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+}
+
+.prose th {
+  background-color: rgb(243, 244, 246);
+  color: rgb(17, 24, 39);
+  font-weight: 600;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-bottom: 2px solid rgb(229, 231, 235);
+}
+
+.prose td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgb(229, 231, 235);
+  color: rgb(55, 65, 81);
+}
+
+.prose tr:hover {
+  background-color: rgb(249, 250, 251);
+}
 </style>
