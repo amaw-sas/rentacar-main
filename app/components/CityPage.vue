@@ -227,6 +227,31 @@
       </section>
     </template>
 
+    <!-- Related Cities Section (Internal Linking) -->
+    <section v-if="relatedCities.length > 0" id="ciudades-cercanas" class="bg-white text-black py-8 md:py-12 px-4 md:px-8">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">
+          <span class="text-red-700">Alquiler de carros</span>
+          <span class="text-black"> en ciudades cercanas</span>
+        </h2>
+        <p class="text-gray-600 text-center mb-8">
+          ¿Planeas un viaje más largo? También ofrecemos alquiler de vehículos en estas ciudades cercanas a {{ city?.name }}.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+          <NuxtLink
+            v-for="related in relatedCities"
+            :key="related.id"
+            :to="`/${related.id}`"
+            class="group flex flex-col items-center p-4 bg-gray-50 rounded-lg hover:bg-red-50 hover:shadow-md transition-all duration-200"
+          >
+            <LocationIcon cls="text-red-600 size-8 mb-2 group-hover:scale-110 transition-transform" />
+            <span class="font-semibold text-gray-900 group-hover:text-red-700">{{ related.name }}</span>
+            <span class="text-sm text-gray-500">{{ related.distance }} en carro</span>
+          </NuxtLink>
+        </div>
+      </div>
+    </section>
+
     <!-- FAQ Section -->
     <UPageSection id="faqs" class="bg-gray-100 text-black">
       <div class="max-w-7xl mx-auto px-1 sm:px-2 lg:px-6">
@@ -293,6 +318,7 @@ import {
   IconsLocationIcon as LocationIcon,
 } from "#components";
 import { useCityExpandedContent, hasCityExpandedContent } from "~/composables/useCityContent";
+import { useRelatedCities } from "~/composables/useCityRelations";
 
 /** stores */
 const storeSearch = useStoreSearchData();
@@ -324,6 +350,9 @@ const testimonios: Testimonial[] | undefined = props.city?.testimonials;
 // Get expanded content for major cities (Bogotá, Medellín)
 const expandedContent = props.city?.name ? useCityExpandedContent(props.city.name) : null;
 const hasExpandedContent = props.city?.name ? hasCityExpandedContent(props.city.name) : false;
+
+// Get related cities for internal linking
+const relatedCities = props.city?.id ? useRelatedCities(props.city.id) : [];
 
 // Add AggregateRating schema for city-specific testimonials (shows stars in Google SERPs)
 if (props.city?.name && testimonios) {
