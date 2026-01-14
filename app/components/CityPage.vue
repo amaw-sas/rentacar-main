@@ -118,18 +118,24 @@
 
     <!-- Delivery Points Section -->
     <section v-if="cityBranches.length > 0" id="puntos-entrega" class="bg-gray-50 text-black py-8 md:py-12 px-4 md:px-8">
-      <div class="max-w-4xl mx-auto text-center">
+      <div class="max-w-5xl mx-auto text-center">
         <h2 class="text-2xl md:text-3xl font-bold mb-6">
           <span class="text-red-700">Puntos de entrega</span> <span class="text-black">en {{ city?.name }}</span>
         </h2>
-        <div class="flex flex-wrap justify-center gap-3 md:gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <div
             v-for="branch in cityBranches"
             :key="branch.code"
-            class="flex items-center gap-2 bg-white px-4 py-3 rounded-lg shadow-sm"
+            class="flex flex-col bg-white px-4 py-4 rounded-lg shadow-sm text-left"
           >
-            <LocationIcon cls="text-red-600 size-5" />
-            <span class="font-medium text-gray-800">{{ branch.name }}</span>
+            <div class="flex items-center gap-2 mb-2">
+              <LocationIcon cls="text-red-600 size-5 flex-shrink-0" />
+              <span class="font-semibold text-gray-900">{{ branch.name }}</span>
+            </div>
+            <div v-if="branch.schedule" class="flex items-start gap-2 text-sm text-gray-600">
+              <ClockIcon cls="text-gray-400 size-4 flex-shrink-0 mt-0.5" />
+              <span>{{ branch.schedule }}</span>
+            </div>
           </div>
         </div>
       </div>

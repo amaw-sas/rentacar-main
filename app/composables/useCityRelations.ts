@@ -35,16 +35,16 @@ const cityRelations: Record<string, RelatedCity[]> = {
     'barranquilla': [
         { id: 'soledad', name: 'Soledad', distance: '20 minutos' },
         { id: 'cartagena', name: 'Cartagena', distance: '2 horas' },
-        { id: 'santamarta', name: 'Santa Marta', distance: '2 horas' },
+        { id: 'santa-marta', name: 'Santa Marta', distance: '2 horas' },
         { id: 'valledupar', name: 'Valledupar', distance: '4 horas' },
     ],
     'cartagena': [
         { id: 'barranquilla', name: 'Barranquilla', distance: '2 horas' },
-        { id: 'santamarta', name: 'Santa Marta', distance: '4 horas' },
+        { id: 'santa-marta', name: 'Santa Marta', distance: '4 horas' },
         { id: 'monteria', name: 'Montería', distance: '4 horas' },
         { id: 'soledad', name: 'Soledad', distance: '2.5 horas' },
     ],
-    'santamarta': [
+    'santa-marta': [
         { id: 'barranquilla', name: 'Barranquilla', distance: '2 horas' },
         { id: 'cartagena', name: 'Cartagena', distance: '4 horas' },
         { id: 'valledupar', name: 'Valledupar', distance: '3 horas' },
@@ -102,7 +102,7 @@ const cityRelations: Record<string, RelatedCity[]> = {
         { id: 'barranquilla', name: 'Barranquilla', distance: '5 horas' },
     ],
     'valledupar': [
-        { id: 'santamarta', name: 'Santa Marta', distance: '3 horas' },
+        { id: 'santa-marta', name: 'Santa Marta', distance: '3 horas' },
         { id: 'barranquilla', name: 'Barranquilla', distance: '4 horas' },
         { id: 'cartagena', name: 'Cartagena', distance: '6 horas' },
     ],
@@ -120,7 +120,7 @@ const cityRelations: Record<string, RelatedCity[]> = {
     'soledad': [
         { id: 'barranquilla', name: 'Barranquilla', distance: '20 minutos' },
         { id: 'cartagena', name: 'Cartagena', distance: '2.5 horas' },
-        { id: 'santamarta', name: 'Santa Marta', distance: '2.5 horas' },
+        { id: 'santa-marta', name: 'Santa Marta', distance: '2.5 horas' },
         { id: 'valledupar', name: 'Valledupar', distance: '4 horas' },
     ],
 }
