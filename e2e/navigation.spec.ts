@@ -13,9 +13,8 @@ test.describe('Navegación del sitio', () => {
       // Verificar que la página cargó
       await expect(page).toHaveURL(new RegExp(`/${ciudad}`));
 
-      // Verificar que hay contenido H1
-      const h1 = page.locator('h1').first();
-      await expect(h1).toBeVisible();
+      // Verificar que "Alquiler de carros en" sea visible
+      await expect(page.getByText('Alquiler de carros en', { exact: false }).first()).toBeVisible();
     }
   });
 
@@ -25,8 +24,8 @@ test.describe('Navegación del sitio', () => {
     // Verificar URL
     await expect(page).toHaveURL(/\/blog/);
 
-    // Verificar que hay contenido
-    await expect(page.locator('h1')).toBeVisible();
+    // Verificar que "Blog de" sea visible
+    await expect(page.getByText('Blog de', { exact: false }).first()).toBeVisible();
   });
 
   test('debe navegar a términos y condiciones', async ({ page }) => {

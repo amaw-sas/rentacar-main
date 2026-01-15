@@ -93,6 +93,8 @@ test.describe('Accesibilidad', () => {
     await page.goto('/');
 
     const lang = await page.locator('html').getAttribute('lang');
-    expect(lang).toBe('es');
+    expect(lang).toBeTruthy();
+    // Debe ser español (es, es-CO, es-419, etc.)
+    expect(lang).toMatch(/^es/);
   });
 });

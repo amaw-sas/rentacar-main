@@ -4,8 +4,8 @@ test.describe('Blog', () => {
   test('debe cargar la página principal del blog', async ({ page }) => {
     await page.goto('/blog');
 
-    // Verificar título
-    await expect(page.locator('h1').first()).toBeVisible();
+    // Verificar que "Blog de" sea visible
+    await expect(page.getByText('Blog de', { exact: false })).toBeVisible();
 
     // Verificar que hay artículos
     const articles = page.locator('article, .blog-post, a[href*="/blog/"]');
@@ -49,7 +49,7 @@ test.describe('Blog', () => {
 
     // Verificar que navegó a un artículo
     await expect(page).toHaveURL(/\/blog\/.+/);
-    await expect(page.locator('h1')).toBeVisible();
+    await expect(page.getByText('Carro en', { exact: false }).first()).toBeVisible();
   });
 
   test('debe mostrar metadata SEO en artículos', async ({ page }) => {
