@@ -11,7 +11,7 @@
 ### Opción 1: Script automático (Recomendado)
 
 ```bash
-./scripts/install-playwright-deps.sh
+./e2e/install-deps.sh
 ```
 
 Este script instalará todas las dependencias del sistema necesarias. Requiere `sudo`.

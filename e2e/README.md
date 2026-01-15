@@ -2,6 +2,29 @@
 
 Este directorio contiene las pruebas end-to-end (E2E) de la aplicación Alquilatucarro usando Playwright.
 
+## Estado actual
+
+✅ **61 pruebas E2E implementadas**
+✅ **49 pruebas pasando** (80% de éxito)
+✅ **Navegadores instalados** (Chromium, Firefox, WebKit)
+✅ **Pruebas funcionando** en Chromium
+⚠️ 12 pruebas con ajustes pendientes (principalmente timeouts y configuración desarrollo/producción)
+
+## Inicio rápido
+
+```bash
+# Ejecutar todas las pruebas en Chromium
+pnpm test:e2e:chromium
+
+# Ejecutar solo pruebas de homepage
+pnpm test:e2e:chromium e2e/homepage.spec.ts
+
+# Ver interfaz visual
+pnpm test:e2e:ui
+```
+
+Para más detalles de instalación, ver [INSTALL-PLAYWRIGHT.md](../INSTALL-PLAYWRIGHT.md)
+
 ## Estructura de pruebas
 
 - **homepage.spec.ts** - Pruebas de la página principal
