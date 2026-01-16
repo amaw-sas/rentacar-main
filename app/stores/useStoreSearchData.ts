@@ -54,31 +54,32 @@ const useStoreSearchData = defineStore("storeSearchData", () => {
           noAvailableCategories.value = true;
       }
       else {
-        categoriesAvailabilityData.value = categoriesAdminData?.filter((categoryAdmin: CategoryData) => 
+        const dataArray = Array.isArray(data.value) ? data.value : [];
+        categoriesAvailabilityData.value = categoriesAdminData?.filter((categoryAdmin: CategoryData) =>
           !(categoryAdmin.identification in noMonthlyCategories)
         ) // filter out categories FU, FL and GL when have monthly reservation
-        .map((categoryAdmin: CategoryData) => 
+        .map((categoryAdmin: CategoryData) =>
           // create a category availability object for each category
           createCategoryAvailability(categoryAdmin)
-        ) 
+        )
         .map((category: CategoryAvailabilityData) => {
           // add return fee amount to each category
-          const categoryAvailability = data.value?.find((categoryAvailability: CategoryAvailabilityData) => 
+          const categoryAvailability = dataArray.find((categoryAvailability: CategoryAvailabilityData) =>
             categoryAvailability.categoryCode == category.categoryCode
           );
 
           if(categoryAvailability)
             category['returnFeeAmount'] = categoryAvailability.returnFeeAmount;
-            
+
           return category;
         }) as CategoryAvailabilityData[];
       }
 
     }
     else {
-      
+
       // if there's any data response
-      if (data.value) {
+      if (data.value && Array.isArray(data.value)) {
         noAvailableCategories.value = data.value.length == 0;
         categoriesAvailabilityData.value = data.value;
       } else if (errorResponse.value) {
@@ -87,6 +88,9 @@ const useStoreSearchData = defineStore("storeSearchData", () => {
         else
           createErrorMessage(errorResponse.value);
 
+        categoriesAvailabilityData.value = [];
+      } else {
+        // data.value exists but is not an array (unexpected response)
         categoriesAvailabilityData.value = [];
       }
     }
@@ -188,17 +192,26 @@ const useStoreSearchData = defineStore("storeSearchData", () => {
           } else return true;
         }
       });
-      
+
   });
 
-  return { 
-    categoriesAvailabilityData, 
+  /** Verifica si hay al menos una categoría realmente disponible (no marcada como unable) */
+  const hasAvailableCategories = computed<boolean>(() => {
+    if (filteredCategories.value.length === 0) return false;
+    return filteredCategories.value.some(
+      (category: CategoryAvailabilityData) => category.estimatedTotalAmount !== 999999999
+    );
+  });
+
+  return {
+    categoriesAvailabilityData,
     categories,
     filteredCategories,
-    search, 
-    pending, 
-    error, 
-    selectedCategory, 
+    hasAvailableCategories,
+    search,
+    pending,
+    error,
+    selectedCategory,
     noAvailableCategories,
   };
 });

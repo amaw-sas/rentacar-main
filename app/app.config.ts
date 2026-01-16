@@ -1,6 +1,16 @@
 export default defineAppConfig({
   defaultTimezone: "America/Bogota",
   ui: {
+    slideover: {
+      slots: {
+        close: 'absolute top-4 end-4 bg-black text-white rounded-full hover:bg-gray-700',
+      },
+    },
+    header: {
+      slots: {
+        close: 'bg-black text-white rounded-full hover:bg-gray-700',
+      },
+    },
     pageSection: {
       slots: {
         container:
@@ -25,6 +35,17 @@ export default defineAppConfig({
         },
       },
     },
+    formField: {
+      slots: {
+        label: "block font-normal text-default text-sm pl-1",
+        container: "mt-0.5 relative",
+      },
+    },
+    checkbox: {
+      slots: {
+        label: "font-normal text-sm",
+      },
+    },
   },
   organization: {
     name: "AMAW SAS",
@@ -36,15 +57,15 @@ export default defineAppConfig({
     otherbrands: ["Alquilame", "Alquicarros"],
   },
   reservation: {
-    website: "https://reservatucarro.com",
+    website: "https://alquilatucarro.com",
   },
   franchise: {
     name: "alquilatucarro.com",
     shortname: "alquilatucarro",
     website: "https://alquilatucarro.com",
-    title: "ALQUILER DE CARROS EN COLOMBIA desde USD $32 ALQUILATUCARRO",
+    title: "Alquiler de Carros en Colombia desde $32/día",
     description:
-      "Los mejores precios en alquiler de carros y alquiler de camionetas en varias zonas del país. Reserva Ahora! Tenemos variedad de carros nuevos renovando nuestra flota cada 2 años. Alquiler de carros en Bogotá, Medellín, Barranquilla, Cali, Cartagena, Bucaramanga, Ibagué, Manizales, Cúcuta, Santa Marta, Pereira, Montería y Villavicencio.",
+      "Alquila carros en Bogotá, Medellín, Cali y 16 ciudades más. Hasta 60% descuento por reserva anticipada. Sin pago previo. Flota renovada cada 2 años.",
     logo: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Flogo.png?alt=media&token=975cfe04-c619-44bc-964a-e6231ca92dfe",
     oglogo:
       "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Fog-logo.png?alt=media&token=609ec027-6040-466d-9364-d933f67d1e5f",
@@ -63,19 +84,19 @@ export default defineAppConfig({
     ],
     footerLinks: [
       {
-        link: "https://storage.googleapis.com/alquilatucarro/rentacar-landing/2023/pdf/POL%C3%8DTICA%20DE%20PRIVACIDAD.pdf",
+        link: "/terminos-condiciones",
         label: "Términos y condiciones",
       },
       {
-        link: "https://storage.googleapis.com/alquilatucarro/rentacar-landing/2023/pdf/tratamiento-datos-alquilatucarro.pdf",
-        label: "Política de tratamiento de datos personales",
+        link: "/politica-privacidad",
+        label: "Política de privacidad",
       },
       {
         link: "https://docs.google.com/forms/d/e/1FAIpQLSe5NLCil5hQNqsdPhwDM3DYe3wbGiUyr-2VK4RBTYE3YQbcug/viewform",
         label: "Quejas y reclamos",
       },
       {
-        link: "https://www.alquilatucarro.com/gana/",
+        link: "/gana",
         label: "Gana comisiones",
       },
       {
@@ -164,192 +185,217 @@ export default defineAppConfig({
       code: "AARME",
       name: "Armenia Aeropuerto",
       city: "armenia",
+      schedule: "Lun-Vie 06:00-19:00 | Sáb, Dom y fest 08:00-16:00",
     },
     {
       id: 2,
       code: "AABAN",
       name: "Barranquilla Aeropuerto",
       city: "barranquilla",
+      schedule: "Todos los días 07:00-20:00",
     },
     {
       id: 3,
       code: "ACBAN",
       name: "Barranquilla Norte",
       city: "barranquilla",
+      schedule: "Lun-Vie 08:00-16:00 | Sáb, Dom y fest 08:00-13:00",
     },
     {
       id: 4,
       code: "ACBSD",
-      name: "Soledad",
+      name: "Soledad Aeropuerto",
       city: "soledad",
+      schedule: "Lun-Dom 06:30-20:00",
     },
     {
       id: 5,
       code: "AABOT",
       name: "Bogotá Aeropuerto",
       city: "bogota",
+      schedule: "Lun-Dom 24 horas | Festivos 06:00-21:00",
     },
     {
       id: 6,
       code: "ACBOT",
       name: "Bogotá Av. Caracas con 72",
       city: "bogota",
+      schedule: "Lun-Sáb 07:30-18:00 | Dom y fest Cerrado",
     },
     {
       id: 7,
       code: "ACBEX",
-      name: "Bogotá Almacen Éxito del Country",
+      name: "Bogotá Almacén Éxito del Country",
       city: "bogota",
+      schedule: "Todos los días 06:30-20:00",
     },
     {
       id: 8,
       code: "ACBNN",
-      name: "Bogotá C.Cial Nuestro Centro",
+      name: "Bogotá Centro Nuestro",
       city: "bogota",
-    },
-    {
-      id: 9,
-      code: "ACBOJ",
-      name: "Bogotá Almacen Yumbo Calle 170",
-      city: "bogota",
+      schedule: "Todos los días 06:30-18:00",
     },
     {
       id: 10,
       code: "AABCR",
       name: "Bucaramanga Aeropuerto",
       city: "bucaramanga",
+      schedule: "Todos los días 06:30-18:30",
     },
     {
       id: 11,
       code: "ACBCR",
       name: "Floridablanca",
       city: "floridablanca",
+      schedule: "Lun-Vie 08:00-15:00 | Sáb, Dom y fest 08:00-13:00",
     },
     {
       id: 12,
       code: "AAKAL",
       name: "Cali Aeropuerto",
       city: "cali",
+      schedule: "Lun-Sáb 06:00-21:00 | Dom y fest 08:00-16:00",
     },
     {
       id: 13,
       code: "ACKAL",
       name: "Cali Sur Camino Real",
       city: "cali",
+      schedule: "Lun-Sáb 08:00-16:00 | Dom y fest Cerrado",
     },
     {
       id: 14,
       code: "ACKJC",
       name: "Cali Norte Chipichape",
       city: "cali",
+      schedule: "Lun-Sáb 08:00-16:00 | Dom y fest 08:00-13:00",
     },
     {
       id: 15,
       code: "ACKPA",
-      name: "Palmira C.Cial Plaza Madero",
+      name: "Palmira",
       city: "palmira",
+      schedule: "Lun-Vie 06:00-20:00 | Sáb, Dom y fest 08:00-15:00",
     },
     {
       id: 16,
       code: "AACTG",
       name: "Cartagena Aeropuerto",
       city: "cartagena",
+      schedule: "Todos los días 06:30-20:00",
     },
     {
       id: 17,
       code: "AACUC",
-      name: "Cucuta Aeropuerto",
+      name: "Cúcuta Aeropuerto",
       city: "cucuta",
+      schedule: "Lun-Vie 07:00-18:00 | Sáb, Dom y fest 08:00-15:00",
     },
     {
       id: 18,
       code: "ACIBG",
-      name: "Ibagué C.Cial Plazas del Bosque",
+      name: "Ibagué",
       city: "ibague",
+      schedule: "Lun-Vie 08:00-16:00 | Sáb, Dom y fest 08:00-13:00",
     },
     {
       id: 19,
       code: "ACMNZ",
-      name: "Manizales C.Cial Mallplaza",
+      name: "Manizales",
       city: "manizales",
+      schedule: "Lun-Vie 08:00-16:00 | Sáb, Dom y fest 08:00-13:00",
     },
     {
       id: 20,
       code: "ACMDL",
-      name: "Medellín Las Vegas el Poblado",
+      name: "Medellín Poblado",
       city: "medellin",
+      schedule: "Lun-Sáb 07:00-18:00 | Dom y fest 08:00-15:00",
     },
     {
       id: 21,
       code: "ACMCL",
       name: "Medellín Centro Éxito Colombia",
       city: "medellin",
+      schedule: "Lun-Vie 08:00-15:00 | Sáb 08:00-13:00 | Dom y fest Cerrado",
     },
     {
       id: 22,
-      code: "ACMNN",
-      name: "Medellín Ciudad del Rio El Poblado",
+      code: "AAMDL",
+      name: "Medellín Aeropuerto José María Córdoba",
       city: "medellin",
+      schedule: "Todos los días 06:00-23:00",
     },
     {
       id: 23,
-      code: "AAMDL",
-      name: "Medellín Aeropuerto José María C.",
-      city: "medellin",
-    },
-    {
-      id: 24,
       code: "ACMJM",
       name: "Rionegro",
       city: "medellin",
+      schedule: "Todos los días 06:00-23:00",
+    },
+    {
+      id: 24,
+      code: "ACMSN",
+      name: "Rionegro C.Cial San Nicolas",
+      city: "medellin",
+      schedule: "Lun-Sáb 09:00-18:00 | Dom y fest 10:00-17:00",
     },
     {
       id: 25,
       code: "AAMTR",
       name: "Montería Aeropuerto",
       city: "monteria",
+      schedule: "Lun-Vie 07:00-19:00 | Sáb, Dom y fest 08:00-16:00",
     },
     {
       id: 26,
       code: "ACMTR",
-      name: "Montería C.Cial Buenavista",
+      name: "Montería Ciudad",
       city: "monteria",
+      schedule: "Lun-Vie 08:00-15:00 | Sáb, Dom y fest 08:00-13:00",
     },
     {
       id: 27,
       code: "AANVA",
       name: "Neiva Aeropuerto",
       city: "neiva",
+      schedule: "Lun-Vie 06:30-20:00 | Sáb, Dom y fest 08:00-15:00",
     },
     {
       id: 28,
       code: "AAPEI",
       name: "Pereira Aeropuerto",
       city: "pereira",
+      schedule: "Lun-Vie 06:30-19:30 | Sáb, Dom y fest 08:00-15:00",
     },
     {
       id: 29,
-      code: "AASMR",
-      name: "Santa Marta Aeropuerto",
-      city: "santa-marta",
+      code: "ACPEI",
+      name: "Pereira Zoológico",
+      city: "pereira",
+      schedule: "Lun-Vie 06:30-19:30 | Sáb, Dom y fest 08:00-15:00",
     },
     {
       id: 30,
-      code: "ACSMR",
-      name: "Santa Marta Barrio El prado",
+      code: "AASMR",
+      name: "Santa Marta Aeropuerto",
       city: "santa-marta",
+      schedule: "Todos los días 07:00-18:00",
     },
     {
       id: 31,
       code: "AAVAL",
       name: "Valledupar Aeropuerto",
       city: "valledupar",
+      schedule: "Lun-Vie 07:00-18:00 | Sáb, Dom y fest 08:00-15:00",
     },
     {
       id: 32,
       code: "ACVLL",
-      name: "Villavicencio C.Cial Llano Centro",
+      name: "Villavicencio",
       city: "villavicencio",
+      schedule: "Lun-Vie 08:00-16:00 | Sáb, Dom y fest 08:00-13:00",
     },
   ],
   faqs: [
@@ -419,7 +465,7 @@ export default defineAppConfig({
       name: "Armenia",
       description:
         "¿Planeas visitar Armenia? En Armenia puedes reservar en línea sin anticipos y recoger directamente en el Aeropuerto El Edén. Aprovecha descuentos de hasta el 60% por reserva anticipada y elige entre carros compactos, sedanes o camionetas para recorrer lugares como Salento, Filandia o el Parque del Café. Nuestra sede en Armenia te ofrece precios bajos y disponibilidad inmediata los 7 días de la semana. ¡Alquila fácil, sin trámites largos y comienza tu aventura en el corazón del Paisaje Cultural Cafetero, declarado Patrimonio de la Humanidad!",
-      link: "https://www.alquilerdecarrosarmenia.com/",
+      link: "/armenia",
       testimonials: [
         {
           user: {
@@ -494,7 +540,7 @@ export default defineAppConfig({
       name: "Barranquilla",
       description:
         "¿Planeas visitar Barranquilla? En Barranquilla puedes reservar en línea sin anticipos y recoger directamente en el Aeropuerto Ernesto Cortissoz. Aprovecha descuentos de hasta el 60% por reserva anticipada y elige entre carros compactos, sedanes o camionetas para recorrer lugares como el Malecón del Río, el Museo del Caribe o el Zoológico de Barranquilla. Nuestra sede en Barranquilla te ofrece precios bajos y disponibilidad inmediata los 7 días de la semana. ¡Alquila fácil, sin trámites largos y comienza tu aventura en la Puerta de Oro de Colombia, epicentro del Carnaval más famoso del país!",
-      link: "https://www.alquilerdecarrosbarranquilla.com/",
+      link: "/barranquilla",
       testimonials: [
         {
           user: {
@@ -569,7 +615,7 @@ export default defineAppConfig({
       name: "Bogotá",
       description:
         "¿Planeas visitar Bogotá? En Bogotá puedes reservar en línea sin anticipos y recoger directamente en el Aeropuerto El Dorado. Aprovecha descuentos de hasta el 60% por reserva anticipada y elige entre carros compactos, sedanes o camionetas para recorrer lugares como el Museo del Oro, el Cerro de Monserrate o la Zona Rosa. Nuestra sede en Bogotá te ofrece precios bajos y disponibilidad inmediata los 7 días de la semana. ¡Alquila fácil, sin trámites largos y comienza tu aventura en la capital a 2.600 metros más cerca de las estrellas!",
-      link: "https://www.alquilercarrosenbogota.co/",
+      link: "/bogota",
       testimonials: [
         {
           user: {
@@ -644,7 +690,7 @@ export default defineAppConfig({
       name: "Bucaramanga",
       description:
         "¿Planeas visitar Bucaramanga? En Bucaramanga puedes reservar en línea sin anticipos y recoger directamente en el Aeropuerto Palonegro. Aprovecha descuentos de hasta el 60% por reserva anticipada y elige entre carros compactos, sedanes o camionetas para recorrer lugares como el Parque Nacional del Chicamocha, el Ecoparque Cerro del Santísimo o el centro histórico. Nuestra sede en Bucaramanga te ofrece precios bajos y disponibilidad inmediata los 7 días de la semana. ¡Alquila fácil, sin trámites largos y comienza tu aventura en la Ciudad Bonita de Colombia, famosa por sus parques y aventura extrema!",
-      link: "https://www.alquilercarrosbucaramanga.com/",
+      link: "/bucaramanga",
       testimonials: [
         {
           user: {
@@ -719,7 +765,7 @@ export default defineAppConfig({
       name: "Cali",
       description:
         "¿Planeas visitar Cali? En Cali puedes reservar en línea sin anticipos y recoger directamente en el Aeropuerto Alfonso Bonilla Aragón. Aprovecha descuentos de hasta el 60% por reserva anticipada y elige entre carros compactos, sedanes o camionetas para recorrer lugares como el Zoológico de Cali, la Iglesia La Ermita o el Cristo Rey. Nuestra sede en Cali te ofrece precios bajos y disponibilidad inmediata los 7 días de la semana. ¡Alquila fácil, sin trámites largos y comienza tu aventura en la capital mundial de la salsa, donde el ritmo nunca para!",
-      link: "https://www.alquilerdecarroscali.net/",
+      link: "/cali",
       testimonials: [
         {
           user: {
@@ -794,7 +840,7 @@ export default defineAppConfig({
       name: "Cartagena",
       description:
         "¿Planeas visitar Cartagena? En Cartagena puedes reservar en línea sin anticipos y recoger directamente en el Aeropuerto Rafael Núñez. Aprovecha descuentos de hasta el 60% por reserva anticipada y elige entre carros compactos, sedanes o camionetas para recorrer lugares como el Castillo de San Felipe, el Centro Histórico o las Islas del Rosario. Nuestra sede en Cartagena te ofrece precios bajos y disponibilidad inmediata los 7 días de la semana. ¡Alquila fácil, sin trámites largos y comienza tu aventura en la Heroica, joya colonial del Caribe!",
-      link: "https://www.alquilerdecarroscartagena.com/",
+      link: "/cartagena",
       testimonials: [
         {
           user: {
@@ -869,7 +915,7 @@ export default defineAppConfig({
       name: "Cúcuta",
       description:
         "¿Planeas visitar Cúcuta? En Cúcuta puedes reservar en línea sin anticipos y recoger directamente en el Aeropuerto Camilo Daza. Aprovecha descuentos de hasta el 60% por reserva anticipada y elige entre carros compactos, sedanes o camionetas para recorrer lugares como el Malecón, el Parque Santander o el Puente Internacional Simón Bolívar. Nuestra sede en Cúcuta te ofrece precios bajos y disponibilidad inmediata los 7 días de la semana. ¡Alquila fácil, sin trámites largos y comienza tu aventura en la Perla del Norte, puerta fronteriza con Venezuela!",
-      link: "https://www.alquilerdecarroscucuta.com/",
+      link: "/cucuta",
       testimonials: [
         {
           user: {
@@ -944,7 +990,7 @@ export default defineAppConfig({
       name: "Ibagué",
       description:
         "¿Planeas visitar Ibagué? En Ibagué puedes reservar en línea sin anticipos y recoger directamente en el Aeropuerto Perales. Aprovecha descuentos de hasta el 60% por reserva anticipada y elige entre carros compactos, sedanes o camionetas para recorrer lugares como el Cañón del Combeima, el Jardín Botánico San Jorge o el Conservatorio del Tolima. Nuestra sede en Ibagué te ofrece precios bajos y disponibilidad inmediata los 7 días de la semana. ¡Alquila fácil, sin trámites largos y comienza tu aventura en la Capital Musical de Colombia, cuna de festivales folclóricos!",
-      link: "https://www.alquilerdecarrosibague.com/",
+      link: "/ibague",
       testimonials: [
         {
           user: {
@@ -1019,7 +1065,7 @@ export default defineAppConfig({
       name: "Manizales",
       description:
         "¿Planeas visitar Manizales? En Manizales puedes reservar en línea sin anticipos y recoger directamente en el Aeropuerto La Nubia. Aprovecha descuentos de hasta el 60% por reserva anticipada y elige entre carros compactos, sedanes o camionetas para recorrer lugares como la Catedral Basílica, el Ecoparque Los Yarumos o el Nevado del Ruiz. Nuestra sede en Manizales te ofrece precios bajos y disponibilidad inmediata los 7 días de la semana. ¡Alquila fácil, sin trámites largos y comienza tu aventura en la Ciudad de las Puertas Abiertas, entre volcanes y café!",
-      link: "https://www.alquilerdecarrosmanizales.com/",
+      link: "/manizales",
       testimonials: [
         {
           user: {
@@ -1094,7 +1140,7 @@ export default defineAppConfig({
       name: "Medellín",
       description:
         "¿Planeas visitar Medellín? En Medellín puedes reservar en línea sin anticipos y recoger directamente en el Aeropuerto José María Córdova. Aprovecha descuentos de hasta el 60% por reserva anticipada y elige entre carros compactos, sedanes o camionetas para recorrer lugares como el Parque Arví, la Comuna 13 o el Jardín Botánico. Nuestra sede en Medellín te ofrece precios bajos y disponibilidad inmediata los 7 días de la semana. ¡Alquila fácil, sin trámites largos y comienza tu aventura en la Ciudad de la Eterna Primavera, ejemplo de innovación urbana!",
-      link: "https://www.alquilercarrosmedellin.co/",
+      link: "/medellin",
       testimonials: [
         {
           user: {
@@ -1169,7 +1215,7 @@ export default defineAppConfig({
       name: "Montería",
       description:
         "¿Planeas visitar Montería? En Montería puedes reservar en línea sin anticipos y recoger directamente en el Aeropuerto Los Garzones. Aprovecha descuentos de hasta el 60% por reserva anticipada y elige entre carros compactos, sedanes o camionetas para recorrer lugares como el Río Sinú, el Parque Ronda del Sinú o el Sombrero Vueltiao. Nuestra sede en Montería te ofrece precios bajos y disponibilidad inmediata los 7 días de la semana. ¡Alquila fácil, sin trámites largos y comienza tu aventura en la Perla del Sinú, capital ganadera del Caribe!",
-      link: "https://www.alquilerdecarrosmonteria.com/",
+      link: "/monteria",
       testimonials: [
         {
           user: {
@@ -1244,7 +1290,7 @@ export default defineAppConfig({
       name: "Neiva",
       description:
         "¿Planeas visitar Neiva? En Neiva puedes reservar en línea sin anticipos y recoger directamente en el Aeropuerto Benito Salas. Aprovecha descuentos de hasta el 60% por reserva anticipada y elige entre carros compactos, sedanes o camionetas para recorrer lugares como el Desierto de la Tatacoa, el Parque Andino o el Festival del Bambuco. Nuestra sede en Neiva te ofrece precios bajos y disponibilidad inmediata los 7 días de la semana. ¡Alquila fácil, sin trámites largos y comienza tu aventura en la Puerta del Sur, cerca de maravillas arqueológicas!",
-      link: "https://www.alquilerdecarrosneiva.com/",
+      link: "/neiva",
       testimonials: [
         {
           user: {
@@ -1319,7 +1365,7 @@ export default defineAppConfig({
       name: "Pereira",
       description:
         "¿Planeas visitar Pereira? En Pereira puedes reservar en línea sin anticipos y recoger directamente en el Aeropuerto Matecaña. Aprovecha descuentos de hasta el 60% por reserva anticipada y elige entre carros compactos, sedanes o camionetas para recorrer lugares como el Bioparque Ukumarí, el Santuario de Fauna y Flora Otún Quimbaya o el Cerrito. Nuestra sede en Pereira te ofrece precios bajos y disponibilidad inmediata los 7 días de la semana. ¡Alquila fácil, sin trámites largos y comienza tu aventura en la Querendona, Trasnochadora y Morena del Eje Cafetero!",
-      link: "https://www.alquilerdecarrospereira.com/",
+      link: "/pereira",
       testimonials: [
         {
           user: {
@@ -1390,11 +1436,11 @@ export default defineAppConfig({
       ],
     },
     {
-      id: "santamarta",
+      id: "santa-marta",
       name: "Santa Marta",
       description:
         "¿Planeas visitar Santa Marta? En Santa Marta puedes reservar en línea sin anticipos y recoger directamente en el Aeropuerto Simón Bolívar. Aprovecha descuentos de hasta el 60% por reserva anticipada y elige entre carros compactos, sedanes o camionetas para recorrer lugares como el Parque Tayrona, la Quinta de San Pedro Alejandrino o Taganga. Nuestra sede en Santa Marta te ofrece precios bajos y disponibilidad inmediata los 7 días de la semana. ¡Alquila fácil, sin trámites largos y comienza tu aventura en la Bahía Más Linda de América!",
-      link: "https://www.alquilercarrossantamarta.com/",
+      link: "/santa-marta",
       testimonials: [
         {
           user: {
@@ -1469,7 +1515,7 @@ export default defineAppConfig({
       name: "Valledupar",
       description:
         "¿Planeas visitar Valledupar? En Valledupar puedes reservar en línea sin anticipos y recoger directamente en el Aeropuerto Alfonso López. Aprovecha descuentos de hasta el 60% por reserva anticipada y elige entre carros compactos, sedanes o camionetas para recorrer lugares como el Río Guatapurí, la Plaza Alfonso López o el Festival Vallenato. Nuestra sede en Valledupar te ofrece precios bajos y disponibilidad inmediata los 7 días de la semana. ¡Alquila fácil, sin trámites largos y comienza tu aventura en la Cuna del Vallenato, tierra de acordeones y leyendas!",
-      link: "https://www.alquilerdecarrosvalledupar.com/",
+      link: "/valledupar",
       testimonials: [
         {
           user: {
@@ -1544,7 +1590,7 @@ export default defineAppConfig({
       name: "Villavicencio",
       description:
         "¿Planeas visitar Villavicencio? En Villavicencio puedes reservar en línea sin anticipos y recoger directamente en el Aeropuerto Vanguardia. Aprovecha descuentos de hasta el 60% por reserva anticipada y elige entre carros compactos, sedanes o camionetas para recorrer lugares como el Bioparque Los Ocarros, el Mirador de Buenavista o Caño Cristales (cerca). Nuestra sede en Villavicencio te ofrece precios bajos y disponibilidad inmediata los 7 días de la semana. ¡Alquila fácil, sin trámites largos y comienza tu aventura en la Puerta al Llano, con sabores de llanero auténtico!",
-      link: "https://www.alquilercarrosvillavicencio.com/",
+      link: "/villavicencio",
       testimonials: [
         {
           user: {
@@ -1617,7 +1663,7 @@ export default defineAppConfig({
     {
       id: "floridablanca",
       name: "Floridablanca",
-      link: "https://www.alquilerdecarrosfloridablanca.com/",
+      link: "/floridablanca",
       testimonials: [
         {
           user: {
@@ -1691,8 +1737,8 @@ export default defineAppConfig({
       id: "palmira",
       name: "Palmira",
       description:
-        "¿Planeas visitar Floridablanca? En Floridablanca puedes reservar en línea sin anticipos y recoger directamente en el Aeropuerto Palonegro (Bucaramanga). Aprovecha descuentos de hasta el 60% por reserva anticipada y elige entre carros compactos, sedanes o camionetas para recorrer lugares como el Ecoparque Cerro El Santísimo, el Jardín Botánico Eloy Valenzuela o Cañón del Chicamocha. Nuestra sede en Floridablanca te ofrece precios bajos y disponibilidad inmediata los 7 días de la semana. ¡Alquila fácil, sin trámites largos y comienza tu aventura en la Ciudad Dulce de Colombia, famosa por sus obleas!",
-      link: "https://www.alquilerdecarrospalmira.com/",
+        "¿Planeas visitar Palmira? En Palmira puedes reservar en línea sin anticipos y recoger directamente en el Aeropuerto Alfonso Bonilla Aragón (Cali), a solo 20 minutos. Aprovecha descuentos de hasta el 60% por reserva anticipada y elige entre carros compactos, sedanes o camionetas para recorrer lugares como la Basílica del Señor de los Milagros en Buga, las haciendas azucareras históricas o el centro de Cali. Nuestra sede en Palmira te ofrece precios bajos y disponibilidad inmediata los 7 días de la semana. ¡Alquila fácil, sin trámites largos y comienza tu aventura en la Villa de las Palmas, Capital Agrícola de Colombia!",
+      link: "/palmira",
       testimonials: [
         {
           user: {
@@ -1767,7 +1813,7 @@ export default defineAppConfig({
       name: "Soledad",
       description:
         "¿Planeas visitar Soledad? En Soledad puedes reservar en línea sin anticipos y recoger directamente en el Aeropuerto Ernesto Cortissoz (Barranquilla). Aprovecha descuentos de hasta el 60% por reserva anticipada y elige entre carros compactos, sedanes o camionetas para recorrer lugares como el Malecón del Río, el Parque Sagrado Corazón o el Museo del Carnaval. Nuestra sede en Soledad te ofrece precios bajos y disponibilidad inmediata los 7 días de la semana. ¡Alquila fácil, sin trámites largos y comienza tu aventura en el municipio más poblado del Atlántico, vibrante y carnavalero!",
-      link: "https://www.alquilerdecarrossoledad.com/",
+      link: "/soledad",
       testimonials: [
         {
           user: {
@@ -1834,81 +1880,6 @@ export default defineAppConfig({
           },
           quote:
             "Excelente alternativa para recorrer Soledad. El auto fue perfecto para ir al Mercado Público y el Malecón, muy limpio, seguro y con buen consumo de gasolina.",
-        },
-      ],
-    },
-    {
-      id: "cancun",
-      name: "Cancún",
-      description:
-        "¿Planeas visitar Cancún? En Cancún puedes reservar en línea sin anticipos y recoger directamente en el Aeropuerto Internacional de Cancún. Aprovecha descuentos de hasta el 60% por reserva anticipada y elige entre carros compactos, sedanes o camionetas para recorrer lugares como las playas del Caribe, Chichén Itzá o Xcaret. Nuestra sede en Cancún te ofrece precios bajos y disponibilidad inmediata los 7 días de la semana. ¡Alquila fácil, sin trámites largos y comienza tu aventura en el paraíso maya del Caribe mexicano!",
-      link: "https://alquilerdecarroscancun.com/",
-      testimonials: [
-        {
-          user: {
-            name: "Stephany M. García",
-            description: "Peru",
-            avatar: {
-              src: "uifaces-popular-image5",
-              alt: "Stephany M. García",
-            },
-          },
-          quote:
-            "Durante nuestra estadía en Cancún, tuvimos la oportunidad de visitar Chichén Itzá y Isla Mujeres. Fue muy cómodo desplazarse entre estos destinos y disfrutar de las ruinas mayas a nuestro propio ritmo.",
-        },
-        {
-          user: {
-            name: "Sandra Milena Barona",
-            description: "Colombia",
-            avatar: {
-              src: "uifaces-popular-image4",
-              alt: "Sandra Milena Barona",
-            },
-          },
-          quote:
-            "Hicimos una parada en los cenotes al final de la tarde, después de explorar Playa Delfines. Contar con transporte propio nos dio la libertad de hacer ese recorrido sin prisas y apreciar las aguas cristalinas.",
-        },
-        {
-          user: {
-            name: "Luis Javier Rodríguez M.",
-            description: "Honduras",
-            avatar: {
-              src: "uifaces-popular-image3",
-              alt: "Luis Javier Rodríguez M.",
-            },
-          },
-          quote:
-            "En Cancún, visitamos el Museo Subacuático y Xcaret. Tener un auto nos permitió movernos con facilidad y disfrutar de la aventura sin preocupaciones.",
-        },
-        {
-          user: {
-            name: "Carlos Andrés Mejía",
-            description: "Colombia",
-            avatar: {
-              src: "uifaces-popular-image2",
-              alt: "Carlos Andrés Mejía",
-            },
-          },
-          quote:
-            "Me encantó el servicio en Cancún. Todo muy puntual y el carro en excelente estado. Pude conocer Chichén Itzá y Isla Mujeres sin complicaciones. ¡Totalmente recomendado!",
-        },
-        {
-          user: {
-            name: "Ana Lucía Torres",
-            description: "Ecuador",
-            avatar: { src: "uifaces-human-image6", alt: "Ana Lucía Torres" },
-          },
-          quote:
-            "Viajar en familia a Cancún fue muy fácil gracias a este servicio de alquiler. Recorrimos los cenotes y Playa Delfines, con buen precio y excelente atención.",
-        },
-        {
-          user: {
-            name: "Esteban Páez",
-            description: "Colombia",
-            avatar: { src: "uifaces-popular-image", alt: "Esteban Páez" },
-          },
-          quote:
-            "Excelente alternativa para recorrer Cancún. El auto fue perfecto para ir al Museo Subacuático y Xcaret, muy limpio, seguro y con buen consumo de gasolina.",
         },
       ],
     },

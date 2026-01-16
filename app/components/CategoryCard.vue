@@ -1,20 +1,16 @@
 <template>
-  <u-page-card
-    orientation="vertical"
-    class="categoria"
-    :ui="{ container: 'p-0 sm:p-0 lg:p-0', description: 'mt-0 p-0', body: 'w-full' }"
-  >
-    <template #title>
-      <div class="carrusel">
+  <div class="categoria flex flex-col">
+    <!-- Carrusel -->
+    <div class="carrusel">
         <Carrusel
           :models="categoryModels"
           :vehicleModels="modelos"
           :category="categoryCode"
         />
       </div>
-    </template>
 
-    <template #description>
+    <!-- Contenido principal -->
+    <div class="w-full">
       <!-- descripcion categoria -->
       <UCollapsible class="contenedor-descripcion-carro">
         <UButton
@@ -38,7 +34,7 @@
             </span>
           </template>
         <template #trailing>
-          <ChevronDownIcon cls="size-5" />
+          <ChevronDownIcon cls="size-7" />
         </template>
         </UButton>
         <template #content>
@@ -49,14 +45,12 @@
                 v-text="vehicleCategory?.descripcion_larga"
               ></p>
               <div id="etiquetas" class="contenedor-etiquetas">
-                <UBadge
-                  color="info"
-                  variant="outline"
+                <span
                   v-for="tag in vehicleCategory?.tags"
                   :key="`tag-${tag}`"
                   v-text="tag"
                   class="etiqueta-carro"
-                ></UBadge>
+                ></span>
               </div>
             </div>
           </div>
@@ -86,7 +80,7 @@
             Total {{ haveMonthlyReservation ? "30 días" : getFormattedDays }}
           </p>
 
-          <UTooltip :delay-duration="3000" :ui="{content: 'h-full select-text'}">
+          <UTooltip :delay-duration="3000" :ui="{content: 'h-full select-text bg-white text-gray-900 shadow-lg border border-gray-200'}">
             <template #content>
               Día: $ {{ dayPriceTooltip }} <br />
               Seguro día: $ {{ coverageDayPriceTooltip }} <br />
@@ -94,7 +88,7 @@
               IVA: $ {{ ivaFeePriceTooltip }} <br />
               Total: $ {{ actualTotalPriceTooltip }} <br />
             </template>
-            <ULink raw class="precio-total"> $ {{ currencyTotalPrice }}</ULink>
+            <ULink raw class="precio-total"> $ <span v-once>{{currencyTotalPrice}}</span></ULink>
           </UTooltip>
 
           <!-- <div class="font-bold text-xl" style="white-space: nowrap;" v-text="currencyTotalPrice"></div> -->
@@ -107,7 +101,7 @@
         <!--==== columna der t1 ====-->
         <div class="pl-5 flex flex-col justify-center">
           <div>
-            <p class="font-bold mb-1">Escoge protección:</p>
+            <p class="text-lg text-gray-700 mb-1">Escoge protección</p>
 
             <div class="flex flex-col justify-start">
               <div class="opcion-seleccionable">
@@ -123,19 +117,20 @@
                 <label :for="basicCoverageCheckboxID">Seguro Básico</label>
 
                 <UModal
-                  :overlay="false"
+                  :ui="modalUIConfig"
                   title="Seguro Básico"
                   description="Protección Obligatoria"
                 >
                   <UButton
                     variant="ghost"
+                    color="neutral"
                     size="xs"
                     alt="info"
                     class="cursor-pointer"
                     :ui="questionButtonUIConfig"
                   >
                     <template #leading>
-                      <CircleQuestionIcon cls="size-4" />
+                      <InfoQuestionIcon cls="size-3 text-gray-400" />
                     </template>
                   </UButton>
 
@@ -189,19 +184,20 @@
                 <label :for="totalCoverageCheckboxID">Seguro Total</label>
 
                 <UModal
-                  :overlay="false"
+                  :ui="modalUIConfig"
                   title="Seguro Total"
                   description="Protección Obligatoria"
                 >
                   <UButton
                     variant="ghost"
+                    color="neutral"
                     size="xs"
                     alt="info"
                     class="cursor-pointer"
                     :ui="questionButtonUIConfig"
                   >
                     <template #leading>
-                      <CircleQuestionIcon cls="size-4" />
+                      <InfoQuestionIcon cls="size-3 text-gray-400" />
                     </template>
                   </UButton>
 
@@ -262,9 +258,10 @@
 
                 <label :for="oneKmMileageCheckboxID">1000 kms</label>
 
-                <UModal :overlay="false" title="1000 Kilómetros">
+                <UModal :ui="modalUIConfig" title="1000 Kilómetros">
                   <UButton
                     variant="ghost"
+                    color="neutral"
                     size="xs"
                     alt="info"
                     class="cursor-pointer"
@@ -272,7 +269,7 @@
                     :ui="questionButtonUIConfig"
                   >
                     <template #leading>
-                      <CircleQuestionIcon cls="size-4" />
+                      <InfoQuestionIcon cls="size-3 text-gray-400" />
                     </template>
                   </UButton>
 
@@ -309,9 +306,10 @@
 
                 <label :for="twoKmsMileageCheckboxID">2000 kms</label>
 
-                <UModal :overlay="false" title="2000 Kilómetros">
+                <UModal :ui="modalUIConfig" title="2000 Kilómetros">
                   <UButton
                     variant="ghost"
+                    color="neutral"
                     size="xs"
                     alt="info"
                     class="cursor-pointer"
@@ -319,7 +317,7 @@
                     :ui="questionButtonUIConfig"
                   >
                     <template #leading>
-                      <CircleQuestionIcon cls="size-4" />
+                      <InfoQuestionIcon cls="size-3 text-gray-400" />
                     </template>
                   </UButton>
 
@@ -356,7 +354,7 @@
 
                 <label :for="threeKmsMileageCheckboxID">3000 kms</label>
 
-                <UModal :overlay="false" title="2000 Kilómetros">
+                <UModal :ui="modalUIConfig" title="2000 Kilómetros">
                   <UButton
                     color="neutral"
                     variant="ghost"
@@ -367,7 +365,7 @@
                     :ui="questionButtonUIConfig"
                   >
                     <template #leading>
-                      <CircleQuestionIcon cls="size-4" />
+                      <InfoQuestionIcon cls="size-3 text-gray-400" />
                     </template>
                   </UButton>
 
@@ -409,23 +407,24 @@
           }"
         >
           <template #trailing>
-            <ChevronDownIcon cls="size-5" />
+            <ChevronDownIcon cls="size-7" />
           </template>
           <template #leading>
             <!-- Contenedor del texto centrado horizontalmente -->
             <span class="flex-1 text-center">
               <span class="roboto-bold text-lg text-gray-700"
-                >Adicionales:</span
+                >Servicios adicionales</span
               >
             </span>
           </template>
         </UButton>
         <template #content>
-          <div class="flex flex-col gap-1 px-5 pt-3 pb-4">
+          <div class="flex flex-col gap-1 px-5 pt-3 pb-4 sutil-fondo">
             <div class="flex items-center justify-between">
               <div class="flex">
                 <UCheckbox
                   v-model="withExtraDriver"
+                  color="neutral"
                   class="opcion-seleccionable"
                 >
                   <template #label>
@@ -433,16 +432,17 @@
                   </template>
                 </UCheckbox>
 
-                <UModal :overlay="false" title="Conductor adicional">
+                <UModal :ui="modalUIConfig" title="Conductor adicional">
                   <UButton
                     variant="ghost"
+                    color="neutral"
                     size="xs"
                     alt="info"
                     class="cursor-pointer"
                     :ui="questionButtonUIConfig"
                   >
                     <template #leading>
-                      <CircleQuestionIcon cls="size-4" />
+                      <InfoQuestionIcon cls="size-3 text-gray-400" />
                     </template>
                   </UButton>
 
@@ -470,22 +470,23 @@
 
             <div class="flex items-center justify-between">
               <div class="flex">
-                <UCheckbox v-model="withBabySeat" class="opcion-seleccionable">
+                <UCheckbox v-model="withBabySeat" color="neutral" class="opcion-seleccionable">
                   <template #label>
                     Silla para bebe {{ getFormattedDays }}
                   </template>
                 </UCheckbox>
 
-                <UModal :overlay="false" title="Silla para bebe">
+                <UModal :ui="modalUIConfig" title="Silla para bebe">
                   <UButton
                     variant="ghost"
+                    color="neutral"
                     size="xs"
                     alt="info"
                     class="cursor-pointer"
                     :ui="questionButtonUIConfig"
                   >
                     <template #leading>
-                      <CircleQuestionIcon cls="size-4" />
+                      <InfoQuestionIcon cls="size-3 text-gray-400" />
                     </template>
                   </UButton>
 
@@ -521,20 +522,21 @@
 
             <div class="flex items-center justify-between">
               <div class="flex">
-                <UCheckbox v-model="withWash" class="opcion-seleccionable">
+                <UCheckbox v-model="withWash" color="neutral" class="opcion-seleccionable">
                   <template #label> Lavado del vehículo </template>
                 </UCheckbox>
 
-                <UModal :overlay="false" title="Lavado del Vehículo">
+                <UModal :ui="modalUIConfig" title="Lavado del Vehículo">
                   <UButton
                     variant="ghost"
+                    color="neutral"
                     size="xs"
                     alt="info"
                     class="cursor-pointer"
                     :ui="questionButtonUIConfig"
                   >
                     <template #leading>
-                      <CircleQuestionIcon cls="size-4" />
+                      <InfoQuestionIcon cls="size-3 text-gray-400" />
                     </template>
                   </UButton>
 
@@ -578,8 +580,9 @@
       </UCollapsible>
 
       <div class="seccion-boton-seleccion">
-        <UButton 
+        <UButton
           class="boton-seleccion"
+          size="xl"
           @click.prevent="goNextStep()"
           >
           <template #trailing>
@@ -588,15 +591,15 @@
           Solicitar este vehículo
         </UButton>
       </div>
-    </template>
-  </u-page-card>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
 /** imports */
 import { useStoreReservationForm, useCategory } from "#imports";
-import { 
-  IconsCircleQuestionIcon as CircleQuestionIcon,
+import {
+  IconsInfoQuestionIcon as InfoQuestionIcon,
   IconsChevronDownIcon as ChevronDownIcon,
   IconsChevronRightIcon as ChevronRightIcon
 } from '#components';
@@ -665,6 +668,12 @@ const {
 
 const { modelos, grupo } = props.vehicleCategory;
 
+/** Product Schema for SEO */
+useProductSchema({
+  category: props.category,
+  vehicleCategory: props.vehicleCategory
+});
+
 /** functions */
 function goNextStep() {
   haveTotalInsurance.value = withTotalCoverage.value;
@@ -674,7 +683,16 @@ function goNextStep() {
 }
 
 const questionButtonUIConfig = {
-  leadingIcon: 'bg-gray-600'
+  leadingIcon: 'text-gray-400'
+};
+
+const modalUIConfig = {
+  content: 'bg-white',
+  header: 'bg-white',
+  title: 'text-gray-900',
+  description: 'text-gray-600',
+  body: 'text-gray-800 bg-white',
+  close: 'bg-black text-white rounded-full'
 };
 
 </script>

@@ -42,9 +42,7 @@ const useStoreReservationForm = defineStore("reservationForm", () => {
   // refs
   const nombreCompleto = ref<string | null>(null);
   const apellidos = ref<string | null>(null);
-  const tipoIdentificacion = ref<IdentificationType | null>(
-    "Cedula Ciudadania"
-  );
+  const tipoIdentificacion = ref<IdentificationType | null>(null);
   const identificacion = ref<string | null>(null);
   const telefono = ref<string | null>(null);
   const email = ref<string | null>(null);
@@ -205,13 +203,7 @@ const useStoreReservationForm = defineStore("reservationForm", () => {
       if(dataRecord.value.reservationStatus == "Pendiente")
         navigateTo({path: "/pendiente"});
       else if(dataRecord.value.reservationStatus == "Confirmado"){
-        navigateTo({
-          path: "/reservado",
-          query: {
-            reserveCode: dataRecord.value.reserveCode,
-            reservationStatus: dataRecord.value.reservationStatus,
-          },
-        });
+        navigateTo({path: `/reservado/${dataRecord.value.reserveCode}`});
       }
         
       return;

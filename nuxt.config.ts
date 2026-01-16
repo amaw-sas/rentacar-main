@@ -8,7 +8,143 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
 
-  modules: ['@nuxtjs/seo', '@nuxt/ui', '@pinia/nuxt', 'nuxt-llms'],
+  modules: ['@nuxtjs/seo', '@nuxt/ui', '@pinia/nuxt', 'nuxt-llms', 'nuxt-vitalizer', '@nuxt/content'],
+
+  // Optimización Core Web Vitals
+  vitalizer: {
+    // NOTA: disableStylesheets: 'entry' causaba FOUC en páginas de ciudad
+    // Los estilos no se inlinean correctamente durante SSR
+    disableStylesheets: false,
+    // Remueve prefetch links para mejorar FCP
+    disablePrefetchLinks: true,
+  },
+  
+  // Component Islands: renderiza componentes estáticos sin hidratación Vue
+  // Reduce JavaScript en el cliente para mejorar LCP
+  experimental: {
+    componentIslands: true,
+  },
+
+  // Configuración de app: CSS crítico, preloads y atributos HTML
+  app: {
+    head: {
+      htmlAttrs: {
+        lang: 'es',
+      },
+      style: [
+        {
+          key: 'critical-cls',
+          innerHTML: `
+            *, *::before, *::after { box-sizing: border-box; }
+            body { margin: 0; font-family: system-ui, -apple-system, sans-serif; }
+            img { max-width: 100%; height: auto; display: block; }
+            picture { display: block; }
+            svg { max-width: 100%; height: auto; }
+            header svg { max-height: 3.5rem !important; max-width: 10rem !important; }
+            .w-2\\.5 { width: 0.625rem; } .h-2\\.5 { height: 0.625rem; }
+            .w-4 { width: 1rem; } .h-4 { height: 1rem; }
+            .w-5 { width: 1.25rem; } .h-5 { height: 1.25rem; }
+            @media (min-width: 768px) { .md\\:w-4 { width: 1rem; } .md\\:h-4 { height: 1rem; } }
+            .mx-auto { margin-left: auto; margin-right: auto; }
+            @media (min-width: 768px) { header .md\\:hidden { display: none !important; } }
+            @media (max-width: 767px) { header .hidden { display: none !important; } }
+            .block { display: block; }
+            .bg-white { background-color: #fff; }
+            .text-white { color: #fff; }
+            .text-black { color: #000; }
+            .w-full { width: 100%; }
+            /* CLS fix: aspect-ratio para contenedor de imagen hero */
+            .aspect-\\[100\\/81\\] { aspect-ratio: 100/81; }
+            /* Critical: Layout background para LCP inmediato */
+            .min-h-screen { min-height: 100vh; }
+            .bg-gradient-to-b { background-image: linear-gradient(to bottom, var(--tw-gradient-stops)); }
+            .from-\\[\\#000073\\] { --tw-gradient-from: #000073; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, transparent); }
+            .via-blue-800 { --tw-gradient-via: #1e40af; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-via), var(--tw-gradient-to, transparent); }
+            .to-blue-900 { --tw-gradient-to: #1e3a8a; }
+            .bg-\\[\\#000073\\] { background-color: #000073; }
+            /* Critical: Nuxt UI grid classes - previene CLS en Desktop */
+            .flex { display: flex; }
+            .flex-col { flex-direction: column; }
+            .gap-8 { gap: 2rem; }
+            .items-center { align-items: center; }
+            .relative { position: relative; }
+            .isolate { isolation: isolate; }
+            /* Hero container padding */
+            .py-8 { padding-top: 2rem; padding-bottom: 2rem; }
+            .px-4 { padding-left: 1rem; padding-right: 1rem; }
+            /* Max-width container */
+            .max-w-\\(--ui-container\\), .max-w-7xl { max-width: 80rem; }
+            @media (min-width: 640px) {
+              .sm\\:py-16 { padding-top: 4rem; padding-bottom: 4rem; }
+              .sm\\:px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+              .sm\\:gap-y-16 { row-gap: 4rem; }
+            }
+            @media (min-width: 1024px) {
+              /* UPage wrapper grid */
+              .lg\\:grid { display: grid; }
+              .lg\\:grid-cols-10 { grid-template-columns: repeat(10, minmax(0, 1fr)); }
+              .lg\\:gap-10 { gap: 2.5rem; }
+              /* Hero section span full width in UPage grid */
+              .lg\\:col-span-10 { grid-column: span 10 / span 10; }
+              /* Hero container grid */
+              .lg\\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+              .lg\\:items-center { align-items: center; }
+              .lg\\:py-24 { padding-top: 6rem; padding-bottom: 6rem; }
+              .lg\\:px-8 { padding-left: 2rem; padding-right: 2rem; }
+              /* order-last para imagen en desktop - CRÍTICO para CLS */
+              .lg\\:order-last { order: 9999; }
+            }
+          `,
+        },
+      ],
+      // Preload imagen LCP - solo AVIF (97%+ soporte en móviles modernos)
+      link: [
+        { rel: 'preconnect', href: 'https://firebasestorage.googleapis.com', crossorigin: '' },
+        // Mobile AVIF
+        {
+          rel: 'preload',
+          as: 'image',
+          type: 'image/avif',
+          href: 'https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Ffamilia-movil.avif?alt=media&token=09ef76e8-4f99-4188-8d9a-57e13e198c4b',
+          media: '(max-width: 767px)',
+          fetchpriority: 'high',
+        },
+        // Desktop AVIF
+        {
+          rel: 'preload',
+          as: 'image',
+          type: 'image/avif',
+          href: 'https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Ffamilia.avif?alt=media&token=a14e3f1c-428e-40b2-ad1e-0d724579e487',
+          media: '(min-width: 768px)',
+          fetchpriority: 'high',
+        },
+      ],
+    },
+  },
+
+  modules: ['@nuxtjs/seo', '@nuxt/ui', '@pinia/nuxt', 'nuxt-llms', 'nuxt-vitalizer', '@nuxt/content'],
+
+  // Optimización Core Web Vitals
+  vitalizer: {
+    // Diferir stylesheets para eliminar render-blocking CSS
+    // Requiere CSS crítico inline suficiente para evitar FOUC
+    disableStylesheets: 'entry',
+    // Remueve prefetch links para mejorar FCP
+    disablePrefetchLinks: true,
+  },
+
+  // Configuración SEO
+  site: {
+    url: 'https://alquilatucarro.com',
+    name: 'Alquilatucarro',
+    description: 'Alquila carros en Bogotá, Medellín, Cali y 14 ciudades más.',
+    defaultLocale: 'es',
+    currentLocale: 'es',
+  },
+
+  colorMode: {
+    preference: 'dark',
+  },
 
   imports: {
     autoImport: true,
@@ -45,6 +181,16 @@ export default defineNuxtConfig({
     ],
     optimizeDeps: {
       include: ['@vueuse/core']
+    },
+    define: {
+      // Enable detailed hydration mismatch warnings in production
+      __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: true
+    },
+    // Fix para timeout de vite-node al cargar módulos
+    // https://github.com/nuxt/nuxt/issues/32789
+    // https://github.com/nuxt/nuxt/pull/32874
+    viteNode: {
+      requestTimeout: 180000, // 3 minutos (aumentado desde 60s por defecto)
     }
   },
 
@@ -91,47 +237,66 @@ export default defineNuxtConfig({
         '/monteria',
         '/neiva',
         '/pereira',
-        '/santamarta',
+        '/santa-marta',
         '/valledupar',
         '/villavicencio',
         '/floridablanca',
         '/palmira',
         '/soledad',
-        '/cancun',
+        '/gana',
+        '/gana/terminos-condiciones',
+        '/gana/politicas-privacidad',
+        // Blog
+        '/blog',
+        '/blog/requisitos-alquilar-carro-colombia',
+        '/blog/pico-y-placa-colombia-2026',
+        '/blog/tipos-carros-alquilar-cual-elegir',
+        '/blog/rutas-carro-desde-bogota',
+        '/blog/eje-cafetero-en-carro-guia-completa',
+        '/blog/costa-caribe-cartagena-santa-marta-carro',
+        '/blog/viajar-carro-con-ninos-colombia',
       ]
     }
   },
 
   css: ['~/assets/css/main.css'],
 
-  site: {
-    name: "Alquilatucarro",
-  },
-
   sitemap: {
-    sources: [
-      '/',
-      '/armenia',
-      '/barranquilla',
-      '/bogota',
-      '/bucaramanga',
-      '/cali',
-      '/cartagena',
-      '/cucuta',
-      '/ibague',
-      '/manizales',
-      '/medellin',
-      '/monteria',
-      '/neiva',
-      '/pereira',
-      '/santamarta',
-      '/valledupar',
-      '/villavicencio',
-      '/floridablanca',
-      '/palmira',
-      '/soledad',
-      '/cancun',
+    urls: [
+      // Homepage - máxima prioridad
+      { loc: '/', changefreq: 'weekly', priority: 1.0 },
+      // Ciudades principales - alta prioridad
+      { loc: '/bogota', changefreq: 'monthly', priority: 0.9 },
+      { loc: '/medellin', changefreq: 'monthly', priority: 0.9 },
+      { loc: '/cali', changefreq: 'monthly', priority: 0.9 },
+      { loc: '/cartagena', changefreq: 'monthly', priority: 0.9 },
+      { loc: '/barranquilla', changefreq: 'monthly', priority: 0.9 },
+      // Ciudades secundarias - prioridad media
+      { loc: '/armenia', changefreq: 'monthly', priority: 0.8 },
+      { loc: '/bucaramanga', changefreq: 'monthly', priority: 0.8 },
+      { loc: '/cucuta', changefreq: 'monthly', priority: 0.8 },
+      { loc: '/ibague', changefreq: 'monthly', priority: 0.8 },
+      { loc: '/manizales', changefreq: 'monthly', priority: 0.8 },
+      { loc: '/monteria', changefreq: 'monthly', priority: 0.8 },
+      { loc: '/neiva', changefreq: 'monthly', priority: 0.8 },
+      { loc: '/pereira', changefreq: 'monthly', priority: 0.8 },
+      { loc: '/santa-marta', changefreq: 'monthly', priority: 0.8 },
+      { loc: '/valledupar', changefreq: 'monthly', priority: 0.8 },
+      { loc: '/villavicencio', changefreq: 'monthly', priority: 0.8 },
+      { loc: '/floridablanca', changefreq: 'monthly', priority: 0.8 },
+      { loc: '/palmira', changefreq: 'monthly', priority: 0.8 },
+      { loc: '/soledad', changefreq: 'monthly', priority: 0.8 },
+      // Blog - prioridad media-alta
+      { loc: '/blog', changefreq: 'weekly', priority: 0.8 },
+      { loc: '/blog/requisitos-alquilar-carro-colombia', changefreq: 'monthly', priority: 0.7 },
+      { loc: '/blog/pico-y-placa-colombia-2026', changefreq: 'monthly', priority: 0.7 },
+      { loc: '/blog/tipos-carros-alquilar-cual-elegir', changefreq: 'monthly', priority: 0.7 },
+      { loc: '/blog/rutas-carro-desde-bogota', changefreq: 'monthly', priority: 0.7 },
+      { loc: '/blog/eje-cafetero-en-carro-guia-completa', changefreq: 'monthly', priority: 0.7 },
+      { loc: '/blog/costa-caribe-cartagena-santa-marta-carro', changefreq: 'monthly', priority: 0.7 },
+      { loc: '/blog/viajar-carro-con-ninos-colombia', changefreq: 'monthly', priority: 0.7 },
     ],
+    exclude: ['/pendiente', '/sindisponibilidad', '/reservado/**', '/*/buscar-vehiculos/**'],
   },
 
   robots: {
@@ -151,13 +316,14 @@ export default defineNuxtConfig({
       '/monteria',
       '/neiva',
       '/pereira',
-      '/santamarta',
+      '/santa-marta',
       '/valledupar',
       '/villavicencio',
       '/floridablanca',
       '/palmira',
       '/soledad',
-      '/cancun',
+      '/blog',
+      '/blog/*',
     ],
     sitemap: "/sitemap.xml"
   },
@@ -239,7 +405,7 @@ export default defineNuxtConfig({
           {
             title: 'Santa Marta',
             description: '¿Planeas visitar Santa Marta? En Alquilatucarro Santa Marta puedes reservar en línea sin anticipos y recoger directamente en el Aeropuerto Simón Bolívar. Aprovecha descuentos de hasta el 60% por reserva anticipada y elige entre carros compactos, sedanes o camionetas para recorrer lugares como el Parque Tayrona, la Quinta de San Pedro Alejandrino o Taganga. Nuestra sede en Santa Marta te ofrece precios bajos y disponibilidad inmediata los 7 días de la semana. ¡Alquila fácil, sin trámites largos y comienza tu aventura en la Bahía Más Linda de América!',
-            href: '/santamarta',
+            href: '/santa-marta',
           },
           {
             title: 'Valledupar',
@@ -265,11 +431,6 @@ export default defineNuxtConfig({
             title: 'Soledad',
             description: '¿Planeas visitar Soledad? En Alquilatucarro Soledad puedes reservar en línea sin anticipos y recoger directamente en el Aeropuerto Ernesto Cortissoz (Barranquilla). Aprovecha descuentos de hasta el 60% por reserva anticipada y elige entre carros compactos, sedanes o camionetas para recorrer lugares como el Malecón del Río, el Parque Sagrado Corazón o el Museo del Carnaval. Nuestra sede en Soledad te ofrece precios bajos y disponibilidad inmediata los 7 días de la semana. ¡Alquila fácil, sin trámites largos y comienza tu aventura en el municipio más poblado del Atlántico, vibrante y carnavalero!',
             href: '/soledad',
-          },
-          {
-            title: 'Cancún',
-            description: '¿Planeas visitar Cancún? En Alquilatucarro Cancún puedes reservar en línea sin anticipos y recoger directamente en el Aeropuerto Internacional de Cancún. Aprovecha descuentos de hasta el 60% por reserva anticipada y elige entre carros compactos, sedanes o camionetas para recorrer lugares como las playas del Caribe, Chichén Itzá o Xcaret. Nuestra sede en Cancún te ofrece precios bajos y disponibilidad inmediata los 7 días de la semana. ¡Alquila fácil, sin trámites largos y comienza tu aventura en el paraíso maya del Caribe mexicano!',
-            href: '/cancun',
           },
         ],
       },

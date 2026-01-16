@@ -1,45 +1,29 @@
 <template>
   <UPage>
-    <!-- Hero Section -->
+    <!-- Hero Section - Server Components para reducir JS hydration -->
     <UPageHero orientation="horizontal">
       <template #headline>
-        <div
-          class="flex flex-row justify-center space-x-2 text-white text-center"
-        >
-          <StarIcon cls="size-5" />
-          <StarIcon cls="size-5" />
-          <StarIcon cls="size-5" />
-          <StarIcon cls="size-5" />
-          <StarIcon cls="size-5" />
-          <span>4.9 reviews</span>
-        </div>
+        <HeroHeadline />
       </template>
       <template #title>
-        <div class="text-white text-4xl text-center">
-          <div class="">
-            <div class="font-bold uppercase">ALQUILER</div>
-            <div>DE CARROS EN</div>
-          </div>
-          <div class="italic">COLOMBIA</div>
-        </div>
+        <HeroTitle />
       </template>
       <template #body>
         <div class="text-center justify-items-center">
-          <div class="mb-4 text-white text-2xl">
+          <div class="mb-4 text-white text-lg font-bold">
             ¿En que ciudad deseas recoger tu carro?
           </div>
           <div class="min-w-80 my-3">
             <SelectBranch />
           </div>
-          <p class="text-white">
-            Contamos con 27 sedes a nivel nacional y una excelente reputación en
-            alquiler de carros y camionetas que se adaptan a tu necesidad y
-            presupuesto
-          </p>
+          <HeroDescription />
         </div>
       </template>
       <template #default>
-        <ImagesFamily />
+        <!-- CLS fix: reservar espacio con aspect-ratio (760x616 mobile / 2000x1620 desktop ≈ 100:81) -->
+        <div class="w-full aspect-[100/81]">
+          <ImagesFamily />
+        </div>
       </template>
     </UPageHero>
 
@@ -51,9 +35,9 @@
       class="bg-white text-black"
     >
       <template #title>
-        <div class="text-center">
-          <div class="text-red-700">Hasta 60% de Descuento</div>
-          <div class="text-black text-4xl">Reserva Ahora, Paga Después</div>
+        <div class="text-2xl md:text-3xl text-center">
+          <span class="block text-red-700">Hasta 60% de Descuento</span>
+          <span class="block text-black">Reserva Ahora, Paga Después</span>
         </div>
       </template>
       <template #description>
@@ -64,18 +48,11 @@
           viaje con tiempo
         </div>
       </template>
-      <template #body>
-        <div class="text-center justify-items-center">
-          <div class="font-bold text-lg">
-            ¿En que ciudad deseas recoger tu carro?
-          </div>
-          <div class="min-w-80 my-3">
-            <SelectBranch></SelectBranch>
-          </div>
-        </div>
-      </template>
       <template #default>
-        <ImagesVideo />
+        <!-- CLS fix: reservar espacio con aspect-ratio antes de que cargue la imagen -->
+        <div class="w-full aspect-[100/81]">
+          <LazyImagesVideo hydrate-on-visible />
+        </div>
       </template>
     </UPageSection>
 
@@ -87,77 +64,53 @@
       class="bg-gray-200 text-black"
     >
       <template #title>
-        <div class="text-center lg:text-left">
-          <div class="space-x-2">
-            <span class="text-red-700">Requisitos</span>
-            <span class="text-black">para tu alquiler</span>
-          </div>
+        <div class="text-2xl md:text-3xl text-center space-x-2">
+          <span class="text-red-700">Requisitos</span>
+          <span class="text-black">para tu alquiler</span>
         </div>
       </template>
       <template #description>
         <div class="text-black justify-items-center">
-          <div class="mb-4">
+          <div class="mb-4 text-center">
             En {{ franchise.shortname }} tu experiencia es sin complicaciones...
           </div>
-          <ul class="flex flex-col gap-1">
-            <li>
-              <UPageFeature
-                title="RESERVA PREVIA"
-                description="(más anticipación más descuento)"
-                :ui="requisitosPageFeatureUIConfig"
-              >
-                <template #leading>
-                  <LocationIcon cls="text-red-600 size-5" />
-                </template>
-              </UPageFeature>
+          <ul class="flex flex-col gap-4">
+            <li class="flex items-start gap-2">
+              <LocationIcon cls="text-red-600 size-5 mt-0.5" />
+              <div>
+                <div class="font-bold text-black">RESERVA PREVIA</div>
+                <div class="text-black text-sm">(más anticipación más descuento)</div>
+              </div>
             </li>
-            <li>
-              <UPageFeature
-                title="DOCUMENTO DE IDENTIDAD"
-                description="(18+ Cédula o pasaporte original)"
-                :ui="requisitosPageFeatureUIConfig"
-              >
-                <template #leading>
-                  <LocationIcon cls="text-red-600 size-5" />
-                </template>
-              </UPageFeature>
+            <li class="flex items-start gap-2">
+              <LocationIcon cls="text-red-600 size-5 mt-0.5" />
+              <div>
+                <div class="font-bold text-black">DOCUMENTO DE IDENTIDAD</div>
+                <div class="text-black text-sm">(18+ Cédula o pasaporte original)</div>
+              </div>
             </li>
-            <li>
-              <UPageFeature
-                title="TARJETA DE CRÉDITO"
-                description="(Única forma de pago)"
-                :ui="requisitosPageFeatureUIConfig"
-              >
-                <template #leading>
-                  <LocationIcon cls="text-red-600 size-5" />
-                </template>
-              </UPageFeature>
+            <li class="flex items-start gap-2">
+              <LocationIcon cls="text-red-600 size-5 mt-0.5" />
+              <div>
+                <div class="font-bold text-black">TARJETA DE CRÉDITO</div>
+                <div class="text-black text-sm">(Única forma de pago)</div>
+              </div>
             </li>
-            <li>
-              <UPageFeature
-                title="LICENCIA DE CONDUCIR"
-                :ui="requisitosPageFeatureUIConfig"
-              >
-                <template #leading>
-                  <LocationIcon cls="text-red-600 size-5" />
-                </template>
-              </UPageFeature>
+            <li class="flex items-start gap-2">
+              <LocationIcon cls="text-red-600 size-5 mt-0.5" />
+              <div>
+                <div class="font-bold text-black">LICENCIA DE CONDUCIR</div>
+                <div class="text-black text-sm">(física y vigente)</div>
+              </div>
             </li>
           </ul>
         </div>
       </template>
-      <template #body>
-        <div class="text-center justify-items-center">
-          <div class="font-bold text-lg">
-            ¿En que ciudad deseas recoger tu carro?
-          </div>
-          <div class="min-w-80 my-3">
-            <SelectBranch />
-          </div>
-        </div>
-      </template>
       <template #default>
-        <ImagesPersona />
+        <!-- CLS fix: reservar espacio con aspect-ratio antes de que cargue la imagen -->
+        <div class="w-full aspect-[100/81]">
+          <LazyImagesPersona hydrate-on-visible />
+        </div>
       </template>
     </UPageSection>
 
@@ -166,18 +119,17 @@
       id="categorias"
       orientation="vertical"
       class="bg-white text-black"
+      :ui="categoriasPageSectionUIConfig"
     >
       <template #title>
-        <div class="text-center">
-          <div class="space-x-2">
-            <span class="text-red-700">Tipos de Vehículos</span>
-            <span class="text-black">ideales para tu necesidad</span>
-          </div>
+        <div class="text-2xl md:text-3xl text-center space-x-2">
+          <span class="text-red-700">Tipos de Vehículos</span>
+          <span class="text-black">ideales para tu necesidad</span>
         </div>
       </template>
       <template #description>
         <div class="text-black justify-items-center">
-          <p class="mb-4">
+          <p>
             Cada estilo de vida tiene su vehículo perfecto. Ya sea la agilidad
             para la ciudad, la comodidad para los viajes largos o la potencia
             para la aventura, tenemos la llave para tus necesidades. <br />
@@ -186,160 +138,122 @@
         </div>
       </template>
       <template #default>
-        <UPageGrid>
-          <template #default>
-            <UPageCard
-              title="COMPACTO"
-              description="Practicidad urbana con estilo. La agilidad que necesitas en la ciudad"
-              variant="ghost"
-              :ui="categoriasPageCardUIConfig"
-              orientation="vertical"
-              reverse
-            >
-              <template #footer>
-                <UModal title="Selecciona ciudad">
-                  <template #body>
-                    <div class="mb-4 text-white text-2xl">
-                      ¿En que ciudad deseas recoger tu carro?
-                    </div>
-                    <div class="min-w-80 my-3">
-                      <SelectBranch />
-                    </div>
-                  </template>
-                  <UButton color="info" class="text-white"
-                    >Ver disponibilidad</UButton
-                  >
-                </UModal>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-4 md:mt-0">
+          <!-- Compacto -->
+          <div class="flex flex-col items-center text-center">
+            <!-- CLS fix: reservar espacio con aspect-ratio (800x300) -->
+            <div class="w-full aspect-[8/3]">
+              <LazyImagesCategoriasCompacto hydrate-on-visible />
+            </div>
+            <h3 class="font-bold text-black text-lg mt-0">COMPACTO</h3>
+            <p class="text-black mt-2">Practicidad urbana con estilo. La agilidad que necesitas en la ciudad</p>
+            <LazyUModal hydrate-on-interaction class="mt-4" :ui="{ content: 'bg-white', close: 'bg-black text-white rounded-full' }">
+              <template #body>
+                <div class="mb-4 text-black text-lg">
+                  ¿En que ciudad<br>deseas recoger tu carro?
+                </div>
+                <div class="min-w-80 my-3">
+                  <SelectBranch variant="gray" />
+                </div>
               </template>
-              <template #default>
-                <ImagesCategoriasCompacto />
+              <UButton class="bg-green-700 hover:bg-green-800 text-white px-8 py-3 rounded-xl font-bold uppercase transition-colors">Ver disponibilidad</UButton>
+            </LazyUModal>
+          </div>
+          <!-- Sedan -->
+          <div class="flex flex-col items-center text-center">
+            <!-- CLS fix: reservar espacio con aspect-ratio (800x300) -->
+            <div class="w-full aspect-[8/3]">
+              <LazyImagesCategoriasSedan hydrate-on-visible />
+            </div>
+            <h3 class="font-bold text-black text-lg mt-0">SEDAN</h3>
+            <p class="text-black mt-2">Confort y espacio. Disfruta cada viaje con la máxima comodidad</p>
+            <LazyUModal hydrate-on-interaction class="mt-4" :ui="{ content: 'bg-white', close: 'bg-black text-white rounded-full' }">
+              <template #body>
+                <div class="mb-4 text-black text-lg">
+                  ¿En que ciudad<br>deseas recoger tu carro?
+                </div>
+                <div class="min-w-80 my-3">
+                  <SelectBranch variant="gray" />
+                </div>
               </template>
-            </UPageCard>
-            <UPageCard
-              title="SEDAN"
-              description="Confort y espacio. Disfruta cada viaje con la máxima comodidad"
-              variant="ghost"
-              :ui="categoriasPageCardUIConfig"
-              orientation="vertical"
-              reverse
-            >
-              <template #footer>
-                <UModal title="Selecciona ciudad">
-                  <template #body>
-                    <div class="mb-4 text-white text-2xl">
-                      ¿En que ciudad deseas recoger tu carro?
-                    </div>
-                    <div class="min-w-80 my-3">
-                      <SelectBranch />
-                    </div>
-                  </template>
-                  <UButton color="info" class="text-white"
-                    >Ver disponibilidad</UButton
-                  >
-                </UModal>
+              <UButton class="bg-green-700 hover:bg-green-800 text-white px-8 py-3 rounded-xl font-bold uppercase transition-colors">Ver disponibilidad</UButton>
+            </LazyUModal>
+          </div>
+          <!-- Camioneta -->
+          <div class="flex flex-col items-center text-center">
+            <!-- CLS fix: reservar espacio con aspect-ratio (800x300) -->
+            <div class="w-full aspect-[8/3]">
+              <LazyImagesCategoriasSUV hydrate-on-visible />
+            </div>
+            <h3 class="font-bold text-black text-lg mt-0">CAMIONETA</h3>
+            <p class="text-black mt-2">Robustez y tamaño. Capacidad para dominar cualquier camino</p>
+            <LazyUModal hydrate-on-interaction class="mt-4" :ui="{ content: 'bg-white', close: 'bg-black text-white rounded-full' }">
+              <template #body>
+                <div class="mb-4 text-black text-lg">
+                  ¿En que ciudad<br>deseas recoger tu carro?
+                </div>
+                <div class="min-w-80 my-3">
+                  <SelectBranch variant="gray" />
+                </div>
               </template>
-              <template #default>
-                <ImagesCategoriasSedan />
-              </template>
-            </UPageCard>
-            <UPageCard
-              title="CAMIONETA"
-              description="Robustez y tamaño. Capacidad para dominar cualquier camino"
-              variant="ghost"
-              :ui="categoriasPageCardUIConfig"
-              orientation="vertical"
-              reverse
-            >
-              <template #footer>
-                <UModal title="Selecciona ciudad">
-                  <template #body>
-                    <div class="mb-4 text-white text-2xl">
-                      ¿En que ciudad deseas recoger tu carro?
-                    </div>
-                    <div class="min-w-80 my-3">
-                      <SelectBranch />
-                    </div>
-                  </template>
-                  <UButton color="info" class="text-white"
-                    >Ver disponibilidad</UButton
-                  >
-                </UModal>
-              </template>
-              <template #default>
-                <ImagesCategoriasSUV />
-              </template>
-            </UPageCard>
-          </template>
-        </UPageGrid>
+              <UButton class="bg-green-700 hover:bg-green-800 text-white px-8 py-3 rounded-xl font-bold uppercase transition-colors">Ver disponibilidad</UButton>
+            </LazyUModal>
+          </div>
+        </div>
       </template>
     </UPageSection>
 
     <!-- Testimonials Section -->
-    <UPageSection
-      id="testimonios"
-      orientation="vertical"
-      class="bg-white text-black"
-      title="Lo que dicen nuestros clientes"
-      description="Descubre por qué somos la opción preferida para alquilar carros en Colombia. Nuestros clientes destacan nuestra atención, precios competitivos y la facilidad para explorar."
-      :ui="testimoniosPageSectionUIConfig"
-    >
-      <template #default>
-        <UPageGrid>
-          <UPageCard
+    <section id="testimonios" class="bg-gray-200 text-black py-12 md:py-20 px-4 md:px-8">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-2xl md:text-3xl text-center space-x-2 mb-4">
+          <span class="text-red-700">Testimonios</span>
+          <span class="text-black">que comparten nuestros clientes</span>
+        </h2>
+        <p class="text-black text-center mb-8">Descubre por qué somos la opción preferida para alquilar carros en Colombia. Nuestros clientes destacan nuestra atención, precios competitivos y la facilidad para explorar.</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div
             v-for="testimonio in testimonios"
-            :description="testimonio.quote"
-            variant="solid"
-            :ui="testimonioPageCardUIConfig"
+            :key="testimonio.user.name"
+            class="border border-gray-100 rounded-lg bg-gray-50 shadow-sm p-5 md:p-6 hover:shadow-lg transition-shadow duration-200"
           >
-            <template #title>
+            <!-- CLS fix: reservar espacio para avatar (48x48 = size 3xl) -->
+            <div class="min-h-[48px]">
               <UUser
                 size="3xl"
                 v-bind="testimonio.user"
                 :ui="testimonioUserUIConfig"
                 loading="lazy"
               />
-            </template>
-            <template #footer>
-              <div class="flex flex-row">
-                <StarIcon cls="text-yellow-500 size-6" />
-                <StarIcon cls="text-yellow-500 size-6" />
-                <StarIcon cls="text-yellow-500 size-6" />
-                <StarIcon cls="text-yellow-500 size-6" />
-                <StarIcon cls="text-yellow-500 size-6" />
-              </div>
-            </template>
-          </UPageCard>
-        </UPageGrid>
-      </template>
-    </UPageSection>
+            </div>
+            <p class="mt-4 text-gray-700">{{ testimonio.quote }}</p>
+            <div class="flex flex-row mt-4">
+              <StarIcon v-for="i in [1,2,3,4,5]" :key="i" cls="text-yellow-500 w-5 h-5" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- FAQ Section -->
-    <UPageSection id="faqs" class="faq px-6 text-white">
-      <UContainer>
-        <h2 class="text-3xl font-bold text-center mb-8">
-          Preguntas Frecuentes
+    <UPageSection id="faqs" class="bg-white text-black">
+      <div class="max-w-7xl mx-auto px-1 sm:px-2 lg:px-6">
+        <h2 class="text-2xl md:text-3xl font-bold text-center mb-6 space-x-2">
+          <span class="text-red-700">Preguntas Frecuentes</span>
+          <span class="text-black">sobre alquiler de carros</span>
         </h2>
-        <p class="text-lg mb-6">
-          Ahora es muy fácil alquilar carro en Colombia, ya sea para vacaciones
-          o para negocios, por días o por meses, sólo requiere ser mayor de
-          edad, tener licencia de conducción y una tarjeta de crédito con cupo
-          disponible no lo piense mas, con un alquiler de carros para viajar en
-          Colombia le sera mas fácil trasladarse por la ciudades, conocer
-          hermosos lugares y disfrutar de nuestra gastronomía y la gente amable
-          de cada región, ALQUILATUCARRO RENTA AUTOS COLOMBIA, le ofrece
-          variedad de vehículos y precios que se adaptan a sus necesidades, la
-          calidad de nuestros coches y la atención de nuestro personal es
-          inigualable compruébelo reservando ahora mismo
+        <p class="text-base text-center mb-4">
+          Encuentra respuestas a las consultas más comunes sobre nuestro servicio de alquiler. Si tienes otra pregunta, contáctanos directamente.
         </p>
-        <UAccordion :items="faqs">
+        <LazyUAccordion hydrate-on-interaction :items="faqs" :ui="faqAccordionUIConfig" class="max-w-4xl mx-auto">
           <template #default="{ item }">
-            <div class="text-2xl" v-text="item.label"></div>
+            <div class="text-base font-medium text-gray-800 px-4" v-text="item.label"></div>
           </template>
           <template #content="{ item }">
-            <div class="text-xl py-3" v-text="item.content"></div>
+            <div class="text-base text-gray-600 py-3 bg-gray-50 px-4 rounded-lg" v-text="item.content"></div>
           </template>
-        </UAccordion>
-      </UContainer>
+        </LazyUAccordion>
+      </div>
     </UPageSection>
   </UPage>
 </template>
@@ -356,6 +270,9 @@ import {
 } from "#components";
 
 const { faqs, franchise } = useAppConfig();
+
+useBaseSEO();
+useHomeBreadcrumb();
 
 useSeoMeta({
   ogType: "website",
@@ -392,12 +309,7 @@ useSchemaOrg([
 useHead({
   link: [
     { rel: "canonical", href: franchise.website },
-    {
-      rel: "preload",
-      as: "image",
-      href: "https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Ffamilia.avif?alt=media&token=a14e3f1c-428e-40b2-ad1e-0d724579e487",
-      fetchpriority: "high",
-    },
+    // Preloads de imagen hero movidos a nuxt.config.ts para estar en HTML inicial
   ],
 });
 
@@ -405,31 +317,30 @@ definePageMeta({
   colorMode: "dark",
 });
 
-const requisitosPageFeatureUIConfig = {
-  leadingIcon: "bg-red-600",
-  title: "text-black",
-  description: "text-black",
-};
-
-const categoriasPageCardUIConfig = {
-  title: "text-center text-black",
-  description: "text-center text-black",
-  footer: "mx-auto",
+const categoriasPageSectionUIConfig = {
+  body: "mt-4 sm:mt-6",
 };
 
 const testimonios: Testimonial[] = franchise.testimonials;
 
-const testimoniosPageSectionUIConfig = {
-  title: "text-black",
-};
+// Add AggregateRating schema for testimonials (shows stars in Google SERPs)
+useHomeAggregateRating()
 
-const testimonioPageCardUIConfig = {
-  root: "border-1 border-gray-100 rounded-lg bg-gray-50 shadow",
-  description: "mt-4",
-};
+// Add VideoObject schema for promotional video (enables video rich snippets)
+usePromoVideoSchema()
+
+// Add Promotion schema for 60% discount offer (promotional rich snippets)
+useEarlyBookingPromotion()
 
 const testimonioUserUIConfig = {
   name: "text-black",
+  description: "text-gray-600",
+};
+
+const faqAccordionUIConfig = {
+  item: "bg-gray-200 rounded-lg mb-2 px-2 pb-2 !border-0 !border-b-0",
+  body: "!border-none",
+  trailingIcon: "mr-2 transition-transform duration-200",
 };
 
 </script>

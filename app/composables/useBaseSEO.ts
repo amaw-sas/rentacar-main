@@ -1,4 +1,4 @@
-import type { AutoRental, PostalAddress, Brand, OpeningHoursSpecification } from 'schema-dts'
+import type { AutoRental, Brand, OpeningHoursSpecification, SearchAction, EntryPoint } from 'schema-dts'
 
 export const useBaseSEO = () => {
 
@@ -26,7 +26,15 @@ export const useBaseSEO = () => {
 
     useSchemaOrg([
         defineWebSite({
-            inLanguage: "es"
+            inLanguage: "es",
+            potentialAction: <SearchAction>{
+                '@type': 'SearchAction',
+                target: <EntryPoint>{
+                    '@type': 'EntryPoint',
+                    urlTemplate: `${franchise.website}/{search_term_string}`
+                },
+                'query-input': 'required name=search_term_string'
+            }
         }),
         defineWebPage({
             title: organization.name,
@@ -52,13 +60,9 @@ export const useBaseSEO = () => {
                 'Credit Card',
             ],
             currenciesAccepted: 'COP',
-            location: "Colombia",
-            address: <PostalAddress>{
-                streetAddress: organization.address,
-                addressRegion: 'Valle',
-                addressLocality: 'Jamundí',
-                postalCode: organization.postalcode,
-                addressCountry: 'CO',
+            areaServed: {
+                '@type': 'Country',
+                name: 'Colombia'
             },
             image: franchise.logo,
             telephone: franchise.phone,

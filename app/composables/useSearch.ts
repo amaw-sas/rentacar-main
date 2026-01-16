@@ -1,14 +1,44 @@
 import { watchDebounced } from "@vueuse/core";
 
-import { 
-  createTimeFromString, 
-  toDatetime, 
-  formatHumanTime, 
+import {
+  createTimeFromString,
+  toDatetime,
+  formatHumanTime,
   formatTime,
   useStoreAdminData,
   useStoreSearchData,
   useStoreReservationForm,
 } from '#imports';
+
+// Opciones de hora estáticas (se generan una sola vez al cargar el módulo)
+// Evita regenerar 48 opciones en cada re-render
+const generateHourOptions = () => {
+  const options: Array<{ value: string; label: string }> = [];
+  let initHour = createTimeFromString('00:00');
+  const endHour = createTimeFromString('23:30');
+
+  while (initHour.compare(endHour) < 0) {
+    if (initHour.toString() === "00:00:00") {
+      options.push({ value: "00:00", label: "MEDIANOCHE" });
+    } else if (initHour.toString() === "12:00:00") {
+      options.push({ value: "12:00", label: "MEDIODIA" });
+    } else {
+      const datetime = toDatetime(createCurrentDateObject(), initHour);
+      options.push({ value: formatTime(datetime), label: formatHumanTime(datetime) });
+    }
+    initHour = initHour.add({ minutes: 30 });
+  }
+  return options;
+};
+
+// Cache estático de opciones de hora (generado una vez)
+let _cachedHourOptions: Array<{ value: string; label: string }> | null = null;
+const getHourOptions = () => {
+  if (!_cachedHourOptions) {
+    _cachedHourOptions = generateHourOptions();
+  }
+  return _cachedHourOptions;
+};
 
 /** types */
 import type { BranchData } from "#imports";
@@ -59,22 +89,22 @@ export default function useSearch() {
     if (horaRecogida.value != horaDevolucion.value) {
       createMessage({
         type: "info",
-        title: "Cambio de hora",
+        title: "Tarifa adicional por horas extras",
         message:
-          "Usar Horas adicionales puede incrementar el precio de alquiler.",
+          "El tiempo extra de uso puede incrementar el precio total del alquiler",
       });
     }
 
     if (lugarRecogida.value != lugarDevolucion.value) {
       createMessage({
         type: "info",
-        title: "Cambio de sede",
+        title: "Tarifa adicional por traslado",
         message:
-          "Devolverlo en otra sede puede incrementar el precio de alquiler",
+          "Devolverlo en otra sede o ciudad puede incrementar el precio de alquiler",
       });
     }
 
-    // haveMonthlyReservation.value = selectedDays.value == 30;
+    haveMonthlyReservation.value = selectedDays.value == 30;
     haveTotalInsurance.value = false;
 
     firstSearch.value = false;
@@ -98,32 +128,36 @@ export default function useSearch() {
   };
   
   /** watchers */
+
+  // Watchers de sincronización pickup → return (flush: 'sync' evita cascada)
+  // Se ejecutan sincrónicamente antes del siguiente tick de Vue
   watch(
     lugarRecogida,
-    (newPickupLocation) => (lugarDevolucion.value = newPickupLocation)
-  );
-  
-  watch(fechaRecogida, (newPickupDate): void => {
-    if(selectedPickupDate.value)
-      fechaDevolucion.value = selectedPickupDate.value.copy().add({days: 7}).toString() ?? null
-  });
-  
-  watch(
-    horaRecogida,
-    (newPickupHour) => (horaDevolucion.value = newPickupHour)
+    (newPickupLocation) => (lugarDevolucion.value = newPickupLocation),
+    { flush: 'sync' }
   );
 
-  watch([
-    lugarRecogida,
-    lugarDevolucion,
-    fechaRecogida,
-    fechaDevolucion,
+  watch(fechaRecogida, (newPickupDate): void => {
+    if (selectedPickupDate.value)
+      fechaDevolucion.value = selectedPickupDate.value.copy().add({ days: 7 }).toString() ?? null
+  }, { flush: 'sync' });
+
+  watch(
     horaRecogida,
-    horaDevolucion
-  ], () => {
-    categoriesAvailabilityData.value=null;
-    animateSearchButton.value = true;
-  });
+    (newPickupHour) => (horaDevolucion.value = newPickupHour),
+    { flush: 'sync' }
+  );
+
+  // Watcher debounced para resetear disponibilidad
+  // Agrupa múltiples cambios rápidos en una sola ejecución (50ms)
+  watchDebounced(
+    [lugarRecogida, lugarDevolucion, fechaRecogida, fechaDevolucion, horaRecogida, horaDevolucion],
+    () => {
+      categoriesAvailabilityData.value = null;
+      animateSearchButton.value = true;
+    },
+    { debounce: 50 }
+  );
 
   // Desactivar animación cuando los vehículos están desplegados
   watch(categoriesAvailabilityData, (newValue) => {
@@ -163,48 +197,26 @@ export default function useSearch() {
     hora_devolucion: horaDevolucion.value,
   }));
 
-  const pickupHourOptions = computed(() => {
-    const hourOptions = function* () {
-      let initHour = createTimeFromString('00:00');
-      let endHour = createTimeFromString('23:30');
-      
-      while (initHour.compare(endHour) < 0) {
-        if (initHour.toString() === "00:00:00") yield { value: "00:00", label: "MEDIANOCHE" };
-        else if (initHour.toString() === "12:00:00") yield { value: "12:00", label: "MEDIODIA" };
-        else {
-          const datetime = toDatetime(createCurrentDateObject(), initHour);
-          yield { value: formatTime(datetime), label: formatHumanTime(datetime) };
-        }
-        
-        initHour = initHour.add({minutes: 30});
-      }
-    };
-  
-    return Array.from(hourOptions());
-  });
-  
+  // Usa cache estático - no regenera 48 opciones en cada re-render
+  const pickupHourOptions = computed(() => getHourOptions());
+
+  // Filtra desde cache cuando hay restricción mensual
   const returnHourOptions = computed(() => {
-    const hourOptions = function* () {
-      let initHour = createTimeFromString('00:00');
-      let endHour = createTimeFromString('23:30');
+    const allOptions = getHourOptions();
 
-      while (initHour.compare(endHour) < 0) {
-        if (selectedDays.value == 30 && selectedPickupHour.value)
-          if(initHour.compare(selectedPickupHour.value) > 0)
-            break;
+    // Sin restricción mensual, devuelve todas las opciones
+    if (selectedDays.value !== 30 || !selectedPickupHour.value) {
+      return allOptions;
+    }
 
-        if (initHour.toString() === "00:00:00") yield { value: "00:00", label: "MEDIANOCHE" };
-        else if (initHour.toString() === "12:00:00") yield { value: "12:00", label: "MEDIODIA" };
-        else {
-          const datetime = toDatetime(createCurrentDateObject(), initHour);
-          yield { value: formatTime(datetime), label: formatHumanTime(datetime) };
-        }
-  
-        initHour = initHour.add({minutes: 30});
-      }
-    };
-  
-    return Array.from(hourOptions());
+    // Filtra opciones hasta la hora de recogida (para reservas mensuales)
+    const pickupHourStr = selectedPickupHour.value.toString();
+    const cutoffIndex = allOptions.findIndex(opt => {
+      const optTime = createTimeFromString(opt.value);
+      return optTime.compare(selectedPickupHour.value!) > 0;
+    });
+
+    return cutoffIndex === -1 ? allOptions : allOptions.slice(0, cutoffIndex);
   });
   
   return { 
