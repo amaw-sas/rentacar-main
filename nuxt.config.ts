@@ -8,16 +8,29 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
 
+  modules: ['@nuxtjs/seo', '@nuxt/ui', '@pinia/nuxt', 'nuxt-llms', 'nuxt-vitalizer', '@nuxt/content'],
+
+  // Optimización Core Web Vitals
+  vitalizer: {
+    // NOTA: disableStylesheets: 'entry' causaba FOUC en páginas de ciudad
+    // Los estilos no se inlinean correctamente durante SSR
+    disableStylesheets: false,
+    // Remueve prefetch links para mejorar FCP
+    disablePrefetchLinks: true,
+  },
+  
   // Component Islands: renderiza componentes estáticos sin hidratación Vue
   // Reduce JavaScript en el cliente para mejorar LCP
   experimental: {
     componentIslands: true,
   },
 
-  // Configuración de app: CSS crítico inline + preloads para LCP
+  // Configuración de app: CSS crítico, preloads y atributos HTML
   app: {
     head: {
-      // CSS crítico - balance entre tamaño y prevención de FOUC
+      htmlAttrs: {
+        lang: 'es',
+      },
       style: [
         {
           key: 'critical-cls',
@@ -71,22 +84,6 @@ export default defineNuxtConfig({
             .justify-center { justify-content: center; }
             .flex-row { flex-direction: row; }
             .space-x-0\\.5 > :not(:last-child) { margin-right: 0.125rem; }
-            /* Section padding - CRÍTICO para CLS */
-            .py-6 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
-            .py-12 { padding-top: 3rem; padding-bottom: 3rem; }
-            .my-3 { margin-top: 0.75rem; margin-bottom: 0.75rem; }
-            /* Typography adicional - CRÍTICO para CLS */
-            .text-2xl { font-size: 1.5rem; line-height: 2rem; }
-            .text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
-            .text-lg { font-size: 1.125rem; line-height: 1.75rem; }
-            /* SelectBranch form - CRÍTICO para CLS */
-            .min-w-80 { min-width: 20rem; }
-            .pl-10 { padding-left: 2.5rem; }
-            .pr-12 { padding-right: 3rem; }
-            .rounded-xl { border-radius: 0.75rem; }
-            .appearance-none { appearance: none; }
-            .border { border-width: 1px; }
-            .border-gray-400 { border-color: rgb(156, 163, 175); }
             /* Max-width container */
             .max-w-\\(--ui-container\\), .max-w-7xl { max-width: 80rem; }
             @media (min-width: 640px) {
@@ -94,12 +91,6 @@ export default defineNuxtConfig({
               .sm\\:px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
               .sm\\:gap-y-16 { row-gap: 4rem; }
               .sm\\:text-7xl { font-size: 4.5rem; line-height: 1; }
-              .sm\\:py-6 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
-              .sm\\:gap-16 { gap: 4rem; }
-              .sm\\:text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
-            }
-            @media (min-width: 768px) {
-              .md\\:text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
             }
             @media (min-width: 1024px) {
               /* UPage wrapper grid */
@@ -164,6 +155,7 @@ export default defineNuxtConfig({
     name: 'Alquilatucarro',
     description: 'Alquila carros en Bogotá, Medellín, Cali y 14 ciudades más.',
     defaultLocale: 'es',
+    currentLocale: 'es',
   },
 
   colorMode: {
@@ -209,6 +201,12 @@ export default defineNuxtConfig({
     define: {
       // Enable detailed hydration mismatch warnings in production
       __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: true
+    },
+    // Fix para timeout de vite-node al cargar módulos
+    // https://github.com/nuxt/nuxt/issues/32789
+    // https://github.com/nuxt/nuxt/pull/32874
+    viteNode: {
+      requestTimeout: 180000, // 3 minutos (aumentado desde 60s por defecto)
     }
   },
 
