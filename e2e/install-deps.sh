@@ -5,6 +5,15 @@
 
 echo "🎭 Instalando dependencias de Playwright..."
 echo ""
+
+# Verificar permisos de sudo antes de continuar
+if ! sudo -n true 2>/dev/null; then
+    echo "❌ Este script requiere privilegios sudo"
+    echo ""
+    echo "Ejecuta: sudo $0"
+    exit 1
+fi
+
 echo "⚠️  Este script requiere privilegios de administrador (sudo)"
 echo ""
 
@@ -14,7 +23,7 @@ if grep -qi microsoft /proc/version; then
 fi
 
 # Instalar dependencias usando el comando oficial de Playwright
-npx playwright install-deps chromium firefox webkit
+sudo npx playwright install-deps chromium firefox webkit
 
 if [ $? -eq 0 ]; then
     echo ""
