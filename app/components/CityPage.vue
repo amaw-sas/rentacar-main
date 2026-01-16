@@ -14,7 +14,8 @@
         </div>
       </template>
       <template #title>
-        <h1 class="text-white text-center uppercase font-bold" style="letter-spacing: -0.025em;">
+        <!-- UPageHero ya renderiza <h1> para slot #title, usamos div para evitar h1 duplicado -->
+        <div class="text-white text-center uppercase font-bold" style="letter-spacing: -0.025em;">
           <span class="block text-2xl md:text-3xl lg:text-4xl" style="letter-spacing: -0.025em;">
             <span class="block" style="letter-spacing: -0.025em;">ALQUILER</span>
             <span class="block" style="letter-spacing: -0.025em;">DE CARROS EN</span>
@@ -25,7 +26,7 @@
             <LocationIcon cls="text-red-600 size-8 md:size-10 lg:size-14 translate-y-1" />
           </span>
           <span class="block text-2xl md:text-3xl lg:text-4xl text-white colombia-sweep" style="letter-spacing: 0.025em;">Colombia</span>
-        </h1>
+        </div>
       </template>
       <template #body>
         <!-- Solo visible en mobile -->
