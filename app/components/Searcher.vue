@@ -3,7 +3,7 @@
         class="w-full mx-auto md:w-3/6 lg:w-4/6 grid grid-cols-2 auto-rows-min gap-2 light"
     >
         <div class="col-span-2 bg-white rounded-xl p-2 shadow-sm">
-            <u-form-field name="lugarRecogida" label="Lugar de recogida" size="xl">
+            <u-form-field label="Lugar de recogida" size="xl">
                 <!-- Móvil: select nativo (CSS: sm:hidden) -->
                 <select
                     v-if="lugarRecogida"
@@ -47,7 +47,7 @@
             </u-form-field>
         </div>
         <div class="col-span-2 bg-white rounded-xl p-2 shadow-sm">
-            <u-form-field name="lugarDevolucion" label="Lugar de devolución" size="xl">
+            <u-form-field label="Lugar de devolución" size="xl">
                 <!-- Móvil: select nativo (CSS: sm:hidden) -->
                 <select
                     v-if="lugarDevolucion"
@@ -91,7 +91,7 @@
             </u-form-field>
         </div>
         <div class="bg-white rounded-xl p-2 shadow-sm">
-            <u-form-field name="fechaRecogida" label="Día de recogida" size="xl">
+            <u-form-field label="Día de recogida" size="xl">
                 <!-- Móvil: input nativo (CSS: sm:hidden) -->
                 <input
                     type="date"
@@ -141,7 +141,7 @@
             </u-form-field>
         </div>
         <div class="bg-white rounded-xl p-2 shadow-sm">
-            <u-form-field name="fechaDevolucion" label="Día de devolución" size="xl">
+            <u-form-field label="Día de devolución" size="xl">
                 <!-- Móvil: input nativo (CSS: sm:hidden) -->
                 <input
                     type="date"
@@ -194,7 +194,7 @@
             </u-form-field>
         </div>
         <div class="bg-white rounded-xl p-2 shadow-sm">
-            <u-form-field name="horaRecogida" label="Hora de recogida" size="xl">
+            <u-form-field label="Hora de recogida" size="xl">
                 <!-- Móvil: select nativo (CSS: sm:hidden) -->
                 <select
                     id="pickup-hour-mobile"
@@ -244,7 +244,6 @@
                 <!-- Desktop: u-select-menu (CSS: hidden sm:block) -->
                 <u-select-menu
                     id="return-hour"
-                    name="horaDevolucion"
                     v-model="horaDevolucion"
                     value-key="value"
                     label-key="label"
