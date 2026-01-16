@@ -71,6 +71,22 @@ export default defineNuxtConfig({
             .justify-center { justify-content: center; }
             .flex-row { flex-direction: row; }
             .space-x-0\\.5 > :not(:last-child) { margin-right: 0.125rem; }
+            /* Section padding - CRÍTICO para CLS */
+            .py-6 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+            .py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+            .my-3 { margin-top: 0.75rem; margin-bottom: 0.75rem; }
+            /* Typography adicional - CRÍTICO para CLS */
+            .text-2xl { font-size: 1.5rem; line-height: 2rem; }
+            .text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+            .text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+            /* SelectBranch form - CRÍTICO para CLS */
+            .min-w-80 { min-width: 20rem; }
+            .pl-10 { padding-left: 2.5rem; }
+            .pr-12 { padding-right: 3rem; }
+            .rounded-xl { border-radius: 0.75rem; }
+            .appearance-none { appearance: none; }
+            .border { border-width: 1px; }
+            .border-gray-400 { border-color: rgb(156, 163, 175); }
             /* Max-width container */
             .max-w-\\(--ui-container\\), .max-w-7xl { max-width: 80rem; }
             @media (min-width: 640px) {
@@ -78,6 +94,12 @@ export default defineNuxtConfig({
               .sm\\:px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
               .sm\\:gap-y-16 { row-gap: 4rem; }
               .sm\\:text-7xl { font-size: 4.5rem; line-height: 1; }
+              .sm\\:py-6 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+              .sm\\:gap-16 { gap: 4rem; }
+              .sm\\:text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+            }
+            @media (min-width: 768px) {
+              .md\\:text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
             }
             @media (min-width: 1024px) {
               /* UPage wrapper grid */
@@ -90,6 +112,9 @@ export default defineNuxtConfig({
               .lg\\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
               .lg\\:items-center { align-items: center; }
               .lg\\:py-24 { padding-top: 6rem; padding-bottom: 6rem; }
+              .lg\\:py-20 { padding-top: 5rem; padding-bottom: 5rem; }
+              .lg\\:py-6 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+              .lg\\:text-5xl { font-size: 3rem; line-height: 1; }
               .lg\\:px-8 { padding-left: 2rem; padding-right: 2rem; }
               /* order-last para imagen en desktop - CRÍTICO para CLS */
               .lg\\:order-last { order: 9999; }
