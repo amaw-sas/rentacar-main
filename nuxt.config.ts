@@ -103,6 +103,9 @@ export default defineNuxtConfig({
               .lg\\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
               .lg\\:items-center { align-items: center; }
               .lg\\:py-24 { padding-top: 6rem; padding-bottom: 6rem; }
+              .lg\\:py-20 { padding-top: 5rem; padding-bottom: 5rem; }
+              .lg\\:py-6 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+              .lg\\:text-5xl { font-size: 3rem; line-height: 1; }
               .lg\\:px-8 { padding-left: 2rem; padding-right: 2rem; }
               /* order-last para imagen en desktop - CRÍTICO para CLS */
               .lg\\:order-last { order: 9999; }
