@@ -279,7 +279,7 @@ useSeoMeta({
   ogTitle: franchise.title,
   ogDescription: franchise.description,
   ogImage: franchise.ogImage,
-  ogImageAlt: "Familia colombiana disfrutando viaje en carro alquilado - Alquilatucarro.com",
+  ogImageAlt: `Familia colombiana disfrutando viaje en carro alquilado - ${franchise.name}`,
   ogImageType: "image/jpeg",
   ogImageUrl: franchise.ogImage,
   ogImageWidth: "1200",
@@ -291,7 +291,7 @@ useSeoMeta({
   twitterTitle: franchise.title,
   twitterDescription: franchise.description,
   twitterImage: franchise.ogImage,
-  twitterImageAlt: "Familia colombiana disfrutando viaje en carro alquilado - Alquilatucarro.com",
+  twitterImageAlt: `Familia colombiana disfrutando viaje en carro alquilado - ${franchise.name}`,
 });
 
 useSchemaOrg([
