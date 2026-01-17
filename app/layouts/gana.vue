@@ -71,6 +71,8 @@
 <script lang="ts" setup>
 import type { NavigationMenuItem } from '@nuxt/ui'
 
+const { franchise } = useAppConfig();
+
 const route = useRoute();
 
 // Estado del menú móvil slideover
