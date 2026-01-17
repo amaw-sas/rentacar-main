@@ -29,7 +29,14 @@ Reducir CLS (Cumulative Layout Shift) a < 0.1 en mobile y desktop.
 ### Desktop
 | Fecha | Performance | CLS | LCP | TBT | Notas |
 |-------|-------------|-----|-----|-----|-------|
+| 2026-01-16 ~19:03 | **99** | **0** | - | - | **PR #54 TEST** - vitalizer DESHABILITADO ⭐ PRESERVAR |
 | 2026-01-16 ~11:05 | 48 | 0.285 | 0.8s | 2,680ms | TBT muy alto afecta score |
+
+### ⚠️ REGLA PARA FUTUROS CAMBIOS
+**Desktop alcanzó 99 Performance con CLS 0**. Los futuros cambios DEBEN:
+1. Mantener Desktop Performance ≥ 95
+2. Mantener Desktop CLS = 0
+3. No reintroducir el TBT alto (2,680ms) que teníamos antes
 
 ---
 
@@ -283,14 +290,34 @@ Añadir los padding de Nuxt UI v4 themes al critical CSS:
 
 ## Próximas Acciones
 
-### Pendiente (después de PR #51 deploy)
-- [ ] Re-medir CLS en PageSpeed Insights (target: < 0.1)
-- [ ] Actualizar este log con resultados
+### Estado Actual (después de PR #53)
+- [x] Re-medir CLS en PageSpeed Insights → **0.208** (mejoró de 0.21)
+- [x] Actualizar este log con resultados
 
-### Si CLS no mejora con PR #51
-- [ ] Verificar que critical CSS se está aplicando correctamente
-- [ ] Usar Chrome DevTools Performance para ver si hay otros elementos
-- [ ] Considerar deshabilitar `nuxt-vitalizer` temporalmente para comparar
+### HALLAZGO CRÍTICO (2026-01-16 ~16:38)
+PageSpeed "Layout shift culprits" muestra que **100% del CLS** (0.208) viene de UN SOLO elemento:
+```
+Element: <div data-orientation="horizontal" data-slot="root" class="relative isolate">
+Layout shift score: 0.208
+```
+
+Esto es el **UPageHero root container** - el mismo elemento que venimos trabajando.
+
+**Conclusión**: A pesar de todos los fixes de critical CSS (PR #49-53), el UPageHero sigue causando todo el CLS. Las clases añadidas al critical CSS NO son suficientes.
+
+### Hipótesis para el CLS restante (0.208)
+1. **Vue hydration** - El contenido del hero puede estar re-renderizándose durante hydration
+2. **Nuxt Islands** - El componente `HeroHeadline.server.vue` se carga de forma asíncrona
+3. **Estilos inline vs computed** - Puede haber estilos que se calculan en runtime
+4. **CSS custom properties** - Nuxt UI usa variables CSS que pueden cambiar
+5. **Transiciones CSS** - Puede haber transiciones que causan el shift
+
+### Próximos pasos sugeridos
+- [ ] Probar deshabilitar `nuxt-vitalizer` temporalmente para comparar CLS
+- [ ] Usar Chrome DevTools Performance para grabar el layout shift exacto
+- [ ] Investigar si Nuxt Islands (`*.server.vue`) causa CLS durante carga
+- [ ] Revisar si hay CSS custom properties que cambian en runtime
+- [ ] Considerar prerender del hero content para eliminar hydration shift
 
 ### Lecciones aprendidas
 - **Usar "Layout shift culprits" en PageSpeed** para identificar elemento exacto
@@ -320,3 +347,58 @@ vitalizer: {
 - Siempre tomar 2-3 mediciones para confirmar tendencia
 - Mobile es prioridad (Google usa mobile-first indexing)
 - Desktop tiene problema adicional de TBT alto (2,680ms) que es issue separado de CLS
+
+---
+
+## 🔖 CHECKPOINTS - Puntos de Control
+
+Sistema para revertir a configuraciones conocidas si un cambio empeora las métricas.
+
+### Checkpoint #1 - PR #54 (Desktop Excelente) ⭐ MEJOR DESKTOP
+**Fecha**: 2026-01-16
+**Commit**: `f9701c4` (vitalizer deshabilitado)
+**Cómo revertir**: `git checkout f9701c4 -- nuxt.config.ts`
+
+| Métrica | Mobile | Desktop |
+|---------|--------|---------|
+| Performance | 65 | **99** |
+| CLS | **0** | **0** |
+| LCP | 3.6s | ~0.8s |
+| TBT | 30ms | ~20ms |
+
+**Pros**: CLS=0 en ambos, Desktop perfecto
+**Contras**: Mobile LCP lento (3.6s)
+
+---
+
+### Checkpoint #2 - Antes de .server.vue change (2026-01-17)
+**Commit**: `44de1f5` (hero image restaurada)
+**Cómo revertir**: `git checkout 44de1f5 -- app/components/Hero/`
+
+| Métrica | Mobile | Desktop |
+|---------|--------|---------|
+| Performance | ~85 | ~99 |
+| CLS | 0 | 0 |
+| LCP | 3.7s | ~0.8s |
+
+**Estado**: Baseline antes de eliminar Nuxt Islands
+
+---
+
+### 🧪 TEST: Checkpoint #3 - .server.vue → .vue (2026-01-17)
+**Commit**: `ab0a43a`
+**Branch**: `worktree-seo-alquilatucarro`
+**Cambio**: Convertir Hero/*.server.vue a *.vue para eliminar render delay
+**Cómo revertir**: `git checkout 44de1f5 -- app/components/Hero/`
+
+**Archivos modificados**:
+- `Hero/Description.server.vue` → `Hero/Description.vue`
+- `Hero/Title.server.vue` → `Hero/Title.vue`
+- `Hero/Headline.server.vue` → `Hero/Headline.vue`
+
+**Expectativa**:
+- LCP Mobile: 3.7s → ~2.3s (-1.4s) eliminando render delay
+- CLS: mantener 0
+- Desktop: mantener ≥95
+
+**Resultado**: ⏳ PENDIENTE MEDIR (crear PR y medir en PageSpeed)
