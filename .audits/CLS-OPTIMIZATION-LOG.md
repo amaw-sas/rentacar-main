@@ -5,12 +5,65 @@ Reducir CLS (Cumulative Layout Shift) a < 0.1 en mobile y desktop.
 
 ---
 
-## Estado Actual (2026-01-16 - Actualizado después de PR #52)
+## Estado Actual (2026-01-16 - Después de PR #55 TEST sin imagen hero)
 
 | Dispositivo | CLS Actual | CLS Anterior | Objetivo | Estado |
 |-------------|------------|--------------|----------|--------|
-| Mobile | **0.21** | 0.23 | < 0.1 | MEJORADO pero NO ALCANZADO |
-| Desktop | 0.285 | 0.285 | < 0.1 | NO ALCANZADO |
+| Mobile | **0** | 0.208 | < 0.1 | ✅ **ALCANZADO** (con vitalizer deshabilitado) |
+| Desktop | **0** | 0.285 | < 0.1 | ✅ **ALCANZADO** (con vitalizer deshabilitado) |
+
+### 🌟 RESULTADO EXCELENTE EN DESKTOP (PR #54)
+- **Performance Desktop: 99** (antes era 48)
+- **CLS Desktop: 0** (antes era 0.285)
+- Este resultado es EXCELENTE y debe preservarse en futuros cambios
+
+### ⚠️ IMPORTANTE: PR #54 es un TEST
+PR #54 deshabilita `nuxt-vitalizer` stylesheet deferral. Esto **ELIMINA el CLS** pero **EMPEORA FCP/LCP en mobile**.
+El fix final debe ser añadir más critical CSS, NO deshabilitar vitalizer.
+
+---
+
+## Test PR #55 - Sin Imagen Hero (2026-01-16 ~19:49)
+
+**Objetivo**: Determinar si la imagen hero es la causa del LCP lento en mobile.
+
+**Cambio realizado**: Comentado `<ImagesFamily />` en `app/pages/index.vue`, dejando solo el contenedor con `bg-neutral-700`.
+
+### Resultados Comparativos
+
+| Métrica | Mobile CON img (PR #54) | Mobile SIN img (PR #55) | Desktop CON img (PR #54) | Desktop SIN img (PR #55) |
+|---------|-------------------------|-------------------------|--------------------------|--------------------------|
+| **Performance** | 65 | **81** (+16) | **99** | 86 (-13) |
+| FCP | 2.9s | 2.9s | ~0.5s | 0.6s |
+| LCP | 3.6s | 3.8s (+0.2s) | ~0.8s | 1.2s (+0.4s) |
+| TBT | 30ms | 100ms (+70ms) | ~20ms | 290ms (+270ms) |
+| CLS | 0 | 0 | 0 | 0 |
+| Speed Index | - | 4.6s | - | 0.8s |
+
+### Conclusiones del Test
+
+1. **❌ La imagen hero NO es el cuello de botella del LCP en mobile**
+   - LCP empeoró de 3.6s a 3.8s SIN la imagen
+   - Esto significa que el elemento LCP cambió a otro componente (probablemente texto)
+
+2. **❌ Quitar la imagen PERJUDICA Desktop severamente**
+   - Performance cayó de 99 a 86 (-13 puntos)
+   - LCP empeoró de ~0.8s a 1.2s
+   - TBT empeoró de ~20ms a 290ms
+
+3. **✅ Mobile Performance subió +16 puntos**
+   - Pero esto es por mejora en Speed Index, no en LCP
+   - El Speed Index mejoró porque hay menos contenido que pintar
+
+4. **Decisión: RESTAURAR la imagen hero**
+   - La imagen no es el problema
+   - El problema de LCP está en otra parte (CSS blocking, JS, o render delay)
+
+### Próximos pasos para mejorar Mobile FCP/LCP
+- [ ] Investigar CSS render-blocking (470ms según PageSpeed)
+- [ ] Optimizar hydration de Vue/Nuxt
+- [ ] Considerar prerender del hero content
+- [ ] Analizar el "Element render delay: 1,890ms" que mostró PageSpeed
 
 ---
 
@@ -19,7 +72,9 @@ Reducir CLS (Cumulative Layout Shift) a < 0.1 en mobile y desktop.
 ### Mobile
 | Fecha | Performance | CLS | LCP | TBT | Notas |
 |-------|-------------|-----|-----|-----|-------|
-| 2026-01-16 ~15:42 | **80** | **0.21** | 3.2s | 110ms | **Después de PR #52** - fix !important |
+| 2026-01-16 ~19:03 | 82 | **0** | 3.6s | 30ms | **PR #54 TEST** - vitalizer DESHABILITADO |
+| 2026-01-16 ~16:38 | **82** | **0.208** | 3.2s | 110ms | **Después de PR #53** - fix star rating text |
+| 2026-01-16 ~15:42 | 80 | 0.21 | 3.2s | 110ms | Después de PR #52 - fix !important |
 | 2026-01-16 ~10:59 | 78 | 0.201 | - | - | Antes del fix PR #49 |
 | 2026-01-16 ~11:01 | 83 | 0.23 | 2.9s | 130ms | Después del fix PR #49 |
 | 2026-01-16 (previo) | 88 | ~0.2 | - | - | Reportado por usuario (mejor resultado) |
@@ -29,7 +84,14 @@ Reducir CLS (Cumulative Layout Shift) a < 0.1 en mobile y desktop.
 ### Desktop
 | Fecha | Performance | CLS | LCP | TBT | Notas |
 |-------|-------------|-----|-----|-----|-------|
+| 2026-01-16 ~19:03 | **99** | **0** | - | - | **PR #54 TEST** - vitalizer DESHABILITADO ⭐ PRESERVAR |
 | 2026-01-16 ~11:05 | 48 | 0.285 | 0.8s | 2,680ms | TBT muy alto afecta score |
+
+### ⚠️ REGLA PARA FUTUROS CAMBIOS
+**Desktop alcanzó 99 Performance con CLS 0**. Los futuros cambios DEBEN:
+1. Mantener Desktop Performance ≥ 95
+2. Mantener Desktop CLS = 0
+3. No reintroducir el TBT alto (2,680ms) que teníamos antes
 
 ---
 
@@ -140,7 +202,18 @@ El componente `Hero/Headline.server.vue` (Nuxt Islands) tiene clases de texto qu
 }
 ```
 
-**Resultado**: Pendiente de deploy y medición
+**Resultado (después de deploy)**:
+- Performance mobile: 82 (+2 puntos)
+- CLS: **0.208** (mejoró de 0.21, pero sigue arriba de 0.1)
+- TBT: 110ms (sin cambio)
+- LCP: 3.2s (sin cambio)
+
+**Análisis post-deploy**:
+- ✅ Las clases de star rating están presentes en critical CSS (verificado con JS)
+- ⚠️ El fix tuvo impacto MÍNIMO (0.21 → 0.208 = -0.002)
+- La causa principal del CLS restante NO es el star rating text
+
+**Conclusión**: El fix del star rating text ayuda pero NO es la causa principal del CLS ~0.2 restante.
 
 ---
 
@@ -283,14 +356,34 @@ Añadir los padding de Nuxt UI v4 themes al critical CSS:
 
 ## Próximas Acciones
 
-### Pendiente (después de PR #51 deploy)
-- [ ] Re-medir CLS en PageSpeed Insights (target: < 0.1)
-- [ ] Actualizar este log con resultados
+### Estado Actual (después de PR #53)
+- [x] Re-medir CLS en PageSpeed Insights → **0.208** (mejoró de 0.21)
+- [x] Actualizar este log con resultados
 
-### Si CLS no mejora con PR #51
-- [ ] Verificar que critical CSS se está aplicando correctamente
-- [ ] Usar Chrome DevTools Performance para ver si hay otros elementos
-- [ ] Considerar deshabilitar `nuxt-vitalizer` temporalmente para comparar
+### HALLAZGO CRÍTICO (2026-01-16 ~16:38)
+PageSpeed "Layout shift culprits" muestra que **100% del CLS** (0.208) viene de UN SOLO elemento:
+```
+Element: <div data-orientation="horizontal" data-slot="root" class="relative isolate">
+Layout shift score: 0.208
+```
+
+Esto es el **UPageHero root container** - el mismo elemento que venimos trabajando.
+
+**Conclusión**: A pesar de todos los fixes de critical CSS (PR #49-53), el UPageHero sigue causando todo el CLS. Las clases añadidas al critical CSS NO son suficientes.
+
+### Hipótesis para el CLS restante (0.208)
+1. **Vue hydration** - El contenido del hero puede estar re-renderizándose durante hydration
+2. **Nuxt Islands** - El componente `HeroHeadline.server.vue` se carga de forma asíncrona
+3. **Estilos inline vs computed** - Puede haber estilos que se calculan en runtime
+4. **CSS custom properties** - Nuxt UI usa variables CSS que pueden cambiar
+5. **Transiciones CSS** - Puede haber transiciones que causan el shift
+
+### Próximos pasos sugeridos
+- [ ] Probar deshabilitar `nuxt-vitalizer` temporalmente para comparar CLS
+- [ ] Usar Chrome DevTools Performance para grabar el layout shift exacto
+- [ ] Investigar si Nuxt Islands (`*.server.vue`) causa CLS durante carga
+- [ ] Revisar si hay CSS custom properties que cambian en runtime
+- [ ] Considerar prerender del hero content para eliminar hydration shift
 
 ### Lecciones aprendidas
 - **Usar "Layout shift culprits" en PageSpeed** para identificar elemento exacto
