@@ -109,11 +109,20 @@ export default defineNuxtConfig({
             .text-xs { font-size: 0.75rem; line-height: 1rem; }
             /* SelectBranch responsive visibility - CRÍTICO para CLS */
             .hidden { display: none; }
-            .sm\\:hidden { display: block; }
             @media (min-width: 640px) {
               .sm\\:hidden { display: none; }
               .sm\\:flex { display: flex; }
             }
+            /* Hero Title typography - CRÍTICO para CLS */
+            .text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+            .uppercase { text-transform: uppercase; }
+            .tracking-wide { letter-spacing: 0.025em; }
+            /* Hero body layout - CRÍTICO para CLS */
+            .justify-items-center { justify-items: center; }
+            .text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+            .text-base { font-size: 1rem; line-height: 1.5rem; }
+            .min-w-80 { min-width: 20rem; }
+            .my-3 { margin-top: 0.75rem; margin-bottom: 0.75rem; }
             /* Max-width container */
             .max-w-\\(--ui-container\\), .max-w-7xl { max-width: 80rem; }
             @media (min-width: 640px) {
