@@ -107,13 +107,23 @@ export default defineNuxtConfig({
             /* Star rating text - CRÍTICO para CLS */
             .ml-2 { margin-left: 0.5rem; }
             .text-xs { font-size: 0.75rem; line-height: 1rem; }
-            /* SelectBranch responsive visibility - CRÍTICO para CLS */
+            /* SelectBranch/Searcher responsive visibility - CRÍTICO para CLS */
             .hidden { display: none; }
-            .sm\\:hidden { display: block; }
             @media (min-width: 640px) {
               .sm\\:hidden { display: none; }
               .sm\\:flex { display: flex; }
+              .sm\\:block { display: block; }
             }
+            /* Hero Title typography - CRÍTICO para CLS */
+            .text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+            .uppercase { text-transform: uppercase; }
+            .tracking-wide { letter-spacing: 0.025em; }
+            /* Hero body layout - CRÍTICO para CLS */
+            .justify-items-center { justify-items: center; }
+            .text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+            .text-base { font-size: 1rem; line-height: 1.5rem; }
+            .min-w-80 { min-width: 20rem; }
+            .my-3 { margin-top: 0.75rem; margin-bottom: 0.75rem; }
             /* Max-width container */
             .max-w-\\(--ui-container\\), .max-w-7xl { max-width: 80rem; }
             @media (min-width: 640px) {
@@ -128,6 +138,16 @@ export default defineNuxtConfig({
               .sm\\:gap-16 { gap: 4rem; }
               .sm\\:text-7xl { font-size: 4.5rem; line-height: 1; }
             }
+            @media (min-width: 1024px) {
+              /* CityPage Searcher visibility - CRÍTICO para CLS */
+              .lg\\:hidden { display: none; }
+              .lg\\:flex { display: flex; }
+              .lg\\:flex-col { flex-direction: column; }
+              .lg\\:items-center { align-items: center; }
+            }
+            /* CityPage Searcher containers height - CRÍTICO para CLS */
+            .h-\\[410px\\] { height: 410px; }
+            .h-\\[360px\\] { height: 360px; }
             @media (min-width: 1024px) {
               /* UPage wrapper grid */
               .lg\\:grid { display: grid; }
