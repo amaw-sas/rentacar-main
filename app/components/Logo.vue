@@ -7,7 +7,7 @@
     height="40"
     style="max-height: 2.5rem; max-width: 10rem;"
     :class="cls"
-    aria-label="Alquilame logo"
+    :aria-label="franchise.name + 'logo'"
     role="img"
   >
     <g id="Capa_x0020_1">
@@ -20,4 +20,5 @@
 <script setup lang="ts">
 const props = defineProps<{ cls?: string }>()
 const cls = props.cls ?? ''
+const { franchise } = useAppConfig()
 </script>

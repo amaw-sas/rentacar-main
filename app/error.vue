@@ -87,7 +87,7 @@
 
     <!-- Footer mínimo -->
     <footer class="py-4 text-center text-gray-500 text-sm">
-      © {{ new Date().getFullYear() }} Alquilame.co - Todos los derechos reservados
+      © {{ new Date().getFullYear() }} {{ franchise.name }} - Todos los derechos reservados
     </footer>
   </div>
 </template>
