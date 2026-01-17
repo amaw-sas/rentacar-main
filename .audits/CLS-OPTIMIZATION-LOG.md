@@ -505,11 +505,20 @@ Sistema para revertir a configuraciones conocidas si un cambio empeora las métr
 
 ---
 
-### 🎯 OBJETIVO: Checkpoint #3 - Después de .server.vue → .vue
-**Fecha**: 2026-01-17 (pendiente)
+### 🧪 TEST: Checkpoint #3 - .server.vue → .vue (2026-01-17)
+**Commit**: `ab0a43a`
+**Branch**: `worktree-seo-alquilatucarro`
 **Cambio**: Convertir Hero/*.server.vue a *.vue para eliminar render delay
+**Cómo revertir**: `git checkout 44de1f5 -- app/components/Hero/`
+
+**Archivos modificados**:
+- `Hero/Description.server.vue` → `Hero/Description.vue`
+- `Hero/Title.server.vue` → `Hero/Title.vue`
+- `Hero/Headline.server.vue` → `Hero/Headline.vue`
 
 **Expectativa**:
-- LCP Mobile: 3.7s → ~2.3s (-1.4s)
+- LCP Mobile: 3.7s → ~2.3s (-1.4s) eliminando render delay
 - CLS: mantener 0
 - Desktop: mantener ≥95
+
+**Resultado**: ⏳ PENDIENTE MEDIR (crear PR y medir en PageSpeed)
