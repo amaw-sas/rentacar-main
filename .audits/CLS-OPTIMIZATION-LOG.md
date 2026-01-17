@@ -1,4 +1,4 @@
-# CLS Optimization Log - alquilame.co
+# CLS Optimization Log - alquicarros.com
 
 ## Objetivo
 Reducir CLS (Cumulative Layout Shift) a < 0.1 en mobile y desktop.
@@ -412,7 +412,7 @@ Sistema para revertir a configuraciones conocidas si un cambio empeora las métr
 
 ### 🧪 TEST: Checkpoint #3 - .server.vue → .vue (2026-01-17)
 **Commit**: `ab0a43a`
-**Branch**: `worktree-seo-alquilame`
+**Branch**: `worktree-seo-alquicarros`
 **Cambio**: Convertir Hero/*.server.vue a *.vue para eliminar render delay
 **Cómo revertir**: `git checkout 44de1f5 -- app/components/Hero/`
 

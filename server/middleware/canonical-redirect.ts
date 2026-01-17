@@ -2,7 +2,7 @@
  * Server middleware: Redirect www → non-www (canonical domain)
  *
  * SEO rationale: Google Search Console shows traffic split between
- * www.alquilame.co and alquilame.co. This consolidates
+ * www.alquicarros.com and alquicarros.com. This consolidates
  * all traffic to the canonical non-www domain with a 301 redirect.
  */
 export default defineEventHandler((event) => {
