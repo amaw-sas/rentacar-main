@@ -35,8 +35,9 @@ export default defineNuxtConfig({
             .w-5 { width: 1.25rem; } .h-5 { height: 1.25rem; }
             @media (min-width: 768px) { .md\\:w-4 { width: 1rem; } .md\\:h-4 { height: 1rem; } .md\\:text-base { font-size: 1rem; line-height: 1.5rem; } }
             .mx-auto { margin-left: auto; margin-right: auto; }
-            @media (min-width: 768px) { header .md\\:hidden { display: none !important; } }
+            @media (min-width: 768px) { header .md\\:hidden { display: none !important; } header .md\\:flex { display: flex !important; } }
             @media (max-width: 767px) { header .hidden { display: none !important; } }
+            @media (min-width: 1024px) { header .lg\\:block { display: block !important; } }
             .block { display: block; }
             .bg-white { background-color: #fff; }
             .text-white { color: #fff; }
