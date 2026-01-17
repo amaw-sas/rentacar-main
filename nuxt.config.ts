@@ -82,7 +82,6 @@ export default defineNuxtConfig({
             .text-xs { font-size: 0.75rem; line-height: 1rem; }
             /* SelectBranch responsive visibility - CRÍTICO para CLS */
             .hidden { display: none; }
-            .sm\\:hidden { display: block; }
             @media (min-width: 640px) {
               .sm\\:hidden { display: none; }
               .sm\\:flex { display: flex; }
