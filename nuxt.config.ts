@@ -37,7 +37,7 @@ export default defineNuxtConfig({
             .mx-auto { margin-left: auto; margin-right: auto; }
             @media (min-width: 768px) { header .md\\:hidden { display: none !important; } header .md\\:flex { display: flex !important; } }
             @media (max-width: 767px) { header .hidden { display: none !important; } }
-            @media (min-width: 1024px) { header .lg\\:block { display: block !important; } .lg\\:block { display: block; } }
+            @media (min-width: 1024px) { header .lg\\:block { display: block !important; } }
             .block { display: block; }
             .bg-white { background-color: #fff; }
             .text-white { color: #fff; }
@@ -144,11 +144,7 @@ export default defineNuxtConfig({
               .lg\\:hidden { display: none; }
               .lg\\:flex { display: flex; }
               .lg\\:flex-col { flex-direction: column; }
-              .lg\\:flex-row { flex-direction: row; }
               .lg\\:items-center { align-items: center; }
-              /* Blog sidebar layout - CRÍTICO para CLS */
-              .lg\\:w-2\\/3 { width: 66.666667%; }
-              .lg\\:w-1\\/3 { width: 33.333333%; }
             }
             /* CityPage Searcher containers height - CRÍTICO para CLS */
             .h-\\[410px\\] { height: 410px; }
