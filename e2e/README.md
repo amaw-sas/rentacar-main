@@ -1,6 +1,6 @@
 # Pruebas E2E con Playwright
 
-Este directorio contiene las pruebas end-to-end (E2E) de la aplicación Alquilame usando Playwright.
+Este directorio contiene las pruebas end-to-end (E2E) de la aplicación usando Playwright.
 
 ## Estado actual
 
