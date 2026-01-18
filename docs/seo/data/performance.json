@@ -1,0 +1,45 @@
+{
+  "gsc": {
+    "last28d": {
+      "impressions": null,
+      "clicks": null,
+      "ctr": null,
+      "avgPosition": null
+    },
+    "previousPeriod": {
+      "impressions": null,
+      "clicks": null,
+      "ctr": null
+    },
+    "topPages": [],
+    "topQueries": [],
+    "lastUpdated": null,
+    "status": "pending-oauth-setup"
+  },
+  "cwv": {
+    "desktop": {
+      "score": 99,
+      "lcp": 1.2,
+      "fid": 12,
+      "cls": 0
+    },
+    "mobile": {
+      "score": 85,
+      "lcp": 2.1,
+      "fid": 45,
+      "cls": 0
+    },
+    "history": [
+      { "month": "2025-12", "desktop": 98, "mobile": 82 },
+      { "month": "2026-01", "desktop": 99, "mobile": 85 }
+    ],
+    "lastUpdated": "2026-01-17"
+  },
+  "indexation": {
+    "indexed": null,
+    "total": null,
+    "excluded": null,
+    "excludedReasons": [],
+    "status": "pending-gsc-setup"
+  }
+}
