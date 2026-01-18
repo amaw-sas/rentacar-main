@@ -254,6 +254,9 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
+    // Server-only config (not exposed to client)
+    seoPassword: process.env.SEO_PASSWORD || '',
+    // Public config (exposed to client)
     public: {
       rentacarFranchise: "alquilatucarro",
       rentacarApiReservasDataEndpoint: "",
@@ -401,11 +404,12 @@ export default defineNuxtConfig({
       { loc: '/blog/costa-caribe-cartagena-santa-marta-carro', changefreq: 'monthly', priority: 0.7 },
       { loc: '/blog/viajar-carro-con-ninos-colombia', changefreq: 'monthly', priority: 0.7 },
     ],
-    exclude: ['/pendiente', '/sindisponibilidad', '/reservado/**', '/*/buscar-vehiculos/**'],
+    exclude: ['/pendiente', '/sindisponibilidad', '/reservado/**', '/*/buscar-vehiculos/**', '/seo/**'],
   },
 
   robots: {
     blockNonSeoBots: false,
+    disallow: ['/seo', '/seo/*'],
     allow: [
       '/',
       '/armenia',
