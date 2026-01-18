@@ -13,8 +13,8 @@
     },
     "topPages": [],
     "topQueries": [],
-    "lastUpdated": null,
-    "status": "pending-oauth-setup"
+    "lastUpdated": "2026-01-18",
+    "status": "connected"
   },
   "cwv": {
     "desktop": {
@@ -40,6 +40,6 @@
     "total": null,
     "excluded": null,
     "excludedReasons": [],
-    "status": "pending-gsc-setup"
+    "status": "connected"
   }
 }
