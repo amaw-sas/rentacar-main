@@ -261,6 +261,7 @@ export default defineNuxtConfig({
             .text-green-400 { color: #4ade80; }
             .text-green-300 { color: #86efac; }
             .text-red-400 { color: #f87171; }
+            .text-red-500 { color: #ef4444; }
             .text-red-300 { color: #fca5a5; }
             .text-red-300\\/70 { color: rgb(252 165 165 / 0.7); }
             .text-purple-400 { color: #c084fc; }
@@ -274,6 +275,7 @@ export default defineNuxtConfig({
             .bg-blue-600 { background-color: #2563eb; }
             .bg-yellow-500 { background-color: #eab308; }
             .bg-yellow-600 { background-color: #ca8a04; }
+            .bg-purple-400 { background-color: #c084fc; }
             .bg-purple-500 { background-color: #a855f7; }
             .bg-purple-600 { background-color: #9333ea; }
             .bg-cyan-500 { background-color: #06b6d4; }
