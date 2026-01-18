@@ -4,6 +4,64 @@ definePageMeta({
   middleware: ['seo-auth']
 })
 
+// Update state
+const isUpdating = ref(false)
+const updateResult = ref<{
+  success: boolean
+  message: string
+  updated: string[]
+  errors: string[]
+} | null>(null)
+
+// Update data from APIs
+async function handleUpdate() {
+  isUpdating.value = true
+  updateResult.value = null
+
+  try {
+    const response = await $fetch('/api/seo/update', {
+      method: 'POST',
+      body: { services: ['moz', 'gsc'] }
+    })
+
+    updateResult.value = {
+      success: response.success,
+      message: response.success
+        ? `Datos actualizados: ${response.updated.join(', ')}`
+        : 'Error al actualizar',
+      updated: response.updated,
+      errors: response.errors
+    }
+
+    // Refresh metrics after update
+    if (response.success && response.data) {
+      if (response.data.moz) {
+        metrics.value.current.domainAuthority = response.data.moz.domainAuthority ?? metrics.value.current.domainAuthority
+        metrics.value.current.pageAuthority = response.data.moz.pageAuthority ?? metrics.value.current.pageAuthority
+        metrics.value.current.backlinksTotal = response.data.moz.backlinksTotal ?? metrics.value.current.backlinksTotal
+        metrics.value.current.linkingDomains = response.data.moz.linkingDomains ?? metrics.value.current.linkingDomains
+      }
+      metrics.value.current.lastUpdated = new Date().toISOString().split('T')[0]
+    }
+
+    // Auto-hide success message after 5 seconds
+    if (response.success) {
+      setTimeout(() => {
+        updateResult.value = null
+      }, 5000)
+    }
+  } catch (error: any) {
+    updateResult.value = {
+      success: false,
+      message: error.message || 'Error de conexión',
+      updated: [],
+      errors: [error.message]
+    }
+  } finally {
+    isUpdating.value = false
+  }
+}
+
 // TODO: Load from JSON files via API
 const metrics = ref({
   current: {
@@ -93,11 +151,46 @@ const alerts = computed(() => {
         </p>
       </div>
       <button
-        class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2"
+        class="bg-red-600 hover:bg-red-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2"
+        :disabled="isUpdating"
+        @click="handleUpdate"
       >
-        <UIcon name="i-heroicons-arrow-path" class="w-4 h-4" />
-        Actualizar datos
+        <UIcon
+          :name="isUpdating ? 'i-heroicons-arrow-path' : 'i-heroicons-arrow-path'"
+          class="w-4 h-4"
+          :class="{ 'animate-spin': isUpdating }"
+        />
+        {{ isUpdating ? 'Actualizando...' : 'Actualizar datos' }}
       </button>
+    </div>
+
+    <!-- Update Result Toast -->
+    <div
+      v-if="updateResult"
+      class="fixed top-4 right-4 z-50 max-w-md p-4 rounded-lg shadow-lg"
+      :class="updateResult.success ? 'bg-green-900 border border-green-700' : 'bg-red-900 border border-red-700'"
+    >
+      <div class="flex items-start gap-3">
+        <UIcon
+          :name="updateResult.success ? 'i-heroicons-check-circle' : 'i-heroicons-x-circle'"
+          class="w-5 h-5 flex-shrink-0"
+          :class="updateResult.success ? 'text-green-400' : 'text-red-400'"
+        />
+        <div class="flex-1">
+          <p class="text-sm font-medium" :class="updateResult.success ? 'text-green-300' : 'text-red-300'">
+            {{ updateResult.message }}
+          </p>
+          <div v-if="updateResult.errors.length > 0" class="mt-2 text-xs text-red-400">
+            <p v-for="error in updateResult.errors" :key="error">{{ error }}</p>
+          </div>
+        </div>
+        <button
+          class="text-gray-400 hover:text-white"
+          @click="updateResult = null"
+        >
+          <UIcon name="i-heroicons-x-mark" class="w-4 h-4" />
+        </button>
+      </div>
     </div>
 
     <!-- Alerts -->
