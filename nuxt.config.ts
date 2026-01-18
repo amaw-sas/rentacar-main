@@ -288,6 +288,7 @@ export default defineNuxtConfig({
             .bg-purple-900\\/30 { background-color: rgb(88 28 135 / 0.3); }
             /* SEO Dashboard - Layout utilities */
             .flex-1 { flex: 1 1 0%; }
+            .items-baseline { align-items: baseline; }
             .min-h-\\[calc\\(100vh-4rem\\)\\] { min-height: calc(100vh - 4rem); }
             .h-2 { height: 0.5rem; }
             .h-3 { height: 0.75rem; }
