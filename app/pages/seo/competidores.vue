@@ -42,11 +42,19 @@ const formatNumber = (num: number | null) => {
 <template>
   <div class="space-y-6">
     <!-- Header -->
-    <div>
-      <h1 class="text-2xl font-bold text-white">Competidores</h1>
-      <p class="text-gray-400 text-sm mt-1">
-        Última actualización: {{ competitorsData?.lastUpdated || 'N/A' }}
-      </p>
+    <div class="flex items-center justify-between">
+      <div>
+        <h1 class="text-2xl font-bold text-white">Competidores</h1>
+        <p class="text-gray-400 text-sm mt-1">
+          Última actualización: {{ competitorsData?.lastUpdated || 'N/A' }}
+        </p>
+      </div>
+      <SeoExportButton
+        v-if="competitorsData"
+        :data="competitorsData"
+        filename="competitors-report"
+        label="Exportar"
+      />
     </div>
 
     <!-- Loading -->

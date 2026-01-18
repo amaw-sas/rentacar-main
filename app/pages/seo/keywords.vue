@@ -65,11 +65,19 @@ const statusConfig: Record<string, { label: string; color: string }> = {
 <template>
   <div class="space-y-6">
     <!-- Header -->
-    <div>
-      <h1 class="text-2xl font-bold text-white">Keywords</h1>
-      <p class="text-gray-400 text-sm mt-1">
-        Última actualización: {{ keywordsData?.lastUpdated || 'N/A' }}
-      </p>
+    <div class="flex items-center justify-between">
+      <div>
+        <h1 class="text-2xl font-bold text-white">Keywords</h1>
+        <p class="text-gray-400 text-sm mt-1">
+          Última actualización: {{ keywordsData?.lastUpdated || 'N/A' }}
+        </p>
+      </div>
+      <SeoExportButton
+        v-if="keywordsData"
+        :data="keywordsData"
+        filename="keywords-report"
+        label="Exportar"
+      />
     </div>
 
     <!-- Loading -->

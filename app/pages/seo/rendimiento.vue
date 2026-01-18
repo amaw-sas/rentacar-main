@@ -54,11 +54,19 @@ const clsThresholds = { good: 0.1, poor: 0.25 }
 <template>
   <div class="space-y-6">
     <!-- Header -->
-    <div>
-      <h1 class="text-2xl font-bold text-white">Rendimiento</h1>
-      <p class="text-gray-400 text-sm mt-1">
-        Core Web Vitals y métricas de Search Console
-      </p>
+    <div class="flex items-center justify-between">
+      <div>
+        <h1 class="text-2xl font-bold text-white">Rendimiento</h1>
+        <p class="text-gray-400 text-sm mt-1">
+          Core Web Vitals y métricas de Search Console
+        </p>
+      </div>
+      <SeoExportButton
+        v-if="performanceData"
+        :data="performanceData"
+        filename="performance-report"
+        label="Exportar"
+      />
     </div>
 
     <!-- Loading -->

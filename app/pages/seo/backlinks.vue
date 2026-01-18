@@ -36,11 +36,19 @@ const errors404 = computed(() => backlinksData.value?.errors404WithBacklinks || 
 <template>
   <div class="space-y-6">
     <!-- Header -->
-    <div>
-      <h1 class="text-2xl font-bold text-white">Backlinks</h1>
-      <p class="text-gray-400 text-sm mt-1">
-        Última actualización: {{ backlinksData?.lastUpdated || 'N/A' }}
-      </p>
+    <div class="flex items-center justify-between">
+      <div>
+        <h1 class="text-2xl font-bold text-white">Backlinks</h1>
+        <p class="text-gray-400 text-sm mt-1">
+          Última actualización: {{ backlinksData?.lastUpdated || 'N/A' }}
+        </p>
+      </div>
+      <SeoExportButton
+        v-if="backlinksData"
+        :data="backlinksData"
+        filename="backlinks-report"
+        label="Exportar"
+      />
     </div>
 
     <!-- Loading -->
