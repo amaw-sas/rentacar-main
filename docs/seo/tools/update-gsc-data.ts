@@ -18,6 +18,14 @@ const DATA_PATH = join(process.cwd(), 'docs/seo/data/performance.json')
 const CREDENTIALS_PATH = join(process.cwd(), 'gsc-credentials.json')
 const TOKEN_PATH = join(process.cwd(), '.gsc-token.json')
 
+// City slugs to track
+const CITY_SLUGS = [
+  'bogota', 'medellin', 'cali', 'barranquilla', 'cartagena',
+  'bucaramanga', 'pereira', 'santa-marta', 'cucuta', 'ibague',
+  'villavicencio', 'manizales', 'neiva', 'monteria', 'armenia',
+  'valledupar', 'floridablanca', 'palmira', 'soledad'
+]
+
 interface GSCRow {
   keys?: string[]
   clicks?: number
@@ -48,6 +56,13 @@ interface PerformanceData {
     }>
     topQueries: Array<{
       query: string
+      clicks: number
+      impressions: number
+      ctr: number
+      position: number
+    }>
+    cityPages: Array<{
+      city: string
       clicks: number
       impressions: number
       ctr: number
@@ -150,6 +165,43 @@ async function fetchGSCData() {
     },
   })
 
+  // Fetch city pages data
+  console.log('🏙️  Fetching city pages data...')
+  const cityPagesData: Array<{ city: string; clicks: number; impressions: number; ctr: number; position: number }> = []
+
+  for (const city of CITY_SLUGS) {
+    try {
+      const cityResponse = await searchconsole.searchanalytics.query({
+        siteUrl: SITE_URL,
+        requestBody: {
+          startDate: formatDate(startDate28d),
+          endDate: formatDate(endDate),
+          dimensions: ['page'],
+          dimensionFilterGroups: [{
+            filters: [{
+              dimension: 'page',
+              operator: 'contains',
+              expression: `/${city}`
+            }]
+          }],
+          rowLimit: 1,
+        },
+      })
+
+      const row = cityResponse.data.rows?.[0] as GSCRow | undefined
+      cityPagesData.push({
+        city,
+        clicks: row?.clicks || 0,
+        impressions: row?.impressions || 0,
+        ctr: row?.ctr ? Math.round(row.ctr * 10000) / 100 : 0,
+        position: row?.position ? Math.round(row.position * 10) / 10 : 0,
+      })
+    } catch (error) {
+      console.log(`   ⚠️  Error fetching ${city}:`, error)
+      cityPagesData.push({ city, clicks: 0, impressions: 0, ctr: 0, position: 0 })
+    }
+  }
+
   // Read existing data
   const existing: PerformanceData = JSON.parse(readFileSync(DATA_PATH, 'utf-8'))
 
@@ -184,6 +236,7 @@ async function fetchGSCData() {
       ctr: r.ctr ? Math.round(r.ctr * 10000) / 100 : 0,
       position: r.position ? Math.round(r.position * 10) / 10 : 0,
     })),
+    cityPages: cityPagesData.sort((a, b) => b.clicks - a.clicks), // Sort by clicks descending
     lastUpdated: new Date().toISOString().split('T')[0],
     status: 'connected',
   }
@@ -196,6 +249,16 @@ async function fetchGSCData() {
   console.log(`   Clicks: ${existing.gsc.last28d.clicks?.toLocaleString()}`)
   console.log(`   CTR: ${existing.gsc.last28d.ctr}%`)
   console.log(`   Avg Position: ${existing.gsc.last28d.avgPosition}`)
+  console.log(`   City pages: ${existing.gsc.cityPages.length}`)
+
+  // Show top 5 cities by clicks
+  const topCities = existing.gsc.cityPages.slice(0, 5)
+  if (topCities.length > 0 && topCities[0].clicks > 0) {
+    console.log('\n🏙️  Top 5 cities by clicks:')
+    topCities.forEach((c, i) => {
+      console.log(`   ${i + 1}. ${c.city}: ${c.clicks} clicks, pos ${c.position}`)
+    })
+  }
 }
 
 // Handle auth code if provided

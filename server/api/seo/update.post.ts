@@ -1,6 +1,14 @@
 import { readFileSync, writeFileSync } from 'fs'
 import { resolve } from 'path'
-import { isGscConnected, queryGscSearchAnalytics } from '../../utils/gsc'
+import { isGscConnected, queryGscSearchAnalytics, queryGscSearchAnalyticsWithFilter } from '../../utils/gsc'
+
+// City slugs to track
+const CITY_SLUGS = [
+  'bogota', 'medellin', 'cali', 'barranquilla', 'cartagena',
+  'bucaramanga', 'pereira', 'santa-marta', 'cucuta', 'ibague',
+  'villavicencio', 'manizales', 'neiva', 'monteria', 'armenia',
+  'valledupar', 'floridablanca', 'palmira', 'soledad'
+]
 
 interface UpdateResult {
   success: boolean
@@ -175,6 +183,36 @@ export default defineEventHandler(async (event): Promise<UpdateResult> => {
               avgPosition: gscData.avgPosition
             }
             performance.gsc.lastUpdated = today
+
+            // Fetch city pages data
+            const cityPagesData: Array<{ city: string; clicks: number; impressions: number; ctr: number; position: number }> = []
+
+            for (const city of CITY_SLUGS) {
+              try {
+                const cityResponse = await queryGscSearchAnalyticsWithFilter({
+                  siteUrl,
+                  startDate: startDate.toISOString().split('T')[0],
+                  endDate: endDate.toISOString().split('T')[0],
+                  dimensions: ['page'],
+                  urlFilter: `/${city}`,
+                  rowLimit: 1
+                })
+
+                const row = cityResponse?.rows?.[0]
+                cityPagesData.push({
+                  city,
+                  clicks: row?.clicks || 0,
+                  impressions: row?.impressions || 0,
+                  ctr: row?.ctr ? Math.round(row.ctr * 10000) / 100 : 0,
+                  position: row?.position ? Math.round(row.position * 10) / 10 : 0,
+                })
+              } catch {
+                cityPagesData.push({ city, clicks: 0, impressions: 0, ctr: 0, position: 0 })
+              }
+            }
+
+            // Sort by clicks descending
+            performance.gsc.cityPages = cityPagesData.sort((a, b) => b.clicks - a.clicks)
 
             if (writeJsonFile('performance.json', performance)) {
               result.updated.push('performance.json')

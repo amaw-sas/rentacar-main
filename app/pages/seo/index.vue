@@ -116,6 +116,37 @@ const internalLinksProgress = computed(() => {
   return Math.round((current / goal) * 100)
 })
 
+// Performance data (GSC)
+const { data: performanceData } = await useFetch('/api/seo/performance')
+
+// City pages data
+const cityPages = computed(() => {
+  return performanceData.value?.gsc?.cityPages || []
+})
+
+// City name mapping for display
+const cityNames: Record<string, string> = {
+  'bogota': 'Bogotá',
+  'medellin': 'Medellín',
+  'cali': 'Cali',
+  'barranquilla': 'Barranquilla',
+  'cartagena': 'Cartagena',
+  'bucaramanga': 'Bucaramanga',
+  'pereira': 'Pereira',
+  'santa-marta': 'Santa Marta',
+  'cucuta': 'Cúcuta',
+  'ibague': 'Ibagué',
+  'villavicencio': 'Villavicencio',
+  'manizales': 'Manizales',
+  'neiva': 'Neiva',
+  'monteria': 'Montería',
+  'armenia': 'Armenia',
+  'valledupar': 'Valledupar',
+  'floridablanca': 'Floridablanca',
+  'palmira': 'Palmira',
+  'soledad': 'Soledad'
+}
+
 // Alerts
 const alerts = computed(() => {
   const list = []
@@ -364,6 +395,80 @@ const alerts = computed(() => {
           <span class="text-sm text-white">Herramientas</span>
         </NuxtLink>
       </div>
+    </div>
+
+    <!-- City Pages GSC Data -->
+    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-lg font-semibold text-white">Páginas de Ciudad (GSC)</h2>
+        <span class="text-xs text-gray-500">Últimos 28 días</span>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="text-left text-gray-400 border-b border-gray-700">
+              <th class="pb-3 font-medium">Ciudad</th>
+              <th class="pb-3 font-medium text-right">Clicks</th>
+              <th class="pb-3 font-medium text-right">Impresiones</th>
+              <th class="pb-3 font-medium text-right">CTR</th>
+              <th class="pb-3 font-medium text-right">Posición</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-700">
+            <tr
+              v-for="page in cityPages"
+              :key="page.city"
+              class="hover:bg-gray-700/50 transition-colors"
+            >
+              <td class="py-3">
+                <NuxtLink
+                  :to="`/${page.city}`"
+                  class="text-white hover:text-red-400 transition-colors"
+                  target="_blank"
+                >
+                  {{ cityNames[page.city] || page.city }}
+                </NuxtLink>
+              </td>
+              <td class="py-3 text-right text-white font-medium">
+                {{ page.clicks.toLocaleString() }}
+              </td>
+              <td class="py-3 text-right text-gray-300">
+                {{ page.impressions.toLocaleString() }}
+              </td>
+              <td class="py-3 text-right">
+                <span
+                  :class="page.ctr >= 5 ? 'text-green-400' : page.ctr >= 2 ? 'text-yellow-400' : 'text-gray-400'"
+                >
+                  {{ page.ctr }}%
+                </span>
+              </td>
+              <td class="py-3 text-right">
+                <span
+                  :class="page.position <= 10 ? 'text-green-400' : page.position <= 20 ? 'text-yellow-400' : 'text-red-400'"
+                >
+                  {{ page.position > 0 ? page.position.toFixed(1) : '-' }}
+                </span>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot class="border-t border-gray-600">
+            <tr class="text-gray-400 font-medium">
+              <td class="pt-3">Total ({{ cityPages.length }} ciudades)</td>
+              <td class="pt-3 text-right text-white">
+                {{ cityPages.reduce((sum: number, p: any) => sum + p.clicks, 0).toLocaleString() }}
+              </td>
+              <td class="pt-3 text-right">
+                {{ cityPages.reduce((sum: number, p: any) => sum + p.impressions, 0).toLocaleString() }}
+              </td>
+              <td class="pt-3 text-right">-</td>
+              <td class="pt-3 text-right">-</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <p v-if="cityPages.length === 0 || cityPages.every((p: any) => p.clicks === 0)" class="text-center text-gray-500 py-4 text-sm">
+        Los datos se actualizarán con el próximo sync de GSC
+      </p>
     </div>
 
     <!-- Recent Activity (placeholder) -->
