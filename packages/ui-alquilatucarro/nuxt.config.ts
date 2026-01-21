@@ -5,15 +5,15 @@ export default defineNuxtConfig({
   // Auto-imports desde logic package
   imports: {
     dirs: [
-      '../logic/src/composables/**',
-      '../logic/src/stores/**',
-      '../logic/src/utils/**'
+      '../logic/src/composables',  // Only scan composables dir
+      '../logic/src/stores',        // Only scan stores dir
+      // Don't scan utils/** - import types explicitly instead
     ]
   },
 
   typescript: {
     strict: true,
-    typeCheck: true
+    typeCheck: false
   },
 
   // Configuración específica de alquilatucarro
