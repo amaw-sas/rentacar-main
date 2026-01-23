@@ -4,14 +4,18 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
 
+  // Extender del logic layer
+  extends: ['@rentacar-main/logic'],
+
   ssr: true,
 
-  devtools: { enabled: true },
+  devtools: { enabled: false },
 
   // Component Islands: renderiza componentes estáticos sin hidratación Vue
   // Reduce JavaScript en el cliente para mejorar LCP
+  // TEMPORALMENTE DESACTIVADO: Puede interferir con Pinia hydration
   experimental: {
-    componentIslands: true,
+    componentIslands: false,
   },
 
   // Configuración de app: CSS crítico, preloads y atributos HTML
@@ -427,7 +431,7 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ['@nuxtjs/seo', '@nuxt/ui', '@pinia/nuxt', 'nuxt-llms', 'nuxt-vitalizer', '@nuxt/content'],
+  modules: ['@pinia/nuxt', '@nuxtjs/seo', '@nuxt/ui', 'nuxt-llms', 'nuxt-vitalizer', '@nuxt/content'],
 
   // Optimización Core Web Vitals
   vitalizer: {
@@ -451,15 +455,7 @@ export default defineNuxtConfig({
     preference: 'dark',
   },
 
-  // Auto-imports desde logic package (preservando fix de imports sin patrones /**)
-  imports: {
-    autoImport: true,
-    dirs: [
-      '../logic/src/composables',  // Only scan composables dir
-      '../logic/src/stores',        // Only scan stores dir
-      // Don't scan utils/** - import types explicitly instead
-    ]
-  },
+  // Auto-imports desde logic layer (manejado automáticamente por extends)
 
   runtimeConfig: {
     // Server-only config (not exposed to client)
@@ -480,9 +476,7 @@ export default defineNuxtConfig({
     },
   },
 
-  pinia: {
-    storesDirs: ["stores/**"]
-  },
+  // Pinia config removed - stores are auto-imported from logic layer via extends
 
   postcss: {
     plugins: {

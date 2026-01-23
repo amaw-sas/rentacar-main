@@ -3,13 +3,18 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Lógica compartida entre todas las marcas",
+  "description": "Nuxt Layer con lógica compartida entre todas las marcas",
+  "main": "./nuxt.config.ts",
   "exports": {
-    ".": "./src/index.ts",
-    "./composables": "./src/composables/index.ts",
-    "./stores": "./src/stores/index.ts",
+    ".": "./nuxt.config.ts",
+    "./nuxt.config": "./nuxt.config.ts",
+    "./nuxt.config.ts": "./nuxt.config.ts",
+    "./src": "./src/index.ts",
+    "./config": "./src/config/index.ts",
+    "./composables/*": "./src/composables/*.ts",
+    "./stores/*": "./src/stores/*.ts",
     "./utils": "./src/utils/index.ts",
-    "./config": "./src/config/index.ts"
+    "./utils/*": "./src/utils/*.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit",
@@ -25,9 +30,10 @@
   },
   "peerDependencies": {
     "@nuxt/kit": "^4.0.0",
+    "@pinia/nuxt": "^0.11.0",
     "@vueuse/core": "^13.0.0",
     "nuxt": "^4.0.0",
-    "pinia": "^2.0.0",
+    "pinia": "^3.0.4",
     "vue": "^3.0.0"
   },
   "devDependencies": {
