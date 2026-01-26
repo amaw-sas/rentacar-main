@@ -75,7 +75,7 @@ export default defineAppConfig({
         label: "Gana comisiones",
       },
       {
-        link: "https://www.alquicarros.com/blog/",
+        link: "/blog",
         label: "Blog",
       },
     ],
