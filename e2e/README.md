@@ -92,7 +92,7 @@ La configuración de Playwright se encuentra en [playwright.config.ts](../playwr
 
 ## Servidor de desarrollo
 
-Las pruebas inician automáticamente el servidor de desarrollo de Nuxt en `http://localhost:3000`. No necesitas iniciar el servidor manualmente.
+Las pruebas inician automáticamente el servidor de desarrollo de la marca especificada en el puerto correspondiente (alquilatucarro:3000, alquicarros:3001, alquilame:3002). No necesitas iniciar el servidor manualmente.
 
 ## Variables de entorno
 
