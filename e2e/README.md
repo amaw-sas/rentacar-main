@@ -35,6 +35,14 @@ Para más detalles de instalación, ver [INSTALL-PLAYWRIGHT.md](../INSTALL-PLAYW
 
 `pnpm test:e2e` ejecuta contra **Alquilatucarro**
 
+## Tests de Chromium por marca
+
+Para ejecutar tests únicamente en el navegador Chromium para una marca específica:
+
+- **Alquilatucarro**: `pnpm test:e2e:chromium:alquilatucarro`
+- **Alquicarros**: `pnpm test:e2e:chromium:alquicarros`
+- **Alquilame**: `pnpm test:e2e:chromium:alquilame`
+
 ## Estructura de pruebas
 
 - **homepage.spec.ts** - Pruebas de la página principal
