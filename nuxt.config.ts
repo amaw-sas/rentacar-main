@@ -1,3 +1,13 @@
+/**
+ * DEPRECATED: This root Nuxt config is not actively used.
+ * E2E tests and development should use brand-specific packages:
+ * - packages/ui-alquilatucarro (port 3000)
+ * - packages/ui-alquicarros (port 3001)
+ * - packages/ui-alquilame (port 3002)
+ *
+ * Root scripts (dev, build, generate) are broken due to missing CSS files.
+ * Use brand-specific dev scripts: pnpm dev:alquilatucarro, etc.
+ */
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindcss from "@tailwindcss/vite";
 
