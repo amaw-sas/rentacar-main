@@ -4,35 +4,104 @@ on:
   push:
     branches:
       - main
+      - alquicarros
 
 env:
   NODE_VERSION: '20'
 
 jobs:
+  detect-changes:
+    name: Detect affected brands
+    runs-on: ubuntu-latest
+    outputs:
+      brands: ${{ steps.filter.outputs.brands }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Detect affected brands
+        id: filter
+        run: |
+          BRANCH="${{ github.ref_name }}"
+
+          # Get changed files
+          if [ "${{ github.event.before }}" = "0000000000000000000000000000000000000000" ] || [ -z "${{ github.event.before }}" ]; then
+            # First push to branch or before is empty, compare with HEAD~1
+            CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD 2>/dev/null || echo "")
+          else
+            CHANGED_FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
+          fi
+
+          echo "Changed files:"
+          echo "$CHANGED_FILES"
+
+          DEPLOY_BRANDS=()
+
+          # Detect if logic package changed (affects all brands in scope)
+          if echo "$CHANGED_FILES" | grep -q "^packages/logic/"; then
+            if [ "$BRANCH" = "main" ]; then
+              DEPLOY_BRANDS+=("alquilatucarro" "alquicarros" "alquilame")
+            else
+              DEPLOY_BRANDS+=("alquicarros" "alquilame")
+            fi
+          else
+            # Detect changes per specific UI package
+            if echo "$CHANGED_FILES" | grep -q "^packages/ui-alquilatucarro/"; then
+              [ "$BRANCH" = "main" ] && DEPLOY_BRANDS+=("alquilatucarro")
+            fi
+
+            if echo "$CHANGED_FILES" | grep -q "^packages/ui-alquicarros/"; then
+              DEPLOY_BRANDS+=("alquicarros")
+            fi
+
+            if echo "$CHANGED_FILES" | grep -q "^packages/ui-alquilame/"; then
+              DEPLOY_BRANDS+=("alquilame")
+            fi
+          fi
+
+          # Convert to JSON without duplicates
+          if [ ${#DEPLOY_BRANDS[@]} -eq 0 ]; then
+            BRANDS="[]"
+          else
+            BRANDS=$(printf '%s\n' "${DEPLOY_BRANDS[@]}" | sort -u | jq -R . | jq -s -c .)
+          fi
+
+          echo "Brands to deploy: $BRANDS"
+          echo "brands=$BRANDS" >> $GITHUB_OUTPUT
+
   deploy:
     name: Deploy ${{ matrix.brand.name }}
     runs-on: ubuntu-latest
+    needs: detect-changes
+    if: needs.detect-changes.outputs.brands != '[]'
     permissions:
       contents: write
 
     strategy:
       matrix:
-        brand:
-          - name: alquilatucarro
+        brand: ${{ fromJson(needs.detect-changes.outputs.brands) }}
+        include:
+          - brand: alquilatucarro
+            name: alquilatucarro
             package: ui-alquilatucarro
             function: rentacar_main_alquilatucarro
             tag_prefix: alquilatucarro-v
             firebase_project: rentacar-403321
             domain: alquilatucarro.com
             port: 3000
-          - name: alquilame
+          - brand: alquilame
+            name: alquilame
             package: ui-alquilame
             function: rentacar_main_alquilame
             tag_prefix: alquilame-v
             firebase_project: rentacar-403321
-            domain: alquilame.com
+            domain: alquilame.co
             port: 3001
-          - name: alquicarros
+          - brand: alquicarros
+            name: alquicarros
             package: ui-alquicarros
             function: rentacar_main_alquicarros
             tag_prefix: alquicarros-v
@@ -126,6 +195,7 @@ jobs:
 
       - name: Determine version bump
         id: version
+        if: github.ref_name == 'main'
         run: |
           TAG_PREFIX="${{ matrix.brand.tag_prefix }}"
 
@@ -163,6 +233,7 @@ jobs:
           echo "bump_type=$BUMP" >> $GITHUB_OUTPUT
 
       - name: Create Release
+        if: github.ref_name == 'main'
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.version.outputs.new_version }}
