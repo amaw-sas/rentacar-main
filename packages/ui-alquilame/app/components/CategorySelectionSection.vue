@@ -202,11 +202,18 @@ const linkCopied = ref(false);
 /** Share functions */
 function getReservationShareUrl() {
   if (!import.meta.client) return '';
-  const url = new URL(window.location.href);
+  const router = useRouter();
+  const route = useRoute();
+
   if (vehiculo.value) {
-    url.searchParams.set('resumen', vehiculo.value);
+    // Generar URL semántica con /categoria/[codigo]
+    const currentPath = route.path;
+    const basePathWithoutCategoria = currentPath.replace(/\/categoria\/[^\/]+$/, '');
+    const newPath = `${basePathWithoutCategoria}/categoria/${vehiculo.value.toLowerCase()}`;
+    return `${window.location.origin}${newPath}`;
   }
-  return url.toString();
+
+  return window.location.href;
 }
 
 function shareWhatsApp() {
@@ -236,37 +243,49 @@ async function copyReservationLink() {
   }
 }
 
-/** query params para deep-linking:
- * ?resumen=CODIGO  → abre resumen de reserva
- * ?reservar=CODIGO → abre formulario de datos directamente
+/** Soporte para deep-linking de categorías:
+ * /categoria/[codigo] → ruta semántica (preferida)
+ * ?resumen=CODIGO  → query param legacy (retrocompatibilidad)
+ * ?reservar=CODIGO → query param para abrir formulario directo
  */
 const route = useRoute();
+const categoriaParam = computed(() => {
+  const param = route.params.categoria;
+  return (typeof param === 'string' ? param : param?.[0])?.toUpperCase();
+});
 const resumenParam = computed(() => route.query.resumen as string | undefined);
 const reservarParam = computed(() => route.query.reservar as string | undefined);
-const codigoCategoria = computed(() => resumenParam.value || reservarParam.value);
+const codigoCategoria = computed(() => categoriaParam.value || resumenParam.value || reservarParam.value);
 const abrirFormularioDirecto = computed(() => !!reservarParam.value);
 
 // Flag para evitar loops cuando actualizamos la URL programáticamente
 const isUpdatingFromUrl = ref(false);
 
-// Actualizar URL cuando cambia el estado de los slideovers
-function updateUrlParams(resumen?: string, reservar?: string) {
+// Navegar a URL con categoría o limpiar categoría de la URL
+function updateCategoriaUrl(codigoCategoria?: string, reservar?: boolean) {
   if (!import.meta.client) return;
 
-  const url = new URL(window.location.href);
+  const router = useRouter();
+  const route = useRoute();
 
-  if (reservar) {
-    url.searchParams.delete('resumen');
-    url.searchParams.set('reservar', reservar);
-  } else if (resumen) {
-    url.searchParams.delete('reservar');
-    url.searchParams.set('resumen', resumen);
+  if (codigoCategoria) {
+    // Construir nueva ruta con /categoria/[codigo]
+    const currentPath = route.path;
+    const basePathWithoutCategoria = currentPath.replace(/\/categoria\/[^\/]+$/, '');
+    const newPath = `${basePathWithoutCategoria}/categoria/${codigoCategoria.toLowerCase()}`;
+
+    // Si se marca "reservar", usar query param para abrir form directamente
+    if (reservar) {
+      router.replace({ path: newPath, query: { reservar: codigoCategoria } });
+    } else {
+      router.replace({ path: newPath });
+    }
   } else {
-    url.searchParams.delete('resumen');
-    url.searchParams.delete('reservar');
+    // Limpiar categoría de la URL (volver a ruta sin /categoria/)
+    const currentPath = route.path;
+    const basePathWithoutCategoria = currentPath.replace(/\/categoria\/[^\/]+$/, '');
+    router.replace({ path: basePathWithoutCategoria });
   }
-
-  window.history.replaceState({}, '', url.toString());
 }
 
 // Limpiar URL cuando se cierra el slideover de resumen
@@ -274,7 +293,7 @@ watch(slideoverReservationResume, (isOpen) => {
   if (isUpdatingFromUrl.value) return;
 
   if (!isOpen) {
-    updateUrlParams(undefined, undefined);
+    updateCategoriaUrl(undefined);
   }
 });
 
@@ -285,11 +304,11 @@ watch(slideoverReservationForm, (isOpen) => {
 
   const codigo = vehiculo.value;
   if (isOpen) {
-    updateUrlParams(undefined, codigo);
+    updateCategoriaUrl(codigo, true);
   } else {
-    // Volver a resumen si el slideover de resumen sigue abierto
+    // Volver a mostrar solo categoría sin query param reservar
     if (slideoverReservationResume.value) {
-      updateUrlParams(codigo, undefined);
+      updateCategoriaUrl(codigo, false);
     }
   }
 });
@@ -339,7 +358,7 @@ function setSelectedCategory(category: ReturnType<typeof useCategory>) {
   selectedCategory.value = category;
   slideoverReservationResume.value = true;
   // Actualizar URL con el código de la categoría
-  updateUrlParams(category.categoryCode.value, undefined);
+  updateCategoriaUrl(category.categoryCode.value, false);
 }
 
 const { submitForm } = storeForm;
