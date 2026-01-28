@@ -135,6 +135,7 @@
                                     class="p-2 calendar-light"
                                     :min-value="minPickupDate"
                                     color="success"
+                                    :ui="calendarUIConfig"
                                 />
                             </template>
                         </u-popover>
@@ -190,6 +191,7 @@
                                     :min-value="minPickupDate"
                                     :max-value="maxReturnDate"
                                     color="success"
+                                    :ui="calendarUIConfig"
                                 />
                             </template>
                         </u-popover>
@@ -299,6 +301,12 @@ const animateSearchButton = ref<boolean>(true);
 
 const pickupDateCalendarOpen = ref<boolean>(false);
 const returnDateCalendarOpen = ref<boolean>(false);
+
+// Calendar UI configuration for better contrast
+const calendarUIConfig = {
+    heading: '!text-gray-900 !font-bold',
+    cellTrigger: '!text-gray-900 !font-semibold data-[disabled]:!text-gray-300 data-[disabled]:!opacity-40 data-[unavailable]:!text-gray-300 data-[unavailable]:!opacity-40 data-[outside-view]:!text-gray-400 data-[outside-view]:!opacity-50'
+};
 
 // Initialize stores only on client side after mount
 onMounted(() => {
