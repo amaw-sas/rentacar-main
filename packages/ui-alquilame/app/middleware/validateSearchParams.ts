@@ -14,6 +14,8 @@ export default defineNuxtRouteMiddleware((to, from) => {
 
   const { createMessage } = useMessages();
 
+  const lugar_recogida = to.params.lugar_recogida as string;
+  const lugar_devolucion = to.params.lugar_devolucion as string;
   const fecha_recogida = to.params.fecha_recogida as string;
   let fecha_devolucion = to.params.fecha_devolucion as string;
   const hora_recogida = to.params.hora_recogida as string;
@@ -22,6 +24,40 @@ export default defineNuxtRouteMiddleware((to, from) => {
   // Skip validation if route doesn't have search parameters (e.g., /bogota, /medellin)
   if (!fecha_recogida || !fecha_devolucion || !hora_recogida || !hora_devolucion) {
     return;
+  }
+
+  // Validate branch slugs
+  const { searchBranchBySlug } = useStoreAdminData();
+  const pickupBranch = searchBranchBySlug(lugar_recogida);
+  const returnBranch = searchBranchBySlug(lugar_devolucion);
+
+  if (!pickupBranch || !returnBranch) {
+    const {
+      defaultLugarRecogida,
+      defaultLugarDevolucion,
+      defaultFechaRecogida,
+      defaultFechaDevolucion,
+      defaultHoraRecogida,
+      defaultHoraDevolucion
+    } = useDefaultRouteParams();
+
+    to.params.lugar_recogida = defaultLugarRecogida.value as string;
+    to.params.lugar_devolucion = defaultLugarDevolucion.value as string;
+    to.params.fecha_recogida = defaultFechaRecogida.value as string;
+    to.params.fecha_devolucion = defaultFechaDevolucion.value as string;
+    to.params.hora_recogida = defaultHoraRecogida.value as string;
+    to.params.hora_devolucion = defaultHoraDevolucion.value as string;
+
+    createMessage({
+      type: "info",
+      message: "Ubicación inválida. Se ajustó a la sede por defecto.",
+    });
+
+    return navigateTo({
+      name: to.name,
+      params: to.params,
+      query: to.query,
+    });
   }
   
   const dateFechaRecogida = createDateFromString(fecha_recogida);

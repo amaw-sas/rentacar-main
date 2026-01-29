@@ -197,15 +197,20 @@ export default function useSearch() {
       : "city-buscar-vehiculos-lugar-recogida-lugar_recogida-lugar-devolucion-lugar_devolucion-fecha-recogida-fecha_recogida-fecha-devolucion-fecha_devolucion-hora-recogida-hora_recogida-hora-devolucion-hora_devolucion";
   });
   
-  const searchLinkParams = computed(() => ({
-    referido: referido.value,
-    lugar_recogida: lugarRecogida.value?.toLowerCase(),
-    lugar_devolucion: lugarDevolucion.value?.toLowerCase(),
-    fecha_recogida: fechaRecogida.value,
-    fecha_devolucion: fechaDevolucion.value,
-    hora_recogida: horaRecogida.value,
-    hora_devolucion: horaDevolucion.value,
-  }));
+  const searchLinkParams = computed(() => {
+    const pickupBranch = searchBranchByCode(lugarRecogida.value ?? '');
+    const returnBranch = searchBranchByCode(lugarDevolucion.value ?? '');
+
+    return {
+      referido: referido.value,
+      lugar_recogida: pickupBranch?.slug,
+      lugar_devolucion: returnBranch?.slug,
+      fecha_recogida: fechaRecogida.value,
+      fecha_devolucion: fechaDevolucion.value,
+      hora_recogida: horaRecogida.value,
+      hora_devolucion: horaDevolucion.value,
+    };
+  });
 
   // Usa cache estático - no regenera 48 opciones en cada re-render
   const pickupHourOptions = computed(() => getHourOptions());

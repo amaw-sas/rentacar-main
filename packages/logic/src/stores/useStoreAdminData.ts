@@ -5,6 +5,9 @@ import { computed } from 'vue';
 // Internal dependencies - composables
 import useFetchRentacarData from '../composables/useFetchRentacarData';
 
+// Internal dependencies - utils
+import { slugify } from '../utils/slugify';
+
 // Types
 import type { BranchData } from '@rentacar-main/logic/utils';
 
@@ -13,9 +16,14 @@ const useStoreAdminData = defineStore("storeAdminData", () => {
 
   const sortedBranches = computed<BranchData[] | []>(() =>
     branches
-      ? [...branches].sort((a: BranchData, b: BranchData) =>
-          a.name.localeCompare(b.name)
-        )
+      ? [...branches]
+          .map(branch => ({
+            ...branch,
+            slug: slugify(branch.name)
+          }))
+          .sort((a: BranchData, b: BranchData) =>
+            a.name.localeCompare(b.name)
+          )
       : []
   );
 
@@ -36,6 +44,16 @@ const useStoreAdminData = defineStore("storeAdminData", () => {
     return (branch) ? true : false;
   }
 
+  function searchBranchBySlug(slug: string): BranchData | undefined {
+    return sortedBranches.value.find(
+      (branch: BranchData) => slugify(branch.name) === slug
+    );
+  }
+
+  function isBranchSlug(slug: string): boolean {
+    return searchBranchBySlug(slug) !== undefined;
+  }
+
   return {
     categories,
     branches,
@@ -43,6 +61,8 @@ const useStoreAdminData = defineStore("storeAdminData", () => {
     searchBranchByCity,
     searchBranchByCode,
     isBranchCode,
+    searchBranchBySlug,
+    isBranchSlug,
   };
 });
 

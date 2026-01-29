@@ -15,6 +15,11 @@ export * from './useDateFunctions';
 export * from './useValidateFunctions';
 
 // ============================================================================
+// String Functions
+// ============================================================================
+export { slugify } from './slugify';
+
+// ============================================================================
 // Type Definitions - Data
 // ============================================================================
 export type { default as BranchData } from './types/data/BranchData';
