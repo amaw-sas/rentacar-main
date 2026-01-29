@@ -37,6 +37,7 @@
       <template #title>
         <div class="text-2xl md:text-3xl text-center">
           <span class="block text-red-700">Hasta 60% de Descuento</span>
+          <br>
           <span class="block text-black">Reserva Ahora, Paga Después</span>
         </div>
       </template>
