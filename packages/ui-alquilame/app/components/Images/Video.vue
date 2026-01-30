@@ -1,15 +1,5 @@
 <template>
   <picture>
-    <!-- video avif -->
-    <source
-      type="image/avif"
-      media="(min-width: 768px)"
-      srcset="
-        https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Fvideo.webp?alt=media&token=424d037e-4aab-47ef-af6f-0fa0caa24e7f
-      "
-      width="2000"
-      height="1620"
-    />
     <!-- video avif movil -->
     <source
       type="image/avif"
