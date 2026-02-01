@@ -471,6 +471,12 @@ function updateReadingProgress() {
 onMounted(() => {
   window.addEventListener('scroll', updateReadingProgress, { passive: true })
   updateReadingProgress()
+
+  // Check if avatar failed before Vue hydration (SSR race condition)
+  const avatarImg = document.querySelector('img.rounded-full[loading="lazy"]') as HTMLImageElement
+  if (avatarImg && avatarImg.complete && avatarImg.naturalWidth === 0) {
+    avatarError.value = true
+  }
 })
 
 onUnmounted(() => {
