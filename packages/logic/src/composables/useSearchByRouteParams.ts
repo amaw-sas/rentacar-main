@@ -32,12 +32,25 @@ export default function useSearchByRouteParams() {
     const slugRecogida = route.params.lugar_recogida?.toString();
     const slugDevolucion = route.params.lugar_devolucion?.toString();
 
+    console.log('=== DEBUG: useSearchByRouteParams ===');
+    console.log('Route params (slugs):', { slugRecogida, slugDevolucion });
+
     const branchRecogida = storeAdminData.searchBranchBySlug(slugRecogida ?? '');
     const branchDevolucion = storeAdminData.searchBranchBySlug(slugDevolucion ?? '');
+
+    console.log('Found branches:', {
+      recogida: branchRecogida ? `${branchRecogida.name} (${branchRecogida.code})` : 'NOT FOUND',
+      devolucion: branchDevolucion ? `${branchDevolucion.name} (${branchDevolucion.code})` : 'NOT FOUND'
+    });
 
     // Set values from route params
     lugarRecogida.value = branchRecogida?.code ?? null;
     lugarDevolucion.value = branchDevolucion?.code ?? null;
+
+    console.log('Store values set:', {
+      lugarRecogida: lugarRecogida.value,
+      lugarDevolucion: lugarDevolucion.value
+    });
     fechaRecogida.value = route.params.fecha_recogida as string;
     fechaDevolucion.value = route.params.fecha_devolucion as string;
     horaRecogida.value = route.params.hora_recogida as string;
