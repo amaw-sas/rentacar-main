@@ -26,10 +26,10 @@ export default defineNuxtRouteMiddleware((to, from) => {
     return;
   }
 
-  // Validate branch slugs
-  const { searchBranchBySlug } = useStoreAdminData();
-  const pickupBranch = searchBranchBySlug(lugar_recogida);
-  const returnBranch = searchBranchBySlug(lugar_devolucion);
+  // Validate branch slugs (or legacy codes)
+  const { searchBranchBySlugOrCode } = useStoreAdminData();
+  const pickupBranch = searchBranchBySlugOrCode(lugar_recogida);
+  const returnBranch = searchBranchBySlugOrCode(lugar_devolucion);
 
   if (!pickupBranch || !returnBranch) {
     const {
@@ -59,7 +59,23 @@ export default defineNuxtRouteMiddleware((to, from) => {
       query: to.query,
     });
   }
-  
+
+  // Redirect if using legacy codes instead of slugs
+  const isPickupSlug = pickupBranch.slug === lugar_recogida;
+  const isReturnSlug = returnBranch.slug === lugar_devolucion;
+
+  if (!isPickupSlug || !isReturnSlug) {
+    // Legacy code detected - redirect to slug-based URL
+    to.params.lugar_recogida = pickupBranch.slug;
+    to.params.lugar_devolucion = returnBranch.slug;
+
+    return navigateTo({
+      name: to.name,
+      params: to.params,
+      query: to.query,
+    });
+  }
+
   const dateFechaRecogida = createDateFromString(fecha_recogida);
   const dateFechaDevolucion = createDateFromString(fecha_devolucion);
   const dateHoraRecogida = createTimeFromString(hora_recogida);

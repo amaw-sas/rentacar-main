@@ -54,6 +54,17 @@ const useStoreAdminData = defineStore("storeAdminData", () => {
     return searchBranchBySlug(slug) !== undefined;
   }
 
+  function searchBranchBySlugOrCode(value: string): BranchData | undefined {
+    // Priority 1: Search by slug (current behavior)
+    const bySlug = searchBranchBySlug(value);
+    if (bySlug) return bySlug;
+
+    // Priority 2: Search by code (backward compatibility)
+    // Normalize: lowercase input → uppercase code
+    const byCode = searchBranchByCode(value.toUpperCase());
+    return byCode;
+  }
+
   return {
     categories,
     branches,
@@ -63,6 +74,7 @@ const useStoreAdminData = defineStore("storeAdminData", () => {
     isBranchCode,
     searchBranchBySlug,
     isBranchSlug,
+    searchBranchBySlugOrCode,
   };
 });
 
