@@ -48,7 +48,7 @@
     "test:e2e:report": "playwright show-report e2e-results",
     "dev:alquilame": "pnpm --filter ui-alquilame dev --port 3002",
     "dev:alquicarros": "pnpm --filter ui-alquicarros dev --port 3001",
-    "dev:alquilatucarro": "pnpm --filter ui-alquilatucarro dev",
+    "dev:alquilatucarro": "pnpm --filter ui-alquilatucarro dev --dotenv .env.local",
     "dev:all": "pnpm --parallel --filter 'ui-*' dev",
     "build:alquilame": "pnpm --filter ui-alquilame build",
     "build:alquicarros": "pnpm --filter ui-alquicarros build",
