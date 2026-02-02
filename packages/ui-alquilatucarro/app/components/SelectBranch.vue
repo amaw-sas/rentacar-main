@@ -62,8 +62,10 @@ import {
 /** props */
 const props = withDefaults(defineProps<{
   variant?: 'white' | 'gray'
+  rentalDays?: number
 }>(), {
-  variant: 'white'
+  variant: 'white',
+  rentalDays: 7,
 });
 
 /** consts */
@@ -73,7 +75,7 @@ const reservationInitDay: string = today(defaultTimezone)
   .add({ days: 1 })
   .toString();
 const reservationEndDay: string = today(defaultTimezone)
-  .add({ days: 8 })
+  .add({ days: 1 + props.rentalDays })
   .toString();
 const reservationInitHour: string = "12:00";
 const reservationEndHour: string = "12:00";
