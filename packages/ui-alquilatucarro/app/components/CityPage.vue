@@ -166,6 +166,9 @@
       </div>
     </section>
 
+    <!-- Monthly Rates Teaser -->
+    <MonthlyRatesTeaser />
+
     <!-- Delivery Points Section -->
     <section v-if="cityBranches.length > 0" id="puntos-entrega" class="bg-gray-50 text-black py-8 md:py-12 px-4 md:px-8">
       <div class="max-w-5xl mx-auto text-center">

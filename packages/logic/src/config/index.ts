@@ -19,3 +19,4 @@ export {
   type VehicleModel,
   type MonthPrice,
 } from './admin.config';
+export { tarifasConfig, type TarifaGama, type TarifaPlan, type TarifasConfig } from './tarifas.config';
