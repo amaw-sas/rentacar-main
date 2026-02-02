@@ -7,6 +7,7 @@ export interface Branch {
   code: string;
   name: string;
   city: string;
+  slug: string;
   schedule: string;
 }
 
@@ -16,6 +17,7 @@ export const branchesConfig: Branch[] = [
     code: "AARME",
     name: "Armenia Aeropuerto",
     city: "armenia",
+    slug: "armenia-aeropuerto",
     schedule: "Lun-Vie 06:00-19:00 | Sáb, Dom y fest 08:00-16:00",
   },
   {
@@ -23,6 +25,7 @@ export const branchesConfig: Branch[] = [
     code: "AABAN",
     name: "Barranquilla Aeropuerto",
     city: "barranquilla",
+    slug: "barranquilla-aeropuerto",
     schedule: "Todos los días 07:00-20:00",
   },
   {
@@ -30,6 +33,7 @@ export const branchesConfig: Branch[] = [
     code: "ACBAN",
     name: "Barranquilla Norte",
     city: "barranquilla",
+    slug: "barranquilla-norte",
     schedule: "Lun-Vie 08:00-16:00 | Sáb, Dom y fest 08:00-13:00",
   },
   {
@@ -37,6 +41,7 @@ export const branchesConfig: Branch[] = [
     code: "ACBSD",
     name: "Soledad Aeropuerto",
     city: "soledad",
+    slug: "soledad-aeropuerto",
     schedule: "Lun-Dom 06:30-20:00",
   },
   {
@@ -44,6 +49,7 @@ export const branchesConfig: Branch[] = [
     code: "AABOT",
     name: "Bogotá Aeropuerto",
     city: "bogota",
+    slug: "bogota-aeropuerto",
     schedule: "Lun-Dom 24 horas | Festivos 06:00-21:00",
   },
   {
@@ -51,6 +57,7 @@ export const branchesConfig: Branch[] = [
     code: "ACBEX",
     name: "Bogotá Almacén Éxito del Country",
     city: "bogota",
+    slug: "bogota-almacen-exito-del-country",
     schedule: "Todos los días 06:30-20:00",
   },
   {
@@ -58,6 +65,7 @@ export const branchesConfig: Branch[] = [
     code: "ACBNN",
     name: "Bogotá Centro Nuestro",
     city: "bogota",
+    slug: "bogota-centro-nuestro",
     schedule: "Todos los días 06:30-18:00",
   },
   {
@@ -65,6 +73,7 @@ export const branchesConfig: Branch[] = [
     code: "AABCR",
     name: "Bucaramanga Aeropuerto",
     city: "bucaramanga",
+    slug: "bucaramanga-aeropuerto",
     schedule: "Todos los días 06:30-18:30",
   },
   {
@@ -72,6 +81,7 @@ export const branchesConfig: Branch[] = [
     code: "ACBCR",
     name: "Floridablanca",
     city: "floridablanca",
+    slug: "floridablanca",
     schedule: "Lun-Vie 08:00-15:00 | Sáb, Dom y fest 08:00-13:00",
   },
   {
@@ -79,6 +89,7 @@ export const branchesConfig: Branch[] = [
     code: "AAKAL",
     name: "Cali Aeropuerto",
     city: "cali",
+    slug: "cali-aeropuerto",
     schedule: "Lun-Sáb 06:00-21:00 | Dom y fest 08:00-16:00",
   },
   {
@@ -86,6 +97,7 @@ export const branchesConfig: Branch[] = [
     code: "ACKAL",
     name: "Cali Sur Camino Real",
     city: "cali",
+    slug: "cali-sur-camino-real",
     schedule: "Lun-Sáb 08:00-16:00 | Dom y fest Cerrado",
   },
   {
@@ -93,6 +105,7 @@ export const branchesConfig: Branch[] = [
     code: "ACKJC",
     name: "Cali Norte Chipichape",
     city: "cali",
+    slug: "cali-norte-chipichape",
     schedule: "Lun-Sáb 08:00-16:00 | Dom y fest 08:00-13:00",
   },
   {
@@ -100,6 +113,7 @@ export const branchesConfig: Branch[] = [
     code: "ACKPA",
     name: "Palmira",
     city: "palmira",
+    slug: "palmira",
     schedule: "Lun-Vie 06:00-20:00 | Sáb, Dom y fest 08:00-15:00",
   },
   {
@@ -107,6 +121,7 @@ export const branchesConfig: Branch[] = [
     code: "AACTG",
     name: "Cartagena Aeropuerto",
     city: "cartagena",
+    slug: "cartagena-aeropuerto",
     schedule: "Todos los días 06:30-20:00",
   },
   {
@@ -114,6 +129,7 @@ export const branchesConfig: Branch[] = [
     code: "AACUC",
     name: "Cúcuta Aeropuerto",
     city: "cucuta",
+    slug: "cucuta-aeropuerto",
     schedule: "Lun-Vie 07:00-18:00 | Sáb, Dom y fest 08:00-15:00",
   },
   {
@@ -121,6 +137,7 @@ export const branchesConfig: Branch[] = [
     code: "ACIBG",
     name: "Ibagué",
     city: "ibague",
+    slug: "ibague",
     schedule: "Lun-Vie 08:00-16:00 | Sáb, Dom y fest 08:00-13:00",
   },
   {
@@ -128,6 +145,7 @@ export const branchesConfig: Branch[] = [
     code: "ACMNZ",
     name: "Manizales",
     city: "manizales",
+    slug: "manizales",
     schedule: "Lun-Vie 08:00-16:00 | Sáb, Dom y fest 08:00-13:00",
   },
   {
@@ -135,6 +153,7 @@ export const branchesConfig: Branch[] = [
     code: "ACMDL",
     name: "Medellín Poblado",
     city: "medellin",
+    slug: "medellin-poblado",
     schedule: "Lun-Sáb 07:00-18:00 | Dom y fest 08:00-15:00",
   },
   {
@@ -142,6 +161,7 @@ export const branchesConfig: Branch[] = [
     code: "ACMCL",
     name: "Medellín Centro Éxito Colombia",
     city: "medellin",
+    slug: "medellin-centro-exito-colombia",
     schedule: "Lun-Vie 08:00-15:00 | Sáb 08:00-13:00 | Dom y fest Cerrado",
   },
   {
@@ -149,6 +169,7 @@ export const branchesConfig: Branch[] = [
     code: "AAMDL",
     name: "Medellín Aeropuerto José María Córdoba",
     city: "medellin",
+    slug: "medellin-aeropuerto-jose-maria-cordoba",
     schedule: "Todos los días 06:00-23:00",
   },
   {
@@ -156,6 +177,7 @@ export const branchesConfig: Branch[] = [
     code: "ACMJM",
     name: "Rionegro",
     city: "medellin",
+    slug: "rionegro",
     schedule: "Todos los días 06:00-23:00",
   },
   {
@@ -163,6 +185,7 @@ export const branchesConfig: Branch[] = [
     code: "AAMTR",
     name: "Montería Aeropuerto",
     city: "monteria",
+    slug: "monteria-aeropuerto",
     schedule: "Lun-Vie 07:00-19:00 | Sáb, Dom y fest 08:00-16:00",
   },
   {
@@ -170,6 +193,7 @@ export const branchesConfig: Branch[] = [
     code: "ACMTR",
     name: "Montería Ciudad",
     city: "monteria",
+    slug: "monteria-ciudad",
     schedule: "Lun-Vie 08:00-15:00 | Sáb, Dom y fest 08:00-13:00",
   },
   {
@@ -177,6 +201,7 @@ export const branchesConfig: Branch[] = [
     code: "AANVA",
     name: "Neiva Aeropuerto",
     city: "neiva",
+    slug: "neiva-aeropuerto",
     schedule: "Lun-Vie 06:30-20:00 | Sáb, Dom y fest 08:00-15:00",
   },
   {
@@ -184,6 +209,7 @@ export const branchesConfig: Branch[] = [
     code: "AAPEI",
     name: "Pereira Aeropuerto",
     city: "pereira",
+    slug: "pereira-aeropuerto",
     schedule: "Lun-Vie 06:30-19:30 | Sáb, Dom y fest 08:00-15:00",
   },
   {
@@ -191,6 +217,7 @@ export const branchesConfig: Branch[] = [
     code: "AASMR",
     name: "Santa Marta Aeropuerto",
     city: "santa-marta",
+    slug: "santa-marta-aeropuerto",
     schedule: "Todos los días 07:00-18:00",
   },
   {
@@ -198,6 +225,7 @@ export const branchesConfig: Branch[] = [
     code: "AAVAL",
     name: "Valledupar Aeropuerto",
     city: "valledupar",
+    slug: "valledupar-aeropuerto",
     schedule: "Lun-Vie 07:00-18:00 | Sáb, Dom y fest 08:00-15:00",
   },
   {
@@ -205,6 +233,7 @@ export const branchesConfig: Branch[] = [
     code: "ACVLL",
     name: "Villavicencio",
     city: "villavicencio",
+    slug: "villavicencio",
     schedule: "Lun-Vie 08:00-16:00 | Sáb, Dom y fest 08:00-13:00",
   },
 ];
