@@ -5,9 +5,6 @@ import { computed } from 'vue';
 // Internal dependencies - composables
 import useFetchRentacarData from '../composables/useFetchRentacarData';
 
-// Internal dependencies - utils
-import { slugify } from '../utils/slugify';
-
 // Types
 import type { BranchData } from '@rentacar-main/logic/utils';
 
@@ -17,10 +14,6 @@ const useStoreAdminData = defineStore("storeAdminData", () => {
   const sortedBranches = computed<BranchData[] | []>(() =>
     branches
       ? [...branches]
-          .map(branch => ({
-            ...branch,
-            slug: slugify(branch.name)
-          }))
           .sort((a: BranchData, b: BranchData) =>
             a.name.localeCompare(b.name)
           )
@@ -47,10 +40,10 @@ const useStoreAdminData = defineStore("storeAdminData", () => {
   function searchBranchBySlug(slug: string): BranchData | undefined {
     console.log('=== DEBUG: searchBranchBySlug ===');
     console.log('Searching for slug:', slug);
-    console.log('Available slugs:', sortedBranches.value.map(b => `${b.name} -> ${slugify(b.name)}`).slice(0, 5));
+    console.log('Available slugs:', sortedBranches.value.map(b => `${b.name} -> ${b.slug}`).slice(0, 5));
 
     const found = sortedBranches.value.find(
-      (branch: BranchData) => slugify(branch.name) === slug
+      (branch: BranchData) => branch.slug === slug
     );
 
     console.log('Found:', found ? `${found.name} (${found.code})` : 'NOT FOUND');
