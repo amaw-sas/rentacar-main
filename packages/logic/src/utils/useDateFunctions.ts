@@ -149,6 +149,22 @@ export function isDateObject(obj: any): obj is DateObject {
 }
 
 /**
+ * Format a datetime object to 12h format (hh:mm[am|pm])
+ * @param datetime DateTimeObject
+ * @returns string - formato: "01:00pm", "12:00am"
+ */
+export function formatTime12h(datetime: DateTimeObject): string {
+  const hour = datetime.hour;
+  const minute = datetime.minute.toString().padStart(2, '0');
+
+  // Convert 24h to 12h
+  const hour12 = hour === 0 ? 12 : hour > 12 ? hour - 12 : hour;
+  const period = hour >= 12 ? 'pm' : 'am';
+
+  return `${hour12.toString().padStart(2, '0')}:${minute}${period}`;
+}
+
+/**
  * Check if time string is in 12h format (hh:mm[am|pm])
  * @param timeString - time string to check
  * @returns true if format is 12h
