@@ -14,6 +14,8 @@
         :src="post.image"
         :alt="post.alt"
         class="w-full h-full object-cover"
+        width="1280"
+        height="384"
         fetchpriority="high"
       >
       <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent" />
@@ -29,16 +31,25 @@
           <div class="flex flex-wrap items-center gap-4 text-sm text-gray-300">
             <div class="flex items-center gap-2">
               <img
+                v-if="!avatarError"
                 :src="post.author.avatar"
                 :alt="post.author.name"
                 class="w-8 h-8 rounded-full"
                 loading="lazy"
+                @error="avatarError = true"
               >
+              <div v-else class="w-8 h-8 rounded-full bg-blue-700 flex items-center justify-center text-white text-xs font-bold shrink-0">
+                {{ post.author.name.charAt(0) }}
+              </div>
               <span>{{ post.author.name }}</span>
             </div>
             <span class="inline-flex items-center gap-1.5">
               <UIcon name="i-lucide-calendar" class="size-4" />
               <time :datetime="post.date">{{ formatDate(post.date) }}</time>
+            </span>
+            <span v-if="post.updated && post.updated !== post.date" class="inline-flex items-center gap-1.5">
+              <UIcon name="i-lucide-refresh-cw" class="size-4" />
+              Actualizado: <time :datetime="post.updated">{{ formatDate(post.updated) }}</time>
             </span>
             <span class="inline-flex items-center gap-1.5">
               <UIcon name="i-lucide-clock" class="size-4" />
@@ -48,6 +59,23 @@
         </div>
       </div>
     </div>
+
+    <!-- Breadcrumbs -->
+    <nav aria-label="Breadcrumb" class="bg-gray-100 border-b border-gray-200 px-4 md:px-8 py-3">
+      <ol class="max-w-7xl mx-auto flex items-center gap-2 text-sm text-gray-500">
+        <li>
+          <NuxtLink to="/" class="hover:text-red-700 transition-colors">Inicio</NuxtLink>
+        </li>
+        <li class="flex items-center gap-2">
+          <UIcon name="i-lucide-chevron-right" class="size-3.5" />
+          <NuxtLink to="/blog" class="hover:text-red-700 transition-colors">Blog</NuxtLink>
+        </li>
+        <li class="flex items-center gap-2">
+          <UIcon name="i-lucide-chevron-right" class="size-3.5" />
+          <span class="text-gray-900 font-medium truncate max-w-xs">{{ post.title }}</span>
+        </li>
+      </ol>
+    </nav>
 
     <!-- Content Section -->
     <section class="bg-white py-8 md:py-12">
@@ -60,10 +88,10 @@
 
           <!-- Sidebar -->
           <aside class="lg:w-1/3">
-            <div class="sticky top-24 space-y-8">
+            <div class="space-y-8">
               <!-- Table of Contents -->
-              <nav v-if="post.body?.toc?.links?.length" class="bg-gray-50 rounded-xl p-6">
-                <h3 class="font-bold text-gray-900 mb-4">Contenido</h3>
+              <nav v-if="post.body?.toc?.links?.length" data-blog-toc class="bg-gray-50 rounded-xl p-4">
+                <h3 class="font-bold text-gray-900 mb-3">Contenido</h3>
                 <ul class="space-y-2">
                   <li v-for="link in post.body.toc.links" :key="link.id">
                     <a
@@ -72,16 +100,6 @@
                     >
                       {{ link.text }}
                     </a>
-                    <ul v-if="link.children?.length" class="ml-4 mt-2 space-y-2">
-                      <li v-for="child in link.children" :key="child.id">
-                        <a
-                          :href="`#${child.id}`"
-                          class="text-xs text-gray-500 hover:text-red-700 underline underline-offset-2 transition-colors"
-                        >
-                          {{ child.text }}
-                        </a>
-                      </li>
-                    </ul>
                   </li>
                 </ul>
               </nav>
@@ -90,13 +108,14 @@
               <div v-if="post.tags?.length" class="bg-gray-50 rounded-xl p-6">
                 <h3 class="font-bold text-gray-900 mb-4">Etiquetas</h3>
                 <div class="flex flex-wrap gap-2">
-                  <span
+                  <NuxtLink
                     v-for="tag in post.tags"
                     :key="tag"
-                    class="px-3 py-1 text-xs bg-gray-200 text-gray-700 rounded-full"
+                    :to="{ path: '/blog', query: { tag } }"
+                    class="px-3 py-1 text-xs bg-gray-200 text-gray-700 rounded-full hover:bg-red-100 hover:text-red-700 transition-colors"
                   >
                     {{ tag }}
-                  </span>
+                  </NuxtLink>
                 </div>
               </div>
 
@@ -158,32 +177,37 @@
         <div class="bg-gray-50 rounded-2xl p-6 md:p-8">
           <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6">
             <img
+              v-if="!avatarError"
               :src="post.author.avatar"
               :alt="post.author.name"
-              class="w-20 h-20 rounded-full object-cover"
+              class="w-20 h-20 rounded-full object-cover ring-2 ring-red-100"
               loading="lazy"
+              @error="avatarError = true"
             >
+            <div v-else class="w-20 h-20 rounded-full bg-blue-700 flex items-center justify-center text-white text-2xl font-bold ring-2 ring-blue-100 shrink-0">
+              {{ post.author.name.charAt(0) }}
+            </div>
             <div class="text-center sm:text-left flex-1">
-              <h3 class="text-lg font-bold text-gray-900">{{ post.author.name }}</h3>
-              <p class="text-gray-600 mt-2 text-sm">
-                Somos tu mejor opción para alquilar carros en Colombia. Con presencia en más de 27 ciudades,
-                ofrecemos el mejor servicio sin anticipos y sin complicaciones. Nuestro equipo te acompaña
-                en cada paso de tu viaje.
+              <div class="flex items-center justify-center sm:justify-start gap-2">
+                <h3 class="text-lg font-bold text-gray-900">{{ post.author.name }}</h3>
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-medium text-green-700 bg-green-100 rounded-full">
+                  <UIcon name="i-lucide-badge-check" class="size-3" />
+                  Verificado
+                </span>
+              </div>
+              <p class="text-sm text-gray-500 mt-0.5">Equipo Editorial · Guías de viaje en carro</p>
+              <p class="text-gray-600 mt-3 text-sm">
+                Creamos guías prácticas para viajeros en Colombia basadas en experiencia real.
+                Con más de 27 sedes en el país, nuestro equipo conoce las rutas, requisitos y
+                recomendaciones que necesitas para viajar tranquilo.
               </p>
               <div class="mt-4 flex flex-col sm:flex-row items-center gap-3">
                 <NuxtLink
                   to="/"
-                  class="inline-flex items-center gap-2 bg-red-700 hover:bg-red-800 text-white px-5 py-2.5 rounded-lg font-medium transition-colors"
+                  class="inline-flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white px-5 py-2.5 rounded-lg font-medium transition-colors"
                 >
                   <UIcon name="i-lucide-car" class="size-4" />
                   Reservar un Carro
-                </NuxtLink>
-                <NuxtLink
-                  to="/blog"
-                  class="inline-flex items-center gap-2 text-gray-600 hover:text-red-700 font-medium transition-colors"
-                >
-                  <UIcon name="i-lucide-book-open" class="size-4" />
-                  Más artículos
                 </NuxtLink>
               </div>
             </div>
@@ -204,12 +228,15 @@
             class="group"
           >
             <article class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow">
-              <img
+              <NuxtImg
                 :src="related.image"
                 :alt="related.alt"
                 class="w-full h-40 object-cover"
+                width="400"
+                height="160"
+                sizes="sm:100vw md:33vw"
                 loading="lazy"
-              >
+              />
               <div class="p-4">
                 <h3 class="font-bold text-gray-900 group-hover:text-red-700 transition-colors line-clamp-2">
                   {{ related.title }}
@@ -222,16 +249,63 @@
       </div>
     </section>
 
-    <!-- Back to Blog -->
-    <section class="bg-white py-8 px-4">
+    <!-- Prev/Next Navigation + Back to Blog -->
+    <section class="bg-gray-100 py-8 px-4 md:px-8 border-t border-gray-200">
+      <div class="max-w-4xl mx-auto space-y-4">
+        <div v-if="surroundings" class="grid grid-cols-2 gap-4">
+          <NuxtLink
+            v-if="surroundings[0]"
+            :to="surroundings[0].path"
+            class="group flex items-start gap-3 p-4 rounded-xl bg-white hover:bg-red-50/50 shadow-sm transition-all"
+          >
+            <UIcon name="i-lucide-arrow-left" class="size-5 text-gray-400 group-hover:text-red-700 mt-0.5 shrink-0 transition-colors" />
+            <div class="min-w-0">
+              <span class="text-xs text-gray-500">Anterior</span>
+              <p class="text-sm font-medium text-gray-900 group-hover:text-red-700 line-clamp-2 transition-colors">
+                {{ surroundings[0].title }}
+              </p>
+            </div>
+          </NuxtLink>
+          <div v-else />
+          <NuxtLink
+            v-if="surroundings[1]"
+            :to="surroundings[1].path"
+            class="group flex items-start gap-3 p-4 rounded-xl bg-white hover:bg-red-50/50 shadow-sm transition-all text-right flex-row-reverse"
+          >
+            <UIcon name="i-lucide-arrow-right" class="size-5 text-gray-400 group-hover:text-red-700 mt-0.5 shrink-0 transition-colors" />
+            <div class="min-w-0">
+              <span class="text-xs text-gray-500">Siguiente</span>
+              <p class="text-sm font-medium text-gray-900 group-hover:text-red-700 line-clamp-2 transition-colors">
+                {{ surroundings[1].title }}
+              </p>
+            </div>
+          </NuxtLink>
+        </div>
+        <div class="text-center">
+          <NuxtLink
+            to="/blog"
+            class="inline-flex items-center gap-2 px-6 py-3 bg-white hover:bg-gray-50 text-gray-700 font-medium rounded-xl shadow-sm transition-colors"
+          >
+            <span>&larr;</span>
+            <span>Volver al Blog</span>
+          </NuxtLink>
+        </div>
+      </div>
+    </section>
+
+    <!-- Inline CTA Banner -->
+    <section class="bg-gradient-to-r from-gray-900 to-gray-800 py-10 px-4 md:px-8">
       <div class="max-w-4xl mx-auto text-center">
-        <NuxtLink
-          to="/blog"
-          class="inline-flex items-center gap-2 px-6 py-3 bg-gray-200 hover:bg-gray-300 text-black font-medium rounded-lg transition-colors"
-        >
-          <span>&larr;</span>
-          <span>Volver al Blog</span>
-        </NuxtLink>
+        <div class="inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold text-red-300 bg-red-900/30 rounded-full mb-3">
+          <UIcon name="i-lucide-car" class="size-3.5" />
+          Sin anticipos · 27 sedes en Colombia
+        </div>
+        <h2 class="text-xl md:text-2xl font-bold text-white mb-2">
+          ¿Te ayudamos a planear tu viaje?
+        </h2>
+        <p class="text-gray-400 text-sm">
+          Escríbenos por WhatsApp para recibir asesoría personalizada sobre rutas, vehículos y tarifas.
+        </p>
       </div>
     </section>
 
@@ -316,6 +390,20 @@ const { data: relatedPosts } = await useAsyncData(`related-${slug.value}`, async
     .all()
 })
 
+// Prev/Next navigation (by date, not alphabetical path)
+const { data: surroundings } = await useAsyncData(`surroundings-${slug.value}`, async () => {
+  if (!post.value) return [null, null]
+  const allPosts = await queryCollection<BlogPost>('blog')
+    .order('date', 'DESC')
+    .all()
+  const currentIndex = allPosts.findIndex(p => p.path === post.value!.path)
+  if (currentIndex === -1) return [null, null]
+  // In DESC order: index+1 = older (prev), index-1 = newer (next)
+  const prev = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null
+  const next = currentIndex > 0 ? allPosts[currentIndex - 1] : null
+  return [prev, next]
+})
+
 // Reading progress
 const articleRef = ref<HTMLElement | null>(null)
 const readingProgress = ref(0)
@@ -344,42 +432,22 @@ function updateReadingProgress() {
 onMounted(() => {
   window.addEventListener('scroll', updateReadingProgress, { passive: true })
   updateReadingProgress()
+
+  // Check if avatar failed before Vue hydration (SSR race condition)
+  const avatarImg = document.querySelector('img.rounded-full[loading="lazy"]') as HTMLImageElement
+  if (avatarImg && avatarImg.complete && avatarImg.naturalWidth === 0) {
+    avatarError.value = true
+  }
 })
 
 onUnmounted(() => {
   window.removeEventListener('scroll', updateReadingProgress)
 })
 
-// Format date
-function formatDate(dateStr: string): string {
-  return new Date(dateStr).toLocaleDateString('es-CO', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  })
-}
+const { formatDate, formatCategory, getCategoryIcon } = useBlogUtils()
 
-// Format category
-function formatCategory(category: string): string {
-  const categories: Record<string, string> = {
-    guias: 'Guías',
-    destinos: 'Destinos',
-    tips: 'Tips',
-    rutas: 'Rutas'
-  }
-  return categories[category] || category
-}
-
-// Get category icon
-function getCategoryIcon(category: string): string {
-  const icons: Record<string, string> = {
-    guias: 'i-lucide-book-open',
-    destinos: 'i-lucide-map-pin',
-    tips: 'i-lucide-lightbulb',
-    rutas: 'i-lucide-route'
-  }
-  return icons[category] || 'i-lucide-file-text'
-}
+// Avatar fallback
+const avatarError = ref(false)
 
 // Share functions
 const linkCopied = ref(false)
@@ -438,7 +506,7 @@ if (post.value) {
     ogDescription: post.value.description,
     ogType: 'article',
     ogUrl: canonicalUrl,
-    ogImage: post.value.image,
+    ogImage: `${franchise.website}${post.value.image}`,
     ogImageAlt: post.value.alt,
     articlePublishedTime: post.value.date,
     articleModifiedTime: post.value.updated || post.value.date,
@@ -448,7 +516,7 @@ if (post.value) {
     twitterCard: 'summary_large_image',
     twitterTitle: post.value.title,
     twitterDescription: post.value.description,
-    twitterImage: post.value.image
+    twitterImage: `${franchise.website}${post.value.image}`
   })
 
   // BlogPosting schema
@@ -457,7 +525,7 @@ if (post.value) {
       '@type': 'BlogPosting',
       headline: post.value.title,
       description: post.value.description,
-      image: post.value.image,
+      image: `${franchise.website}${post.value.image}`,
       datePublished: post.value.date,
       dateModified: post.value.updated || post.value.date,
       author: {

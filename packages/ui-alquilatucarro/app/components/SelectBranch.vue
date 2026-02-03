@@ -62,8 +62,10 @@ import {
 /** props */
 const props = withDefaults(defineProps<{
   variant?: 'white' | 'gray'
+  rentalDays?: number
 }>(), {
-  variant: 'white'
+  variant: 'white',
+  rentalDays: 7,
 });
 
 /** consts */
@@ -73,7 +75,7 @@ const reservationInitDay: string = today(defaultTimezone)
   .add({ days: 1 })
   .toString();
 const reservationEndDay: string = today(defaultTimezone)
-  .add({ days: 8 })
+  .add({ days: 1 + props.rentalDays })
   .toString();
 const reservationInitHour: string = "12:00";
 const reservationEndHour: string = "12:00";
@@ -106,7 +108,7 @@ const goToReservationPage = async (branch: BranchData) =>
   });
 
 const createReservationURL = (branch: BranchData) =>
-  `/${branch.city}/buscar-vehiculos/lugar-recogida/${branch.code.toLowerCase()}/lugar-devolucion/${branch.code.toLowerCase()}/fecha-recogida/${reservationInitDay}/fecha-devolucion/${reservationEndDay}/hora-recogida/${reservationInitHour}/hora-devolucion/${reservationEndHour}`;
+  `/${branch.city}/buscar-vehiculos/lugar-recogida/${branch.slug}/lugar-devolucion/${branch.slug}/fecha-recogida/${reservationInitDay}/fecha-devolucion/${reservationEndDay}/hora-recogida/${reservationInitHour}/hora-devolucion/${reservationEndHour}`;
 
   // https://alquilatucarro.com/cali/buscar-vehiculos/lugar-recogida/aakal/lugar-devolucion/aakal/fecha-recogida/2026-01-10/fecha-devolucion/2026-01-17/hora-recogida/12:00/hora-devolucion/12:00
 

@@ -202,6 +202,9 @@
       </template>
     </UPageSection>
 
+    <!-- Monthly Rates Teaser -->
+    <MonthlyRatesTeaser />
+
     <!-- Testimonials Section -->
     <section id="testimonios" class="bg-gray-200 text-black py-12 md:py-20 px-4 md:px-8">
       <div class="max-w-7xl mx-auto">
