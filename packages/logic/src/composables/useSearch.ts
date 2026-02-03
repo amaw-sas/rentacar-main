@@ -18,6 +18,7 @@ import {
   toDatetime,
   formatHumanTime,
   formatTime,
+  formatTime12h,
 } from '@rentacar-main/logic/utils';
 
 // Types
@@ -201,14 +202,22 @@ export default function useSearch() {
     const pickupBranch = searchBranchByCode(lugarRecogida.value ?? '');
     const returnBranch = searchBranchByCode(lugarDevolucion.value ?? '');
 
+    // Convert stored 24h format to 12h for URLs
+    const pickupTime = horaRecogida.value
+      ? formatTime12h(toDatetime(createCurrentDateObject(), createTimeFromString(horaRecogida.value)))
+      : null;
+    const returnTime = horaDevolucion.value
+      ? formatTime12h(toDatetime(createCurrentDateObject(), createTimeFromString(horaDevolucion.value)))
+      : null;
+
     return {
       referido: referido.value,
       lugar_recogida: pickupBranch?.slug,
       lugar_devolucion: returnBranch?.slug,
       fecha_recogida: fechaRecogida.value,
       fecha_devolucion: fechaDevolucion.value,
-      hora_recogida: horaRecogida.value,
-      hora_devolucion: horaDevolucion.value,
+      hora_recogida: pickupTime,
+      hora_devolucion: returnTime,
     };
   });
 
