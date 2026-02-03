@@ -7,7 +7,10 @@ import {
   isTimeObject,
   toDatetime,
   dayDifference,
-  formatTime
+  formatTime,
+  formatTime12h,
+  parseTime12hOr24h,
+  isTime12hFormat
 } from '@rentacar-main/logic/utils';
 
 export default defineNuxtRouteMiddleware((to, from) => {
@@ -74,6 +77,48 @@ export default defineNuxtRouteMiddleware((to, from) => {
       params: to.params,
       query: to.query,
     });
+  }
+
+  // Validate time formats and redirect legacy 24h to 12h
+  const isPickup12h = isTime12hFormat(hora_recogida);
+  const isReturn12h = isTime12hFormat(hora_devolucion);
+
+  if (!isPickup12h || !isReturn12h) {
+    // Parse times (supporting both formats)
+    const pickupTime = parseTime12hOr24h(hora_recogida);
+    const returnTime = parseTime12hOr24h(hora_devolucion);
+
+    if (!pickupTime || !returnTime) {
+      // Invalid time format - fallback to defaults
+      const {
+        defaultLugarRecogida,
+        defaultLugarDevolucion,
+        defaultFechaRecogida,
+        defaultFechaDevolucion,
+        defaultHoraRecogida,
+        defaultHoraDevolucion
+      } = useDefaultRouteParams();
+
+      to.params.lugar_recogida = defaultLugarRecogida.value as string;
+      to.params.lugar_devolucion = defaultLugarDevolucion.value as string;
+      to.params.fecha_recogida = defaultFechaRecogida.value as string;
+      to.params.fecha_devolucion = defaultFechaDevolucion.value as string;
+      to.params.hora_recogida = defaultHoraRecogida.value as string;
+      to.params.hora_devolucion = defaultHoraDevolucion.value as string;
+
+      createMessage({
+        type: "info",
+        message: "Formato de hora inválido. Se ajustó al valor por defecto.",
+      });
+
+      return navigateTo({ name: to.name, params: to.params, query: to.query });
+    }
+
+    // Legacy 24h format detected - redirect to 12h URL
+    to.params.hora_recogida = formatTime12h(toDatetime(createCurrentDateObject(), pickupTime));
+    to.params.hora_devolucion = formatTime12h(toDatetime(createCurrentDateObject(), returnTime));
+
+    return navigateTo({ name: to.name, params: to.params, query: to.query });
   }
 
   const dateFechaRecogida = createDateFromString(fecha_recogida);
