@@ -6,7 +6,7 @@ import { createCurrentDateObject } from '@rentacar-main/logic/utils';
 
 export default function useDefaultRouteParams(){
     const defaultBranch = 'bogota-aeropuerto'; // Slug for AABOT (Bogotá Aeropuerto)
-    const defaultHour = '12:00';
+    const defaultHour = '12:00pm';
     const defaultDaysRange = 7;
 
     const currentDay = createCurrentDateObject();
