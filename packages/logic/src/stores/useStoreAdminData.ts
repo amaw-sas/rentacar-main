@@ -38,16 +38,9 @@ const useStoreAdminData = defineStore("storeAdminData", () => {
   }
 
   function searchBranchBySlug(slug: string): BranchData | undefined {
-    console.log('=== DEBUG: searchBranchBySlug ===');
-    console.log('Searching for slug:', slug);
-    console.log('Available slugs:', sortedBranches.value.map(b => `${b.name} -> ${b.slug}`).slice(0, 5));
-
-    const found = sortedBranches.value.find(
+    return sortedBranches.value.find(
       (branch: BranchData) => branch.slug === slug
     );
-
-    console.log('Found:', found ? `${found.name} (${found.code})` : 'NOT FOUND');
-    return found;
   }
 
   function isBranchSlug(slug: string): boolean {
