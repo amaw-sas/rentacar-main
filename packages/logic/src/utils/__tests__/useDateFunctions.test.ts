@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   formatTime12h,
+  parseTime12hOr24h,
   isTime12hFormat,
   isTime24hFormat,
   createCurrentDateObject,
@@ -61,5 +62,57 @@ describe('formatTime12h', () => {
     const time = createTimeFromString('11:45');
     const datetime = toDatetime(createCurrentDateObject(), time);
     expect(formatTime12h(datetime)).toBe('11:45am');
+  });
+});
+
+describe('parseTime12hOr24h', () => {
+  it('parses 24h format', () => {
+    const time = parseTime12hOr24h('13:00');
+    expect(time?.hour).toBe(13);
+    expect(time?.minute).toBe(0);
+  });
+
+  it('parses 12h format with pm', () => {
+    const time = parseTime12hOr24h('01:00pm');
+    expect(time?.hour).toBe(13);
+    expect(time?.minute).toBe(0);
+  });
+
+  it('parses 12h format with am', () => {
+    const time = parseTime12hOr24h('01:00am');
+    expect(time?.hour).toBe(1);
+    expect(time?.minute).toBe(0);
+  });
+
+  it('parses midnight correctly', () => {
+    const time = parseTime12hOr24h('12:00am');
+    expect(time?.hour).toBe(0);
+    expect(time?.minute).toBe(0);
+  });
+
+  it('parses noon correctly', () => {
+    const time = parseTime12hOr24h('12:00pm');
+    expect(time?.hour).toBe(12);
+    expect(time?.minute).toBe(0);
+  });
+
+  it('parses 11:59pm correctly', () => {
+    const time = parseTime12hOr24h('11:59pm');
+    expect(time?.hour).toBe(23);
+    expect(time?.minute).toBe(59);
+  });
+
+  it('parses case insensitive (AM/PM)', () => {
+    const timeUpper = parseTime12hOr24h('01:00PM');
+    const timeLower = parseTime12hOr24h('01:00pm');
+    expect(timeUpper?.hour).toBe(13);
+    expect(timeLower?.hour).toBe(13);
+  });
+
+  it('returns null for invalid format', () => {
+    expect(parseTime12hOr24h('25:00')).toBeNull();
+    expect(parseTime12hOr24h('13:00xm')).toBeNull();
+    expect(parseTime12hOr24h('invalid')).toBeNull();
+    expect(parseTime12hOr24h('1:00pm')).toBeNull(); // single digit hour
   });
 });

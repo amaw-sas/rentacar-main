@@ -165,6 +165,43 @@ export function formatTime12h(datetime: DateTimeObject): string {
 }
 
 /**
+ * Parse time string in either 12h or 24h format
+ * @param timeString - "13:00" (24h) or "01:00pm" (12h)
+ * @returns TimeObject or null if invalid
+ */
+export function parseTime12hOr24h(timeString: string): TimeObject | null {
+  // Try 24h format first (existing behavior)
+  if (/^\d{2}:\d{2}$/.test(timeString)) {
+    try {
+      return parseTime(timeString);
+    } catch {
+      return null;
+    }
+  }
+
+  // Try 12h format: 01:00pm, 12:30am
+  const match = timeString.match(/^(\d{2}):(\d{2})(am|pm)$/i);
+  if (!match) return null;
+
+  let hour = parseInt(match[1], 10);
+  const minute = parseInt(match[2], 10);
+  const period = match[3].toLowerCase();
+
+  // Convert to 24h
+  if (period === 'am') {
+    hour = hour === 12 ? 0 : hour;
+  } else {
+    hour = hour === 12 ? 12 : hour + 12;
+  }
+
+  try {
+    return parseTime(`${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`);
+  } catch {
+    return null;
+  }
+}
+
+/**
  * Check if time string is in 12h format (hh:mm[am|pm])
  * @param timeString - time string to check
  * @returns true if format is 12h
