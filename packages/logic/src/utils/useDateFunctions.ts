@@ -147,3 +147,21 @@ export function isDateTimeObject(obj: TimeObject | DateTimeObject): obj is DateT
 export function isDateObject(obj: any): obj is DateObject {
     return 'toDate' in obj;
 }
+
+/**
+ * Check if time string is in 12h format (hh:mm[am|pm])
+ * @param timeString - time string to check
+ * @returns true if format is 12h
+ */
+export function isTime12hFormat(timeString: string): boolean {
+  return /^\d{1,2}:\d{2}(am|pm)$/i.test(timeString);
+}
+
+/**
+ * Check if time string is in 24h format (HH:mm)
+ * @param timeString - time string to check
+ * @returns true if format is 24h
+ */
+export function isTime24hFormat(timeString: string): boolean {
+  return /^\d{2}:\d{2}$/.test(timeString);
+}
