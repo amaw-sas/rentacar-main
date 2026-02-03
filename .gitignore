@@ -58,6 +58,7 @@ nngroup-checkpoint.json
 cleanup-dev-browser.ps1
 alquicarros_gsc/
 alquilame_gsc/
+.worktrees/
 
 # AI Framework runtime files (auto-added)
 /.claude/

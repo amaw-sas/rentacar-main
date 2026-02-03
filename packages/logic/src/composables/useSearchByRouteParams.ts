@@ -4,6 +4,7 @@ import { storeToRefs } from 'pinia';
 
 // Internal dependencies - stores
 import useStoreReservationForm from '../stores/useStoreReservationForm';
+import useStoreAdminData from '../stores/useStoreAdminData';
 
 // Internal dependencies - composables
 import useSearch from './useSearch';
@@ -15,6 +16,7 @@ export default function useSearchByRouteParams() {
   onMounted(() => {
     // stores
     const storeForm = useStoreReservationForm();
+    const storeAdminData = useStoreAdminData();
 
     // refs
     const {
@@ -26,9 +28,16 @@ export default function useSearchByRouteParams() {
       horaDevolucion,
     } = storeToRefs(storeForm);
 
+    // Convert slugs from route params to branch codes
+    const slugRecogida = route.params.lugar_recogida?.toString();
+    const slugDevolucion = route.params.lugar_devolucion?.toString();
+
+    const branchRecogida = storeAdminData.searchBranchBySlug(slugRecogida ?? '');
+    const branchDevolucion = storeAdminData.searchBranchBySlug(slugDevolucion ?? '');
+
     // Set values from route params
-    lugarRecogida.value = (route.params.lugar_recogida?.toString())?.toUpperCase() as string;
-    lugarDevolucion.value = (route.params.lugar_devolucion?.toString())?.toUpperCase() as string;
+    lugarRecogida.value = branchRecogida?.code ?? null;
+    lugarDevolucion.value = branchDevolucion?.code ?? null;
     fechaRecogida.value = route.params.fecha_recogida as string;
     fechaDevolucion.value = route.params.fecha_devolucion as string;
     horaRecogida.value = route.params.hora_recogida as string;

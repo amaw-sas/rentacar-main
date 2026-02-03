@@ -14,6 +14,8 @@ export default defineNuxtRouteMiddleware((to, from) => {
 
   const { createMessage } = useMessages();
 
+  const lugar_recogida = to.params.lugar_recogida as string;
+  const lugar_devolucion = to.params.lugar_devolucion as string;
   const fecha_recogida = to.params.fecha_recogida as string;
   let fecha_devolucion = to.params.fecha_devolucion as string;
   const hora_recogida = to.params.hora_recogida as string;
@@ -23,7 +25,57 @@ export default defineNuxtRouteMiddleware((to, from) => {
   if (!fecha_recogida || !fecha_devolucion || !hora_recogida || !hora_devolucion) {
     return;
   }
-  
+
+  // Validate branch slugs (or legacy codes)
+  const { searchBranchBySlugOrCode } = useStoreAdminData();
+  const pickupBranch = searchBranchBySlugOrCode(lugar_recogida);
+  const returnBranch = searchBranchBySlugOrCode(lugar_devolucion);
+
+  if (!pickupBranch || !returnBranch) {
+    const {
+      defaultLugarRecogida,
+      defaultLugarDevolucion,
+      defaultFechaRecogida,
+      defaultFechaDevolucion,
+      defaultHoraRecogida,
+      defaultHoraDevolucion
+    } = useDefaultRouteParams();
+
+    to.params.lugar_recogida = defaultLugarRecogida.value as string;
+    to.params.lugar_devolucion = defaultLugarDevolucion.value as string;
+    to.params.fecha_recogida = defaultFechaRecogida.value as string;
+    to.params.fecha_devolucion = defaultFechaDevolucion.value as string;
+    to.params.hora_recogida = defaultHoraRecogida.value as string;
+    to.params.hora_devolucion = defaultHoraDevolucion.value as string;
+
+    createMessage({
+      type: "info",
+      message: "Ubicación inválida. Se ajustó a la sede por defecto.",
+    });
+
+    return navigateTo({
+      name: to.name,
+      params: to.params,
+      query: to.query,
+    });
+  }
+
+  // Redirect if using legacy codes instead of slugs
+  const isPickupSlug = pickupBranch.slug === lugar_recogida;
+  const isReturnSlug = returnBranch.slug === lugar_devolucion;
+
+  if (!isPickupSlug || !isReturnSlug) {
+    // Legacy code detected - redirect to slug-based URL
+    to.params.lugar_recogida = pickupBranch.slug;
+    to.params.lugar_devolucion = returnBranch.slug;
+
+    return navigateTo({
+      name: to.name,
+      params: to.params,
+      query: to.query,
+    });
+  }
+
   const dateFechaRecogida = createDateFromString(fecha_recogida);
   const dateFechaDevolucion = createDateFromString(fecha_devolucion);
   const dateHoraRecogida = createTimeFromString(hora_recogida);

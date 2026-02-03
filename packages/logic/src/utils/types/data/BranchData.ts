@@ -4,4 +4,5 @@ export default interface BranchData {
   name: string;
   city: string;
   schedule?: string;
+  slug?: string; // Computed at runtime from name
 }

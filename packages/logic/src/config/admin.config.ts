@@ -2,11 +2,14 @@
  * Admin data configuration shared across all brands
  * Includes branches (for admin purposes) and vehicle categories
  */
+import { branchesConfig } from './branches.config';
+
 export interface AdminBranch {
   id: number;
   code: string;
   name: string;
   city: string;
+  slug: string;
   schedule: Record<string, unknown>;
 }
 
@@ -46,226 +49,12 @@ export interface AdminData {
   categories: VehicleCategory[];
 }
 
+
 export const adminDataConfig: AdminData = {
-  branches: [
-    {
-      id: 1,
-      code: "AARME",
-      name: "Armenia Aeropuerto",
-      city: "armenia",
-      schedule: {},
-    },
-    {
-      id: 2,
-      code: "AABAN",
-      name: "Barranquilla Aeropuerto",
-      city: "barranquilla",
-      schedule: {},
-    },
-    {
-      id: 3,
-      code: "ACBAN",
-      name: "Barranquilla Vía 40",
-      city: "barranquilla",
-      schedule: {},
-    },
-    {
-      id: 4,
-      code: "ACBSD",
-      name: "Soledad ",
-      city: "soledad",
-      schedule: {},
-    },
-    {
-      id: 5,
-      code: "AABOT",
-      name: "Bogota Aeropuerto",
-      city: "bogota",
-      schedule: {},
-    },
-    {
-      id: 7,
-      code: "ACBEX",
-      name: "Bogota Almacen Éxito Country",
-      city: "bogota",
-      schedule: {},
-    },
-    {
-      id: 8,
-      code: "ACBOJ",
-      name: "Bogota Almacen Jumbo calle 170",
-      city: "bogota",
-      schedule: {},
-    },
-    {
-      id: 12,
-      code: "AABCR",
-      name: "Bucaramanga Aeropuerto ",
-      city: "bucaramanga",
-      schedule: {},
-    },
-    {
-      id: 13,
-      code: "ACBCR",
-      name: "Floridablanca ",
-      city: "floridablanca",
-      schedule: {},
-    },
-    {
-      id: 14,
-      code: "AAKAL",
-      name: "Cali Aeropuerto",
-      city: "cali",
-      schedule: {},
-    },
-    {
-      id: 15,
-      code: "ACKAL",
-      name: "Cali Sur Camino Real ",
-      city: "cali",
-      schedule: {},
-    },
-    {
-      id: 16,
-      code: "ACKJC",
-      name: "Cali Norte Chipichape",
-      city: "cali",
-      schedule: {},
-    },
-    {
-      id: 18,
-      code: "ACKPA",
-      name: "Palmira C.Cial Plaza Madero",
-      city: "palmira",
-      schedule: {},
-    },
-    {
-      id: 19,
-      code: "AACTG",
-      name: "Cartagena Aeropuerto",
-      city: "cartagena",
-      schedule: {},
-    },
-    {
-      id: 20,
-      code: "AACUC",
-      name: "Cucuta Aeropuerto",
-      city: "cucuta",
-      schedule: {},
-    },
-    {
-      id: 21,
-      code: "ACIBG",
-      name: "Ibague C.Cial Plazas del Bosque",
-      city: "ibague",
-      schedule: {},
-    },
-    {
-      id: 22,
-      code: "ACMNZ",
-      name: "Manizales C.Cial Mall Plaza ",
-      city: "manizales",
-      schedule: {},
-    },
-    {
-      id: 24,
-      code: "ACMCL",
-      name: "Medellin Éxito Colombia ",
-      city: "medellin",
-      schedule: {},
-    },
-    {
-      id: 25,
-      code: "ACMNN",
-      name: "Medellín El Poblado",
-      city: "medellin",
-      schedule: {},
-    },
-    {
-      id: 26,
-      code: "AAMDL",
-      name: "Medellín Aeropuerto",
-      city: "medellin",
-      schedule: {},
-    },
-    {
-      id: 27,
-      code: "ACMJM",
-      name: "Rionegro",
-      city: "medellin",
-      schedule: {},
-    },
-    {
-      id: 30,
-      code: "AAMTR",
-      name: "Montería Aeropuerto",
-      city: "monteria",
-      schedule: {},
-    },
-    {
-      id: 31,
-      code: "ACMTR",
-      name: "Monteria C.Cial Buenavista ",
-      city: "monteria",
-      schedule: {},
-    },
-    {
-      id: 32,
-      code: "AANVA",
-      name: "Neiva Aeropuerto",
-      city: "neiva",
-      schedule: {},
-    },
-    {
-      id: 33,
-      code: "AAPEI",
-      name: "Pereira Aeropuerto",
-      city: "pereira",
-      schedule: {},
-    },
-    {
-      id: 34,
-      code: "AASMR",
-      name: "Santa Marta Aeropuerto",
-      city: "santa-marta",
-      schedule: {},
-    },
-    {
-      id: 35,
-      code: "ACSMR",
-      name: "Santa Marta Centro",
-      city: "santa-marta",
-      schedule: {},
-    },
-    {
-      id: 36,
-      code: "AAVAL",
-      name: "Valledupar Aeropuerto",
-      city: "valledupar",
-      schedule: {},
-    },
-    {
-      id: 37,
-      code: "ACVLL",
-      name: "Villavicencio C.Cial Llano Centro ",
-      city: "villavicencio",
-      schedule: {},
-    },
-    {
-      id: 38,
-      code: "ACBNN",
-      name: "Bogota C.Cial Nuestro Bogotá",
-      city: "bogota",
-      schedule: {},
-    },
-    {
-      id: 39,
-      code: "ACBED",
-      name: "Bogota Fontibon",
-      city: "bogota",
-      schedule: {},
-    },
-  ],
+  branches: branchesConfig.map(branch => ({
+    ...branch,
+    schedule: {}  // AdminBranch expects Record<string, unknown> for schedule
+  })),
   categories: [
     {
       id: "C",
