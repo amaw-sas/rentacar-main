@@ -123,8 +123,8 @@ export default defineNuxtRouteMiddleware((to, from) => {
 
   const dateFechaRecogida = createDateFromString(fecha_recogida);
   const dateFechaDevolucion = createDateFromString(fecha_devolucion);
-  const dateHoraRecogida = createTimeFromString(hora_recogida);
-  const dateHoraDevolucion = createTimeFromString(hora_devolucion);
+  const dateHoraRecogida = parseTime12hOr24h(hora_recogida);
+  const dateHoraDevolucion = parseTime12hOr24h(hora_devolucion);
 
   // Puedes hacer validaciones o procesamiento basado en esos parámetros
   if (
@@ -192,7 +192,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
     dayDifference(dateFechaDevolucion, dateFechaRecogida) == 30 
     && dateHoraDevolucion.compare(dateHoraRecogida) > 0
   ){
-      to.params.hora_devolucion = formatTime(toDatetime(createCurrentDateObject(), dateHoraRecogida));
+      to.params.hora_devolucion = formatTime12h(toDatetime(createCurrentDateObject(), dateHoraRecogida));
 
       return navigateTo({
         name: to.name,
