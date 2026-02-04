@@ -24,6 +24,11 @@ export default defineNuxtRouteMiddleware((to, from) => {
   const hora_recogida = to.params.hora_recogida as string;
   const hora_devolucion = to.params.hora_devolucion as string;
 
+  // Extract city context from URL path for city-aware defaults
+  // e.g., "/armenia/buscar-vehiculos/..." → cityContext = "armenia"
+  const pathSegments = to.path.split('/').filter(Boolean);
+  const cityContext = pathSegments[0]; // First segment is always the city
+
   // Skip validation if route doesn't have search parameters (e.g., /bogota, /medellin)
   if (!fecha_recogida || !fecha_devolucion || !hora_recogida || !hora_devolucion) {
     return;
@@ -42,7 +47,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
       defaultFechaDevolucion,
       defaultHoraRecogida,
       defaultHoraDevolucion
-    } = useDefaultRouteParams();
+    } = useDefaultRouteParams(cityContext);
 
     to.params.lugar_recogida = defaultLugarRecogida.value as string;
     to.params.lugar_devolucion = defaultLugarDevolucion.value as string;
@@ -97,7 +102,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
         defaultFechaDevolucion,
         defaultHoraRecogida,
         defaultHoraDevolucion
-      } = useDefaultRouteParams();
+      } = useDefaultRouteParams(cityContext);
 
       to.params.lugar_recogida = defaultLugarRecogida.value as string;
       to.params.lugar_devolucion = defaultLugarDevolucion.value as string;
@@ -143,7 +148,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
       defaultFechaDevolucion,
       defaultHoraRecogida,
       defaultHoraDevolucion
-    } = useDefaultRouteParams();
+    } = useDefaultRouteParams(cityContext);
 
     to.params.lugar_recogida = defaultLugarRecogida.value as string;
     to.params.lugar_devolucion = defaultLugarDevolucion.value as string;
