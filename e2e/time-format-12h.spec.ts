@@ -224,24 +224,19 @@ test.describe('Formato 12h en URLs de búsqueda', () => {
 
   test.describe('Regresión - Bug Identificado (Documentado)', () => {
 
-    test.skip('KNOWN BUG: defaults no respetan contexto de ciudad en URL', async ({ page }) => {
+    test('defaults respetan contexto de ciudad en URL', async ({ page }) => {
       /**
-       * Bug identificado durante testing:
-       * Cuando se resetea a defaults por formato inválido, los lugares de
-       * recogida/devolución no respetan el contexto de la ciudad en la URL.
+       * Verifica que cuando se resetea a defaults por formato inválido,
+       * los lugares de recogida/devolución respetan el contexto de ciudad.
        *
-       * Ejemplo: /armenia/... debería usar armenia-aeropuerto como default,
-       * pero usa bogota-aeropuerto.
+       * Fix implementado: useDefaultRouteParams ahora acepta parámetro cityContext
+       * que extraen los middlewares del path de la URL.
        *
-       * Este bug existe ANTES de este requerimiento y debe tratarse en sesión futura.
-       *
-       * Para reproducir:
-       * 1. Navegar a /armenia/buscar-vehiculos/.../hora-recogida/25:00/...
-       * 2. Observar que redirige a bogota-aeropuerto en lugar de armenia-aeropuerto
+       * Ejemplo: /armenia/... usa armenia-aeropuerto como default
        */
       await page.goto('/armenia/buscar-vehiculos/lugar-recogida/armenia-aeropuerto/lugar-devolucion/armenia-aeropuerto/fecha-recogida/2026-02-10/fecha-devolucion/2026-02-17/hora-recogida/25:00/hora-devolucion/13:00');
 
-      // Comportamiento esperado (actualmente falla):
+      // Debe resetear a defaults con contexto de ciudad armenia
       await expect(page).toHaveURL(/lugar-recogida\/armenia-aeropuerto/);
       await expect(page).toHaveURL(/lugar-devolucion\/armenia-aeropuerto/);
     });
