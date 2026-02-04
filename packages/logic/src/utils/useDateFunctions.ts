@@ -136,16 +136,16 @@ export function hourDifference(
     else return 0;
 }
 
-export function isTimeObject(obj: TimeObject | DateTimeObject): obj is TimeObject {
-    return !('toDate' in obj)
+export function isTimeObject(obj: TimeObject | DateTimeObject | null): obj is TimeObject {
+    return obj !== null && !('toDate' in obj)
 }
 
-export function isDateTimeObject(obj: TimeObject | DateTimeObject): obj is DateTimeObject {
-    return 'hour' in obj
+export function isDateTimeObject(obj: TimeObject | DateTimeObject | null): obj is DateTimeObject {
+    return obj !== null && 'hour' in obj
 }
 
 export function isDateObject(obj: any): obj is DateObject {
-    return 'toDate' in obj;
+    return obj !== null && 'toDate' in obj;
 }
 
 /**

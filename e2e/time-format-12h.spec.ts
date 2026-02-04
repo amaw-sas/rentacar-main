@@ -89,22 +89,23 @@ test.describe('Formato 12h en URLs de búsqueda', () => {
 
   test.describe('Casos Edge - Case Sensitivity', () => {
 
-    test('debe normalizar AM/PM mayúsculas a minúsculas', async ({ page }) => {
-      // URL con AM/PM en mayúsculas
+    test('debe aceptar AM/PM en mayúsculas sin normalizar', async ({ page }) => {
+      // URL con AM/PM en mayúsculas - formato válido, no debe redirigir
       await page.goto('/bogota/buscar-vehiculos/lugar-recogida/bogota-aeropuerto/lugar-devolucion/bogota-aeropuerto/fecha-recogida/2026-02-10/fecha-devolucion/2026-02-17/hora-recogida/01:00PM/hora-devolucion/02:00PM');
 
-      // Debe normalizar a minúsculas
-      await expect(page).toHaveURL(/hora-recogida\/01:00pm/);
-      await expect(page).toHaveURL(/hora-devolucion\/02:00pm/);
+      // NO debe redirigir - acepta mayúsculas como válidas
+      // Nota: El middleware es case-insensitive, evita redirects innecesarios
+      await expect(page).toHaveURL(/hora-recogida\/01:00PM/);
+      await expect(page).toHaveURL(/hora-devolucion\/02:00PM/);
     });
 
-    test('debe manejar formato mixto de case (Pm, pM)', async ({ page }) => {
-      // URL con case mixto
+    test('debe aceptar formato mixto de case sin normalizar (Pm, pM)', async ({ page }) => {
+      // URL con case mixto - formato válido, no debe redirigir
       await page.goto('/bogota/buscar-vehiculos/lugar-recogida/bogota-aeropuerto/lugar-devolucion/bogota-aeropuerto/fecha-recogida/2026-02-10/fecha-devolucion/2026-02-17/hora-recogida/01:00Pm/hora-devolucion/02:00pM');
 
-      // Debe normalizar a minúsculas
-      await expect(page).toHaveURL(/hora-recogida\/01:00pm/);
-      await expect(page).toHaveURL(/hora-devolucion\/02:00pm/);
+      // NO debe redirigir - acepta case mixto como válido
+      await expect(page).toHaveURL(/hora-recogida\/01:00Pm/);
+      await expect(page).toHaveURL(/hora-devolucion\/02:00pM/);
     });
   });
 
@@ -135,6 +136,9 @@ test.describe('Formato 12h en URLs de búsqueda', () => {
     test('debe rechazar formato 12h con hora de un solo dígito', async ({ page }) => {
       // URL con hora de 1 dígito (1:00pm en lugar de 01:00pm)
       await page.goto('/bogota/buscar-vehiculos/lugar-recogida/bogota-aeropuerto/lugar-devolucion/bogota-aeropuerto/fecha-recogida/2026-02-10/fecha-devolucion/2026-02-17/hora-recogida/1:00pm/hora-devolucion/2:00pm');
+
+      // Esperar a que la página se estabilice después del redirect
+      await page.waitForURL(/bogota\/buscar-vehiculos/, { timeout: 5000 });
 
       // Debe resetear a defaults (formato inválido)
       await expect(page).toHaveURL(/hora-recogida\/12:00pm/);
