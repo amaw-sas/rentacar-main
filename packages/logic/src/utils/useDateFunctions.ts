@@ -136,14 +136,85 @@ export function hourDifference(
     else return 0;
 }
 
-export function isTimeObject(obj: TimeObject | DateTimeObject): obj is TimeObject {
-    return !('toDate' in obj)
+export function isTimeObject(obj: TimeObject | DateTimeObject | null): obj is TimeObject {
+    return obj !== null && !('toDate' in obj)
 }
 
-export function isDateTimeObject(obj: TimeObject | DateTimeObject): obj is DateTimeObject {
-    return 'hour' in obj
+export function isDateTimeObject(obj: TimeObject | DateTimeObject | null): obj is DateTimeObject {
+    return obj !== null && 'hour' in obj
 }
 
 export function isDateObject(obj: any): obj is DateObject {
-    return 'toDate' in obj;
+    return obj !== null && 'toDate' in obj;
+}
+
+/**
+ * Format a datetime object to 12h format (hh:mm[am|pm])
+ * @param datetime DateTimeObject
+ * @returns string - formato: "01:00pm", "12:00am"
+ */
+export function formatTime12h(datetime: DateTimeObject): string {
+  const hour = datetime.hour;
+  const minute = datetime.minute.toString().padStart(2, '0');
+
+  // Convert 24h to 12h
+  const hour12 = hour === 0 ? 12 : hour > 12 ? hour - 12 : hour;
+  const period = hour >= 12 ? 'pm' : 'am';
+
+  return `${hour12.toString().padStart(2, '0')}:${minute}${period}`;
+}
+
+/**
+ * Parse time string in either 12h or 24h format
+ * @param timeString - "13:00" (24h) or "01:00pm" (12h)
+ * @returns TimeObject or null if invalid
+ */
+export function parseTime12hOr24h(timeString: string): TimeObject | null {
+  // Try 24h format first (existing behavior)
+  if (/^\d{2}:\d{2}$/.test(timeString)) {
+    try {
+      return parseTime(timeString);
+    } catch {
+      return null;
+    }
+  }
+
+  // Try 12h format: 01:00pm, 12:30am
+  const match = timeString.match(/^(\d{2}):(\d{2})(am|pm)$/i);
+  if (!match) return null;
+
+  let hour = parseInt(match[1], 10);
+  const minute = parseInt(match[2], 10);
+  const period = match[3].toLowerCase();
+
+  // Convert to 24h
+  if (period === 'am') {
+    hour = hour === 12 ? 0 : hour;
+  } else {
+    hour = hour === 12 ? 12 : hour + 12;
+  }
+
+  try {
+    return parseTime(`${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`);
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Check if time string is in 12h format (hh:mm[am|pm])
+ * @param timeString - time string to check
+ * @returns true if format is 12h
+ */
+export function isTime12hFormat(timeString: string): boolean {
+  return /^\d{1,2}:\d{2}(am|pm)$/i.test(timeString);
+}
+
+/**
+ * Check if time string is in 24h format (HH:mm)
+ * @param timeString - time string to check
+ * @returns true if format is 24h
+ */
+export function isTime24hFormat(timeString: string): boolean {
+  return /^\d{2}:\d{2}$/.test(timeString);
 }

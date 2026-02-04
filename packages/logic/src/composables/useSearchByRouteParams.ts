@@ -9,6 +9,14 @@ import useStoreAdminData from '../stores/useStoreAdminData';
 // Internal dependencies - composables
 import useSearch from './useSearch';
 
+// Internal dependencies - utils
+import {
+  parseTime12hOr24h,
+  formatTime,
+  toDatetime,
+  createCurrentDateObject,
+} from '../utils/useDateFunctions';
+
 export default function useSearchByRouteParams() {
   const route = useRoute();
 
@@ -40,8 +48,21 @@ export default function useSearchByRouteParams() {
     lugarDevolucion.value = branchDevolucion?.code ?? null;
     fechaRecogida.value = route.params.fecha_recogida as string;
     fechaDevolucion.value = route.params.fecha_devolucion as string;
-    horaRecogida.value = route.params.hora_recogida as string;
-    horaDevolucion.value = route.params.hora_devolucion as string;
+
+    // Parse times (supporting both 12h and 24h formats)
+    const pickupTimeString = route.params.hora_recogida as string;
+    const returnTimeString = route.params.hora_devolucion as string;
+
+    const pickupTime = parseTime12hOr24h(pickupTimeString);
+    const returnTime = parseTime12hOr24h(returnTimeString);
+
+    // Convert to 24h format for internal store
+    horaRecogida.value = pickupTime
+      ? formatTime(toDatetime(createCurrentDateObject(), pickupTime))
+      : null;
+    horaDevolucion.value = returnTime
+      ? formatTime(toDatetime(createCurrentDateObject(), returnTime))
+      : null;
 
     // functions
     const { doSearch } = useSearch();
