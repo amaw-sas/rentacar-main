@@ -47,7 +47,7 @@ const cityExpandedContent: Record<string, CityExpandedContent> = {
             }
         ],
         drivingTips: {
-            picoPlaca: 'Cali tiene pico y placa de lunes a viernes según el último dígito de la placa, en horarios de 6:00 a 10:00 AM y de 4:00 a 8:00 PM. Los sábados hay restricción de 9:00 AM a 1:00 PM. Domingos y festivos sin restricción.',
+            picoPlaca: 'Cali tiene pico y placa de lunes a viernes según rotación del último dígito de la placa, en horario de 6:00 AM a 7:00 PM. Los sábados, domingos y festivos no hay restricción.',
             tolls: 'Hacia Buga hay un peaje (~$10.500 COP). Hacia el Lago Calima encontrarás el peaje de Mediacanoa (~$10.500 COP). Las vías están en buen estado general.',
             parking: 'En el centro y San Antonio los parqueaderos cuestan entre $3.000-5.000 COP/hora. En centros comerciales como Chipichape o Jardín Plaza suele ser gratis con consumo mínimo.'
         },
@@ -171,7 +171,7 @@ const cityExpandedContent: Record<string, CityExpandedContent> = {
             }
         ],
         drivingTips: {
-            picoPlaca: 'Bogotá restringe la circulación de vehículos de lunes a viernes según el último dígito de la placa. El horario es de 6:00 a 9:00 AM y de 5:00 a 8:00 PM. Los fines de semana y festivos no hay restricción.',
+            picoPlaca: 'Bogotá restringe la circulación de vehículos de lunes a viernes según par/impar del último dígito de la placa. El horario es de 6:00 AM a 9:00 PM continuo. Los fines de semana y festivos no hay restricción.',
             tolls: 'Saliendo de Bogotá encontrarás peajes en todas las vías principales. Hacia Villa de Leyva hay 3 peajes (~$45.000 COP total), hacia Girardot 2 peajes (~$30.000 COP).',
             parking: 'En zonas como Chapinero y Usaquén los parqueaderos cuestan entre $4.000-8.000 COP/hora. En centros comerciales suele ser gratis con consumo.'
         },
@@ -202,7 +202,7 @@ const cityExpandedContent: Record<string, CityExpandedContent> = {
             }
         ],
         drivingTips: {
-            picoPlaca: 'Medellín tiene pico y placa de lunes a viernes según el último dígito de la placa, en horarios de 7:00 a 8:30 AM y de 5:30 a 7:00 PM. Los sábados, domingos y festivos no hay restricción.',
+            picoPlaca: 'Medellín tiene pico y placa de lunes a viernes según rotación del último dígito de la placa, en horario continuo de 5:00 AM a 8:00 PM. Los sábados, domingos y festivos no hay restricción.',
             tolls: 'Hacia Guatapé hay un peaje (~$12.000 COP). Hacia Santa Fe de Antioquia el túnel de occidente tiene peaje (~$15.600 COP). Las vías están en excelente estado.',
             parking: 'El centro y El Poblado tienen parqueaderos entre $3.000-6.000 COP/hora. En centros comerciales como Santafé o El Tesoro suele haber tarifa plana o gratis con consumo.'
         },
