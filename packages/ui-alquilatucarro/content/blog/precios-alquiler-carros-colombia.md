@@ -43,6 +43,8 @@ En esta guía te damos **precios actualizados 2026**, explicamos qué afecta las
 
 Las tarifas varían significativamente entre ciudades debido a la oferta, demanda y costos operativos locales.
 
+![Vista aérea de ciudad colombiana](/img/blog/precios-ciudad-colombia.jpg)
+
 ### Bogotá
 
 La capital tiene la mayor oferta de vehículos, lo que genera precios competitivos.
@@ -180,6 +182,8 @@ El tipo de carro es el factor más determinante. Revisa nuestra [guía de tipos 
 ---
 
 ## Alquilar vs. Taxis y Apps: ¿Qué Conviene?
+
+![Vista desde el interior de un carro en carretera](/img/blog/precios-roadtrip-carro.jpg)
 
 ### Comparación para un viaje típico
 
