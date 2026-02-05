@@ -604,6 +604,7 @@ export default defineNuxtConfig({
         '/blog/costa-caribe-cartagena-santa-marta-carro',
         '/blog/viajar-carro-con-ninos-colombia',
         '/blog/viajar-por-carretera-colombia-guia',
+        '/blog/precios-alquiler-carros-colombia',
       ]
     }
   },
@@ -645,6 +646,7 @@ export default defineNuxtConfig({
       { loc: '/blog/costa-caribe-cartagena-santa-marta-carro', changefreq: 'monthly', priority: 0.7 },
       { loc: '/blog/viajar-carro-con-ninos-colombia', changefreq: 'monthly', priority: 0.7 },
       { loc: '/blog/viajar-por-carretera-colombia-guia', changefreq: 'monthly', priority: 0.7 },
+      { loc: '/blog/precios-alquiler-carros-colombia', changefreq: 'monthly', priority: 0.7 },
     ],
     exclude: ['/pendiente', '/sindisponibilidad', '/reservado/**', '/*/buscar-vehiculos/**', '/seo/**'],
   },
