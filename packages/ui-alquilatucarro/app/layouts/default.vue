@@ -5,12 +5,7 @@
       v-model:open="mobileMenuOpen"
       class="bg-[#000073] z-50 py-4 md:py-6 px-6 border-none relative"
       mode="slideover"
-      :toggle="{
-        color: 'white',
-        size: 'xl',
-        class: 'absolute right-4 top-4',
-        'aria-label': 'Abrir menú de navegación'
-      }"
+      :toggle="false"
       :ui="{
         root: 'gap-4',
         content: 'bg-white',
@@ -18,14 +13,30 @@
         body: 'bg-white'
       }"
      >
-      <template #left>
-        <!-- Móvil: Bandera diagonal en esquina + Logo centrado -->
-        <div class="md:hidden">
-          <IconsColombiaFlagCorner cls="absolute top-0 left-0 w-32 h-32 -translate-x-[10%] -translate-y-[10%]" />
-          <NuxtLink to="/" aria-label="alquilatucarro" class="absolute left-1/2 -translate-x-1/2">
-            <Logo cls="h-8 w-auto" />
-          </NuxtLink>
+      <template #right>
+        <div class="flex items-center gap-2">
+          <!-- Menú desktop -->
+          <div class="hidden lg:block">
+            <UNavigationMenu color="neutral" :items="items" />
+          </div>
+          <!-- Toggle personalizado: visible solo en móvil/tablet -->
+          <div class="block lg:hidden">
+            <UButton
+              icon="lucide:menu"
+              color="white"
+              variant="ghost"
+              size="xl"
+              aria-label="Abrir menú de navegación"
+              @click="mobileMenuOpen = true"
+            />
+          </div>
         </div>
+      </template>
+      <template #left>
+        <!-- Móvil: Logo centrado -->
+        <NuxtLink to="/" aria-label="alquilatucarro" class="md:hidden absolute left-1/2 -translate-x-1/2">
+          <Logo cls="h-8 w-auto" />
+        </NuxtLink>
         <!-- Desktop: Bandera + Logo juntos como unidad -->
         <NuxtLink to="/" aria-label="alquilatucarro" class="hidden md:flex items-center gap-3">
           <IconsColombiaFlag cls="h-6 w-auto" />
@@ -51,11 +62,6 @@
             linkLabel: 'text-lg'
           }"
         />
-      </template>
-      <template #right>
-        <div class="hidden lg:block">
-          <UNavigationMenu color="neutral" :items="items" />
-        </div>
       </template>
     </UHeader>
 
