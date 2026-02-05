@@ -1,8 +1,8 @@
 ---
 title: "12 Mejores Destinos para Viajar en Carro por Colombia 2026"
 description: "Descubre los destinos más espectaculares de Colombia accesibles por carretera. Distancias, mejor época, tipo de carro y tips para cada lugar. ¡Planifica tu ruta!"
-image: /img/blog/destinos-colombia-carro.jpg
-alt: Carretera panorámica colombiana con montañas y paisaje verde
+image: /img/blog/rutas-bogota.webp
+alt: Paisaje de carretera colombiana rodeada de naturaleza
 author:
   name: Alquilatucarro
   avatar: https://firebasestorage.googleapis.com/v0/b/rentacar-403321.firebasestorage.app/o/rentacar-main%2Falquilatucarro%2Fimg%2Flogo.png?alt=media&token=975cfe04-c619-44bc-964a-e6231ca92dfe
@@ -197,7 +197,6 @@ Más detalles en [7 rutas en carro desde Bogotá](/blog/rutas-carro-desde-bogota
 
 **Guatapé** es famoso por la Piedra del Peñol (740 escalones con vista 360°) y sus casas decoradas con zócalos coloridos. Es la excursión de un día más popular desde Medellín.
 
-![Vista aérea de Guatapé con la represa](/img/blog/guatape-colombia.jpg)
 
 ### Datos prácticos
 
