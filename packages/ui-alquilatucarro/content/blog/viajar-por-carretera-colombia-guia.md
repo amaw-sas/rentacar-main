@@ -31,7 +31,7 @@ En esta guía te damos toda la información que necesitas para **viajar por Colo
 | **Autopistas 4G** | 29 proyectos, 8.000+ km en operación/construcción |
 | **Velocidad máxima** | 120 km/h (autopistas), 80 km/h (carreteras secundarias) |
 | **Peajes promedio** | $12.000 - $18.000 COP por peaje |
-| **Combustible** | ~$15.000 COP/galón (gasolina corriente, feb 2026) |
+| **Combustible** | ~$15.500 COP/galón (gasolina corriente, feb 2026) |
 | **Luces encendidas** | Obligatorio 24/7 en carretera |
 
 ::callout{type="success"}
@@ -297,9 +297,9 @@ Sin embargo, algunas ciudades aplican restricciones:
 
 | Ciudad | Pico y placa | Horario |
 |--------|--------------|---------|
-| Bogotá | Sí, por último dígito de placa | 6:00-9:00 AM / 5:00-8:00 PM |
-| Medellín | Sí, por último dígito | 6:00-8:30 AM / 4:30-7:30 PM |
-| Cali | Sí, por último dígito | 6:00-10:00 AM / 4:00-8:00 PM |
+| Bogotá | Sí, par/impar según día | 6:00 AM - 9:00 PM |
+| Medellín | Sí, rotación por dígito | 5:00 AM - 8:00 PM |
+| Cali | Sí, rotación por dígito | 6:00 AM - 7:00 PM |
 | Cartagena | No hay | — |
 | Santa Marta | No hay | — |
 
