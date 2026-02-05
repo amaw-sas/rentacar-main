@@ -1,7 +1,7 @@
 ---
 title: "Viajar por Carretera en Colombia: Guía Completa 2026"
 description: "Todo lo que necesitas saber para viajar por carretera en Colombia: estado de vías, peajes, seguridad, apps y distancias entre ciudades. ¡Planifica tu ruta!"
-image: /img/blog/viajar-carretera.webp
+image: /img/blog/viajar-carretera.jpg
 alt: Carretera panorámica en Colombia con paisaje de montañas y cielo despejado
 author:
   name: Alquilatucarro
@@ -53,6 +53,8 @@ El programa de **Autopistas de Cuarta Generación (4G)** ha modernizado las prin
 | **Conexión Norte** | Medellín → Costa | Parcial | Túnel de Occidente |
 | **Magdalena 2** | Honda → Puerto Salgar | Operativo | Doble calzada |
 | **Autopista al Mar 1** | Medellín → Turbo | En construcción | Nueva ruta al Urabá |
+
+![Autopista moderna colombiana iluminada de noche](/img/blog/autopista-moderna.jpg)
 
 ### Carreteras Principales por Región
 
@@ -174,6 +176,8 @@ Colombia tiene más de **200 estaciones de peaje** en sus carreteras principales
 - **No adelantar en curva o línea continua**
 - **Descansar cada 2-3 horas** — La fatiga es causa frecuente de accidentes
 
+![Tablero de navegación moderno en vehículo para viajes](/img/blog/tablero-navegacion-carro.jpg)
+
 **Recomendaciones adicionales:**
 
 - Evita viajar de noche en carreteras secundarias
@@ -206,6 +210,8 @@ Colombia tiene más de **200 estaciones de peaje** en sus carreteras principales
 ::callout{type="info"}
 **Importante:** Descarga los mapas offline antes de salir. La señal de celular puede fallar en zonas montañosas.
 ::
+
+![Conductor usando GPS en el celular para navegar por carretera](/img/blog/gps-navegacion-carro.jpg)
 
 ### Información de Tráfico
 

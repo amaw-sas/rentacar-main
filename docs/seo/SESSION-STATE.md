@@ -127,21 +127,24 @@ When adding a new blog article:
 
 | # | Article | Slug | Status | Image |
 |---|---------|------|--------|-------|
-| 1 | Viajar por carretera en Colombia | `viajar-por-carretera-colombia-guia` | ✅ Written | ⚠️ Pending |
+| 1 | Viajar por carretera en Colombia | `viajar-por-carretera-colombia-guia` | ✅ Written | ✅ Complete (4 images) |
 | 2 | Precios de alquiler de carros | `precios-alquiler-carros-colombia` | Pending | — |
 | 3 | Mejores destinos en carro | `mejores-destinos-viajar-carro-colombia` | Pending | — |
 | 4 | Turismo en Santander | `turismo-santander-en-carro` | Pending | — |
 | 5 | Turismo en Boyacá | `turismo-boyaca-en-carro` | Pending | — |
 
-### Pending Images
+### Article #1 Images (completed)
 
-Article images needed (place in `packages/ui-alquilatucarro/public/img/blog/`):
+Images in `packages/ui-alquilatucarro/public/img/blog/`:
 
-- `viajar-carretera.webp` — Carretera panorámica colombiana con paisaje de montañas
+- `viajar-carretera.jpg` — Hero: carretera panorámica colombiana (Freepik)
+- `autopista-moderna.jpg` — Autopista con túnel moderno
+- `tablero-navegacion-carro.jpg` — Dashboard con GPS y navegación
+- `gps-navegacion-carro.jpg` — Conductor usando celular para navegar
 
 ## Next Actions
 
-- **Add image**: `viajar-carretera.webp` to complete article #1
+- **Commit article #1** with images and create PR
 - Continue with article #2: Precios de alquiler de carros
 - Monitor Google Search Console for blog indexing
 - Submit sitemap to Google if not auto-discovered
