@@ -101,12 +101,36 @@ header .text-highlighted,
     }
 }
 
-/* UHeader hamburger menu button - force white color */
-header button.lg\:hidden {
+/* Fix: UHeader hamburger/desktop nav — Tailwind v4 scanner doesn't generate */
+/* hidden/block/lg:hidden/lg:block when used dynamically in templates. */
+/* Use structural selectors: first-child = desktop nav, last-child = hamburger */
+
+/* Desktop navigation: hidden on mobile, visible on desktop */
+header [data-slot="right"] > div > div:first-child {
+    display: none;
+}
+@media (min-width: 1024px) {
+    header [data-slot="right"] > div > div:first-child {
+        display: block !important;
+    }
+}
+
+/* Hamburger toggle: visible on mobile, hidden on desktop */
+header [data-slot="right"] > div > div:last-child {
+    display: block;
+}
+@media (min-width: 1024px) {
+    header [data-slot="right"] > div > div:last-child {
+        display: none !important;
+    }
+}
+
+/* Force white color on hamburger button and its Iconify icon */
+header [data-slot="right"] button {
     color: white !important;
 }
-header button.lg\:hidden:hover {
-    color: white !important;
+header [data-slot="right"] button .iconify {
+    background-color: white !important;
 }
 
 /* UHeader slideover panel - white background with dark text */
