@@ -1,37 +1,37 @@
 <template>
   <div class="min-h-screen bg-gradient-to-b from-[#000073] via-blue-800 to-blue-900 font-sans text-gray-800">
     <!-- Header -->
-    <UHeader
-      v-model:open="mobileMenuOpen"
-      class="bg-[#000073] z-50 py-4 md:py-6 px-6 border-none relative"
-      mode="slideover"
-      :toggle="false"
-      :ui="{
-        root: 'gap-4',
-        content: 'bg-white',
-        header: 'bg-white relative',
-        body: 'bg-white'
-      }"
-     >
-      <template #right>
-        <div class="flex items-center gap-2">
+    <div class="relative">
+      <!-- Toggle móvil: posicionado absolutamente para evitar problemas con slots de UHeader -->
+      <button
+        type="button"
+        class="lg:hidden absolute right-4 top-1/2 -translate-y-1/2 z-50 flex items-center justify-center w-11 h-11 rounded-md hover:bg-white/10 transition-colors"
+        aria-label="Abrir menú de navegación"
+        @click="mobileMenuOpen = true"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+      <UHeader
+        v-model:open="mobileMenuOpen"
+        class="bg-[#000073] z-40 py-4 md:py-6 px-6 border-none"
+        mode="slideover"
+        :toggle="false"
+        :ui="{
+          root: 'gap-4',
+          content: 'bg-white',
+          header: 'bg-white relative',
+          body: 'bg-white'
+        }"
+      >
+        <template #right>
           <!-- Menú desktop -->
           <div class="hidden lg:block">
             <UNavigationMenu color="neutral" :items="items" />
           </div>
-          <!-- Toggle personalizado: visible solo en móvil/tablet -->
-          <div class="block lg:hidden">
-            <UButton
-              icon="lucide:menu"
-              color="white"
-              variant="ghost"
-              size="xl"
-              aria-label="Abrir menú de navegación"
-              @click="mobileMenuOpen = true"
-            />
-          </div>
-        </div>
-      </template>
+        </template>
       <template #left>
         <!-- Móvil: Logo centrado -->
         <NuxtLink to="/" aria-label="alquilatucarro" class="md:hidden absolute left-1/2 -translate-x-1/2">
@@ -64,6 +64,7 @@
         />
       </template>
     </UHeader>
+    </div>
 
     <main>
       <slot></slot>
