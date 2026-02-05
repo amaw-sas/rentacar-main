@@ -2,15 +2,15 @@
     <u-form
         class="w-full mx-auto md:w-3/6 lg:w-4/6 grid grid-cols-2 auto-rows-min gap-2 light"
     >
-        <div class="col-span-2 bg-white rounded-xl p-2 shadow-sm">
+        <!-- MÓVIL: Form field con select nativo -->
+        <div class="col-span-2 bg-white rounded-xl p-2 shadow-sm sm:hidden">
             <u-form-field label="Lugar de recogida" size="xl">
-                <!-- Móvil: select nativo (CSS: sm:hidden) -->
                 <select
                     v-if="lugarRecogida"
                     id="pickup-location-mobile"
                     v-model="lugarRecogida"
                     aria-label="Lugar de recogida"
-                    class="w-full sm:hidden"
+                    class="w-full"
                 >
                     <option
                         v-for="branch in sortedBranches"
@@ -19,16 +19,21 @@
                         :value="branch.code"
                     ></option>
                 </select>
-                <select v-else disabled class="w-full sm:hidden text-gray-400" aria-label="Lugar de recogida">
+                <select v-else disabled class="w-full text-gray-400" aria-label="Lugar de recogida">
                     <option>Cargando...</option>
                 </select>
-                <!-- Desktop: u-select-menu (CSS: hidden sm:block) -->
+            </u-form-field>
+        </div>
+
+        <!-- DESKTOP: Form field con u-select-menu -->
+        <div class="col-span-2 bg-white rounded-xl p-2 shadow-sm hidden sm:block">
+            <u-form-field label="Lugar de recogida" size="xl">
                 <u-select-menu
                     v-model="lugarRecogida"
                     id="pickup-location"
                     label-key="name"
                     value-key="code"
-                    class="w-full hidden sm:block"
+                    class="w-full"
                     variant="ghost"
                     data-testid="pickup-location-test"
                     :items="sortedBranches"
@@ -46,15 +51,15 @@
                 />
             </u-form-field>
         </div>
-        <div class="col-span-2 bg-white rounded-xl p-2 shadow-sm">
+        <!-- MÓVIL: Form field con select nativo -->
+        <div class="col-span-2 bg-white rounded-xl p-2 shadow-sm sm:hidden">
             <u-form-field label="Lugar de devolución" size="xl">
-                <!-- Móvil: select nativo (CSS: sm:hidden) -->
                 <select
                     v-if="lugarDevolucion"
                     id="return-location-mobile"
                     v-model="lugarDevolucion"
                     aria-label="Lugar de devolución"
-                    class="w-full sm:hidden"
+                    class="w-full"
                 >
                     <option
                         v-for="branch in sortedBranches"
@@ -63,10 +68,15 @@
                         :value="branch.code"
                     ></option>
                 </select>
-                <select v-else disabled class="w-full sm:hidden text-gray-400" aria-label="Lugar de devolución">
+                <select v-else disabled class="w-full text-gray-400" aria-label="Lugar de devolución">
                     <option>Cargando...</option>
                 </select>
-                <!-- Desktop: u-select-menu (CSS: hidden sm:block) -->
+            </u-form-field>
+        </div>
+
+        <!-- DESKTOP: Form field con u-select-menu -->
+        <div class="col-span-2 bg-white rounded-xl p-2 shadow-sm hidden sm:block">
+            <u-form-field label="Lugar de devolución" size="xl">
                 <u-select-menu
                     v-model="lugarDevolucion"
                     id="return-location"
@@ -74,7 +84,7 @@
                     label-key="name"
                     value-key="code"
                     variant="ghost"
-                    class="w-full hidden sm:block"
+                    class="w-full"
                     :items="sortedBranches"
                     :search-input="{
                         placeholder: 'Buscar sucursal',
@@ -90,9 +100,9 @@
                 />
             </u-form-field>
         </div>
-        <div class="bg-white rounded-xl p-2 shadow-sm">
+        <!-- MÓVIL: Form field con input date nativo -->
+        <div class="bg-white rounded-xl p-2 shadow-sm sm:hidden">
             <u-form-field label="Día de recogida" size="xl">
-                <!-- Móvil: input nativo (CSS: sm:hidden) -->
                 <input
                     v-if="minPickupDate"
                     type="date"
@@ -100,16 +110,21 @@
                     name="pickup-date-mobile"
                     v-model="selectedPickupDate"
                     aria-label="Día de recogida"
-                    class="w-full sm:hidden"
+                    class="w-full"
                     :min="minPickupDate.toString()"
                 >
-                <!-- Desktop: u-input-date (CSS: hidden sm:block) -->
+            </u-form-field>
+        </div>
+
+        <!-- DESKTOP: Form field con u-input-date -->
+        <div class="bg-white rounded-xl p-2 shadow-sm hidden sm:block">
+            <u-form-field label="Día de recogida" size="xl">
                 <u-input-date
                     v-if="minPickupDate"
                     id="pickup-date"
                     v-model="selectedPickupDate"
                     variant="ghost"
-                    class="w-full hidden sm:block"
+                    class="w-full"
                     :min-value="minPickupDate"
                     @click="pickupDateCalendarOpen = true"
                 >
@@ -149,9 +164,9 @@
                 </u-input-date>
             </u-form-field>
         </div>
-        <div class="bg-white rounded-xl p-2 shadow-sm">
+        <!-- MÓVIL: Form field con input date nativo -->
+        <div class="bg-white rounded-xl p-2 shadow-sm sm:hidden">
             <u-form-field label="Día de devolución" size="xl">
-                <!-- Móvil: input nativo (CSS: sm:hidden) -->
                 <input
                     v-if="minPickupDate"
                     type="date"
@@ -159,17 +174,22 @@
                     name="return-date-mobile"
                     v-model="selectedReturnDate"
                     aria-label="Día de devolución"
-                    class="w-full sm:hidden"
+                    class="w-full"
                     :min="minPickupDate.toString()"
                     :max="maxReturnDate?.toString()"
                 >
-                <!-- Desktop: u-input-date (CSS: hidden sm:block) -->
+            </u-form-field>
+        </div>
+
+        <!-- DESKTOP: Form field con u-input-date -->
+        <div class="bg-white rounded-xl p-2 shadow-sm hidden sm:block">
+            <u-form-field label="Día de devolución" size="xl">
                 <u-input-date
                     v-if="minPickupDate"
                     id="return-date"
                     v-model="selectedReturnDate"
                     variant="ghost"
-                    class="w-full hidden sm:block"
+                    class="w-full"
                     :min-value="minPickupDate"
                     :max-value="maxReturnDate"
                     @click="returnDateCalendarOpen = true"
@@ -211,14 +231,14 @@
                 </u-input-date>
             </u-form-field>
         </div>
-        <div class="bg-white rounded-xl p-2 shadow-sm">
+        <!-- MÓVIL: Form field con select nativo -->
+        <div class="bg-white rounded-xl p-2 shadow-sm sm:hidden">
             <u-form-field label="Hora de recogida" size="xl">
-                <!-- Móvil: select nativo (CSS: sm:hidden) -->
                 <select
                     id="pickup-hour-mobile"
                     v-model="horaRecogida"
                     aria-label="Hora de recogida"
-                    class="w-full sm:hidden"
+                    class="w-full"
                 >
                     <option
                         v-for="hour in pickupHourOptions"
@@ -227,12 +247,17 @@
                         :value="hour.value"
                     ></option>
                 </select>
-                <!-- Desktop: u-select-menu (CSS: hidden sm:block) -->
+            </u-form-field>
+        </div>
+
+        <!-- DESKTOP: Form field con u-select-menu -->
+        <div class="bg-white rounded-xl p-2 shadow-sm hidden sm:block">
+            <u-form-field label="Hora de recogida" size="xl">
                 <u-select-menu
                     v-model="horaRecogida"
                     value-key="value"
                     label-key="label"
-                    class="w-full hidden sm:block"
+                    class="w-full"
                     variant="ghost"
                     :autofocus="false"
                     :items="pickupHourOptions"
@@ -243,14 +268,14 @@
                 />
             </u-form-field>
         </div>
-        <div class="bg-white rounded-xl p-2 shadow-sm">
+        <!-- MÓVIL: Form field con select nativo -->
+        <div class="bg-white rounded-xl p-2 shadow-sm sm:hidden">
             <u-form-field label="Hora de devolución" size="xl">
-                <!-- Móvil: select nativo (CSS: sm:hidden) -->
                 <select
                     id="return-hour-mobile"
                     v-model="horaDevolucion"
                     aria-label="Hora de devolución"
-                    class="w-full sm:hidden"
+                    class="w-full"
                 >
                     <option
                         v-for="hour in returnHourOptions"
@@ -259,14 +284,19 @@
                         :value="hour.value"
                     ></option>
                 </select>
-                <!-- Desktop: u-select-menu (CSS: hidden sm:block) -->
+            </u-form-field>
+        </div>
+
+        <!-- DESKTOP: Form field con u-select-menu -->
+        <div class="bg-white rounded-xl p-2 shadow-sm hidden sm:block">
+            <u-form-field label="Hora de devolución" size="xl">
                 <u-select-menu
                     id="return-hour"
                     v-model="horaDevolucion"
                     value-key="value"
                     label-key="label"
                     variant="ghost"
-                    class="w-full hidden sm:block"
+                    class="w-full"
                     :autofocus="false"
                     :items="returnHourOptions"
                     :ui="{
