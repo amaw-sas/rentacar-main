@@ -82,6 +82,8 @@ Consulta nuestra [guía completa del Eje Cafetero en carro](/blog/eje-cafetero-e
 
 La **Costa Caribe** colombiana es el destino de playa por excelencia. Cartagena, con su ciudad amurallada, es el punto de partida ideal para explorar playas, islas y pueblos costeros.
 
+![Calles coloridas de Cartagena con arquitectura colonial](/img/blog/cartagena-calles.webp)
+
 ### Datos prácticos
 
 | Aspecto | Detalle |
@@ -169,6 +171,8 @@ Más detalles en [7 rutas en carro desde Bogotá](/blog/rutas-carro-desde-bogota
 
 **Santa Marta** es la ciudad más antigua de Colombia y la puerta de entrada al **Parque Tayrona**, uno de los parques naturales más hermosos del continente.
 
+![Playa paradisíaca del Parque Tayrona con palmeras y mar turquesa](/img/blog/tayrona-playa.webp)
+
 ### Datos prácticos
 
 | Aspecto | Detalle |
@@ -197,6 +201,7 @@ Más detalles en [7 rutas en carro desde Bogotá](/blog/rutas-carro-desde-bogota
 
 **Guatapé** es famoso por la Piedra del Peñol (740 escalones con vista 360°) y sus casas decoradas con zócalos coloridos. Es la excursión de un día más popular desde Medellín.
 
+![Vista de la Piedra del Peñol en Guatapé rodeada de lagos y naturaleza](/img/blog/guatape-piedra.webp)
 
 ### Datos prácticos
 
@@ -304,6 +309,8 @@ El **Desierto de la Tatacoa** es en realidad un bosque seco tropical con formaci
 
 **Barichara** ha sido elegido repetidamente como el pueblo más lindo de Colombia. Calles empedradas, casas de tapia pisada y un ambiente de tranquilidad hacen de este lugar un destino obligatorio.
 
+![Calles empedradas de Barichara con casas coloniales blancas](/img/blog/barichara-calles.webp)
+
 ### Datos prácticos
 
 | Aspecto | Detalle |
@@ -355,6 +362,8 @@ El **Desierto de la Tatacoa** es en realidad un bosque seco tropical con formaci
 ## 12. Lago de Tota: El Mar Interior de Boyacá
 
 El **Lago de Tota** es el lago más grande de Colombia y uno de los más altos del mundo (3,015 m). Aguas cristalinas de color turquesa rodeadas de montañas.
+
+![Vista panorámica del Lago de Tota con aguas azules y montañas](/img/blog/lago-de-tota.webp)
 
 ### Datos prácticos
 
