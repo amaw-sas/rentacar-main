@@ -1,12 +1,12 @@
 # Session State
 
-> Last updated: 2026-02-01
+> Last updated: 2026-02-05
 
 ## Current Phase
 
-**Blog Audit Complete — All improvements, fixes, and visual polish deployed and verified**
+**Content Production — Writing new blog articles per BLOG-CONTENT-PLAN.md**
 
-All 16 blog improvements + 5 bugfixes + 3 visual polish PRs deployed and verified in production.
+Tier 1 Quick Wins in progress. First article completed, ready for deployment.
 
 ## Completed Work
 
@@ -121,9 +121,28 @@ When adding a new blog article:
 - **PR #125 (ToC)**: Visible on desktop via `data-blog-toc` workaround ✅
 - **PR #126 (layout)**: Non-sticky ToC ✅, Prev/Next + Volver al Blog in gray section ✅, CTA below without buttons ✅
 
+## Blog Content Production Progress
+
+### Tier 1 — Quick Wins (5 articles, KD ≤ 25%)
+
+| # | Article | Slug | Status | Image |
+|---|---------|------|--------|-------|
+| 1 | Viajar por carretera en Colombia | `viajar-por-carretera-colombia-guia` | ✅ Written | ⚠️ Pending |
+| 2 | Precios de alquiler de carros | `precios-alquiler-carros-colombia` | Pending | — |
+| 3 | Mejores destinos en carro | `mejores-destinos-viajar-carro-colombia` | Pending | — |
+| 4 | Turismo en Santander | `turismo-santander-en-carro` | Pending | — |
+| 5 | Turismo en Boyacá | `turismo-boyaca-en-carro` | Pending | — |
+
+### Pending Images
+
+Article images needed (place in `packages/ui-alquilatucarro/public/img/blog/`):
+
+- `viajar-carretera.webp` — Carretera panorámica colombiana con paisaje de montañas
+
 ## Next Actions
 
-- Write new blog articles per `docs/seo/estrategia/BLOG-CONTENT-PLAN.md` (15 articles, Tiers 1-4)
+- **Add image**: `viajar-carretera.webp` to complete article #1
+- Continue with article #2: Precios de alquiler de carros
 - Monitor Google Search Console for blog indexing
 - Submit sitemap to Google if not auto-discovered
 - Replace Firebase Storage avatar URL with a local file (long-term fix for expired tokens)

@@ -603,6 +603,7 @@ export default defineNuxtConfig({
         '/blog/eje-cafetero-en-carro-guia-completa',
         '/blog/costa-caribe-cartagena-santa-marta-carro',
         '/blog/viajar-carro-con-ninos-colombia',
+        '/blog/viajar-por-carretera-colombia-guia',
       ]
     }
   },
@@ -643,6 +644,7 @@ export default defineNuxtConfig({
       { loc: '/blog/eje-cafetero-en-carro-guia-completa', changefreq: 'monthly', priority: 0.7 },
       { loc: '/blog/costa-caribe-cartagena-santa-marta-carro', changefreq: 'monthly', priority: 0.7 },
       { loc: '/blog/viajar-carro-con-ninos-colombia', changefreq: 'monthly', priority: 0.7 },
+      { loc: '/blog/viajar-por-carretera-colombia-guia', changefreq: 'monthly', priority: 0.7 },
     ],
     exclude: ['/pendiente', '/sindisponibilidad', '/reservado/**', '/*/buscar-vehiculos/**', '/seo/**'],
   },
