@@ -4,9 +4,9 @@
 
 ## Current Phase
 
-**Content Production — Article #9 Ready for PR**
+**Content Production — Article #9 PR Created**
 
-Tier 1 Quick Wins completed (5 articles). Tier 2 City Guides completed (3 articles). Article #9 (Rutas desde Medellín) committed on feature branch. Total: 9 articles (8 merged + 1 pending PR).
+Tier 1 Quick Wins completed (5 articles). Tier 2 City Guides completed (3 articles). Article #9 (Rutas desde Medellín) PR #149 created, pending merge. Total: 9 articles (8 merged + 1 in PR).
 
 ## Completed Work
 
@@ -149,7 +149,7 @@ When adding a new blog article:
 | 6 | Alquilar Carro en Bogotá | `alquilar-carro-bogota-guia` | ✅ Merged (PR #145) | ✅ 1 image (reused) |
 | 7 | Alquilar Carro en Medellín | `alquilar-carro-medellin-guia` | ✅ Merged (PR #146) | ✅ 1 image (reused) |
 | 8 | Alquilar Carro en Cartagena | `alquilar-carro-cartagena-guia` | ✅ Merged (PR #147) | ✅ 1 image (reused) |
-| 9 | Rutas en Carro desde Medellín | `rutas-carro-desde-medellin` | 🔲 Pending PR | ✅ 1 image (reused) |
+| 9 | Rutas en Carro desde Medellín | `rutas-carro-desde-medellin` | 🔲 PR #149 (pending merge) | ✅ 1 image (reused) |
 
 ### Article #1 Images (completed)
 
@@ -227,7 +227,7 @@ GSC MCP doesn't have "Request Indexing" capability. User must manually request i
 ## Branch State
 
 - **main**: Clean, up to date through PR #148 (blog listing images fix)
-- **feat/blog-rutas-desde-medellin**: Article #9 committed, ready for push + PR
+- **feat/blog-rutas-desde-medellin**: Article #9 — PR #149 open, pending merge
 - All other feature branches deleted after merge
 
 ## Article #5 Images (completed)
