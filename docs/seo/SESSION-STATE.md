@@ -176,9 +176,37 @@ API ahora funciona (no más errores 403), pero resultados no son útiles para de
 - **Unsplash**: Destinos colombianos específicos (geolocalización real)
 - **Freepik**: Conceptos genéricos, ilustraciones, vectores
 
+## GSC Indexation Status (2026-02-06)
+
+### Sitemap Verification
+- **Total URLs in sitemap**: 39
+- **Blog articles**: 15
+- **Accessibility**: All return HTTP 200
+- **Configuration**: Correct in nuxt.config.ts
+
+### Indexation Status (via GSC URL Inspection)
+| URL | Status |
+|-----|--------|
+| `/blog` | Submitted and indexed ✅ |
+| `/blog/requisitos-alquilar-carro-colombia` | Discovered - currently not indexed |
+| `/blog/tipos-carros-alquilar-cual-elegir` | URL is unknown to Google |
+| `/blog/viajar-carro-con-ninos-colombia` | URL is unknown to Google |
+| `/blog/rutas-carro-desde-bogota` | Discovered - currently not indexed |
+| Other blog articles | Pending inspection |
+
+### Root Cause
+Articles published Feb 5-10, 2026 (< 1 week old). Google needs 1-4 weeks to crawl and index new content from sites building authority.
+
+### Manual Action Required
+GSC MCP doesn't have "Request Indexing" capability. User must manually request indexing via GSC UI:
+1. Go to Google Search Console → URL Inspection
+2. Enter each blog URL
+3. Click "Request Indexing"
+
 ## Next Actions
 
-- 🔲 Monitor Google Search Console for blog indexing (wait 1-2 weeks after Feb 10)
+- 🔲 User: Manually request indexing for 15 blog URLs in GSC UI
+- 🔲 Monitor GSC indexation status (check again Feb 20)
 - 🔲 Replace Firebase Storage avatar URL with a local file (long-term fix for expired tokens)
 - 🔲 Consider Tier 3 articles if search traffic justifies investment
 
