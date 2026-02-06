@@ -4,9 +4,9 @@
 
 ## Current Phase
 
-**Content Production — Writing new blog articles per BLOG-CONTENT-PLAN.md**
+**Content Production — Tier 1 Complete, Ready for Tier 2**
 
-Tier 1 Quick Wins in progress. First article completed, ready for deployment.
+Tier 1 Quick Wins completed (5 articles). All articles merged to main and deployed.
 
 ## Completed Work
 
@@ -130,8 +130,8 @@ When adding a new blog article:
 | 1 | Viajar por carretera en Colombia | `viajar-por-carretera-colombia-guia` | ✅ Merged (PR #136) | ✅ 4 images |
 | 2 | Precios de alquiler de carros | `precios-alquiler-carros-colombia` | ✅ Merged (PR #137) | ✅ 4 images |
 | 3 | Mejores destinos en carro | `mejores-destinos-viajar-carro-colombia` | ✅ Merged (PR #143) | ✅ 5 images |
-| 4 | Turismo en Santander | `turismo-santander-en-carro` | 🔄 PR #144 | ✅ 4 images |
-| 5 | Turismo en Boyacá | `turismo-boyaca-en-carro` | 🔄 PR #144 | ✅ 4 images |
+| 4 | Turismo en Santander | `turismo-santander-en-carro` | ✅ Merged (PR #144) | ✅ 4 images |
+| 5 | Turismo en Boyacá | `turismo-boyaca-en-carro` | ✅ Merged (PR #144) | ✅ 4 images |
 
 ### Article #1 Images (completed)
 
@@ -161,10 +161,10 @@ API ahora funciona (no más errores 403), pero resultados no son útiles para de
 
 ## Next Actions
 
-- **Merge PR #144**: Contains both Santander and Boyacá articles (completes Tier 1)
-- Monitor Google Search Console for blog indexing
+- ✅ ~~Merge PR #144~~ — Completed 2026-02-06
+- Monitor Google Search Console for blog indexing (wait 1-2 weeks)
 - Replace Firebase Storage avatar URL with a local file (long-term fix for expired tokens)
-- Start Tier 2 articles after Tier 1 complete
+- Start Tier 2 articles (see BLOG-CONTENT-PLAN.md)
 
 ## Economic Decisions
 
@@ -173,8 +173,7 @@ API ahora funciona (no más errores 403), pero resultados no son útiles para de
 
 ## Branch State
 
-- **main**: Clean, up to date through PR #143
-- **feat/blog-turismo-santander**: PR #144 open — contains Articles #4 and #5
+- **main**: Clean, up to date through PR #144 (Tier 1 complete)
 - All feature branches deleted after merge
 
 ## Article #5 Images (completed)
