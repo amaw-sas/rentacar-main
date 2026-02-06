@@ -1,6 +1,6 @@
 # Session State
 
-> Last updated: 2026-02-05
+> Last updated: 2026-02-06
 
 ## Current Phase
 
@@ -127,9 +127,9 @@ When adding a new blog article:
 
 | # | Article | Slug | Status | Image |
 |---|---------|------|--------|-------|
-| 1 | Viajar por carretera en Colombia | `viajar-por-carretera-colombia-guia` | ✅ Written | ✅ Complete (4 images) |
-| 2 | Precios de alquiler de carros | `precios-alquiler-carros-colombia` | Pending | — |
-| 3 | Mejores destinos en carro | `mejores-destinos-viajar-carro-colombia` | Pending | — |
+| 1 | Viajar por carretera en Colombia | `viajar-por-carretera-colombia-guia` | ✅ Merged (PR #136) | ✅ 4 images |
+| 2 | Precios de alquiler de carros | `precios-alquiler-carros-colombia` | ✅ Merged (PR #137) | ✅ 4 images |
+| 3 | Mejores destinos en carro | `mejores-destinos-viajar-carro-colombia` | ✅ Merged (PR #143) | ✅ 5 images |
 | 4 | Turismo en Santander | `turismo-santander-en-carro` | Pending | — |
 | 5 | Turismo en Boyacá | `turismo-boyaca-en-carro` | Pending | — |
 
@@ -144,10 +144,9 @@ Images in `packages/ui-alquilatucarro/public/img/blog/`:
 
 ## Next Actions
 
-- **Commit article #1** with images and create PR
-- Continue with article #2: Precios de alquiler de carros
+- **Write article #4**: Turismo en Santander en carro
+- **Write article #5**: Turismo en Boyacá en carro
 - Monitor Google Search Console for blog indexing
-- Submit sitemap to Google if not auto-discovered
 - Replace Firebase Storage avatar URL with a local file (long-term fix for expired tokens)
 
 ## Economic Decisions
