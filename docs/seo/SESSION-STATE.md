@@ -1,12 +1,12 @@
 # Session State
 
-> Last updated: 2026-02-08
+> Last updated: 2026-02-10
 
 ## Current Phase
 
-**Content Production — Tier 2 In Progress**
+**Content Production — Tier 2 COMPLETE**
 
-Tier 1 Quick Wins completed (5 articles). Tier 2 article #6 (Bogotá guide) merged. Now working on Article #7 (Medellín).
+Tier 1 Quick Wins completed (5 articles). Tier 2 City Guides completed (3 articles). Total: 8 new SEO articles merged to main.
 
 ## Completed Work
 
@@ -169,12 +169,9 @@ API ahora funciona (no más errores 403), pero resultados no son útiles para de
 
 ## Next Actions
 
-- ✅ ~~Merge PR #144~~ — Completed 2026-02-06
-- ✅ ~~Merge PR #145~~ — Completed 2026-02-08 (Article #6 Bogotá)
-- 🔲 **Tier 2 Article #7** — Medellín guide PR pending
-- Continue Tier 2 articles (#8 Cartagena)
-- Monitor Google Search Console for blog indexing (wait 1-2 weeks)
-- Replace Firebase Storage avatar URL with a local file (long-term fix for expired tokens)
+- 🔲 Monitor Google Search Console for blog indexing (wait 1-2 weeks after Feb 10)
+- 🔲 Replace Firebase Storage avatar URL with a local file (long-term fix for expired tokens)
+- 🔲 Consider Tier 3 articles if search traffic justifies investment
 
 ## Economic Decisions
 
@@ -183,7 +180,7 @@ API ahora funciona (no más errores 403), pero resultados no son útiles para de
 
 ## Branch State
 
-- **main**: Clean, up to date through PR #145 (Tier 2 Article #6 merged)
+- **main**: Clean, up to date through PR #147 (Tier 2 complete — 8 articles total)
 - All feature branches deleted after merge
 
 ## Article #5 Images (completed)
