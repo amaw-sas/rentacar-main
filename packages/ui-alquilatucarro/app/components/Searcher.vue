@@ -140,7 +140,7 @@
                             :next-year="{ color: 'neutral', variant: 'solid' }"
                             :prev-month="{ color: 'neutral', variant: 'solid' }"
                             :next-month="{ color: 'neutral', variant: 'solid' }"
-                            class="calendar-light"
+                            class="p-2"
                         />
                     </template>
                 </u-popover>
@@ -354,9 +354,12 @@ function formatDateRange(range: { start: CalendarDate | null, end: CalendarDate 
 
 // Calendar UI configuration for better contrast and visibility
 const calendarUIConfig = {
-    root: 'flex flex-row gap-4',  // Horizontal layout for multiple months
-    heading: '!text-gray-900 !font-bold',
-    cellTrigger: '!text-gray-900 !font-semibold data-[disabled]:!text-gray-300 data-[disabled]:!opacity-40 data-[unavailable]:!text-gray-300 data-[unavailable]:!opacity-40 data-[outside-view]:!text-gray-400 data-[outside-view]:!opacity-50'
+    root: 'bg-white flex flex-row gap-4',  // Horizontal layout for multiple months
+    header: 'text-gray-900',
+    body: 'bg-white',
+    heading: 'text-gray-900 font-bold',
+    headCell: 'text-success-600 font-medium',  // Day names (L M X J V S D)
+    cellTrigger: 'text-gray-900 font-semibold data-[disabled]:text-gray-300 data-[disabled]:opacity-40 data-[unavailable]:text-gray-300 data-[unavailable]:opacity-40 data-[outside-view]:text-gray-400 data-[outside-view]:opacity-50'
 };
 
 // Initialize stores only on client side after mount
