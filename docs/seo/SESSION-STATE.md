@@ -138,8 +138,8 @@ When adding a new blog article:
 | # | Article | Slug | Status | Image |
 |---|---------|------|--------|-------|
 | 6 | Alquilar Carro en Bogotá | `alquilar-carro-bogota-guia` | ✅ Merged (PR #145) | ✅ 1 image (reused) |
-| 7 | Alquilar Carro en Medellín | `alquilar-carro-medellin-guia` | 🔲 PR Pending | ✅ 1 image (reused) |
-| 8 | Alquilar Carro en Cartagena | `alquilar-carro-cartagena-guia` | 🔲 Pending | - |
+| 7 | Alquilar Carro en Medellín | `alquilar-carro-medellin-guia` | ✅ Merged (PR #146) | ✅ 1 image (reused) |
+| 8 | Alquilar Carro en Cartagena | `alquilar-carro-cartagena-guia` | ✅ Merged (PR #147) | ✅ 1 image (reused) |
 
 ### Article #1 Images (completed)
 
