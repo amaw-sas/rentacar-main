@@ -609,6 +609,7 @@ export default defineNuxtConfig({
         '/blog/turismo-santander-en-carro',
         '/blog/turismo-boyaca-en-carro',
         '/blog/alquilar-carro-bogota-guia',
+        '/blog/alquilar-carro-medellin-guia',
       ]
     }
   },
@@ -655,6 +656,7 @@ export default defineNuxtConfig({
       { loc: '/blog/turismo-santander-en-carro', changefreq: 'monthly', priority: 0.7 },
       { loc: '/blog/turismo-boyaca-en-carro', changefreq: 'monthly', priority: 0.7 },
       { loc: '/blog/alquilar-carro-bogota-guia', changefreq: 'monthly', priority: 0.7 },
+      { loc: '/blog/alquilar-carro-medellin-guia', changefreq: 'monthly', priority: 0.7 },
     ],
     exclude: ['/pendiente', '/sindisponibilidad', '/reservado/**', '/*/buscar-vehiculos/**', '/seo/**'],
   },
