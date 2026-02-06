@@ -326,6 +326,21 @@
 import { CalendarDate, parseDate, getLocalTimeZone, DateFormatter } from '@internationalized/date'
 import type { DateValue } from '@internationalized/date'
 
+// Conversion helpers: String ISO ↔ CalendarDate
+function stringToCalendarDate(dateString: string | null): CalendarDate | null {
+  if (!dateString) return null
+  try {
+    return parseDate(dateString)
+  } catch {
+    return null
+  }
+}
+
+function calendarDateToString(calendarDate: CalendarDate | null): string | null {
+  if (!calendarDate) return null
+  return calendarDate.toString()
+}
+
 /** Local refs - initialized lazily to avoid SSR Pinia errors */
 const lugarRecogida = ref<string | null>(null);
 const lugarDevolucion = ref<string | null>(null);
