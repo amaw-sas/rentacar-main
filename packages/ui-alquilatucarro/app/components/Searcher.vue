@@ -136,6 +136,10 @@
                             :ui="calendarUIConfig"
                             :month-controls="true"
                             :year-controls="true"
+                            :prev-year="{ color: 'neutral', variant: 'solid' }"
+                            :next-year="{ color: 'neutral', variant: 'solid' }"
+                            :prev-month="{ color: 'neutral', variant: 'solid' }"
+                            :next-month="{ color: 'neutral', variant: 'solid' }"
                             class="calendar-light"
                         />
                     </template>
@@ -352,11 +356,7 @@ function formatDateRange(range: { start: CalendarDate | null, end: CalendarDate 
 const calendarUIConfig = {
     root: 'flex flex-row gap-4',  // Horizontal layout for multiple months
     heading: '!text-gray-900 !font-bold',
-    cellTrigger: '!text-gray-900 !font-semibold data-[disabled]:!text-gray-300 data-[disabled]:!opacity-40 data-[unavailable]:!text-gray-300 data-[unavailable]:!opacity-40 data-[outside-view]:!text-gray-400 data-[outside-view]:!opacity-50 data-[selected]:!bg-success-500 data-[selected]:!text-white',
-    prevYear: '!text-gray-900 hover:!bg-gray-100',
-    nextYear: '!text-gray-900 hover:!bg-gray-100',
-    prevMonth: '!text-gray-900 hover:!bg-gray-100',
-    nextMonth: '!text-gray-900 hover:!bg-gray-100'
+    cellTrigger: '!text-gray-900 !font-semibold data-[disabled]:!text-gray-300 data-[disabled]:!opacity-40 data-[unavailable]:!text-gray-300 data-[unavailable]:!opacity-40 data-[outside-view]:!text-gray-400 data-[outside-view]:!opacity-50'
 };
 
 // Initialize stores only on client side after mount
