@@ -1,12 +1,12 @@
 # Session State
 
-> Last updated: 2026-02-07
+> Last updated: 2026-02-08
 
 ## Current Phase
 
-**Content Production — Tier 1 Complete, Ready for Tier 2**
+**Content Production — Tier 2 In Progress**
 
-Tier 1 Quick Wins completed (5 articles). All articles merged to main and deployed.
+Tier 1 Quick Wins completed (5 articles). Tier 2 article #6 (Bogotá guide) submitted as PR #145.
 
 ## Completed Work
 
@@ -133,6 +133,14 @@ When adding a new blog article:
 | 4 | Turismo en Santander | `turismo-santander-en-carro` | ✅ Merged (PR #144) | ✅ 4 images |
 | 5 | Turismo en Boyacá | `turismo-boyaca-en-carro` | ✅ Merged (PR #144) | ✅ 4 images |
 
+### Tier 2 — City Guides (KD 26-40%)
+
+| # | Article | Slug | Status | Image |
+|---|---------|------|--------|-------|
+| 6 | Alquilar Carro en Bogotá | `alquilar-carro-bogota-guia` | ⏳ PR #145 | ✅ 1 image (reused) |
+| 7 | Alquilar Carro en Medellín | `alquilar-carro-medellin-guia` | 🔲 Pending | - |
+| 8 | Alquilar Carro en Cartagena | `alquilar-carro-cartagena-guia` | 🔲 Pending | - |
+
 ### Article #1 Images (completed)
 
 Images in `packages/ui-alquilatucarro/public/img/blog/`:
@@ -162,9 +170,10 @@ API ahora funciona (no más errores 403), pero resultados no son útiles para de
 ## Next Actions
 
 - ✅ ~~Merge PR #144~~ — Completed 2026-02-06
+- ⏳ **Tier 2 Article #6** — PR #145 awaiting merge
 - Monitor Google Search Console for blog indexing (wait 1-2 weeks)
 - Replace Firebase Storage avatar URL with a local file (long-term fix for expired tokens)
-- Start Tier 2 articles (see BLOG-CONTENT-PLAN.md)
+- Continue Tier 2 articles (#7 Medellín, #8 Cartagena)
 
 ## Economic Decisions
 
@@ -174,6 +183,7 @@ API ahora funciona (no más errores 403), pero resultados no son útiles para de
 ## Branch State
 
 - **main**: Clean, up to date through PR #144 (Tier 1 complete)
+- **feat/blog-alquilar-carro-bogota**: PR #145 open (Article #6)
 - All feature branches deleted after merge
 
 ## Article #5 Images (completed)
