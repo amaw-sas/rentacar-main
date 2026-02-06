@@ -611,6 +611,7 @@ export default defineNuxtConfig({
         '/blog/alquilar-carro-bogota-guia',
         '/blog/alquilar-carro-medellin-guia',
         '/blog/alquilar-carro-cartagena-guia',
+        '/blog/rutas-carro-desde-medellin',
       ]
     }
   },
@@ -659,6 +660,7 @@ export default defineNuxtConfig({
       { loc: '/blog/alquilar-carro-bogota-guia', changefreq: 'monthly', priority: 0.7 },
       { loc: '/blog/alquilar-carro-medellin-guia', changefreq: 'monthly', priority: 0.7 },
       { loc: '/blog/alquilar-carro-cartagena-guia', changefreq: 'monthly', priority: 0.7 },
+      { loc: '/blog/rutas-carro-desde-medellin', changefreq: 'monthly', priority: 0.7 },
     ],
     exclude: ['/pendiente', '/sindisponibilidad', '/reservado/**', '/*/buscar-vehiculos/**', '/seo/**'],
   },
