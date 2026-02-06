@@ -134,12 +134,6 @@
                             :prevent-deselect="true"
                             color="success"
                             :ui="calendarUIConfig"
-                            :month-controls="true"
-                            :year-controls="true"
-                            :prev-year="{ color: 'neutral', variant: 'solid' }"
-                            :next-year="{ color: 'neutral', variant: 'solid' }"
-                            :prev-month="{ color: 'neutral', variant: 'solid' }"
-                            :next-month="{ color: 'neutral', variant: 'solid' }"
                             class="p-2"
                         />
                     </template>
@@ -304,10 +298,7 @@ const numberOfMonths = computed(() => isDesktop.value ? 2 : 1)
 
 // Validation: disable same-day selection
 const isDateDisabled = (date: DateValue) => {
-  if (dateRange.value?.start && !dateRange.value?.end) {
-    // Deshabilitar el mismo día que la fecha de inicio
-    return date.compare(dateRange.value.start) === 0
-  }
+  // Removido: la validación de mismo día se maneja con dateRangeError
   return false
 }
 
