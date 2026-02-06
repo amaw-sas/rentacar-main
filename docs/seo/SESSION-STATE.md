@@ -1,6 +1,6 @@
 # Session State
 
-> Last updated: 2026-02-06
+> Last updated: 2026-02-07
 
 ## Current Phase
 
@@ -130,8 +130,8 @@ When adding a new blog article:
 | 1 | Viajar por carretera en Colombia | `viajar-por-carretera-colombia-guia` | ✅ Merged (PR #136) | ✅ 4 images |
 | 2 | Precios de alquiler de carros | `precios-alquiler-carros-colombia` | ✅ Merged (PR #137) | ✅ 4 images |
 | 3 | Mejores destinos en carro | `mejores-destinos-viajar-carro-colombia` | ✅ Merged (PR #143) | ✅ 5 images |
-| 4 | Turismo en Santander | `turismo-santander-en-carro` | Pending | — |
-| 5 | Turismo en Boyacá | `turismo-boyaca-en-carro` | Pending | — |
+| 4 | Turismo en Santander | `turismo-santander-en-carro` | 🔄 PR #144 | ✅ 4 images |
+| 5 | Turismo en Boyacá | `turismo-boyaca-en-carro` | 🔄 PR #144 | ✅ 4 images |
 
 ### Article #1 Images (completed)
 
@@ -142,12 +142,29 @@ Images in `packages/ui-alquilatucarro/public/img/blog/`:
 - `tablero-navegacion-carro.jpg` — Dashboard con GPS y navegación
 - `gps-navegacion-carro.jpg` — Conductor usando celular para navegar
 
+## Freepik API Evaluation (2026-02-06)
+
+API ahora funciona (no más errores 403), pero resultados no son útiles para destinos colombianos:
+
+| Búsqueda | Resultado |
+|----------|-----------|
+| "Villa de Leyva Colombia" | Calles genéricas, isla de Filipinas |
+| "Lago de Tota Colombia" | Lagos genéricos, República Checa |
+| "Raquira Colombia ceramica" | Helados, artesanías random |
+| "colonial town Colombia" | Italia, Rusia, caricaturas |
+
+**Conclusión**: Freepik genera títulos automáticos ("Scenic view of landscape against sky") sin geolocalización real. Los $5 de créditos son mejor usarlos para imágenes genéricas/conceptuales donde la ubicación no importa (carros, GPS, dashboards).
+
+**Estrategia de imágenes**:
+- **Unsplash**: Destinos colombianos específicos (geolocalización real)
+- **Freepik**: Conceptos genéricos, ilustraciones, vectores
+
 ## Next Actions
 
-- **Write article #4**: Turismo en Santander en carro
-- **Write article #5**: Turismo en Boyacá en carro
+- **Merge PR #144**: Contains both Santander and Boyacá articles (completes Tier 1)
 - Monitor Google Search Console for blog indexing
 - Replace Firebase Storage avatar URL with a local file (long-term fix for expired tokens)
+- Start Tier 2 articles after Tier 1 complete
 
 ## Economic Decisions
 
@@ -156,5 +173,15 @@ Images in `packages/ui-alquilatucarro/public/img/blog/`:
 
 ## Branch State
 
-- **main**: Clean, up to date through PR #126
+- **main**: Clean, up to date through PR #143
+- **feat/blog-turismo-santander**: PR #144 open — contains Articles #4 and #5
 - All feature branches deleted after merge
+
+## Article #5 Images (completed)
+
+Images in `packages/ui-alquilatucarro/public/img/blog/`:
+
+- `villa-de-leyva-colonial.webp` — Hero: Plaza colonial de Villa de Leyva (Unsplash)
+- `paipa-plaza-colonial.webp` — Plaza y arquitectura de Paipa (Unsplash)
+- `raquira-ceramica.webp` — Artesanías de Ráquira (Unsplash)
+- `lago-de-tota.webp` — Lago de Tota (existing, reutilizado)
