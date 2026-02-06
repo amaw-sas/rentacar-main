@@ -283,6 +283,7 @@ const animateSearchButton = ref<boolean>(true);
 
 const dateRangePopoverOpen = ref<boolean>(false);
 const isDesktop = ref<boolean>(false);
+const previousDateRange = ref<{ start: CalendarDate | null, end: CalendarDate | null } | null>(null);
 
 // Date range computed: sincroniza con selectedPickupDate/selectedReturnDate
 const dateRange = computed({
@@ -291,10 +292,8 @@ const dateRange = computed({
     end: stringToCalendarDate(selectedReturnDate.value)
   }),
   set: (newRange: { start: CalendarDate | null, end: CalendarDate | null } | null) => {
-    if (newRange?.start) {
+    if (newRange) {
       selectedPickupDate.value = calendarDateToString(newRange.start)
-    }
-    if (newRange?.end) {
       selectedReturnDate.value = calendarDateToString(newRange.end)
     }
   }
@@ -413,13 +412,16 @@ onMounted(() => {
   })
 
   // Edge case: revertir si se cierra sin completar selección
-  watch(dateRangePopoverOpen, (isOpen) => {
-    if (!isOpen && dateRange.value?.start && !dateRange.value?.end) {
-      // Revertir a estado anterior
-      dateRange.value = {
-        start: stringToCalendarDate(selectedPickupDate.value),
-        end: stringToCalendarDate(selectedReturnDate.value)
+  watch(dateRangePopoverOpen, (isOpen, wasOpen) => {
+    if (isOpen && !wasOpen) {
+      // Store state when opening
+      previousDateRange.value = {
+        start: dateRange.value?.start ?? null,
+        end: dateRange.value?.end ?? null
       }
+    } else if (!isOpen && wasOpen && dateRange.value?.start && !dateRange.value?.end) {
+      // Revert to previous state if incomplete
+      dateRange.value = previousDateRange.value
     }
   })
 
