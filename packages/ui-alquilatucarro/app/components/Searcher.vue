@@ -353,9 +353,9 @@ function formatDateRange(range: { start: CalendarDate | null, end: CalendarDate 
 
 // Calendar UI configuration for better contrast and visibility
 const calendarUIConfig = {
-    root: 'bg-white flex flex-row gap-4',  // Horizontal layout for multiple months
+    root: 'bg-white',
     header: 'text-gray-900',
-    body: 'bg-white',
+    body: 'bg-white flex flex-row gap-4 pt-4',  // Horizontal layout for multiple months
     heading: 'text-gray-900 font-bold',
     headCell: 'text-success-600 font-medium',  // Day names (L M X J V S D)
     cellTrigger: 'text-gray-900 font-semibold data-[disabled]:text-gray-300 data-[disabled]:opacity-40 data-[unavailable]:text-gray-300 data-[unavailable]:opacity-40 data-[outside-view]:text-gray-400 data-[outside-view]:opacity-50'
