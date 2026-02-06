@@ -341,6 +341,9 @@ function calendarDateToString(calendarDate: CalendarDate | null): string | null 
   return calendarDate.toString()
 }
 
+// Constants
+const MAX_RENTAL_DAYS = 30
+
 /** Local refs - initialized lazily to avoid SSR Pinia errors */
 const lugarRecogida = ref<string | null>(null);
 const lugarDevolucion = ref<string | null>(null);
@@ -359,8 +362,8 @@ const searchLinkName = ref<string>('');
 const searchLinkParams = ref<any>({});
 const animateSearchButton = ref<boolean>(true);
 
-const pickupDateCalendarOpen = ref<boolean>(false);
-const returnDateCalendarOpen = ref<boolean>(false);
+const dateRangePopoverOpen = ref<boolean>(false);
+const isDesktop = ref<boolean>(false);
 
 // Calendar UI configuration for better contrast
 const calendarUIConfig = {
