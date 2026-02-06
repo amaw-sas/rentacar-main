@@ -1,6 +1,6 @@
 # Session State
 
-> Last updated: 2026-02-10
+> Last updated: 2026-02-06
 
 ## Current Phase
 
@@ -73,6 +73,15 @@ Visual refinements from production audit:
   @media (min-width: 1024px) { [data-blog-toc] { display: block; } }
   ```
 - Files changed: `[...slug].vue`, `base.css` — 2 files.
+
+### PR #148 — Blog Listing Images Fix (merged to main)
+- **Problem**: Blog post images on listing page (index.vue) not loading on page 2 and 3. Same root cause as PR #122.
+- **Root cause**: `<NuxtImg>` generates `/_ipx/...` URLs that Firebase Hosting cannot serve.
+- **Solution**: Replaced `<NuxtImg>` with native `<img>` in two locations:
+  - Featured post image (lines 30-38)
+  - Grid post images (lines 120-128)
+- **Files changed**: `app/pages/blog/index.vue` — 1 file, 2 changes
+- **Verification**: All 15 blog post images now load correctly across all 3 pages
 
 ### PR #126 — Layout Reorder & CTA Simplification (merged to main)
 4 layout changes from user feedback:
@@ -180,7 +189,7 @@ API ahora funciona (no más errores 403), pero resultados no son útiles para de
 
 ## Branch State
 
-- **main**: Clean, up to date through PR #147 (Tier 2 complete — 8 articles total)
+- **main**: Clean, up to date through PR #148 (blog listing images fix)
 - All feature branches deleted after merge
 
 ## Article #5 Images (completed)
