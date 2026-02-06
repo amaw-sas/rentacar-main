@@ -384,6 +384,55 @@ const dateRange = computed({
 // Responsive: 2 meses en desktop, 1 en móvil
 const numberOfMonths = computed(() => isDesktop.value ? 2 : 1)
 
+// Validation: disable same-day selection
+const isDateDisabled = (date: DateValue) => {
+  if (dateRange.value?.start && !dateRange.value?.end) {
+    // Deshabilitar el mismo día que la fecha de inicio
+    return date.compare(dateRange.value.start) === 0
+  }
+  return false
+}
+
+// Error message for invalid ranges
+const dateRangeError = computed(() => {
+  if (!dateRange.value?.start || !dateRange.value?.end) return null
+
+  const start = dateRange.value.start
+  const end = dateRange.value.end
+  const daysDiff = end.compare(start)
+
+  if (daysDiff === 0) {
+    return 'La devolución debe ser al menos 1 día después'
+  }
+  if (daysDiff > MAX_RENTAL_DAYS) {
+    return `Máximo ${MAX_RENTAL_DAYS} días de alquiler`
+  }
+
+  return null
+})
+
+// Validation state for search button
+const isDateRangeValid = computed(() => {
+  return dateRange.value?.start && dateRange.value?.end && !dateRangeError.value
+})
+
+// Date formatter for display
+const df = new DateFormatter('es-ES', {
+  day: '2-digit',
+  month: 'short',
+  year: 'numeric'
+})
+
+// Format date range for display
+function formatDateRange(range: { start: CalendarDate | null, end: CalendarDate | null }) {
+  if (!range.start || !range.end) return ''
+
+  const start = df.format(range.start.toDate(getLocalTimeZone()))
+  const end = df.format(range.end.toDate(getLocalTimeZone()))
+
+  return `${start} - ${end}`
+}
+
 // Calendar UI configuration for better contrast
 const calendarUIConfig = {
     heading: '!text-gray-900 !font-bold',
@@ -438,6 +487,26 @@ onMounted(() => {
 
   onUnmounted(() => {
     window.removeEventListener('resize', updateIsDesktop)
+  })
+
+  // Edge case: revertir si se cierra sin completar selección
+  watch(dateRangePopoverOpen, (isOpen) => {
+    if (!isOpen && dateRange.value?.start && !dateRange.value?.end) {
+      // Revertir a estado anterior
+      dateRange.value = {
+        start: stringToCalendarDate(selectedPickupDate.value),
+        end: stringToCalendarDate(selectedReturnDate.value)
+      }
+    }
+  })
+
+  // Auto-close popover when range selection is complete
+  watch(() => dateRange.value?.end, (end) => {
+    if (end && dateRange.value?.start) {
+      setTimeout(() => {
+        dateRangePopoverOpen.value = false
+      }, 300)
+    }
   })
 });
 
