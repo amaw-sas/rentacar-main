@@ -100,6 +100,56 @@
                 />
             </u-form-field>
         </div>
+        <!-- Date Range Picker - Unified for mobile and desktop -->
+        <div class="col-span-2 bg-white rounded-xl p-2 shadow-sm">
+            <u-form-field label="Período de alquiler" size="xl">
+                <u-popover v-model:open="dateRangePopoverOpen" :ui="{ content: 'bg-white' }">
+                    <u-button
+                        variant="ghost"
+                        color="neutral"
+                        class="w-full justify-start text-left font-normal"
+                        aria-label="Seleccionar período de alquiler"
+                    >
+                        <template #leading>
+                            <IconsCalendarIcon cls="size-4" />
+                        </template>
+
+                        <span v-if="dateRange.start && dateRange.end" class="text-gray-900">
+                            {{ formatDateRange(dateRange) }}
+                        </span>
+                        <span v-else class="text-gray-400">
+                            Selecciona fechas de recogida y devolución
+                        </span>
+                    </u-button>
+
+                    <template #content>
+                        <u-calendar
+                            v-model="dateRange"
+                            range
+                            :number-of-months="numberOfMonths"
+                            :min-value="minPickupDate"
+                            :max-value="maxReturnDate"
+                            :maximum-days="MAX_RENTAL_DAYS"
+                            :is-date-disabled="isDateDisabled"
+                            :prevent-deselect="true"
+                            color="success"
+                            :ui="calendarUIConfig"
+                            :month-controls="true"
+                            :year-controls="true"
+                            :prev-month="{ color: 'gray', variant: 'soft' }"
+                            :next-month="{ color: 'gray', variant: 'soft' }"
+                            :prev-year="{ color: 'gray', variant: 'soft' }"
+                            :next-year="{ color: 'gray', variant: 'soft' }"
+                            class="p-2 calendar-light"
+                        />
+                    </template>
+                </u-popover>
+
+                <p v-if="dateRangeError" class="text-sm text-error-500 mt-1">
+                    {{ dateRangeError }}
+                </p>
+            </u-form-field>
+        </div>
         <!-- MÓVIL: Form field con select nativo -->
         <div class="bg-white rounded-xl p-2 shadow-sm sm:hidden">
             <u-form-field label="Hora de recogida" size="xl">
