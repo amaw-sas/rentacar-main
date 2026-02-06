@@ -1,7 +1,7 @@
 ---
 title: "Turismo en Santander en Carro: Rutas, Aventura y Pueblos Patrimonio"
 description: "Descubre Santander al volante: San Gil, Barichara, Cañón del Chicamocha. Rutas desde Bucaramanga, deportes de aventura, gastronomía y tips para tu viaje."
-image: /img/blog/santander-chicamocha.webp
+image: /img/blog/chicamocha-canyon-panorama.webp
 alt: Vista panorámica del Cañón del Chicamocha en Santander Colombia
 author:
   name: Alquilatucarro
@@ -64,7 +64,7 @@ Consulta los [requisitos para alquilar un carro](/blog/requisitos-alquilar-carro
 
 A solo 2 horas de Bucaramanga, **San Gil** es el destino obligatorio para los amantes de la adrenalina. Conocida como la "Capital Turística de Santander" y el "Paraíso de los Deportes Extremos", aquí encontrarás más de 20 actividades de aventura.
 
-![Rafting en el río Fonce en San Gil Santander con aguas bravas](/img/blog/san-gil-rafting.webp)
+![Rafting en el río Fonce en San Gil Santander con aguas bravas](/img/blog/rafting-aventura-rio.webp)
 
 ### Datos prácticos de San Gil
 
@@ -186,7 +186,7 @@ Santander tiene una de las gastronomías más distintivas de Colombia. Estos son
 
 El **Cañón del Chicamocha** es una de las maravillas naturales de Colombia. Con 227 km de longitud y hasta 2 km de profundidad, rivaliza con el Gran Cañón de Colorado en espectacularidad.
 
-![Vista aérea del Cañón del Chicamocha con el río serpenteando entre montañas](/img/blog/chicamocha-canyon.webp)
+![Vista aérea del Cañón del Chicamocha con el río serpenteando entre montañas](/img/blog/chicamocha-canyon-panorama.webp)
 
 ### Datos prácticos del Cañón del Chicamocha
 
