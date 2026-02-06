@@ -136,11 +136,7 @@
                             :ui="calendarUIConfig"
                             :month-controls="true"
                             :year-controls="true"
-                            :prev-month="{ color: 'gray', variant: 'soft' }"
-                            :next-month="{ color: 'gray', variant: 'soft' }"
-                            :prev-year="{ color: 'gray', variant: 'soft' }"
-                            :next-year="{ color: 'gray', variant: 'soft' }"
-                            class="p-2 calendar-light"
+                            class="calendar-light"
                         />
                     </template>
                 </u-popover>
@@ -352,10 +348,15 @@ function formatDateRange(range: { start: CalendarDate | null, end: CalendarDate 
   return `${start} - ${end}`
 }
 
-// Calendar UI configuration for better contrast
+// Calendar UI configuration for better contrast and visibility
 const calendarUIConfig = {
+    root: 'flex flex-row gap-4',  // Horizontal layout for multiple months
     heading: '!text-gray-900 !font-bold',
-    cellTrigger: '!text-gray-900 !font-semibold data-[disabled]:!text-gray-300 data-[disabled]:!opacity-40 data-[unavailable]:!text-gray-300 data-[unavailable]:!opacity-40 data-[outside-view]:!text-gray-400 data-[outside-view]:!opacity-50'
+    cellTrigger: '!text-gray-900 !font-semibold data-[disabled]:!text-gray-300 data-[disabled]:!opacity-40 data-[unavailable]:!text-gray-300 data-[unavailable]:!opacity-40 data-[outside-view]:!text-gray-400 data-[outside-view]:!opacity-50 data-[selected]:!bg-success-500 data-[selected]:!text-white',
+    prevYear: '!text-gray-900 hover:!bg-gray-100',
+    nextYear: '!text-gray-900 hover:!bg-gray-100',
+    prevMonth: '!text-gray-900 hover:!bg-gray-100',
+    nextMonth: '!text-gray-900 hover:!bg-gray-100'
 };
 
 // Initialize stores only on client side after mount
