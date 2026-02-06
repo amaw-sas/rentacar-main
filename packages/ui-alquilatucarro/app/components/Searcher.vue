@@ -381,6 +381,9 @@ const dateRange = computed({
   }
 })
 
+// Responsive: 2 meses en desktop, 1 en móvil
+const numberOfMonths = computed(() => isDesktop.value ? 2 : 1)
+
 // Calendar UI configuration for better contrast
 const calendarUIConfig = {
     heading: '!text-gray-900 !font-bold',
@@ -425,6 +428,17 @@ onMounted(() => {
   watch(() => searchComposable.searchLinkName.value, (val) => searchLinkName.value = val, { immediate: true });
   watch(() => searchComposable.searchLinkParams.value, (val) => searchLinkParams.value = val, { immediate: true });
   watch(() => searchComposable.animateSearchButton.value, (val) => animateSearchButton.value = val, { immediate: true });
+
+  // Setup responsive detection
+  const updateIsDesktop = () => {
+    isDesktop.value = window.matchMedia('(min-width: 640px)').matches
+  }
+  updateIsDesktop()
+  window.addEventListener('resize', updateIsDesktop)
+
+  onUnmounted(() => {
+    window.removeEventListener('resize', updateIsDesktop)
+  })
 });
 
 </script>
