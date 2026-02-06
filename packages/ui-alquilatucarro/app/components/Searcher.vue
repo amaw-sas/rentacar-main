@@ -365,6 +365,22 @@ const animateSearchButton = ref<boolean>(true);
 const dateRangePopoverOpen = ref<boolean>(false);
 const isDesktop = ref<boolean>(false);
 
+// Date range computed: sincroniza con selectedPickupDate/selectedReturnDate
+const dateRange = computed({
+  get: () => ({
+    start: stringToCalendarDate(selectedPickupDate.value),
+    end: stringToCalendarDate(selectedReturnDate.value)
+  }),
+  set: (newRange: { start: CalendarDate | null, end: CalendarDate | null } | null) => {
+    if (newRange?.start) {
+      selectedPickupDate.value = calendarDateToString(newRange.start)
+    }
+    if (newRange?.end) {
+      selectedReturnDate.value = calendarDateToString(newRange.end)
+    }
+  }
+})
+
 // Calendar UI configuration for better contrast
 const calendarUIConfig = {
     heading: '!text-gray-900 !font-bold',
