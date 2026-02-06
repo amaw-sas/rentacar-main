@@ -130,8 +130,8 @@ When adding a new blog article:
 | 1 | Viajar por carretera en Colombia | `viajar-por-carretera-colombia-guia` | ✅ Merged (PR #136) | ✅ 4 images |
 | 2 | Precios de alquiler de carros | `precios-alquiler-carros-colombia` | ✅ Merged (PR #137) | ✅ 4 images |
 | 3 | Mejores destinos en carro | `mejores-destinos-viajar-carro-colombia` | ✅ Merged (PR #143) | ✅ 5 images |
-| 4 | Turismo en Santander | `turismo-santander-en-carro` | ✅ Merged (PR #144) | ✅ 4 images |
-| 5 | Turismo en Boyacá | `turismo-boyaca-en-carro` | 🔄 Ready for PR | ✅ 4 images |
+| 4 | Turismo en Santander | `turismo-santander-en-carro` | 🔄 PR #144 | ✅ 4 images |
+| 5 | Turismo en Boyacá | `turismo-boyaca-en-carro` | 🔄 PR #144 | ✅ 4 images |
 
 ### Article #1 Images (completed)
 
@@ -161,7 +161,7 @@ API ahora funciona (no más errores 403), pero resultados no son útiles para de
 
 ## Next Actions
 
-- **Create PR for Article #5**: Turismo en Boyacá en carro (branch: feat/blog-mejores-destinos-colombia)
+- **Merge PR #144**: Contains both Santander and Boyacá articles (completes Tier 1)
 - Monitor Google Search Console for blog indexing
 - Replace Firebase Storage avatar URL with a local file (long-term fix for expired tokens)
 - Start Tier 2 articles after Tier 1 complete
@@ -173,8 +173,8 @@ API ahora funciona (no más errores 403), pero resultados no son útiles para de
 
 ## Branch State
 
-- **main**: Clean, up to date through PR #144
-- **feat/blog-mejores-destinos-colombia**: Article #5 (Turismo en Boyacá) ready for PR
+- **main**: Clean, up to date through PR #143
+- **feat/blog-turismo-santander**: PR #144 open — contains Articles #4 and #5
 - All feature branches deleted after merge
 
 ## Article #5 Images (completed)
