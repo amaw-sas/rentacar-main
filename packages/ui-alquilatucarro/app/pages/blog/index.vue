@@ -27,13 +27,12 @@
           >
             <article class="bg-white rounded-xl shadow-md overflow-hidden md:flex hover:shadow-xl transition-shadow duration-300">
               <div class="md:w-1/2 aspect-video md:aspect-auto overflow-hidden">
-                <NuxtImg
+                <img
                   :src="featuredPost.image"
                   :alt="featuredPost.alt"
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   width="640"
                   height="360"
-                  sizes="sm:100vw md:50vw"
                   loading="eager"
                 />
               </div>
@@ -117,13 +116,12 @@
           >
             <article class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-200 h-full flex flex-col">
               <div class="relative overflow-hidden aspect-video">
-                <NuxtImg
+                <img
                   :src="post.image"
                   :alt="post.alt"
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   width="400"
                   height="225"
-                  sizes="sm:100vw md:50vw lg:33vw"
                   loading="lazy"
                 />
                 <span class="absolute top-3 left-3 inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold text-white bg-red-700 rounded-full">
