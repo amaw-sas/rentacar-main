@@ -323,6 +323,9 @@
 <script setup lang="ts">
 // Note: stores and components are auto-imported by Nuxt
 
+import { CalendarDate, parseDate, getLocalTimeZone, DateFormatter } from '@internationalized/date'
+import type { DateValue } from '@internationalized/date'
+
 /** Local refs - initialized lazily to avoid SSR Pinia errors */
 const lugarRecogida = ref<string | null>(null);
 const lugarDevolucion = ref<string | null>(null);
