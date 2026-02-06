@@ -228,7 +228,7 @@
         <div class="col-span-2">
             <u-button
                 :to="{name: searchLinkName, params: searchLinkParams}"
-                :disabled="pendingSearching || !animateSearchButton"
+                :disabled="!isDateRangeValid || pendingSearching || !animateSearchButton"
                 :loading="pendingSearching"
                 :class="{'search-button': true, 'search-button-glow': animateSearchButton}"
                 size="xl"
