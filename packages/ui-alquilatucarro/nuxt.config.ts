@@ -608,6 +608,7 @@ export default defineNuxtConfig({
         '/blog/mejores-destinos-viajar-carro-colombia',
         '/blog/turismo-santander-en-carro',
         '/blog/turismo-boyaca-en-carro',
+        '/blog/alquilar-carro-bogota-guia',
       ]
     }
   },
@@ -653,6 +654,7 @@ export default defineNuxtConfig({
       { loc: '/blog/mejores-destinos-viajar-carro-colombia', changefreq: 'monthly', priority: 0.7 },
       { loc: '/blog/turismo-santander-en-carro', changefreq: 'monthly', priority: 0.7 },
       { loc: '/blog/turismo-boyaca-en-carro', changefreq: 'monthly', priority: 0.7 },
+      { loc: '/blog/alquilar-carro-bogota-guia', changefreq: 'monthly', priority: 0.7 },
     ],
     exclude: ['/pendiente', '/sindisponibilidad', '/reservado/**', '/*/buscar-vehiculos/**', '/seo/**'],
   },
