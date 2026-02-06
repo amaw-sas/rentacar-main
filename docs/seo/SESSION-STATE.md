@@ -130,7 +130,7 @@ When adding a new blog article:
 | 1 | Viajar por carretera en Colombia | `viajar-por-carretera-colombia-guia` | ✅ Merged (PR #136) | ✅ 4 images |
 | 2 | Precios de alquiler de carros | `precios-alquiler-carros-colombia` | ✅ Merged (PR #137) | ✅ 4 images |
 | 3 | Mejores destinos en carro | `mejores-destinos-viajar-carro-colombia` | ✅ Merged (PR #143) | ✅ 5 images |
-| 4 | Turismo en Santander | `turismo-santander-en-carro` | Pending | — |
+| 4 | Turismo en Santander | `turismo-santander-en-carro` | PR #144 | ⚠️ 3 images pending |
 | 5 | Turismo en Boyacá | `turismo-boyaca-en-carro` | Pending | — |
 
 ### Article #1 Images (completed)
@@ -144,7 +144,11 @@ Images in `packages/ui-alquilatucarro/public/img/blog/`:
 
 ## Next Actions
 
-- **Write article #4**: Turismo en Santander en carro
+- **Download 3 images for article #4** (Freepik premium - manual):
+  - `santander-chicamocha.webp` (hero)
+  - `san-gil-rafting.webp`
+  - `chicamocha-canyon.webp`
+- **Merge PR #144**: Turismo en Santander (after images)
 - **Write article #5**: Turismo en Boyacá en carro
 - Monitor Google Search Console for blog indexing
 - Replace Firebase Storage avatar URL with a local file (long-term fix for expired tokens)
@@ -156,5 +160,6 @@ Images in `packages/ui-alquilatucarro/public/img/blog/`:
 
 ## Branch State
 
-- **main**: Clean, up to date through PR #126
+- **main**: Clean, up to date through PR #143
+- **feat/blog-turismo-santander**: PR #144 open, awaiting image download
 - All feature branches deleted after merge
