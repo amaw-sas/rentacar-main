@@ -205,9 +205,17 @@ GSC MCP doesn't have "Request Indexing" capability. User must manually request i
 
 ## Next Actions
 
-- 🔲 User: Manually request indexing for 15 blog URLs in GSC UI
+### User Actions Required
+- 🔲 **GSC Indexing**: Manually request indexing for 15 blog URLs in GSC UI
+- 🔲 **EMD Redirects**: Configure 301 redirects for 13 EMD domains at registrar level (see `docs/seo/EMD-REDIRECTS-CONFIG.md`)
+
+### Monitoring
 - 🔲 Monitor GSC indexation status (check again Feb 20)
+
+### Technical Debt
 - 🔲 Replace Firebase Storage avatar URL with a local file (long-term fix for expired tokens)
+
+### Future Consideration
 - 🔲 Consider Tier 3 articles if search traffic justifies investment
 
 ## Economic Decisions
