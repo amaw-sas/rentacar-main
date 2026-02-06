@@ -610,6 +610,7 @@ export default defineNuxtConfig({
         '/blog/turismo-boyaca-en-carro',
         '/blog/alquilar-carro-bogota-guia',
         '/blog/alquilar-carro-medellin-guia',
+        '/blog/alquilar-carro-cartagena-guia',
       ]
     }
   },
@@ -657,6 +658,7 @@ export default defineNuxtConfig({
       { loc: '/blog/turismo-boyaca-en-carro', changefreq: 'monthly', priority: 0.7 },
       { loc: '/blog/alquilar-carro-bogota-guia', changefreq: 'monthly', priority: 0.7 },
       { loc: '/blog/alquilar-carro-medellin-guia', changefreq: 'monthly', priority: 0.7 },
+      { loc: '/blog/alquilar-carro-cartagena-guia', changefreq: 'monthly', priority: 0.7 },
     ],
     exclude: ['/pendiente', '/sindisponibilidad', '/reservado/**', '/*/buscar-vehiculos/**', '/seo/**'],
   },
