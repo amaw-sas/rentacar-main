@@ -129,11 +129,15 @@
                             :number-of-months="numberOfMonths"
                             :min-value="minPickupDate"
                             :max-value="maxReturnDate"
-                            :maximum-days="MAX_RENTAL_DAYS"
                             :is-date-disabled="isDateDisabled"
-                            :prevent-deselect="true"
                             color="success"
                             :ui="calendarUIConfig"
+                            :month-controls="true"
+                            :year-controls="true"
+                            :prev-year="{ color: 'success', variant: 'outline' }"
+                            :next-year="{ color: 'success', variant: 'outline' }"
+                            :prev-month="{ color: 'success', variant: 'outline' }"
+                            :next-month="{ color: 'success', variant: 'outline' }"
                             class="p-2"
                         />
                     </template>
