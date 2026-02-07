@@ -384,13 +384,13 @@ onMounted(() => {
     window.removeEventListener('resize', updateIsDesktop)
   })
 
-  // Flag to prevent bidirectional sync loops
+  // Flag to prevent bidirectional sync loops and track initialization
   let isUpdatingFromCalendar = false
-  let isUpdatingFromStore = false
+  let hasInitialized = false
 
   // Sync dateRange changes to store
   watch(() => dateRange.value, (newRange) => {
-    if (isUpdatingFromStore) return // Skip if change came from store
+    if (!hasInitialized) return // Don't sync until after initialization
 
     isUpdatingFromCalendar = true
     if (newRange?.start) {
@@ -404,45 +404,32 @@ onMounted(() => {
     })
   }, { deep: true })
 
-  // Initialize dateRange from store after all watchers have run
-  nextTick(() => {
-    const initialStart = stringToCalendarDate(selectedPickupDate.value)
-    const initialEnd = stringToCalendarDate(selectedReturnDate.value)
-    if (initialStart || initialEnd) {
-      dateRange.value = {
-        start: initialStart,
-        end: initialEnd
-      }
-    }
-  })
-
-  // Sync store changes to dateRange (including initial load from URL params)
+  // Sync store changes to dateRange (for updates after initialization)
   watch([selectedPickupDate, selectedReturnDate], ([pickup, return_]) => {
-    if (isUpdatingFromCalendar) return // Skip if change came from calendar
+    if (isUpdatingFromCalendar || !hasInitialized) return
 
-    // Update dateRange whenever store values change (including from URL)
     const newStart = stringToCalendarDate(pickup)
     const newEnd = stringToCalendarDate(return_)
 
-    // Only update if values actually changed to avoid infinite loops
-    const startChanged = (newStart && !dateRange.value?.start) ||
-                        (newStart && dateRange.value?.start && newStart.compare(dateRange.value.start) !== 0) ||
-                        (!newStart && dateRange.value?.start)
-    const endChanged = (newEnd && !dateRange.value?.end) ||
-                      (newEnd && dateRange.value?.end && newEnd.compare(dateRange.value.end) !== 0) ||
-                      (!newEnd && dateRange.value?.end)
-
-    if (startChanged || endChanged) {
-      isUpdatingFromStore = true
+    if ((newStart || newEnd) && (newStart !== dateRange.value?.start || newEnd !== dateRange.value?.end)) {
       dateRange.value = {
         start: newStart,
         end: newEnd
       }
-      nextTick(() => {
-        isUpdatingFromStore = false
-      })
     }
   })
+
+  // Initialize dateRange once when store values are available
+  const stopInitWatch = watch([selectedPickupDate, selectedReturnDate], ([pickup, return_]) => {
+    if (pickup && return_ && !hasInitialized) {
+      dateRange.value = {
+        start: stringToCalendarDate(pickup),
+        end: stringToCalendarDate(return_)
+      }
+      hasInitialized = true
+      stopInitWatch() // Stop watching after first initialization
+    }
+  }, { immediate: true })
 
   // Auto-close popover when range selection is complete (only from empty state)
   let wasEmpty = false
