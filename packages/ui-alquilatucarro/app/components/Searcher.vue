@@ -131,8 +131,10 @@
                             :max-value="maxReturnDate"
                             color="success"
                             :ui="calendarUIConfig"
-                            :prev-month="{ color: 'neutral', variant: 'outline' }"
-                            :next-month="{ color: 'neutral', variant: 'outline' }"
+                            :prev-year="{ color: 'neutral', variant: 'solid' }"
+                            :next-year="{ color: 'neutral', variant: 'solid' }"
+                            :prev-month="{ color: 'neutral', variant: 'solid' }"
+                            :next-month="{ color: 'neutral', variant: 'solid' }"
                             class="p-2"
                         />
                     </template>
