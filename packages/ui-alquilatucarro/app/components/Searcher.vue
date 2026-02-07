@@ -420,14 +420,13 @@ onMounted(() => {
   })
 
   // Initialize dateRange once when store values are available
-  const stopInitWatch = watch([selectedPickupDate, selectedReturnDate], ([pickup, return_]) => {
+  watch([selectedPickupDate, selectedReturnDate], ([pickup, return_]) => {
     if (pickup && return_ && !hasInitialized) {
       dateRange.value = {
         start: stringToCalendarDate(pickup),
         end: stringToCalendarDate(return_)
       }
       hasInitialized = true
-      stopInitWatch() // Stop watching after first initialization
     }
   }, { immediate: true })
 
