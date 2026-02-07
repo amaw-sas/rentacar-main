@@ -410,20 +410,16 @@ onMounted(() => {
     }
   })
 
-  // Reset end date when opening popover with complete range (to allow re-selection)
+  // Auto-close popover when range selection is complete (only from empty state)
+  let wasEmpty = false
   watch(dateRangePopoverOpen, (isOpen) => {
-    if (isOpen && dateRange.value?.start && dateRange.value?.end) {
-      // Clear end to allow selecting new range
-      dateRange.value = {
-        start: dateRange.value.start,
-        end: null
-      }
+    if (isOpen) {
+      wasEmpty = !dateRange.value?.start || !dateRange.value?.end
     }
   })
 
-  // Auto-close popover when range selection is complete
-  watch(() => dateRange.value?.end, (end) => {
-    if (end && dateRange.value?.start && dateRangePopoverOpen.value) {
+  watch(() => dateRange.value?.end, (end, oldEnd) => {
+    if (end && dateRange.value?.start && dateRangePopoverOpen.value && wasEmpty && end !== oldEnd) {
       setTimeout(() => {
         dateRangePopoverOpen.value = false
       }, 300)
