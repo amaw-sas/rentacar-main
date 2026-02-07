@@ -406,28 +406,8 @@ onMounted(() => {
     window.removeEventListener('resize', updateIsDesktop)
   })
 
-  // Edge case: revertir si se cierra sin completar selección
-  watch(dateRangePopoverOpen, (isOpen, wasOpen) => {
-    if (isOpen && !wasOpen) {
-      // Store state when opening
-      previousDateRange.value = {
-        start: dateRange.value?.start ?? null,
-        end: dateRange.value?.end ?? null
-      }
-    } else if (!isOpen && wasOpen && dateRange.value?.start && !dateRange.value?.end) {
-      // Revert to previous state if incomplete
-      dateRange.value = previousDateRange.value
-    }
-  })
-
-  // Auto-close popover when range selection is complete
-  watch(() => dateRange.value?.end, (end) => {
-    if (end && dateRange.value?.start) {
-      setTimeout(() => {
-        dateRangePopoverOpen.value = false
-      }, 300)
-    }
-  })
+  // REMOVED: Watchers temporarily disabled to debug selection issue
+  // TODO: Re-enable after fixing base selection functionality
 });
 
 </script>
