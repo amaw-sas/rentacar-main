@@ -131,11 +131,13 @@
                             :max-value="maxReturnDate"
                             color="success"
                             :ui="calendarUIConfig"
-                            :prev-year="{ color: 'neutral', variant: 'solid' }"
-                            :next-year="{ color: 'neutral', variant: 'solid' }"
-                            :prev-month="{ color: 'neutral', variant: 'solid' }"
-                            :next-month="{ color: 'neutral', variant: 'solid' }"
-                            class="p-2"
+                            :month-controls="true"
+                            :year-controls="true"
+                            :prev-year="{ color: 'gray', variant: 'soft' }"
+                            :next-year="{ color: 'gray', variant: 'soft' }"
+                            :prev-month="{ color: 'gray', variant: 'soft' }"
+                            :next-month="{ color: 'gray', variant: 'soft' }"
+                            class="p-2 calendar-light"
                         />
                     </template>
                 </u-popover>
