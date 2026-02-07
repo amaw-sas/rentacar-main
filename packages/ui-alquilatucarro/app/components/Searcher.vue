@@ -291,8 +291,13 @@ const dateRange = computed({
   }),
   set: (newRange: { start: CalendarDate | null, end: CalendarDate | null } | null) => {
     if (newRange) {
-      selectedPickupDate.value = calendarDateToString(newRange.start)
-      selectedReturnDate.value = calendarDateToString(newRange.end)
+      // Only update if there's a value - don't clear during intermediate selection
+      if (newRange.start) {
+        selectedPickupDate.value = calendarDateToString(newRange.start)
+      }
+      if (newRange.end) {
+        selectedReturnDate.value = calendarDateToString(newRange.end)
+      }
     }
   }
 })
