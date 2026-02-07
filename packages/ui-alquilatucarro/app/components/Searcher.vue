@@ -131,6 +131,8 @@
                             :max-value="maxReturnDate"
                             color="success"
                             :ui="calendarUIConfig"
+                            :prev-month="{ color: 'neutral', variant: 'outline' }"
+                            :next-month="{ color: 'neutral', variant: 'outline' }"
                             class="p-2"
                         />
                     </template>
@@ -327,7 +329,7 @@ function formatDateRange(range: { start: CalendarDate | null, end: CalendarDate 
 // Calendar UI configuration for better contrast and visibility
 const calendarUIConfig = {
     root: 'bg-white',
-    header: 'text-gray-900',
+    header: 'text-gray-900 flex items-center justify-between',
     body: 'bg-white flex flex-row gap-4 pt-4',  // Horizontal layout for multiple months
     heading: 'text-gray-900 font-bold',
     headCell: 'text-success-600 font-medium',  // Day names (L M X J V S D)
