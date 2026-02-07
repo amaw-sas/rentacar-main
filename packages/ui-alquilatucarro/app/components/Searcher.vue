@@ -401,7 +401,20 @@ onMounted(() => {
     })
   }, { deep: true })
 
-  // Sync store changes to dateRange (including initialization from URL)
+  // Force initialization after mount with setTimeout to ensure store is ready
+  setTimeout(() => {
+    const initialStart = stringToCalendarDate(selectedPickupDate.value)
+    const initialEnd = stringToCalendarDate(selectedReturnDate.value)
+
+    if ((initialStart || initialEnd) && (!dateRange.value?.start || !dateRange.value?.end)) {
+      dateRange.value = {
+        start: initialStart,
+        end: initialEnd
+      }
+    }
+  }, 100)
+
+  // Sync store changes to dateRange
   watch([selectedPickupDate, selectedReturnDate], ([pickup, return_]) => {
     if (isUpdatingFromCalendar) return
 
@@ -423,7 +436,7 @@ onMounted(() => {
         end: newEnd
       }
     }
-  }, { immediate: true, flush: 'post' })
+  })
 
   // Auto-close popover when range selection is complete (only from empty state)
   let wasEmpty = false
