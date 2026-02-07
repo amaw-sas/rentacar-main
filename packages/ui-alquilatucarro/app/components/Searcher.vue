@@ -131,8 +131,6 @@
                             :max-value="maxReturnDate"
                             color="success"
                             :ui="calendarUIConfig"
-                            :month-controls="true"
-                            :year-controls="true"
                             class="p-2"
                         />
                     </template>
@@ -421,7 +419,8 @@ onMounted(() => {
   })
 
   watch(() => dateRange.value?.end, (end, oldEnd) => {
-    if (end && dateRange.value?.start && dateRangePopoverOpen.value && wasEmpty && end !== oldEnd) {
+    const endChanged = end && (!oldEnd || end.compare(oldEnd) !== 0)
+    if (end && dateRange.value?.start && dateRangePopoverOpen.value && wasEmpty && endChanged) {
       setTimeout(() => {
         dateRangePopoverOpen.value = false
       }, 300)
