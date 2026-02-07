@@ -131,6 +131,8 @@
                             :max-value="maxReturnDate"
                             color="success"
                             :ui="calendarUIConfig"
+                            :month-controls="true"
+                            :year-controls="true"
                             class="p-2"
                         />
                     </template>
