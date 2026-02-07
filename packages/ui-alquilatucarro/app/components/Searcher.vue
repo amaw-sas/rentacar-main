@@ -404,6 +404,18 @@ onMounted(() => {
     })
   }, { deep: true })
 
+  // Initialize dateRange from store after all watchers have run
+  nextTick(() => {
+    const initialStart = stringToCalendarDate(selectedPickupDate.value)
+    const initialEnd = stringToCalendarDate(selectedReturnDate.value)
+    if (initialStart || initialEnd) {
+      dateRange.value = {
+        start: initialStart,
+        end: initialEnd
+      }
+    }
+  })
+
   // Sync store changes to dateRange (including initial load from URL params)
   watch([selectedPickupDate, selectedReturnDate], ([pickup, return_]) => {
     if (isUpdatingFromCalendar) return // Skip if change came from calendar
@@ -430,7 +442,7 @@ onMounted(() => {
         isUpdatingFromStore = false
       })
     }
-  }, { immediate: true })
+  })
 
   // Auto-close popover when range selection is complete (only from empty state)
   let wasEmpty = false
