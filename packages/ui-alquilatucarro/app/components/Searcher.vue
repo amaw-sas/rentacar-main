@@ -384,18 +384,30 @@ onMounted(() => {
     window.removeEventListener('resize', updateIsDesktop)
   })
 
+  // Flag to prevent bidirectional sync loops
+  let isUpdatingFromCalendar = false
+  let isUpdatingFromStore = false
+
   // Sync dateRange changes to store
   watch(() => dateRange.value, (newRange) => {
+    if (isUpdatingFromStore) return // Skip if change came from store
+
+    isUpdatingFromCalendar = true
     if (newRange?.start) {
       selectedPickupDate.value = calendarDateToString(newRange.start)
     }
     if (newRange?.end) {
       selectedReturnDate.value = calendarDateToString(newRange.end)
     }
+    nextTick(() => {
+      isUpdatingFromCalendar = false
+    })
   }, { deep: true })
 
   // Sync store changes to dateRange (including initial load from URL params)
   watch([selectedPickupDate, selectedReturnDate], ([pickup, return_]) => {
+    if (isUpdatingFromCalendar) return // Skip if change came from calendar
+
     // Update dateRange whenever store values change (including from URL)
     const newStart = stringToCalendarDate(pickup)
     const newEnd = stringToCalendarDate(return_)
@@ -409,10 +421,14 @@ onMounted(() => {
                       (!newEnd && dateRange.value?.end)
 
     if (startChanged || endChanged) {
+      isUpdatingFromStore = true
       dateRange.value = {
         start: newStart,
         end: newEnd
       }
+      nextTick(() => {
+        isUpdatingFromStore = false
+      })
     }
   }, { immediate: true })
 
