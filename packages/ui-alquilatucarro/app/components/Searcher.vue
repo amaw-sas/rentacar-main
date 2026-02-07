@@ -129,7 +129,6 @@
                             :number-of-months="numberOfMonths"
                             :min-value="minPickupDate"
                             :max-value="maxReturnDate"
-                            :is-date-disabled="isDateDisabled"
                             color="success"
                             :ui="calendarUIConfig"
                             :month-controls="true"
@@ -304,12 +303,6 @@ const dateRange = computed({
 
 // Responsive: 2 meses en desktop, 1 en móvil
 const numberOfMonths = computed(() => isDesktop.value ? 2 : 1)
-
-// Validation: disable same-day selection
-const isDateDisabled = (date: DateValue) => {
-  // Removido: la validación de mismo día se maneja con dateRangeError
-  return false
-}
 
 // Error message for invalid ranges
 const dateRangeError = computed(() => {
