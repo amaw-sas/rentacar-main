@@ -126,17 +126,7 @@
                         <u-calendar
                             v-model="dateRange"
                             range
-                            :number-of-months="numberOfMonths"
-                            :min-value="minPickupDate"
-                            :max-value="maxReturnDate"
-                            color="success"
-                            :ui="calendarUIConfig"
-                            :month-controls="true"
-                            :year-controls="true"
-                            :prev-year="{ color: 'success', variant: 'outline' }"
-                            :next-year="{ color: 'success', variant: 'outline' }"
-                            :prev-month="{ color: 'success', variant: 'outline' }"
-                            :next-month="{ color: 'success', variant: 'outline' }"
+                            :number-of-months="2"
                             class="p-2"
                         />
                     </template>
