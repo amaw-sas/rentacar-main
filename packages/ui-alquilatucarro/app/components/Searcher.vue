@@ -270,25 +270,11 @@ const animateSearchButton = ref<boolean>(true);
 
 const dateRangePopoverOpen = ref<boolean>(false);
 const isDesktop = ref<boolean>(false);
-const previousDateRange = ref<{ start: CalendarDate | null, end: CalendarDate | null } | null>(null);
 
-// Date range computed: sincroniza con selectedPickupDate/selectedReturnDate
-const dateRange = computed({
-  get: () => ({
-    start: stringToCalendarDate(selectedPickupDate.value),
-    end: stringToCalendarDate(selectedReturnDate.value)
-  }),
-  set: (newRange: { start: CalendarDate | null, end: CalendarDate | null } | null) => {
-    if (newRange) {
-      // Only update if there's a value - don't clear during intermediate selection
-      if (newRange.start) {
-        selectedPickupDate.value = calendarDateToString(newRange.start)
-      }
-      if (newRange.end) {
-        selectedReturnDate.value = calendarDateToString(newRange.end)
-      }
-    }
-  }
+// Direct ref for calendar - avoids computed getter creating new objects
+const dateRange = ref<{ start: CalendarDate | null, end: CalendarDate | null }>({
+  start: null,
+  end: null
 })
 
 // Responsive: 2 meses en desktop, 1 en móvil
@@ -394,8 +380,31 @@ onMounted(() => {
     window.removeEventListener('resize', updateIsDesktop)
   })
 
-  // REMOVED: Watchers temporarily disabled to debug selection issue
-  // TODO: Re-enable after fixing base selection functionality
+  // Sync dateRange from store on mount
+  dateRange.value = {
+    start: stringToCalendarDate(selectedPickupDate.value),
+    end: stringToCalendarDate(selectedReturnDate.value)
+  }
+
+  // Sync dateRange changes to store
+  watch(() => dateRange.value, (newRange) => {
+    if (newRange?.start) {
+      selectedPickupDate.value = calendarDateToString(newRange.start)
+    }
+    if (newRange?.end) {
+      selectedReturnDate.value = calendarDateToString(newRange.end)
+    }
+  }, { deep: true })
+
+  // Sync store changes to dateRange (only when both are set, to avoid interfering with calendar)
+  watch([selectedPickupDate, selectedReturnDate], ([pickup, return_]) => {
+    if (pickup && return_) {
+      dateRange.value = {
+        start: stringToCalendarDate(pickup),
+        end: stringToCalendarDate(return_)
+      }
+    }
+  })
 });
 
 </script>
