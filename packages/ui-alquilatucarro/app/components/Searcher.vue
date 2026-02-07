@@ -388,12 +388,6 @@ onMounted(() => {
     window.removeEventListener('resize', updateIsDesktop)
   })
 
-  // Sync dateRange from store on mount
-  dateRange.value = {
-    start: stringToCalendarDate(selectedPickupDate.value),
-    end: stringToCalendarDate(selectedReturnDate.value)
-  }
-
   // Sync dateRange changes to store
   watch(() => dateRange.value, (newRange) => {
     if (newRange?.start) {
@@ -404,15 +398,27 @@ onMounted(() => {
     }
   }, { deep: true })
 
-  // Sync store changes to dateRange (only when both are set, to avoid interfering with calendar)
+  // Sync store changes to dateRange (including initial load from URL params)
   watch([selectedPickupDate, selectedReturnDate], ([pickup, return_]) => {
-    if (pickup && return_) {
+    // Update dateRange whenever store values change (including from URL)
+    const newStart = stringToCalendarDate(pickup)
+    const newEnd = stringToCalendarDate(return_)
+
+    // Only update if values actually changed to avoid infinite loops
+    const startChanged = (newStart && !dateRange.value?.start) ||
+                        (newStart && dateRange.value?.start && newStart.compare(dateRange.value.start) !== 0) ||
+                        (!newStart && dateRange.value?.start)
+    const endChanged = (newEnd && !dateRange.value?.end) ||
+                      (newEnd && dateRange.value?.end && newEnd.compare(dateRange.value.end) !== 0) ||
+                      (!newEnd && dateRange.value?.end)
+
+    if (startChanged || endChanged) {
       dateRange.value = {
-        start: stringToCalendarDate(pickup),
-        end: stringToCalendarDate(return_)
+        start: newStart,
+        end: newEnd
       }
     }
-  })
+  }, { immediate: true })
 
   // Auto-close popover when range selection is complete (only from empty state)
   let wasEmpty = false
