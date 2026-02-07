@@ -137,7 +137,7 @@
                             :next-year="{ color: 'gray', variant: 'soft' }"
                             :prev-month="{ color: 'gray', variant: 'soft' }"
                             :next-month="{ color: 'gray', variant: 'soft' }"
-                            class="p-2 calendar-light"
+                            class="p-2 calendar-nav-fix"
                         />
                     </template>
                 </u-popover>

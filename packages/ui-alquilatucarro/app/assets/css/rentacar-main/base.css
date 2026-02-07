@@ -443,6 +443,13 @@ header [data-highlighted],
     right: auto !important;
 }
 
+/* Calendar navigation fix for range picker - minimal CSS without other calendar-light rules */
+.calendar-nav-fix > div:first-child button {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+}
+
 /* Fix: UModal centering — Tailwind v4/v3 double-translate conflict */
 /* The dialog gets BOTH `translate: -50% -50%` (v4 individual prop) AND */
 /* `transform: translate(-50%, -50%)` (v3 compat), causing 2x shift off-center. */
