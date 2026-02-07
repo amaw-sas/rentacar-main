@@ -126,7 +126,11 @@
                         <u-calendar
                             v-model="dateRange"
                             range
-                            :number-of-months="2"
+                            :number-of-months="numberOfMonths"
+                            :min-value="minPickupDate"
+                            :max-value="maxReturnDate"
+                            color="success"
+                            :ui="calendarUIConfig"
                             class="p-2"
                         />
                     </template>
@@ -403,6 +407,15 @@ onMounted(() => {
         start: stringToCalendarDate(pickup),
         end: stringToCalendarDate(return_)
       }
+    }
+  })
+
+  // Auto-close popover when range selection is complete
+  watch(() => dateRange.value?.end, (end) => {
+    if (end && dateRange.value?.start) {
+      setTimeout(() => {
+        dateRangePopoverOpen.value = false
+      }, 300)
     }
   })
 });
