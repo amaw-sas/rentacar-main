@@ -384,14 +384,11 @@ onMounted(() => {
     window.removeEventListener('resize', updateIsDesktop)
   })
 
-  // Flag to prevent bidirectional sync loops and track initialization
+  // Flag to prevent bidirectional sync loops
   let isUpdatingFromCalendar = false
-  let hasInitialized = false
 
   // Sync dateRange changes to store
   watch(() => dateRange.value, (newRange) => {
-    if (!hasInitialized) return // Don't sync until after initialization
-
     isUpdatingFromCalendar = true
     if (newRange?.start) {
       selectedPickupDate.value = calendarDateToString(newRange.start)
@@ -404,31 +401,29 @@ onMounted(() => {
     })
   }, { deep: true })
 
-  // Sync store changes to dateRange (for updates after initialization)
+  // Sync store changes to dateRange (including initialization from URL)
   watch([selectedPickupDate, selectedReturnDate], ([pickup, return_]) => {
-    if (isUpdatingFromCalendar || !hasInitialized) return
+    if (isUpdatingFromCalendar) return
 
     const newStart = stringToCalendarDate(pickup)
     const newEnd = stringToCalendarDate(return_)
 
-    if ((newStart || newEnd) && (newStart !== dateRange.value?.start || newEnd !== dateRange.value?.end)) {
+    // Update dateRange if values are different
+    const needsUpdate =
+      (newStart && !dateRange.value?.start) ||
+      (newEnd && !dateRange.value?.end) ||
+      (newStart && dateRange.value?.start && newStart.compare(dateRange.value.start) !== 0) ||
+      (newEnd && dateRange.value?.end && newEnd.compare(dateRange.value.end) !== 0) ||
+      (!newStart && dateRange.value?.start) ||
+      (!newEnd && dateRange.value?.end)
+
+    if (needsUpdate) {
       dateRange.value = {
         start: newStart,
         end: newEnd
       }
     }
-  })
-
-  // Initialize dateRange once when store values are available
-  watch([selectedPickupDate, selectedReturnDate], ([pickup, return_]) => {
-    if (pickup && return_ && !hasInitialized) {
-      dateRange.value = {
-        start: stringToCalendarDate(pickup),
-        end: stringToCalendarDate(return_)
-      }
-      hasInitialized = true
-    }
-  }, { immediate: true })
+  }, { immediate: true, flush: 'post' })
 
   // Auto-close popover when range selection is complete (only from empty state)
   let wasEmpty = false
