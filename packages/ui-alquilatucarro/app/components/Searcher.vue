@@ -434,7 +434,19 @@ onMounted(() => {
     }
   }, { flush: 'post' })
 
-  // Auto-close popover when range selection is complete (only from empty state)
+  /**
+   * Auto-close popover when range selection is complete (only from empty state)
+   *
+   * UX Flow: User opens empty picker → selects start date → selects end date → popover auto-closes
+   *
+   * Technical tradeoff:
+   * - CURRENT: setTimeout(300ms) gives visual feedback before closing (user sees their selection)
+   * - BETTER: Listen to UPopover transitionend event (deterministic, tied to actual animation duration)
+   * - ISSUE: UPopover doesn't expose transition lifecycle events, would need component ref + manual event binding
+   *
+   * The 300ms delay is intentional for UX (not a data sync hack), but it's arbitrary and not tied
+   * to the actual animation duration. Future improvement: use transitionend when UPopover API supports it.
+   */
   let wasEmpty = false
   watch(dateRangePopoverOpen, (isOpen) => {
     if (isOpen) {
@@ -445,6 +457,8 @@ onMounted(() => {
   watch(() => dateRange.value?.end, (end, oldEnd) => {
     const endChanged = end && (!oldEnd || end.compare(oldEnd) !== 0)
     if (end && dateRange.value?.start && dateRangePopoverOpen.value && wasEmpty && endChanged) {
+      // Delay closing to allow user to see their selection before popover dismisses
+      // TODO: Replace with transitionend event when UPopover lifecycle API is available
       setTimeout(() => {
         dateRangePopoverOpen.value = false
       }, 300)
