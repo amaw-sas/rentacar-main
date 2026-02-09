@@ -279,7 +279,28 @@ const animateSearchButton = ref<boolean>(true);
 const dateRangePopoverOpen = ref<boolean>(false);
 const isDesktop = ref<boolean>(false);
 
-// Direct ref for calendar - avoids computed getter creating new objects
+/**
+ * Date range state for the calendar picker
+ *
+ * ARCHITECTURAL DECISION: ref + watchers instead of computed (deviation from original plan)
+ *
+ * ORIGINAL PLAN: Use computed with getter/setter for bidirectional binding
+ * ISSUE DISCOVERED: Computed getter was creating new CalendarDate objects on every access,
+ *                   causing UCalendar to treat every render as a "new selection" and
+ *                   requiring double-clicks to select dates (commit 54207fb).
+ *
+ * CURRENT SOLUTION: Direct ref with explicit watchers for bidirectional sync
+ * - Pros: Stable object references, UCalendar works correctly
+ * - Cons: More complex sync logic with `isUpdatingFromCalendar` flag to prevent loops
+ *
+ * SYNC ARCHITECTURE:
+ * 1. Calendar changes → watch(dateRange) → updates store (selectedPickupDate/selectedReturnDate)
+ * 2. Store changes → watchEffect() → updates dateRange (with loop prevention via flag)
+ * 3. Store ↔ URL handled separately by formRefs store
+ *
+ * The complexity is necessary because UCalendar requires stable object references
+ * for proper interaction behavior.
+ */
 const dateRange = ref<{ start: CalendarDate | null, end: CalendarDate | null }>({
   start: null,
   end: null
@@ -388,10 +409,26 @@ onMounted(() => {
     window.removeEventListener('resize', updateIsDesktop)
   })
 
-  // Flag to prevent bidirectional sync loops
+  /**
+   * BIDIRECTIONAL SYNC IMPLEMENTATION
+   *
+   * This flag prevents infinite loops in the bidirectional sync between calendar and store:
+   * - When user interacts with calendar → dateRange changes → updates store
+   * - Store updates could trigger watchEffect → update dateRange → infinite loop
+   * - Flag ensures we skip store→calendar sync when update originated from calendar
+   *
+   * Why this complexity is necessary:
+   * - UCalendar v-model (dateRange) needs stable object references
+   * - Store refs (selectedPickupDate/selectedReturnDate) are strings from URL params
+   * - We need bidirectional sync: calendar ↔ store ↔ URL
+   * - Without this flag, changes would ping-pong infinitely between watchers
+   */
   let isUpdatingFromCalendar = false
 
-  // Sync dateRange changes to store (calendar → store)
+  /**
+   * Sync Direction 1: Calendar → Store
+   * When user selects dates in the calendar, update store refs
+   */
   watch(() => dateRange.value, (newRange) => {
     isUpdatingFromCalendar = true
     if (newRange?.start) {
@@ -400,17 +437,24 @@ onMounted(() => {
     if (newRange?.end) {
       selectedReturnDate.value = calendarDateToString(newRange.end)
     }
+    // Reset flag after DOM updates to allow store → calendar sync again
     nextTick(() => {
       isUpdatingFromCalendar = false
     })
   }, { deep: true })
 
-  // Sync store to dateRange (store → calendar)
-  // Uses watchEffect with flush:'post' to run immediately after all other watchers
+  /**
+   * Sync Direction 2: Store → Calendar
+   * When store values change (from URL params or other components), update calendar
+   *
+   * Uses watchEffect with flush:'post' to run after all other watchers complete,
+   * ensuring store values from URL params are fully loaded before we sync to calendar
+   */
   watchEffect(() => {
+    // Skip if update originated from calendar to prevent loops
     if (isUpdatingFromCalendar) return
 
-    // selectedPickupDate/selectedReturnDate are DateObject, need to convert to string first
+    // selectedPickupDate/selectedReturnDate are DateObject from store, convert to string first
     const pickupString = selectedPickupDate.value?.toString() ?? null
     const returnString = selectedReturnDate.value?.toString() ?? null
 
