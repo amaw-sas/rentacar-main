@@ -1,12 +1,12 @@
 # Session State
 
-> Last updated: 2026-02-06
+> Last updated: 2026-02-05
 
 ## Current Phase
 
-**Content Production — Tier 2 COMPLETE**
+**Content Production — Writing new blog articles per BLOG-CONTENT-PLAN.md**
 
-Tier 1 Quick Wins completed (5 articles). Tier 2 City Guides completed (3 articles). Total: 8 new SEO articles merged to main.
+Tier 1 Quick Wins in progress. First article completed, ready for deployment.
 
 ## Completed Work
 
@@ -74,15 +74,6 @@ Visual refinements from production audit:
   ```
 - Files changed: `[...slug].vue`, `base.css` — 2 files.
 
-### PR #148 — Blog Listing Images Fix (merged to main)
-- **Problem**: Blog post images on listing page (index.vue) not loading on page 2 and 3. Same root cause as PR #122.
-- **Root cause**: `<NuxtImg>` generates `/_ipx/...` URLs that Firebase Hosting cannot serve.
-- **Solution**: Replaced `<NuxtImg>` with native `<img>` in two locations:
-  - Featured post image (lines 30-38)
-  - Grid post images (lines 120-128)
-- **Files changed**: `app/pages/blog/index.vue` — 1 file, 2 changes
-- **Verification**: All 15 blog post images now load correctly across all 3 pages
-
 ### PR #126 — Layout Reorder & CTA Simplification (merged to main)
 4 layout changes from user feedback:
 
@@ -136,19 +127,11 @@ When adding a new blog article:
 
 | # | Article | Slug | Status | Image |
 |---|---------|------|--------|-------|
-| 1 | Viajar por carretera en Colombia | `viajar-por-carretera-colombia-guia` | ✅ Merged (PR #136) | ✅ 4 images |
-| 2 | Precios de alquiler de carros | `precios-alquiler-carros-colombia` | ✅ Merged (PR #137) | ✅ 4 images |
-| 3 | Mejores destinos en carro | `mejores-destinos-viajar-carro-colombia` | ✅ Merged (PR #143) | ✅ 5 images |
-| 4 | Turismo en Santander | `turismo-santander-en-carro` | ✅ Merged (PR #144) | ✅ 4 images |
-| 5 | Turismo en Boyacá | `turismo-boyaca-en-carro` | ✅ Merged (PR #144) | ✅ 4 images |
-
-### Tier 2 — City Guides (KD 26-40%)
-
-| # | Article | Slug | Status | Image |
-|---|---------|------|--------|-------|
-| 6 | Alquilar Carro en Bogotá | `alquilar-carro-bogota-guia` | ✅ Merged (PR #145) | ✅ 1 image (reused) |
-| 7 | Alquilar Carro en Medellín | `alquilar-carro-medellin-guia` | ✅ Merged (PR #146) | ✅ 1 image (reused) |
-| 8 | Alquilar Carro en Cartagena | `alquilar-carro-cartagena-guia` | ✅ Merged (PR #147) | ✅ 1 image (reused) |
+| 1 | Viajar por carretera en Colombia | `viajar-por-carretera-colombia-guia` | ✅ Written | ✅ Complete (4 images) |
+| 2 | Precios de alquiler de carros | `precios-alquiler-carros-colombia` | Pending | — |
+| 3 | Mejores destinos en carro | `mejores-destinos-viajar-carro-colombia` | Pending | — |
+| 4 | Turismo en Santander | `turismo-santander-en-carro` | Pending | — |
+| 5 | Turismo en Boyacá | `turismo-boyaca-en-carro` | Pending | — |
 
 ### Article #1 Images (completed)
 
@@ -159,64 +142,13 @@ Images in `packages/ui-alquilatucarro/public/img/blog/`:
 - `tablero-navegacion-carro.jpg` — Dashboard con GPS y navegación
 - `gps-navegacion-carro.jpg` — Conductor usando celular para navegar
 
-## Freepik API Evaluation (2026-02-06)
-
-API ahora funciona (no más errores 403), pero resultados no son útiles para destinos colombianos:
-
-| Búsqueda | Resultado |
-|----------|-----------|
-| "Villa de Leyva Colombia" | Calles genéricas, isla de Filipinas |
-| "Lago de Tota Colombia" | Lagos genéricos, República Checa |
-| "Raquira Colombia ceramica" | Helados, artesanías random |
-| "colonial town Colombia" | Italia, Rusia, caricaturas |
-
-**Conclusión**: Freepik genera títulos automáticos ("Scenic view of landscape against sky") sin geolocalización real. Los $5 de créditos son mejor usarlos para imágenes genéricas/conceptuales donde la ubicación no importa (carros, GPS, dashboards).
-
-**Estrategia de imágenes**:
-- **Unsplash**: Destinos colombianos específicos (geolocalización real)
-- **Freepik**: Conceptos genéricos, ilustraciones, vectores
-
-## GSC Indexation Status (2026-02-06)
-
-### Sitemap Verification
-- **Total URLs in sitemap**: 39
-- **Blog articles**: 15
-- **Accessibility**: All return HTTP 200
-- **Configuration**: Correct in nuxt.config.ts
-
-### Indexation Status (via GSC URL Inspection)
-| URL | Status |
-|-----|--------|
-| `/blog` | Submitted and indexed ✅ |
-| `/blog/requisitos-alquilar-carro-colombia` | Discovered - currently not indexed |
-| `/blog/tipos-carros-alquilar-cual-elegir` | URL is unknown to Google |
-| `/blog/viajar-carro-con-ninos-colombia` | URL is unknown to Google |
-| `/blog/rutas-carro-desde-bogota` | Discovered - currently not indexed |
-| Other blog articles | Pending inspection |
-
-### Root Cause
-Articles published Feb 5-10, 2026 (< 1 week old). Google needs 1-4 weeks to crawl and index new content from sites building authority.
-
-### Manual Action Required
-GSC MCP doesn't have "Request Indexing" capability. User must manually request indexing via GSC UI:
-1. Go to Google Search Console → URL Inspection
-2. Enter each blog URL
-3. Click "Request Indexing"
-
 ## Next Actions
 
-### User Actions Required
-- 🔲 **GSC Indexing**: Manually request indexing for 15 blog URLs in GSC UI
-- 🔲 **EMD Redirects**: Configure 301 redirects for 13 EMD domains at registrar level (see `docs/seo/EMD-REDIRECTS-CONFIG.md`)
-
-### Monitoring
-- 🔲 Monitor GSC indexation status (check again Feb 20)
-
-### Technical Debt
-- 🔲 Replace Firebase Storage avatar URL with a local file (long-term fix for expired tokens)
-
-### Future Consideration
-- 🔲 Consider Tier 3 articles if search traffic justifies investment
+- **Commit article #1** with images and create PR
+- Continue with article #2: Precios de alquiler de carros
+- Monitor Google Search Console for blog indexing
+- Submit sitemap to Google if not auto-discovered
+- Replace Firebase Storage avatar URL with a local file (long-term fix for expired tokens)
 
 ## Economic Decisions
 
@@ -225,14 +157,5 @@ GSC MCP doesn't have "Request Indexing" capability. User must manually request i
 
 ## Branch State
 
-- **main**: Clean, up to date through PR #148 (blog listing images fix)
+- **main**: Clean, up to date through PR #126
 - All feature branches deleted after merge
-
-## Article #5 Images (completed)
-
-Images in `packages/ui-alquilatucarro/public/img/blog/`:
-
-- `villa-de-leyva-colonial.webp` — Hero: Plaza colonial de Villa de Leyva (Unsplash)
-- `paipa-plaza-colonial.webp` — Plaza y arquitectura de Paipa (Unsplash)
-- `raquira-ceramica.webp` — Artesanías de Ráquira (Unsplash)
-- `lago-de-tota.webp` — Lago de Tota (existing, reutilizado)
