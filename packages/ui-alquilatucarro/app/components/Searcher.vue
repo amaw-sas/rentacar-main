@@ -131,7 +131,11 @@
                             :max-value="maxReturnDate"
                             color="success"
                             :ui="calendarUIConfig"
-                            class="p-2 calendar-nav-fix"
+                            :prev-year="{ color: 'neutral', variant: 'solid' }"
+                            :next-year="{ color: 'neutral', variant: 'solid' }"
+                            :prev-month="{ color: 'neutral', variant: 'solid' }"
+                            :next-month="{ color: 'neutral', variant: 'solid' }"
+                            class="p-2 calendar-light"
                         />
                     </template>
                 </u-popover>
@@ -327,7 +331,7 @@ function formatDateRange(range: { start: CalendarDate | null, end: CalendarDate 
 // Calendar UI configuration for better contrast and visibility
 const calendarUIConfig = {
     root: 'bg-white',
-    header: 'text-gray-900 flex items-center justify-between',
+    header: 'text-gray-900 flex items-center justify-center gap-2',  // Center buttons with gap
     body: 'bg-white flex flex-row gap-4 pt-4',  // Horizontal layout for multiple months
     heading: 'text-gray-900 font-bold',
     headCell: 'text-success-600 font-medium',  // Day names (L M X J V S D)
@@ -387,7 +391,7 @@ onMounted(() => {
   // Flag to prevent bidirectional sync loops
   let isUpdatingFromCalendar = false
 
-  // Sync dateRange changes to store
+  // Sync dateRange changes to store (calendar → store)
   watch(() => dateRange.value, (newRange) => {
     isUpdatingFromCalendar = true
     if (newRange?.start) {
@@ -401,27 +405,19 @@ onMounted(() => {
     })
   }, { deep: true })
 
-  // Force initialization after mount with setTimeout to ensure store is ready
-  setTimeout(() => {
-    const initialStart = stringToCalendarDate(selectedPickupDate.value)
-    const initialEnd = stringToCalendarDate(selectedReturnDate.value)
-
-    if ((initialStart || initialEnd) && (!dateRange.value?.start || !dateRange.value?.end)) {
-      dateRange.value = {
-        start: initialStart,
-        end: initialEnd
-      }
-    }
-  }, 100)
-
-  // Sync store changes to dateRange
-  watch([selectedPickupDate, selectedReturnDate], ([pickup, return_]) => {
+  // Sync store to dateRange (store → calendar)
+  // Uses watchEffect with flush:'post' to run immediately after all other watchers
+  watchEffect(() => {
     if (isUpdatingFromCalendar) return
 
-    const newStart = stringToCalendarDate(pickup)
-    const newEnd = stringToCalendarDate(return_)
+    // selectedPickupDate/selectedReturnDate are DateObject, need to convert to string first
+    const pickupString = selectedPickupDate.value?.toString() ?? null
+    const returnString = selectedReturnDate.value?.toString() ?? null
 
-    // Update dateRange if values are different
+    const newStart = stringToCalendarDate(pickupString)
+    const newEnd = stringToCalendarDate(returnString)
+
+    // Check if update is needed
     const needsUpdate =
       (newStart && !dateRange.value?.start) ||
       (newEnd && !dateRange.value?.end) ||
@@ -436,7 +432,7 @@ onMounted(() => {
         end: newEnd
       }
     }
-  })
+  }, { flush: 'post' })
 
   // Auto-close popover when range selection is complete (only from empty state)
   let wasEmpty = false
